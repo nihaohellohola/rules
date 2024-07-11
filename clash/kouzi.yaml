@@ -1,0 +1,5 @@
+payload:
+  - DOMAIN,www.coze.cn
+  - DOMAIN-SUFFIX,coze.cn
+  - DOMAIN,lf-coze-web-cdn.coze.cn
+  - DOMAIN,frontier.coze.cn
