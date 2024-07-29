@@ -1,2 +1,5 @@
 payload:
   - DOMAIN-KEYWORD,boyfriendtv
+  - DOMAIN-SUFFIX,boyfriendtv.com
+  - DOMAIN-SUFFIX,boyfriend.tv
+  - DOMAIN-SUFFIX,boyfriend.show
