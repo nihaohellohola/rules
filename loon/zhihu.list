@@ -8,7 +8,7 @@
     IP-CIDR,118.89.204.198/23,REJECT # 知乎 HTTPDNS (IPv4)
     IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/40,REJECT # 知乎 HTTPDNS (IPv6)
     IP-CIDR,103.41.167.237/32
-    KEY-WORD,zhihu
+    DOMAIN-KEYWORD,zhihu
     # https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Zhihu/Zhihu_Resolve.list
     DOMAIN-SUFFIX,zhihu.com
     DOMAIN-SUFFIX,zhimg.com
