@@ -1,6 +1,8 @@
 DOMAIN-SUFFIX,songxin.de
 DOMAIN-SUFFIX,baipishu.net
 DOMAIN-SUFFIX,sxr.fr
-DOMAIN-SUFFIX,www.songxin.de
-DOMAIN-SUFFIX,www.baipishu.net
-DOMAIN-SUFFIX,www.sxr.fr
+DOMAIN,www.songxin.de
+DOMAIN,www.baipishu.net
+DOMAIN,www.sxr.fr
+DOMAIN-SUFFIX,aibai.xyz
+DOMAIN,www.aibai.xyz
