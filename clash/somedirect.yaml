@@ -1,0 +1,4 @@
+payload:
+  - DOMAIN-SUFFIX,+.coolcenter.com
+  - DOMAIN-SUFFIX,*.coolcenter.com
+  - DOMAIN,coolcenter.com
