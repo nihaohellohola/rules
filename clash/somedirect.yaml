@@ -1,4 +1,4 @@
 payload:
-  - DOMAIN-SUFFIX,+.coolcenter.com
-  - DOMAIN-SUFFIX,*.coolcenter.com
-  - DOMAIN,coolcenter.com
+  - DOMAIN-SUFFIX,*.jsdelivr.com
+  - DOMAIN-SUFFIX,+.jsdelivr.com
+  - DOMAIN,www.jsdelivr.com
