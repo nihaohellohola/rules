@@ -1,4 +1,12 @@
 payload:
-  - DOMAIN-SUFFIX,*.jsdelivr.com
-  - DOMAIN-SUFFIX,+.jsdelivr.com
-  - DOMAIN,www.jsdelivr.com
+
+  - DOMAIN-SUFFIX,api-ipv4.ip.sb
+  - DOMAIN-SUFFIX,api.ipify.org
+  - DOMAIN-SUFFIX,qqwry.api.skk.moe
+  - DOMAIN-SUFFIX,+.ip.sb
+  - DOMAIN-SUFFIX,*.ip.sb
+  - DOMAIN-SUFFIX,*.ipify.org
+  - DOMAIN-SUFFIX,+.ipify.org
+  - DOMAIN-SUFFIX,*.api.skk.moe
+  - DOMAIN-SUFFIX,+.api.skk.moe
+
