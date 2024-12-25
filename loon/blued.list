@@ -1,4 +1,3 @@
-
 URL-REGEX,https://argo.blued.cn/blued/promote.*,REJECT
 URL-REGEX,https://argo.blued.cn/blued/adms/.*,REJECT
 URL-REGEX,https://argo.blued.cn/blued/splash.*,REJECT
