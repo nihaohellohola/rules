@@ -1,3 +1,4 @@
+payload:
   - DOMAIN-SUFFIX,site.eu
   - DOMAIN-SUFFIX,denic.de
   - DOMAIN-REGEX,.*google.*,Google
