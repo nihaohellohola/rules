@@ -1,4 +1,4 @@
 DOMAIN-SUFFIX,site.eu
 DOMAIN-SUFFIX,denic.de
-DOMAIN-REGEX,.*google.*,Google
-DOMAIN-SUFFIX,clickcease.com,Google
+DOMAIN-REGEX,.*google.*
+DOMAIN-SUFFIX,clickcease.com
