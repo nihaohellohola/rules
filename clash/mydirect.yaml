@@ -1,2 +1,11 @@
 payload:
   - DOMAIN-SUFFIX,baojigongjiao.com
+  - DOMAIN,api-ipv4.ip.sb
+  - DOMAIN,api.ipify.org
+  - DOMAIN,qqwry.api.skk.moe
+  - DOMAIN-SUFFIX,'+.ip.sb'
+  - DOMAIN-SUFFIX,'*.ip.sb'
+  - DOMAIN-SUFFIX,'*.ipify.org'
+  - DOMAIN-SUFFIX,'+.ipify.org'
+  - DOMAIN-SUFFIX,'*.api.skk.moe'
+  - DOMAIN-SUFFIX,'+.api.skk.moe'
