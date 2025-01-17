@@ -3,3 +3,7 @@ payload:
   - DOMAIN-SUFFIX,denic.de
   - DOMAIN-REGEX,.*google.*
   - DOMAIN-SUFFIX,clickcease.com
+  - DOMAIN-SUFFIX,linux.do
+  - DOMAIN-KEYWORD,alice
+  - DOMAIN-KEYWORD,mojie
+  - DOMAIN-KEYWORD,z-library
