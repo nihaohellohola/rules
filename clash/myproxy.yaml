@@ -1,5 +1,6 @@
 payload:
   - DOMAIN-SUFFIX,site.eu
+  - DOMAIN-SUFFIX,api.yoursrs.com
   - DOMAIN-SUFFIX,denic.de
   - DOMAIN-REGEX,.*google.*
   - DOMAIN-SUFFIX,clickcease.com
