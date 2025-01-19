@@ -1,6 +1,7 @@
 URL-REGEX,^http://google\.com
 DOMAIN-SUFFIX,clickcease.com
 DOMAIN-SUFFIX,site.eu
+DOMAIN-SUFFIX,yoursrs.com
 DOMAIN-SUFFIX,denic.de
 DOMAIN-SUFFIX,linux.do
 DOMAIN-KEYWORD,alice
