@@ -1,6 +1,7 @@
 URL-REGEX,^http://google\.com
 DOMAIN-SUFFIX,clickcease.com
 DOMAIN-SUFFIX,site.eu
+DOMAIN-SUFFIX,firestorm.ch
 DOMAIN-SUFFIX,api.yoursrs.com
 DOMAIN-SUFFIX,denic.de
 DOMAIN-SUFFIX,linux.do
