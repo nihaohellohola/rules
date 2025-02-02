@@ -10,3 +10,4 @@ URL-REGEX,https://.*/users/call,REJECT
 URL-REGEX,https://.*/users/chatroom/im/recommend,REJECT
 URL-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend,REJECT
 URL-REGEX,https://voice.blued.cn/users/chatroom/im/recommend,REJECT
+URL-REGEX,https://social.irisgw.cn/users/recommend
