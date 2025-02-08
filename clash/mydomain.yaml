@@ -1,6 +1,7 @@
 payload:
   - DOMAIN-SUFFIX,songxin.de
   - DOMAIN-SUFFIX,129.li
+  - DOMAIN-SUFFIX,19.st
   - DOMAIN-SUFFIX,baipishu.net
   - DOMAIN-SUFFIX,sxr.fr
   - DOMAIN-SUFFIX,aoo.pp.ua
@@ -13,3 +14,4 @@ payload:
   - DOMAIN,www.aoo.pp.ua
   - DOMAIN,www.sese.pp.ua
   - DOMAIN,www.129.li
+  - DOMAIN,www.19.st
