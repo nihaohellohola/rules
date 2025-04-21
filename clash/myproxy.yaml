@@ -3,7 +3,6 @@ payload:
   - DOMAIN-SUFFIX,firestorm.ch
   - DOMAIN-SUFFIX,api.yoursrs.com
   - DOMAIN-SUFFIX,denic.de
-  - DOMAIN-REGEX,.*google.*
   - DOMAIN-SUFFIX,clickcease.com
   - DOMAIN-SUFFIX,linux.do
   - DOMAIN-KEYWORD,alice
