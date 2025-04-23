@@ -1,2 +1,2 @@
-  - URL-REGEX,^http://google\.com
+  - DOMAIN-REGEX,^http://google\.com
   - DOMAIN-SUFFIX,clickcease.com
