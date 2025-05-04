@@ -1,3 +1,4 @@
 payload:
   - DOMAIN-REGEX,^http://google\.com
   - DOMAIN-SUFFIX,clickcease.com
+  - DOMAIN-SUFFIX,googleadservices
