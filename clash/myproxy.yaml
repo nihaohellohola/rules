@@ -3,9 +3,11 @@ payload:
   - DOMAIN-SUFFIX,firestorm.ch
   - DOMAIN-SUFFIX,api.yoursrs.com
   - DOMAIN-SUFFIX,denic.de
-  - DOMAIN-SUFFIX,clickcease.com
   - DOMAIN-SUFFIX,linux.do
   - DOMAIN-KEYWORD,alice
   - DOMAIN-KEYWORD,mojie
   - DOMAIN-KEYWORD,z-library
   - DOMAIN-KEYWORD,kaochang
+  ### google ad
+  - DOMAIN-SUFFIX,googleadservices.com
+  - DOMAIN-SUFFIX,clickcease.com
