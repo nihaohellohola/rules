@@ -1,20 +1,35 @@
 payload:
   - DOMAIN-SUFFIX,songxin.de
-  - DOMAIN-SUFFIX,129.li
-  - DOMAIN-SUFFIX,19.st
-  - DOMAIN-SUFFIX,baipishu.net
-  - DOMAIN-SUFFIX,sxr.fr
-  - DOMAIN-SUFFIX,aoo.pp.ua
-  - DOMAIN-SUFFIX,ffss.pp.ua
-  - DOMAIN-SUFFIX,aibai.xyz 
   - DOMAIN,www.songxin.de
-  - DOMAIN,www.baipishu.net
-  - DOMAIN,www.sxr.fr
-  - DOMAIN,www.aibai.xyz
-  - DOMAIN,www.aoo.pp.ua
-  - DOMAIN,www.ffss.pp.ua
+  - DOMAIN,songxin.de
+###
+  - DOMAIN-SUFFIX,129.li
   - DOMAIN,www.129.li
+  - DOMAIN,129.li
+###
+  - DOMAIN-SUFFIX,19.st
   - DOMAIN,www.19.st
+  - DOMAIN,19.st
+###
+  - DOMAIN-SUFFIX,sxr.fr
+  - DOMAIN,www.sxr.fr
+  - DOMAIN,sxr.fr
+###
+  - DOMAIN-SUFFIX,aibai.xyz
+  - DOMAIN,www.aibai.xyz
+  - DOMAIN,aibai.xyz
+###
+  - DOMAIN-SUFFIX,baipishu.net
+  - DOMAIN,www.baipishu.net
+  - DOMAIN,baipishu.net
+###
+  - DOMAIN-SUFFIX,aoo.pp.ua
+  - DOMAIN,www.aoo.pp.ua
+  - DOMAIN,aoo.pp.ua
+###
+  - DOMAIN-SUFFIX,ffss.pp.ua
+  - DOMAIN,www.ffss.pp.ua
+  - DOMAIN,ffss.pp.ua
 ###
   - DOMAIN-SUFFIX,baojigongjiao.com
   - DOMAIN,api-ipv4.ip.sb
