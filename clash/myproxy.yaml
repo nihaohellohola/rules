@@ -5,6 +5,7 @@ payload:
   - DOMAIN-SUFFIX,denic.de
   - DOMAIN-SUFFIX,linux.do
   - DOMAIN-KEYWORD,alice
+  - DOMAIN-KEYWORD,crazydomains
   - DOMAIN-KEYWORD,mojie
   - DOMAIN-KEYWORD,z-library
   - DOMAIN-KEYWORD,kaochang
