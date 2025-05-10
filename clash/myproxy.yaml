@@ -9,6 +9,7 @@ payload:
   - DOMAIN-KEYWORD,mojie
   - DOMAIN-KEYWORD,z-library
   - DOMAIN-KEYWORD,kaochang
+  - DOMAIN-KEYWORD,crazydomains
   ### google ad
   - DOMAIN-SUFFIX,googleadservices.com
   - DOMAIN-SUFFIX,clickcease.com
