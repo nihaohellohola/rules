@@ -10,6 +10,7 @@ payload:
   - DOMAIN-KEYWORD,z-library
   - DOMAIN-KEYWORD,kaochang
   - DOMAIN-KEYWORD,crazydomains
+  - DOMAIN-KEYWORD,giphy
   ### google ad
   - DOMAIN-SUFFIX,googleadservices.com
   - DOMAIN-SUFFIX,clickcease.com
