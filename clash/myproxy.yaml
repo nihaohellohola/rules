@@ -11,4 +11,7 @@ payload:
   - DOMAIN-KEYWORD,kaochang
   - DOMAIN-KEYWORD,crazydomains
   - DOMAIN-KEYWORD,giphy
-
+  ### google ad
+  - DOMAIN-SUFFIX,googleadservices.com
+  - DOMAIN-SUFFIX,clickcease.com
+  - DOMAIN-SUFFIX,doubleclick.net
