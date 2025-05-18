@@ -23,6 +23,10 @@ payload:
   - DOMAIN,www.baipishu.net
   - DOMAIN,baipishu.net
 ###
+  - DOMAIN-SUFFIX,wocao.us.kg
+  - DOMAIN,www.wocao.us.kg
+  - DOMAIN,wocao.us.kg
+###
   - DOMAIN-SUFFIX,aoo.pp.ua
   - DOMAIN,www.aoo.pp.ua
   - DOMAIN,aoo.pp.ua
