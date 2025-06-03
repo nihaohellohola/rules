@@ -1,0 +1,13 @@
+URL-REGEX,https://argo.blued.cn/blued/promote.*
+URL-REGEX,https://argo.blued.cn/blued/adms/.*
+URL-REGEX,https://argo.blued.cn/blued/splash.*
+URL-REGEX,https://argo.blued.cn/blued/launch/adms
+URL-REGEX,https://social.blued.cn/users/.*/joy
+URL-REGEX,^https:\/\/social\.blued\.cn\/users\/recommend$
+URL-REGEX,https://.*/users/chatroom/nearby/
+URL-REGEX,https://.*/users/recommend
+URL-REGEX,https://.*/users/call
+URL-REGEX,https://.*/users/chatroom/im/recommend
+URL-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend
+URL-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
+URL-REGEX,https://social.irisgw.cn/users/recommend
