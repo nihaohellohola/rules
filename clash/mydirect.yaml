@@ -40,7 +40,6 @@ payload:
   - DOMAIN,ffss.pp.ua
 ###
   - DOMAIN-SUFFIX,baojigongjiao.com
-  - DOMAIN-SUFFIX,adrules.top
   - DOMAIN,api-ipv4.ip.sb
   - DOMAIN,api.ipify.org
   - DOMAIN,qqwry.api.skk.moe
