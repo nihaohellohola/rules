@@ -13,6 +13,7 @@ payload:
   - DOMAIN-KEYWORD,crazydomains
   - DOMAIN-KEYWORD,giphy
   - DOMAIN-SUFFIX,adrules.top
+  - DOMAIN-SUFFIX,nodeseek.com
   ### google ad
   - DOMAIN-SUFFIX,googleadservices.com
   - DOMAIN-SUFFIX,clickcease.com
