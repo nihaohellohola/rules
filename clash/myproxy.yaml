@@ -14,6 +14,8 @@ payload:
   - DOMAIN-KEYWORD,giphy
   - DOMAIN-SUFFIX,adrules.top
   - DOMAIN-SUFFIX,nodeseek.com
+  - DOMAIN,bptv.freetv.top 
+  bptv.freetv.top 
   ### google ad
   - DOMAIN-SUFFIX,googleadservices.com
   - DOMAIN-SUFFIX,clickcease.com
