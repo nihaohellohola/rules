@@ -35,9 +35,9 @@ payload:
   - DOMAIN,www.wocao.us.kg
   - DOMAIN,wocao.us.kg
 ###
-  - DOMAIN-SUFFIX,aoo.pp.ua
-  - DOMAIN,www.aoo.pp.ua
-  - DOMAIN,aoo.pp.ua
+  - DOMAIN-SUFFIX,myip.ipip.net
+  - DOMAIN,r.inews.qq.com
+  - DOMAIN,myip.ipip.net
 ###
   - DOMAIN-SUFFIX,ffss.pp.ua
   - DOMAIN,www.ffss.pp.ua
