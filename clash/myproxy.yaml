@@ -16,6 +16,7 @@ payload:
   - DOMAIN-SUFFIX,nodeseek.com
   - DOMAIN,bptv.freetv.top 
   - DOMAIN-SUFFIX,asus.com
+  - DOMAIN-SUFFIX,claw.cloud,Google
   bptv.freetv.top 
   ### google ad
   - DOMAIN-SUFFIX,googleadservices.com
