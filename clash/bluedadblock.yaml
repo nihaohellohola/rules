@@ -1,15 +1,15 @@
 payload:
   - DOMAIN,https://static.blued.com/patch/530-680-1.png
-  - URL-REGEX,https://argo.blued.cn/blued/promote.*
-  - URL-REGEX,https://argo.blued.cn/blued/adms/.*
-  - URL-REGEX,https://argo.blued.cn/blued/splash.*
-  - URL-REGEX,https://argo.blued.cn/blued/launch/adms
-  - URL-REGEX,https://social.blued.cn/users/.*/joy
-  - URL-REGEX,^https:\/\/social\.blued\.cn\/users\/recommend$
-  - URL-REGEX,https://.*/users/chatroom/nearby/
-  - URL-REGEX,https://.*/users/recommend
-  - URL-REGEX,https://.*/users/call
-  - URL-REGEX,https://.*/users/chatroom/im/recommend
-  - URL-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend
-  - URL-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
-  - URL-REGEX,https://social.irisgw.cn/users/recommend
+  - DOMAIN-REGEX,https://argo.blued.cn/blued/promote.*
+  - DOMAIN-REGEX,https://argo.blued.cn/blued/adms/.*
+  - DOMAIN-REGEX,https://argo.blued.cn/blued/splash.*
+  - DOMAIN-REGEX,https://argo.blued.cn/blued/launch/adms
+  - DOMAIN-REGEX,https://social.blued.cn/users/.*/joy
+  - DOMAIN-REGEX,^https:\/\/social\.blued\.cn\/users\/recommend$
+  - DOMAIN-REGEX,https://.*/users/chatroom/nearby/
+  - DOMAIN-REGEX,https://.*/users/recommend
+  - DOMAIN-REGEX,https://.*/users/call
+  - DOMAIN-REGEX,https://.*/users/chatroom/im/recommend
+  - DOMAIN-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend
+  - DOMAIN-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
+  - DOMAIN-REGEX,https://social.irisgw.cn/users/recommend
