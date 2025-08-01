@@ -12,4 +12,5 @@ payload:
   - DOMAIN-REGEX,https://.*/users/chatroom/im/recommend
   - DOMAIN-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend
   - DOMAIN-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
+  - DOMAIN-REGEX,https://static.blued.com/patch/*
   - DOMAIN-REGEX,https://social.irisgw.cn/users/recommend
