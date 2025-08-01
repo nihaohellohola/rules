@@ -12,3 +12,4 @@ URL-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend
 URL-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
 URL-REGEX,https://social.irisgw.cn/users/recommend
 URL,https://static.blued.com/patch/530-680-1.png
+URL-REGEX,https://static.blued.com/patch/*
