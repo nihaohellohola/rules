@@ -1,0 +1,12 @@
+HOST-SUFFIX,site.eu,proxy_cust
+HOST-SUFFIX,firestorm.ch,proxy_cust
+HOST-SUFFIX,api.yoursrs.com,proxy_cust
+HOST-SUFFIX,denic.de,proxy_cust
+HOST-SUFFIX,linux.do,proxy_cust
+HOST-KEYWORD,alice,proxy_cust
+HOST-KEYWORD,mojie,proxy_cust
+HOST-KEYWORD,z-library,proxy_cust
+HOST-KEYWORD,kaochang,proxy_cust
+HOST-KEYWORD,giphy,proxy_cust
+HOST-KEYWORD,crazyHOSTs,proxy_cust
+
