@@ -1,4 +1,4 @@
-URL-REGEX,^http://google\.com,google_cust
+HOST-REGEX,^http://google\.com,google_cust
 ### google ad
 HOST-SUFFIX,googleadservices.com,proxy_cust
 HOST-SUFFIX,clickcease.com,proxy_cust
