@@ -19,7 +19,4 @@ payload:
   - DOMAIN-SUFFIX,claw.cloud,Google
   - DOMAIN, bptv.freetv.top 
   - DOMAIN-SUFFIX,downloadhelper.net
-  ### google ad
-  - DOMAIN-SUFFIX,googleadservices.com
-  - DOMAIN-SUFFIX,clickcease.com
-  - DOMAIN-SUFFIX,doubleclick.net
+
