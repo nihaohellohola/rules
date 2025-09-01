@@ -1,4 +1,5 @@
 HOST,copilot.microsoft.com,ai_cust
 HOST-SUFFIX,x.ai,ai_cust
+HOST-SUFFIX,grok.com,ai_cust
 HOST,apple-relay.apple.com,ai_cust
 HOST-SUFFIX,novita.ai,ai_cust
