@@ -3,14 +3,6 @@ payload:
   - DOMAIN,www.songxin.de
   - DOMAIN,songxin.de
 ###
-  - DOMAIN-SUFFIX,129.li
-  - DOMAIN,www.129.li
-  - DOMAIN,129.li
-###
-  - DOMAIN-SUFFIX,19.st
-  - DOMAIN,www.19.st
-  - DOMAIN,19.st
-###
   - DOMAIN-SUFFIX,sxr.fr
   - DOMAIN,www.sxr.fr
   - DOMAIN,sxr.fr
