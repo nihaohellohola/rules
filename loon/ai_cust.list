@@ -1,6 +1,7 @@
 DOMAIN,copilot.microsoft.com
 DOMAIN-SUFFIX,x.ai
 DOMAIN-SUFFIX,grok.com
-DOMAIN,apple-relay.apple.com
 DOMAIN-SUFFIX,novita.ai
 DOMAIN,guzzoni.apple.com
+DOMAIN,apple-relay.apple.com
+DOMAIN-SUFFIX,apple-relay.apple.com
