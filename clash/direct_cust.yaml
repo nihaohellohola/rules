@@ -23,17 +23,15 @@ payload:
   - DOMAIN,www.huore.de
   - DOMAIN,huore.de
 ###
-  - DOMAIN-SUFFIX,wocao.us.kg
-  - DOMAIN,www.wocao.us.kg
-  - DOMAIN,wocao.us.kg
+  - DOMAIN-SUFFIX,19.st
+  - DOMAIN,www.19.st
+  ###
+  - DOMAIN-SUFFIX,129.li
+  - DOMAIN,www.129.li
 ###
   - DOMAIN-SUFFIX,myip.ipip.net
   - DOMAIN,r.inews.qq.com
   - DOMAIN,myip.ipip.net
-###
-  - DOMAIN-SUFFIX,ffss.pp.ua
-  - DOMAIN,www.ffss.pp.ua
-  - DOMAIN,ffss.pp.ua
 ###
   - DOMAIN-SUFFIX,baojigongjiao.com
   - DOMAIN,api-ipv4.ip.sb
