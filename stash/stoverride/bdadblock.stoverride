@@ -1,0 +1,35 @@
+name: Blued 精简插件
+desc: |-
+    - 移除开屏广告 (Splash/Promote)
+    - 移除首页及动态推荐
+    - 移除直播间及聊天室推荐
+    - 屏蔽部分系统补丁及干扰请求
+category: AdBlock
+icon: https://raw.githubusercontent.com/qsoyq/icons/main/assets/icon/blued.png
+http:
+    mitm:
+        - argo.blued.cn
+        - social.blued.cn
+        - voice.irisgw.cn
+        - voice.blued.cn
+        - social.irisgw.cn
+        - static.blued.com
+    
+    url-rewrite:
+        # 1. 静态补丁与广告图片
+        - ^https?:\/\/static\.blued\.com\/patch\/ - reject
+        
+        # 2. 开屏、广告投放、广告管理
+        - ^https?:\/\/argo\.blued\.cn\/blued\/(promote|adms|splash|launch\/adms) - reject
+        
+        # 3. 用户动态推荐、Joy入口
+        - ^https?:\/\/social\.blued\.cn\/users\/.*\/joy - reject
+        - ^https?:\/\/social\.blued\.cn\/users\/recommend$ - reject
+        
+        # 4. 聊天室、语音、附近推荐
+        - ^https?:\/\/.*\/users\/chatroom\/(nearby|im\/recommend) - reject
+        - ^https?:\/\/voice\.(irisgw|blued)\.cn\/users\/chatroom\/im\/recommend - reject
+        
+        # 5. 通用推荐与呼叫干扰
+        - ^https?:\/\/.*\/users\/(recommend|call) - reject
+        - ^https?:\/\/social\.irisgw\.cn\/users\/recommend - reject
