@@ -4,7 +4,7 @@ desc: |-
     - 移除首页及动态推荐
     - 移除直播间及聊天室推荐
     - 屏蔽部分系统补丁及干扰请求
-category: AdBlock
+category: ad
 icon: https://raw.githubusercontent.com/qsoyq/icons/main/assets/icon/blued.png
 http:
     mitm:
