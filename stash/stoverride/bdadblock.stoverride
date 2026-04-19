@@ -7,13 +7,6 @@ desc: |-
 category: ad
 icon: https://raw.githubusercontent.com/qsoyq/icons/main/assets/icon/blued.png
 http:
-    mitm:
-        - argo.blued.cn
-        - social.blued.cn
-        - voice.irisgw.cn
-        - voice.blued.cn
-        - social.irisgw.cn
-        - static.blued.com
     
     url-rewrite:
         # 1. 静态补丁与广告图片
