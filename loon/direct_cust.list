@@ -1,8 +1,9 @@
-DOMAIN-SUFFIX,baojigongjiao.com
-DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,api.waqi.info
 DOMAIN-SUFFIX,wap.sn.10086.cn
-DOMAIN-SUFFIX,cmccsign.com
+DOMAIN,wap.sn.10086.cn
+DOMAIN-KEYWORD,cmccsign
+DOMAIN-KEYWORD,snssdk
+DOMAIN-KEYWORD,baojigongjiao
 DOMAIN-KEYWORD,ydyksoft
 DOMAIN-KEYWORD,hongshihospital
 DOMAIN-KEYWORD,haiyy
@@ -33,14 +34,6 @@ DOMAIN,aibai.xyz
 DOMAIN-SUFFIX,baipishu.net
 DOMAIN,www.baipishu.net
 DOMAIN,baipishu.net
-###
-DOMAIN-SUFFIX,dededededededede.de
-DOMAIN,www.dededededededede.de
-DOMAIN,dededededededede.de
-###
-DOMAIN-SUFFIX,huore.de
-DOMAIN,www.huore.de
-DOMAIN,huore.de
 ###
 DOMAIN-SUFFIX,wocao.us.kg
 DOMAIN,www.wocao.us.kg
