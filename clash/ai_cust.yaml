@@ -5,3 +5,4 @@ payload:
   - DOMAIN,apple-relay.apple.com
   - DOMAIN-SUFFIX,novita.ai
   - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-SUFFIX,poke.com
