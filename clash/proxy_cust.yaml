@@ -21,3 +21,4 @@ payload:
   - DOMAIN-SUFFIX,downloadhelper.net
   - DOMAIN-KEYWORD,truthsocial
   - DOMAIN-SUFFIX,truthsocial.com
+  - DOMAIN-KEYWORD,supabase
