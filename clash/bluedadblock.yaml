@@ -1,5 +1,6 @@
 payload:
   - DOMAIN,https://static.blued.com/patch/530-680-1.png
+  - DOMAIN-REGEX,^https://www\.bldimg\.cn/ad.*
   - DOMAIN-REGEX,https://argo.blued.cn/blued/promote.*
   - DOMAIN-REGEX,https://argo.blued.cn/blued/adms/.*
   - DOMAIN-REGEX,https://argo.blued.cn/blued/splash.*
