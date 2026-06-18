@@ -4,6 +4,7 @@
 
 [Rule]
 # 开屏及启动广告
+URL-REGEX,^https://www\.bldimg\.cn/ad.*
 URL-REGEX,https://argo.blued.cn/blued/promote.*
 URL-REGEX,https://argo.blued.cn/blued/adms/.*
 URL-REGEX,https://argo.blued.cn/blued/splash.*
