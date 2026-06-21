@@ -42,3 +42,6 @@ DOMAIN,wocao.us.kg
 ###
 DOMAIN-SUFFIX,jio.xx.kg
 DOMAIN,jio.xx.kg
+rules:
+  # 其他规则
+IP-CIDR,138.113.24.56/32
