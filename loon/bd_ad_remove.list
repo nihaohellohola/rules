@@ -20,6 +20,6 @@ URL-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
 URL-REGEX,^https://www\.bldimg\.cn/nearby/(.*)
 DOMAIN-SUFFIX,ugdtimg.com
 DOMAIN,adx.halomobi.com
-
+DOMAIN-SUFFIX,bkaivl2daed.com
 
 
