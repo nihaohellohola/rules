@@ -15,3 +15,6 @@ payload:
   - DOMAIN-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
   - DOMAIN-REGEX,https://static.blued.com/patch/*
   - DOMAIN-REGEX,https://social.irisgw.cn/users/recommend
+  - DOMAIN-REGEX,^https://www\.bldimg\.cn/nearby/(.*)
+  - DOMAIN-SUFFIX,ugdtimg.com
+  - DOMAIN,adx.halomobi.com
