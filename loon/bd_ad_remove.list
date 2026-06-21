@@ -18,8 +18,8 @@ URL-REGEX,https://.*/users/chatroom/im/recommend
 URL-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend
 URL-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
 URL-REGEX,^https://www\.bldimg\.cn/nearby/(.*)
-ugdtimg.com
-adx.halomobi.com
+DOMAIN-SUFFIX,ugdtimg.com
+DOMAIN,adx.halomobi.com
 
 
 
