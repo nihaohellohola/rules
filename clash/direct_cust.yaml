@@ -15,19 +15,13 @@ payload:
   - DOMAIN,www.baipishu.net
   - DOMAIN,baipishu.net
   ###
-  - DOMAIN-SUFFIX,dededededededede.de
-  - DOMAIN,www.dededededededede.de
-  - DOMAIN,dededededededede.de
-###
-  - DOMAIN-SUFFIX,huore.de
-  - DOMAIN,www.huore.de
-  - DOMAIN,huore.de
-###
-  - DOMAIN-SUFFIX,19.st
-  - DOMAIN,www.19.st
-  ###
   - DOMAIN-SUFFIX,129.li
   - DOMAIN,www.129.li
+  - DOMAIN,129.li
+###
+  - DOMAIN-SUFFIX,qh.tn
+  - DOMAIN,www.qh.tn
+  - DOMAIN,qh.tn
 ###
   - DOMAIN-SUFFIX,myip.ipip.net
   - DOMAIN,r.inews.qq.com
