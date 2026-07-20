@@ -3,4 +3,4 @@ URL-REGEX,^http://google\.com
 DOMAIN-SUFFIX,googleadservices.com
 DOMAIN-SUFFIX,clickcease.com
 DOMAIN-SUFFIX,doubleclick.net
-DOMAIN-KEYWORD,yahoo
+DOMAIN,proactivebackend-pa.googleapis.com
