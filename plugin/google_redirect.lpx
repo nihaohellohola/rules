@@ -7,7 +7,7 @@
 
 [Rewrite]
 # 使用旧版正则替换，自动将请求重定向至 com，$3 代表保留的路径参数
-^https?:\/\/(www\.)?google\.(cn|com\.hk)\/(.*) https://www.google.com/$3 302
+^https?:\/\/(www\.)?google\.(cn|com\.hk)\/(.*) https://www.google.com/$3 307
 
 [Mitm]
 hostname = www.google.cn, www.google.com.hk, google.cn
