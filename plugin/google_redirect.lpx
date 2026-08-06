@@ -1,9 +1,9 @@
 [Rewrite]
 # 暴力拦截所有 cn 域名，无论后缀是什么全部带入 com
-^https?:\/\/(www\.)?google\.cn(.*) https://www.google.com$2 302
+^https?:\/\/(www\.)?google\.cn(.*) https://www.google.com$2 307
 
 # 暴力拦截所有 hk 域名，无论后缀是什么全部带入 com
-^https?:\/\/(www\.)?google\.com\.hk(.*) https://www.google.com$2 302
+^https?:\/\/(www\.)?google\.com\.hk(.*) https://www.google.com$2 307
 
 [Mitm]
 hostname = www.google.cn, www.google.com.hk, google.cn
