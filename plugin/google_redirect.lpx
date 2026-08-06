@@ -1,13 +1,6 @@
-#!name = Google 域名重定向 (3.5.0版)
-#!desc = 将 Google 的 cn 和 hk 域名自动重定向至 www.google.com，并完美保留搜索路径。
-#!author = Gemini
-#!system = iOS,iPadOS,tvOS,macOS
-#!tag = 重定向,搜索工具
-#!type = normal
-
 [Rewrite]
-# 正则说明：匹配 cn 或 com.hk，并将第3个括号 (.*) 捕获的搜索路径通过 $3 无缝拼接到新域名后
-^https?:\/\/(www\.)?google\.(cn|com\.hk)\/(.*) https://www.google.com/$3 302
+# 终极防死循环规则：只对包含 /search 的实际搜索路径进行跳转，放过主页，避开 Google 的区域探测
+^https?:\/\/(www\.)?google\.(cn|com\.hk)\/search(.*) https://www.google.com/search$3 302
 
 [Mitm]
-hostname = www.google.cn, www.google.com.hk, google.cn
+hostname = www.google.cn, www.google.com.hk
