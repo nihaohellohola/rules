@@ -1,4 +1,4 @@
-#!name = Google 2
+#!name = Google 3
 #!desc = 严格适配 Loon 3.5.0 及以下版本，仅重定向搜索结果，防止区域跳转死循环。
 #!author = AI
 #!type = normal
@@ -10,6 +10,6 @@
 
 
 [Mitm]
-hostname = www.google.com
+hostname = www.google.com.hk
 
 
