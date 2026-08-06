@@ -1,9 +1,14 @@
-[Rewrite]
-# 暴力拦截所有 cn 域名，无论后缀是什么全部带入 com
-^https?:\/\/(www\.)?google\.cn(.*) https://www.google.com$2 307
+#!name = Google 防死循环重定向 (旧版专属)
+#!desc = 严格适配 Loon 3.5.0 及以下版本，仅重定向搜索结果，防止区域跳转死循环。
+#!author = AI
+#!type = normal
 
-# 暴力拦截所有 hk 域名，无论后缀是什么全部带入 com
-^https?:\/\/(www\.)?google\.com\.hk(.*) https://www.google.com$2 307
+[Rewrite]
+# 严格按照旧版语法：正则 状态码 目标URL
+# 正则中使用了 (.*) 作为第 1 个捕获组，目标 URL 用 $1 拼接搜索参数，保证搜索不丢字
+^https?:\/\/(?:www\.)?google\.(?:cn|com\.hk)\/search(.*)$ 302 https://www.google.com/search$1
 
 [Mitm]
-hostname = www.google.cn, www.google.com.hk, google.cn
+hostname = www.google.cn, www.google.com.hk
+
+
