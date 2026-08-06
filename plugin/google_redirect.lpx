@@ -1,6 +1,9 @@
 [Rewrite]
-# 终极防死循环规则：只对包含 /search 的实际搜索路径进行跳转，放过主页，避开 Google 的区域探测
-^https?:\/\/(www\.)?google\.(cn|com\.hk)\/search(.*) https://www.google.com/search$3 302
+# 暴力拦截所有 cn 域名，无论后缀是什么全部带入 com
+^https?:\/\/(www\.)?google\.cn(.*) https://www.google.com$2 302
+
+# 暴力拦截所有 hk 域名，无论后缀是什么全部带入 com
+^https?:\/\/(www\.)?google\.com\.hk(.*) https://www.google.com$2 302
 
 [Mitm]
-hostname = www.google.cn, www.google.com.hk
+hostname = www.google.cn, www.google.com.hk, google.cn
