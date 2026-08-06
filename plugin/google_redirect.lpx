@@ -1,15 +1,13 @@
-#!name = Google 域名重定向
+#!name = Google 重定向 (兼容版)
 #!desc = 将 Google 的 cn 和 hk 域名自动重定向至 www.google.com，并保留搜索路径。
 #!author = Gemini
 #!system = iOS,iPadOS,tvOS,macOS
-#!loon_version = 3.5.1(978)
 #!tag = 重定向,搜索工具
 #!type = normal
 
 [Rewrite]
-# 匹配 Google 的 cn 或 com.hk 域名，捕获路径参数并执行 302 重定向
-request if ${url} ~= /^https?:\/\/(www\.)?google\.(cn|com\.hk)(.*)$/ as urlMatch then redirect(302, "https://www.google.com${urlMatch.3}")
+# 使用旧版正则替换，自动将请求重定向至 com，$3 代表保留的路径参数
+^https?:\/\/(www\.)?google\.(cn|com\.hk)\/(.*) https://www.google.com/$3 302
 
 [Mitm]
-# 必须配置 MitM 主机名，Loon 才能解密并重写 HTTPS 流量
 hostname = www.google.cn, www.google.com.hk, google.cn
