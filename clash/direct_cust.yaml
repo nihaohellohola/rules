@@ -1,41 +1,21 @@
 payload:
   - DOMAIN-SUFFIX,songxin.de
-  - DOMAIN,www.songxin.de
-  - DOMAIN,songxin.de
-###
   - DOMAIN-SUFFIX,sxr.fr
-  - DOMAIN,www.sxr.fr
-  - DOMAIN,sxr.fr
-###
   - DOMAIN-SUFFIX,aibai.xyz
-  - DOMAIN,www.aibai.xyz
-  - DOMAIN,aibai.xyz
-###
   - DOMAIN-SUFFIX,baipishu.net
-  - DOMAIN,www.baipishu.net
-  - DOMAIN,baipishu.net
-  ###
   - DOMAIN-SUFFIX,129.li
-  - DOMAIN,www.129.li
-  - DOMAIN,129.li
-###
   - DOMAIN-SUFFIX,qh.tn
-  - DOMAIN,www.qh.tn
-  - DOMAIN,qh.tn
-###
-  - DOMAIN-SUFFIX,myip.ipip.net
-  - DOMAIN,r.inews.qq.com
-  - DOMAIN,myip.ipip.net
-###
   - DOMAIN-SUFFIX,baojigongjiao.com
   - DOMAIN-SUFFIX,ttwebview.com
-  - DOMAIN,api-ipv4.ip.sb
-  - DOMAIN,api.ipify.org
-  - DOMAIN,qqwry.api.skk.moe
-  - DOMAIN-SUFFIX,'+.ip.sb'
-  - DOMAIN-SUFFIX,'*.ip.sb'
-  - DOMAIN-SUFFIX,'*.ipify.org'
-  - DOMAIN-SUFFIX,'+.ipify.org'
-  - DOMAIN-SUFFIX,'*.api.skk.moe'
-  - DOMAIN-SUFFIX,'+.api.skk.moe'
+
+  # IP 查询与检测类服务
+  - DOMAIN,r.inews.qq.com
+  - DOMAIN-SUFFIX,myip.ipip.net
+  - DOMAIN-SUFFIX,ip.sb
+  - DOMAIN-SUFFIX,ipify.org
+  - DOMAIN-SUFFIX,skk.moe
+
+  # 直连 IP 段
   - IP-CIDR,138.113.24.56/32
+  - IP-CIDR,43.133.215.216/32
+  - IP-CIDR,43.160.156.172/32
