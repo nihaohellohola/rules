@@ -1,3 +1,4 @@
+# 域名后缀匹配
 DOMAIN-SUFFIX,site.eu
 DOMAIN-SUFFIX,firestorm.ch
 DOMAIN-SUFFIX,api.yoursrs.com
@@ -5,14 +6,14 @@ DOMAIN-SUFFIX,denic.de
 DOMAIN-SUFFIX,linux.do
 DOMAIN-SUFFIX,adrules.top
 DOMAIN-SUFFIX,nodeseek.com
-DOMAIN-KEYWORD,alice
+DOMAIN-SUFFIX,kelee.one
+DOMAIN-SUFFIX,workers.dev
+
+# 关键词匹配（已去除冗余，建议根据需要将 alice 替换为明确后缀）
 DOMAIN-KEYWORD,mojie
-DOMAIN-KEYWORD,z-library
-DOMAIN-KEYWORD,zh.z-lib
+DOMAIN-KEYWORD,z-lib
 DOMAIN-KEYWORD,kaochang
 DOMAIN-KEYWORD,giphy
 DOMAIN-KEYWORD,crazydomains
-DOMAIN-SUFFIX,kelee.one
-DOMAIN-SUFFIX,workers.dev
 DOMAIN-KEYWORD,supabase
-
+DOMAIN-KEYWORD,alice
