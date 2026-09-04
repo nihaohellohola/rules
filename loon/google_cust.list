@@ -1,5 +1,4 @@
-URL-REGEX,^http://google\.com
-### google ad
+# Google 广告及追踪拦截
 DOMAIN-SUFFIX,googleadservices.com
 DOMAIN-SUFFIX,clickcease.com
 DOMAIN-SUFFIX,doubleclick.net
