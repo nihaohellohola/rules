@@ -1,24 +1,12 @@
-DOMAIN,www.coze.com
-DOMAIN,coze.com
+# Coze
 DOMAIN-SUFFIX,coze.com
-DOMAIN,mssdk-i18n-sg.coze.com
-DOMAIN,mssdk-i18n-va.coze.com
-DOMAIN,mcs-sg.coze.com
-DOMAIN,mcs-va.coze.com
-DOMAIN,survey.coze.com
-DOMAIN,opt-i18n.coze.com
-DOMAIN,sf-coze-web-cdn.coze.com
 DOMAIN-SUFFIX,novita.ai
-###ciciai
+
+# Cici AI / 字节海外服务 (推荐使用精确域名后缀替代泛关键词以避免误伤)
 DOMAIN-KEYWORD,dola
 DOMAIN-KEYWORD,ciciai
 DOMAIN-KEYWORD,byteoversea
-DOMAIN-SUFFIX,ciciai.com
-DOMAIN-SUFFIX,byteoversea.com
-DOMAIN-SUFFIX,ciciaicdn.com
 DOMAIN-SUFFIX,bytedapm.com
-DOMAIN,vmweb-va.ciciai.com
-DOMAIN,mcs-va.ciciai.com
 DOMAIN-SUFFIX,yhgfb-static.com
 DOMAIN-SUFFIX,itobsnssdk.com
 DOMAIN-SUFFIX,appsflyersdk.com
