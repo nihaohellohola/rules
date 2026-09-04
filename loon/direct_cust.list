@@ -1,6 +1,5 @@
 DOMAIN-SUFFIX,api.waqi.info
 DOMAIN-SUFFIX,wap.sn.10086.cn
-DOMAIN,wap.sn.10086.cn
 DOMAIN-SUFFIX,cmpassport.com
 DOMAIN-KEYWORD,cmcc
 DOMAIN-KEYWORD,aliapp
@@ -16,37 +15,12 @@ DOMAIN-KEYWORD,qing2000
 DOMAIN-SUFFIX,edgeone.ai
 DOMAIN-SUFFIX,metacubex.one
 DOMAIN-SUFFIX,biturl.top
-######
+# 个人/自建域名
 DOMAIN-SUFFIX,songxin.de
-DOMAIN,www.songxin.de
-DOMAIN,songxin.de
-###
 DOMAIN-SUFFIX,129.li
-DOMAIN,www.129.li
-DOMAIN,129.li
-###
 DOMAIN-SUFFIX,199.li
-DOMAIN,www.199.li
-DOMAIN,199.li
-###
 DOMAIN-SUFFIX,sxr.fr
-DOMAIN,www.sxr.fr
-DOMAIN,sxr.fr
-###
 DOMAIN-SUFFIX,aibai.xyz
-DOMAIN,www.aibai.xyz
-DOMAIN,aibai.xyz
-###
 DOMAIN-SUFFIX,baipishu.net
-DOMAIN,www.baipishu.net
-DOMAIN,baipishu.net
-###
 DOMAIN-SUFFIX,qh.tn
-DOMAIN,www.qh.tn
-DOMAIN,qh.tn
-###
 DOMAIN-SUFFIX,jio.xx.kg
-DOMAIN,jio.xx.kg
-rules:
-  # 其他规则
-IP-CIDR,138.113.24.56/32
