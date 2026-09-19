@@ -2,15 +2,26 @@
 DOMAIN-SUFFIX,coze.com
 DOMAIN-SUFFIX,novita.ai
 
-# Cici AI / 字节海外服务 (推荐使用精确域名后缀替代泛关键词以避免误伤)
-DOMAIN-KEYWORD,dola
-DOMAIN-KEYWORD,ciciai
-DOMAIN-KEYWORD,byteoversea
+# Dola AI
+DOMAIN-SUFFIX,dola.ai
+DOMAIN-SUFFIX,heydola.com
+
+# Cici AI (主站与核心资源)
+DOMAIN-SUFFIX,ciciai.com
+DOMAIN-SUFFIX,ciciaicdn.com
+
+# Larksuite (长连接与消息通道)
+DOMAIN,msg16-frontier-sg.larksuite.com
+DOMAIN-KEYWORD,frontier-sg.larksuite.com
+# 若希望整个 Lark 国际版全走此策略，可取消下面一行的注释：
+# DOMAIN-SUFFIX,larksuite.com
+
+# 字节跳动海外通用依赖
+DOMAIN-SUFFIX,byteoversea.com
+DOMAIN-SUFFIX,byteintlapi.com
 DOMAIN-SUFFIX,bytedapm.com
-DOMAIN-SUFFIX,yhgfb-static.com
-DOMAIN-SUFFIX,itobsnssdk.com
-DOMAIN-SUFFIX,appsflyersdk.com
 DOMAIN-SUFFIX,oceanapi-i18n.com
 DOMAIN-SUFFIX,pipopay.com
 DOMAIN-SUFFIX,ttwstatic.com
-DOMAIN-SUFFIX,byteintlapi.com
+DOMAIN-SUFFIX,yhgfb-static.com
+DOMAIN-SUFFIX,itobsnssdk.com
