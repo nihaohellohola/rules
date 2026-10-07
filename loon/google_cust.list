@@ -1,5 +1,6 @@
-# Google 广告及追踪拦截
+DOMAIN-REGEX,^http://google\\.com
+
+### google ad
 DOMAIN-SUFFIX,googleadservices.com
 DOMAIN-SUFFIX,clickcease.com
 DOMAIN-SUFFIX,doubleclick.net
-DOMAIN,proactivebackend-pa.googleapis.com

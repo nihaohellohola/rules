@@ -1,0 +1,34 @@
+name: Convert Clash custom rules to Loon
+
+on:
+  push:
+    paths:
+      - "clash/*cust*.yaml"
+      - "scripts/convert_cust_rules.py"
+      - ".github/workflows/convert_cust_rules.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Convert custom rules
+        run: python3 scripts/convert_cust_rules.py
+
+      - name: Commit generated lists if changed
+        run: |
+          if git diff --quiet -- loon/*cust*.list; then
+            echo "No generated Loon rule changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add loon/*cust*.list
+          git commit -m "chore: update Loon custom rules"
+          git push
