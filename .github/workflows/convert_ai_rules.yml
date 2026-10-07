@@ -1,4 +1,4 @@
-name: Convert AI rules for Loon
+name: Convert AI rules for Loon and sync Clash source
 
 on:
   schedule:
@@ -15,7 +15,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Convert source YAML to Loon list
+      - name: Fetch, validate, and generate both rule files
         run: |
           python - <<'PY'
           import re
@@ -23,12 +23,13 @@ jobs:
           from pathlib import Path
 
           source_url = "https://ddgksf2013.top/filter/Ai.yaml"
-          output_path = Path("loon/moyu_ai.list")
           request = urllib.request.Request(source_url, headers={"User-Agent": "Mozilla/5.0"})
           with urllib.request.urlopen(request, timeout=30) as response:
-              source = response.read().decode("utf-8")
+              raw = response.read().decode("utf-8")
+          if not raw.endswith("\n"):
+              raw += "\n"
 
-          lines = source.splitlines()
+          lines = raw.splitlines()
           try:
               payload_index = next(i for i, line in enumerate(lines) if line.strip() == "payload:")
           except StopIteration:
@@ -37,8 +38,8 @@ jobs:
           result = []
           rules = 0
           rule_pattern = re.compile(r"^(DOMAIN|DOMAIN-SUFFIX),[A-Za-z0-9*._-]+$")
-          for raw in lines[payload_index + 1:]:
-              item = raw.strip()
+          for raw_line in lines[payload_index + 1:]:
+              item = raw_line.strip()
               if not item:
                   if result and result[-1] != "":
                       result.append("")
@@ -49,28 +50,30 @@ jobs:
               if item.startswith("- "):
                   item = item[2:].strip()
               if not rule_pattern.fullmatch(item):
-                  raise SystemExit(f"Unsupported payload line: {raw}")
+                  raise SystemExit(f"Unsupported payload line; refusing to update: {raw_line}")
               result.append(item)
               rules += 1
 
           while result and result[-1] == "":
               result.pop()
           if rules == 0:
-              raise SystemExit("No supported rules found; refusing to overwrite output")
+              raise SystemExit("No supported rules found; refusing to update outputs")
 
-          output_path.parent.mkdir(parents=True, exist_ok=True)
-          output_path.write_text("\n".join(result) + "\n", encoding="utf-8")
-          print(f"Wrote {rules} rules to {output_path}")
+          Path("clash").mkdir(parents=True, exist_ok=True)
+          Path("loon").mkdir(parents=True, exist_ok=True)
+          Path("clash/moyu_ai.yaml").write_text(raw, encoding="utf-8")
+          Path("loon/moyu_ai.list").write_text("\n".join(result) + "\n", encoding="utf-8")
+          print(f"Validated {rules} rules; updated Clash source and Loon list")
           PY
 
-      - name: Commit updated rules if changed
+      - name: Commit and push both outputs if changed
         run: |
-          if git diff --quiet -- loon/moyu_ai.list; then
-            echo "No changes to commit."
+          if git diff --quiet -- clash/moyu_ai.yaml loon/moyu_ai.list; then
+            echo "Neither generated file changed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add loon/moyu_ai.list
-          git commit -m "chore: update Loon AI rules"
+          git add clash/moyu_ai.yaml loon/moyu_ai.list
+          git commit -m "chore: update Moyu AI rules"
           git push
