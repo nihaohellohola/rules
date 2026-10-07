@@ -24,29 +24,19 @@ jobs:
 
           source_url = "https://ddgksf2013.top/filter/Ai.yaml"
           output_path = Path("loon/moyu_ai.list")
-
-          request = urllib.request.Request(
-              source_url,
-              headers={"User-Agent": "Mozilla/5.0"}
-          )
+          request = urllib.request.Request(source_url, headers={"User-Agent": "Mozilla/5.0"})
           with urllib.request.urlopen(request, timeout=30) as response:
               source = response.read().decode("utf-8")
 
           lines = source.splitlines()
           try:
-              payload_index = next(
-                  i for i, line in enumerate(lines)
-                  if line.strip() == "payload:"
-              )
+              payload_index = next(i for i, line in enumerate(lines) if line.strip() == "payload:")
           except StopIteration:
               raise SystemExit("Source YAML has no payload: section")
 
           result = []
           rules = 0
-          rule_pattern = re.compile(
-              r"^(DOMAIN|DOMAIN-SUFFIX),[A-Za-z0-9*._-]+$"
-          )
-
+          rule_pattern = re.compile(r"^(DOMAIN|DOMAIN-SUFFIX),[A-Za-z0-9*._-]+$")
           for raw in lines[payload_index + 1:]:
               item = raw.strip()
               if not item:
@@ -69,7 +59,7 @@ jobs:
               raise SystemExit("No supported rules found; refusing to overwrite output")
 
           output_path.parent.mkdir(parents=True, exist_ok=True)
-          output_path.write_text("\\n".join(result) + "\\n", encoding="utf-8")
+          output_path.write_text("\n".join(result) + "\n", encoding="utf-8")
           print(f"Wrote {rules} rules to {output_path}")
           PY
 
