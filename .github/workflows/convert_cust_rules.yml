@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "clash/*cust*.yaml"
+      - "clash/bd_ad_remove.yaml"
       - "scripts/convert_cust_rules.py"
       - ".github/workflows/convert_cust_rules.yml"
   workflow_dispatch:
@@ -23,12 +24,12 @@ jobs:
 
       - name: Commit generated lists if changed
         run: |
-          if git diff --quiet -- loon/*cust*.list; then
+          if git diff --quiet -- loon/ai_cust.list loon/bd_ad_remove.list loon/direct_cust.list loon/direct_ip_cust.list loon/google_cust.list loon/proxy_cust.list loon/telegram_cust.list; then
             echo "No generated Loon rule changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add loon/*cust*.list
+          git add loon/ai_cust.list loon/bd_ad_remove.list loon/direct_cust.list loon/direct_ip_cust.list loon/google_cust.list loon/proxy_cust.list loon/telegram_cust.list
           git commit -m "chore: update Loon custom rules"
           git push

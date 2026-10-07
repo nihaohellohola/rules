@@ -3,7 +3,8 @@
 #!author=Modified by AI
 
 [Rule]
-# 开屏及启动广告
+# 开屏、启动广告与 URL 路径拦截（转换为 Loon URL-REGEX）
+URL-REGEX,^https://static\.blued\.com/patch/530-680-1\.png$
 URL-REGEX,^https://www\.bldimg\.cn/ad.*
 URL-REGEX,https://argo.blued.cn/blued/promote.*
 URL-REGEX,https://argo.blued.cn/blued/adms/.*
@@ -17,11 +18,18 @@ URL-REGEX,https://.*/users/call
 URL-REGEX,https://.*/users/chatroom/im/recommend
 URL-REGEX,https://voice.irisgw.cn/users/chatroom/im/recommend
 URL-REGEX,https://voice.blued.cn/users/chatroom/im/recommend
+URL-REGEX,^https://static\.blued\.com/patch/.*
+URL-REGEX,https://social.irisgw.cn/users/recommend
 URL-REGEX,^https://www\.bldimg\.cn/nearby/(.*)
+
+# 广告资源及跟踪域名
 DOMAIN-SUFFIX,ugdtimg.com
 DOMAIN,adx.halomobi.com
+DOMAIN-SUFFIX,bkaivl2daed.com
 DOMAIN-KEYWORD,bkaivl2daed
 DOMAIN-KEYWORD,tlivesource
+
+# Blued 及第三方 SDK / 服务域名
 DOMAIN,live-im.blued.cn
 DOMAIN,apmplus.volces.com
 DOMAIN,open.youzanyun.com
@@ -30,9 +38,6 @@ DOMAIN-SUFFIX,gifshow.com
 DOMAIN-SUFFIX,fengkongcloud.com
 DOMAIN-SUFFIX,bluedhealth.com
 DOMAIN-SUFFIX,ctobsnssdk.com
-DOMAIN-SUFFIX,bkaivl2daed.com
 DOMAIN,sdkconfig.tlivedns.com
 DOMAIN,blued.irisdt.cn
 DOMAIN,rtmp-tencent-play.blued.cn
-
-
