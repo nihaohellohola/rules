@@ -1,4 +1,4 @@
-DOMAIN-REGEX,^http://google\.com
+URL-REGEX,^http://google\.com
 ### google ad
 DOMAIN-SUFFIX,googleadservices.com
 DOMAIN-SUFFIX,clickcease.com
