@@ -15,13 +15,3 @@ DOMAIN-SUFFIX,ip.sb
 DOMAIN-SUFFIX,ipify.org
 DOMAIN-SUFFIX,skk.moe
 DOMAIN-SUFFIX,ghfast.top
-
-# OneDrive / SharePoint 客户端同步与更新端点；不用通配 live.com 或 microsoft.com。
-DOMAIN-SUFFIX,sharepoint.com
-DOMAIN-SUFFIX,sharepointonline.com
-DOMAIN-SUFFIX,storage.live.com
-DOMAIN-SUFFIX,aria.microsoft.com
-DOMAIN,oneclient.sfx.ms
-DOMAIN,skyapi.live.net
-DOMAIN,spoprod-a.akamaihd.net
-DOMAIN,g.live.com
