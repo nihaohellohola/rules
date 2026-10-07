@@ -10,6 +10,7 @@ MAPPINGS = {
     Path("clash/direct_cust.yaml"): Path("loon/direct_cust.list"),
     Path("clash/direct_ip_cust.yaml"): Path("loon/direct_ip_cust.list"),
     Path("clash/google_cust.yaml"): Path("loon/google_cust.list"),
+    Path("clash/onedrive_web.yaml"): Path("loon/onedrive_web.list"),
     Path("clash/proxy_cust.yaml"): Path("loon/proxy_cust.list"),
     Path("clash/telegram_cust.yaml"): Path("loon/telegram_cust.list"),
 }
@@ -31,7 +32,7 @@ def convert(source: Path) -> tuple[str, int]:
     output = []
     seen_rules = set()
     count = 0
-    deduplicate = source.name == "bd_ad_remove.yaml"
+    deduplicate = source.name in {"bd_ad_remove.yaml", "direct_cust.yaml", "onedrive_web.yaml"}
     for raw in lines[start:]:
         item = raw.strip()
         if not item:

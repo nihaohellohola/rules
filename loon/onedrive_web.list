@@ -1,0 +1,9 @@
+# OneDrive 个人版 Web 门户与网页分享入口；仅收录精确门户/链接域，避免通配整个 live.com。
+DOMAIN,onedrive.live.com
+DOMAIN,login.live.com
+DOMAIN-SUFFIX,1drv.ms
+DOMAIN,photos.onedrive.com
+DOMAIN,onedrive.com
+
+# Microsoft 365 OneDrive 新版 Web 门户（2026 年开始逐步启用）；不扩大到整个 cloud.microsoft。
+DOMAIN,onedrive.cloud.microsoft
