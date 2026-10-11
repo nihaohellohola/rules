@@ -1,3 +1,6 @@
+# 移动一键登录
+DOMAIN-SUFFIX,cmpassport.com
+# 直连
 DOMAIN-SUFFIX,songxin.de
 DOMAIN-SUFFIX,sxr.fr
 DOMAIN-SUFFIX,aibai.xyz
@@ -7,7 +10,6 @@ DOMAIN-SUFFIX,qh.tn
 DOMAIN-SUFFIX,huore.de
 DOMAIN-SUFFIX,baojigongjiao.com
 DOMAIN-SUFFIX,ttwebview.com
-
 # IP 查询与检测类服务
 DOMAIN,r.inews.qq.com
 DOMAIN-SUFFIX,myip.ipip.net
