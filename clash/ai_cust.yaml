@@ -1,5 +1,4 @@
 payload:
-  - DOMAIN,copilot.microsoft.com
   - DOMAIN-SUFFIX,x.ai
   - DOMAIN-SUFFIX,grok.com
   - DOMAIN-SUFFIX,novita.ai
