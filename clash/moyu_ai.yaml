@@ -22,7 +22,7 @@ payload:
   - DOMAIN-SUFFIX,wp.com
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,stripe.com
-  
+
 # > Anthropic/Claude
   - DOMAIN,cdn.usefathom.com
   - DOMAIN-SUFFIX,anthropic.com
@@ -59,7 +59,7 @@ payload:
 
 # > JetBrains AI
   - DOMAIN-SUFFIX,grazie.ai
-  
+
 # > Meta
   - DOMAIN-SUFFIX,meta.ai
   - DOMAIN-SUFFIX,meta.com
@@ -79,7 +79,6 @@ payload:
 # > Notebooklm
   - DOMAIN-SUFFIX,notebooklm.google.com
   - DOMAIN-SUFFIX,notebooklm.google
-
 
 # > Midjourney
   - DOMAIN-SUFFIX,midjourney.com
@@ -110,7 +109,7 @@ payload:
 # > xAI/Grok
   - DOMAIN-SUFFIX,x.ai
   - DOMAIN-SUFFIX,grok.com
-  
+
 # > Mistral AI
   - DOMAIN-SUFFIX,mistral.ai
 
