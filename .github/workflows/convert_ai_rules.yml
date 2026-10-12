@@ -15,7 +15,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Fetch, validate, and generate both rule files
+      - name: Fetch, validate, and generate AI rule files
         run: |
           python - <<'PY'
           import re
@@ -35,10 +35,32 @@ jobs:
           except StopIteration:
               raise SystemExit("Source YAML has no payload: section")
 
+          rule_pattern = re.compile(r"^(DOMAIN|DOMAIN-SUFFIX),[A-Za-z0-9*._-]+$")
+          copilot_header = "# > Microsoft Copilot"
+          copilot_start = next((i for i, line in enumerate(lines) if line.strip() == copilot_header), None)
+          if copilot_start is None or copilot_start <= payload_index:
+              raise SystemExit("Source YAML has no Microsoft Copilot section; refusing to update outputs")
+          copilot_end = next((i for i in range(copilot_start + 1, len(lines))
+                              if lines[i].strip().startswith("# > ")), len(lines))
+
+          def parse_rule(raw_line):
+              item = raw_line.strip()
+              if item.startswith("- "):
+                  item = item[2:].strip()
+              if not rule_pattern.fullmatch(item):
+                  raise SystemExit(f"Unsupported payload line; refusing to update: {raw_line}")
+              return item
+
+          copilot_rules = [parse_rule(line) for line in lines[copilot_start + 1:copilot_end]
+                           if line.strip() and not line.strip().startswith("#")]
+          if not copilot_rules:
+              raise SystemExit("Microsoft Copilot section contains no supported rules")
+
+          # Strip the complete Copilot section, from its header up to the next section.
+          retained = lines[:copilot_start] + lines[copilot_end:]
           result = []
           rules = 0
-          rule_pattern = re.compile(r"^(DOMAIN|DOMAIN-SUFFIX),[A-Za-z0-9*._-]+$")
-          for raw_line in lines[payload_index + 1:]:
+          for raw_line in retained[payload_index + 1:]:
               item = raw_line.strip()
               if not item:
                   if result and result[-1] != "":
@@ -47,33 +69,39 @@ jobs:
               if item.startswith("#"):
                   result.append(item)
                   continue
-              if item.startswith("- "):
-                  item = item[2:].strip()
-              if not rule_pattern.fullmatch(item):
-                  raise SystemExit(f"Unsupported payload line; refusing to update: {raw_line}")
-              result.append(item)
+              rule = parse_rule(raw_line)
+              result.append(rule)
               rules += 1
 
           while result and result[-1] == "":
               result.pop()
           if rules == 0:
-              raise SystemExit("No supported rules found; refusing to update outputs")
+              raise SystemExit("No supported non-Copilot rules found; refusing to update outputs")
 
           Path("clash").mkdir(parents=True, exist_ok=True)
           Path("loon").mkdir(parents=True, exist_ok=True)
-          Path("clash/moyu_ai.yaml").write_text(raw, encoding="utf-8")
-          Path("loon/moyu_ai.list").write_text("\n".join(result) + "\n", encoding="utf-8")
-          print(f"Validated {rules} rules; updated Clash source and Loon list")
+          clash_lines = [line for line in retained[:payload_index + 1]]
+          clash_lines.extend("  - " + line if line and not line.startswith("#") else line
+                             for line in result)
+          Path("clash/moyu_ai.yaml").write_text("\n".join(clash_lines).rstrip() + "\n", encoding="utf-8")
+          Path("loon/moyu_ai.list").write_text("\n".join(result).rstrip() + "\n", encoding="utf-8")
+          Path("clash/copilot.yaml").write_text(
+              "payload:\n# > Microsoft Copilot\n" +
+              "".join("  - " + rule + "\n" for rule in copilot_rules), encoding="utf-8")
+          Path("loon/copilot.list").write_text(
+              "# > Microsoft Copilot\n" + "\n".join(copilot_rules) + "\n", encoding="utf-8")
+          print(f"Validated {rules} AI rules and {len(copilot_rules)} Copilot rules; updated four outputs")
           PY
 
-      - name: Commit and push both outputs if changed
+      - name: Commit and push outputs if changed
         run: |
-          if git diff --quiet -- clash/moyu_ai.yaml loon/moyu_ai.list; then
-            echo "Neither generated file changed."
+          files="clash/moyu_ai.yaml loon/moyu_ai.list clash/copilot.yaml loon/copilot.list"
+          if git diff --quiet -- $files; then
+            echo "Generated rule files did not change."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add clash/moyu_ai.yaml loon/moyu_ai.list
-          git commit -m "chore: update Moyu AI rules"
+          git add clash/moyu_ai.yaml loon/moyu_ai.list clash/copilot.yaml loon/copilot.list
+          git commit -m "chore: update AI and Copilot rules"
           git push
