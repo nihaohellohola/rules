@@ -1,4 +1,4 @@
-# 这是反银行VPN检测
 payload:
+  # 反银行VPN检测
   - DOMAIN,msmp.abchina.com.cn
   - DOMAIN,yunbusiness.ccb.com
