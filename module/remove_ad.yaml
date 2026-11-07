@@ -1,0 +1,808 @@
+name: "自用去广告合集"
+description: "自用app去广告合集，涵盖多应用开屏广告、信息流广告、弹窗广告过滤"
+author: "sunshine970918"
+homepage: "https://github.com/sunshine970918/RemoveAds/Loon"
+icon: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/erdongchanyo/AdBlock.png"
+
+rules:
+  - domain:
+      match: "ad.12306.cn"
+      policy: DIRECT
+  - ip_cidr:
+      match: "203.107.1.1/24"
+      policy: REJECT
+      no_resolve: true
+  - domain:
+      match: "lookup.api.bsb.baidu.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "u3.ucweb.com"
+      policy: REJECT
+  - domain_keyword:
+      match: "safebrowsing."
+      policy: REJECT
+  - domain:
+      match: "afd.baidu.com"
+      policy: REJECT
+  - domain:
+      match: "afdconf.baidu.com"
+      policy: REJECT
+  - domain:
+      match: "lc.map.baidu.com"
+      policy: REJECT
+  - domain:
+      match: "adttrackingprd.hwwt8.com"
+      policy: REJECT
+  - domain:
+      match: "pageviewp.icbc.com.cn"
+      policy: REJECT
+  - domain_suffix:
+      match: "mall.icbc.com.cn"
+      policy: REJECT
+  - domain:
+      match: "apis.alenable.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "ehaier.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "igexin.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "getui.com"
+      policy: REJECT
+  - domain:
+      match: "dns.jd.com"
+      policy: REJECT
+  - domain_keyword:
+      match: "adv.ccb.com"
+      policy: REJECT
+  - domain:
+      match: "api.liquidlink.cn"
+      policy: REJECT
+  - domain:
+      match: "httpdns.n.netease.com"
+      policy: REJECT
+  - domain:
+      match: "httpdns.calorietech.com"
+      policy: REJECT
+  - domain:
+      match: "hc-ssp.sm.cn"
+      policy: REJECT
+  - domain_suffix:
+      match: "adservice.kugou.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "install2.kugou.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "adstats.tencentmusic.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "tmead.y.qq.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "ad.tencentmusic.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "api-adservices.apple.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "us.l.qq.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "p.l.qq.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "mc.tencentmusic.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "mdt.qq.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "gdt.qq.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "e.qq.com"
+      policy: REJECT
+  - domain:
+      match: "ios.bugly.qq.com"
+      policy: REJECT
+  - domain:
+      match: "statics.woozooo.com"
+      policy: REJECT
+  - domain:
+      match: "sdkconfig.ad.xiaomi.com"
+      policy: REJECT
+  - domain:
+      match: "acdn.adnxs.com"
+      policy: REJECT
+  - domain:
+      match: "mediation.adnxs.com"
+      policy: REJECT
+  - domain:
+      match: "sin3-ib.adnxs.com"
+      policy: REJECT
+  - domain:
+      match: "data.mistat.xiaomi.com"
+      policy: REJECT
+  - domain:
+      match: "tracking.intl.miui.com"
+      policy: REJECT
+  - domain:
+      match: "39d83s.com"
+      policy: REJECT
+  - domain:
+      match: "sdk.1rtb.net"
+      policy: REJECT
+  - domain:
+      match: "api-htp.beizi.biz"
+      policy: REJECT
+  - domain:
+      match: "sdk.beizi.biz"
+      policy: REJECT
+  - domain:
+      match: "ads.95516.com"
+      policy: REJECT
+  - domain:
+      match: "switch.cup.com.cn"
+      policy: REJECT
+  - domain:
+      match: "tysdk.95516.com"
+      policy: REJECT
+  - domain_suffix:
+      match: "ttayy.cn"
+      policy: REJECT
+  - domain_suffix:
+      match: "zhengxiaoliu.top"
+      policy: REJECT
+  - ip_cidr:
+      match: "120.240.95.37/32"
+      policy: REJECT
+  - domain_suffix:
+      match: "m1.ad.10010.com"
+      policy: REJECT
+  - domain:
+      match: "ad.21cn.com"
+      policy: REJECT
+  - domain:
+      match: "ad.k.21cn.com"
+      policy: REJECT
+  - domain:
+      match: "admarket.21cn.com"
+      policy: REJECT
+  - domain:
+      match: "adshows.21cn.com"
+      policy: REJECT
+  - ip_cidr:
+      match: "122.229.8.47/32"
+      policy: REJECT
+      no_resolve: true
+  - ip_cidr:
+      match: "122.229.29.89/32"
+      policy: REJECT
+      no_resolve: true
+
+url_rewrites:
+  # === 从 rules 转移过来的 url_regex 拦截 ===
+  - match: "^http?:\\/\\/(discardrp|startup)\\.umetrip\\.com\\/gateway\\/api\\/umetrip\\/native"
+    location: "http://reject/"
+  - match: "^http:\\/\\/p\\.kuaidi100\\.com\\/mobile\\/mobileapi\\.do"
+    location: "http://reject-img/"
+  - match: "^http:\\/\\/p\\.kuaidi100\\.com\\/advertisement\\/"
+    location: "http://reject-img/"
+  - match: "https://gateway.kugou.com/ads.gateway/.*"
+    location: "http://reject-img/"
+  - match: "https://gateway3.kugou.com/ads.gateway/.*"
+    location: "http://reject-img/"
+  - match: "https://gatewayretry.kugou.com/ads.gateway/.*"
+    location: "http://reject-img/"
+  - match: "https://gateway.kugou.com/youth/api/user/v1/init.*"
+    location: "http://reject-img/"
+  - match: "^http:\\/\\/mobilelog\\.kugou\\.com\\/adtrackconfig\\.json$"
+    location: "http://reject-img/"
+  - match: "https://tmeadcomm.y.qq.com/maproxy/getPbCompressAd,-DICTDOMAIN-SUFFIX,adservice.kugou.com,REJECT"
+    location: "http://reject/"
+
+  # === 从 body_rewrites 转移过来的拦截规则 (原本误用了 filter: reject) ===
+  - match: "^https?:\\/\\/[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+){1,3}(:\\d+)?\\/api\\/v\\d\\/advert"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/dss0\\.bdstatic\\.com\\/.+/tam-ogel\\/.+\\.(jpg|mp4)"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/tb1\\.bdstatic\\.com\\/tb\\/cms\\/ngmis\\/adsense\\/*.jpg"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/pic1\\.chelaile\\.net\\.cn\\/adv\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/(api|atrace)\\.chelaile\\.net\\.cn\\/adpub\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.chelaile\\.net\\.cn\\/goocity\\/advert\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/web\\.chelaile\\.net\\.cn\\/api\\/adpub\\/ad"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/cdn\\.\\w{3}\\.chelaileapp\\.cn\\/(api\\/)?adpub"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/app-gw\\.csdn\\.net\\/silkroad-api\\/api\\/v\\d\\/assemble\\/list\\/pub\\/channel\\/app_open_screen_ad"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/app-gw\\.csdn\\.net\\/abtesting\\/v2\\/getList\\"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/gw\\.csdn\\.net\\/cms-app\\/v\\d+\\/home_page\\/open_advertisement"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/img\\d\\.doubanio\\.com\\/view\\/dale-online\\/dale_ad\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/frodo\\.douban\\.com\\/api\\/v2\\/movie\\/banner"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/erebor\\.douban\\.com\\/count\\/\\?ad="
+    location: "http://reject/"
+  - match: "^https?:\\/\\/img-ys011\\.didistatic\\.com\\/static\\/ad_oss\\/.*.jpg"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/elemecdn\\.com\\/.+\\/sitemap"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/fuss10\\.elemecdn\\.com\\/.+\\/w\\/640\\/h\\/\\d{3,4}"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/fuss10\\.elemecdn\\.com\\/.+\\/w\\/750\\/h\\/\\d{3,4}"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/cube\\.elemecdn\\.com\\/[\\w\\/]+\\.jpeg\\?x-oss-process=image\\/resize,m_fill,w_1\\d{3},h_2\\d{3}\\/format,webp\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/cube\\.elemecdn\\.com\\/[\\w\\/]+\\.jpeg\\?x-oss-process=image\\/resize,m_fill,w_6\\d{2},h_8\\d{2}\\/format,webp\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/cube\\.elemecdn\\.com\\/[\\w\\/]+\\.jpeg\\?x-oss-process=image\\/resize,m_fill,w_\\d{3},h_\\d{4}\\/format,webp\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/cube\\.elemecdn\\.com\\/\\w\\/\\w{2}\\/\\w+mp4\\.mp4\\?"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/www1\\.elecfans\\.com\\/www\\/delivery\\/"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/(nr-op|cube)\\.elemecdn\\.com\\/.+\\.jpeg\\?x-oss-process=image\\/resize,m_fill,w_\\d{4,},h_\\d{4,}\\/($|format,webp\\/$)"
+    location: "http://reject/"
+  - match: "^http:\\/\\/image1\\.ccb\\.com\\/newsinfo\\/eBranch\\/check\\/(nf\\/newfin\\/activity|po\\/poortheme\\/activity)\\/\\w+\\.png"
+    location: "http://reject/"
+  - match: "^https:\\/\\/gab\\.122\\.gov\\.cn\\/eapp\\/m\\/sysquery\\/adver$"
+    location: "http://reject/"
+  - match: "^https:\\/\\/res\\.kfc\\.com\\/advertisement"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/guide-webapp\\/v\\d\\/popup\\/getPopUp"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/kprime\\/v\\d\\/popups\\/primeGuide"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/kad\\.gotokeep\\.com\\/op-engine-webapp\\/v\\d\\/ad"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/cauchy\\/growth\\/init"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/search\\/v\\d\\/default\\/keyword\\/list"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/search\\/v\\d\\/hotword\\/list"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/search\\/v\\d\\/hotCourse\\/list"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/op-engine-webapp\\/v\\d\\/ad"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/ads\\/v\\d\\/ads\\/preload"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/training\\/box\\/config"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/api\\.gotokeep\\.com\\/anno\\/v\\d\\/upgrade\\/check"
+    location: "http://reject/"
+  - match: "^https:\\/\\/api\\.wfdata\\.club\\/v2\\/yesfeng\\/yesList"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/xxyx-client-api\\.xiaoxiaoyouxuan\\.com\\/agent_ad"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/xxyx-client-api\\.xiaoxiaoyouxuan\\.com\\/activity\\/show"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/statistic\\.live\\.126\\.net\\/statics\\/report\\/common\\/form"
+    location: "http://reject/"
+  - match: "^https:\\/\\/wallet\\.95516\\.com(:10533)?\\/s\\/wl\\/icon\\/large\\/1"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/(client\\.app\\.coc|app)\\.10086\\.cn\\/biz-orange\\/DN\\/explorePage\\/getAdverList"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/(client\\.app\\.coc|app)\\.10086\\.cn\\/biz-orange\\/DN\\/emotionMarket"
+    location: "http://reject/"
+  - match: "^https?:\\/\\/cloud\\.189\\.cn\\/include\\/splash\\/"
+    location: "http://reject/"
+
+  # === 从 body_rewrites 转移过来的 QQ 等平台 302 跳转解锁 ===
+  - match: "(^https:\\/\\/c\\.pc\\.qq\\.com\\/middlem\\.html\\?pfurl=)(http.*)(&pfuin=.*)"
+    location: "$2"
+    status_code: 302
+  - match: "(^https:\\/\\/c\\.pc\\.qq\\.com\\/middlect\\.html\\?pfuin=.*&pfurl=)(http.*)(&gjsublevel=.*)"
+    location: "$2"
+    status_code: 302
+  - match: "(^https:\\/\\/c\\.pc\\.qq\\.com\\/middlect\\.html\\?iscontinue=.*pfurl=)(http.*)(&pfuin=.*)"
+    location: "$2"
+    status_code: 302
+  - match: "(^https:\\/\\/pingtas\\.qq\\.com\\/webview\\/pingd\\?dm=c\\.pc\\.qq\\.com&pvi=\\d+&si=s\\d+&url=\\/middlem\\.html\\?pfurl%3d)(http.*)(%26pfuin%3d.*%26pfuin%3d.*)"
+    location: "$2"
+    status_code: 302
+  - match: "(^https:\\/\\/cgi\\.connect\\.qq\\.com\\/qqconnectopen\\/get_urlinfoForQQV2\\?url=)(http.*)"
+    location: "$2"
+    status_code: 302
+  - match: "(^https:\\/\\/c\\.pc\\.qq\\.com\\/index\\.html\\?pfurl=)(http.*)(&pfuin=.*)"
+    location: "$2"
+    status_code: 302
+  - match: "(^https:\\/\\/c\\.pc\\.qq\\.com\\/ios\\.html\\?url=)(http.*)(&level=.*)"
+    location: "$2"
+    status_code: 302
+  - match: "(^https:\\/\\/pingtas\\.qq\\.com\\/webview\\/pingd\\?dm=c\\.pc\\.qq\\.com&pvi=\\d+&si=s\\d+&url=\\/ios\\.html\\?url%3d)(http.*)(%26level.*%26level.*)"
+    location: "$2"
+    status_code: 302
+
+map_locals:
+  - match: "^https?:\\/\\/vip7\\.fzwdyy\\.cn:8083\\/api\\/(getAdvertInfo|getGOOGAdvert)"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https:\\/\\/member\\.alipan\\.com\\/v2\\/activity\\/sign_in_luckyBottle"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/api\\.alipan\\.com\\/adrive\\/v1\\/file\\/getTopFolders"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/social\\.blued\\.cn\\/users\\/recommend"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/social\\.blued\\.cn\\/users\\/no_auth\\/benefit"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/dss0\\.bdstatic\\.com\\/-0U0bnSm1A5BphGlnYG\\/"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/tb2\\.bdstatic\\.com\\/tb\\/mobile\\/spb\\/widget\\/jump"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/ss0\\.bdstatic\\.com/.+?_\\d{3}_\\d{4}\\.jpg"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/gss0\\.bdstatic\\.com\\/.+?\\/static\\/wiseindex\\/img\\/bd_red_packet\\.png"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https:\\/\\/biz\\.cyapi\\.cn\\/(p\\/v1\\/entries|p\\/v1\\/trial_card\\/info|v2\\/product)"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/starplucker\\.cyapi\\.cn\\/v3\\/(config\\/cypage\\/\\w+\\/conditions|notification\\/message_center|operation\\/homefeatures)"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/api\\.caiyunapp\\.com\\/v1\\/activity"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/atrace\\.chelaile\\.net\\.cn\\/adpub\\/"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/atrace\\.chelaile\\.net\\.cn\\/exhibit\\?&adv_image"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/api\\.douban\\.com\\/b.*\\/common_ads\\?.*"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/hd\\.xiaojukeji\\.com\\/d"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/fuss10\\.elemecdn\\.com\\/.+?\\.mp4"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/gd\\.10086\\.cn\\/gmccapp\\/serv\\/\\?servicename=GMCCAPP_704_002_001_001"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "https?:\\/\\/awg\\.enmonster\\.com\\/apa\\/(advert\\/demand\\/home\\/poster|index\\/advert\\/skin)"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/api\\.m\\.jd\\.com\\/client\\.action\\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06])"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/api\\.coolapk\\.com\\/v6\\/search\\?.*type=hotSearch"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/static1\\.keepcdn\\.com\\/ark_optimus\\/202\\d\\/*\\/*\\/.*.(png|jpg)"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/lens\\.leoao\\.com\\/lens\\/conduct\\/app\\/rpc\\/v2\\/com\\.lefit\\.dubbo\\.cms\\.api\\.front\\.AppAdvertisingFrontService\\/getAppAdvertisingNew"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/lens\\.leoao\\.com\\/lens\\/conduct\\/app\\/rpc\\/v2\\/com\\.lefit\\.dubbo\\.cms\\.api\\.bff\\.ClientFrontFacade\\/queryHomeMiddleInfo"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/lens\\.leoao\\.com\\/lens\\/conduct\\/app\\/rpc\\/v2\\/com\\.lefit\\.dubbo\\.cms\\.api\\.front\\.AdvertiseConfigFrontService\\/getAdvertiseConfigNew"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/home\\.mi\\.com\\/cgi-op\\/api\\/v1\\/recommendation\\/(banner|carousel\\/banners|myTab|openingBanner)\\?"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/p0\\.pipi\\.cn\\/(adAdmin|mediaplus\\/maoyantong_ads_fe)\\/\\w+\\.jpg\\?imageMogr2\\/quality\\/"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/p0\\.pipi\\.cn\\/(adAdmin|mediaplus\\/maoyantong_ads_fe)\\/\\w+\\.(jpg|png)\\?imageMogr2\\/thumbnail\\/(860x0|!165x165|!1049x1169)"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^http:\\/\\/wmapi\\.meituan\\.com\\/api\\/v7\\/(loadInfo|openscreen|startpicture)\\?"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/flowplus\\.meituan\\.net\\/v1\\/mss_\\w+\\/linglong\\/\\d+\\.jpg"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/img\\.meituan\\.net\\/bizad\\/bizad_brandCpt_\\d+\\.jpg"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/s3plus\\.meituan\\.net\\/ocean-blk-index\\/index\\/blk_conf_73\\.json"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/s3plus\\.meituan\\.net\\/v1\\/mss_\\w+\\/(brandcpt-vedio|waimai-alita)\\/\\w+\\.zip$"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/img0[1-9]{1}\\.luckincoffeecdn\\.com\\/group\\d/M00/[A-Z0-9]{2}/[A-Z0-9]{2}/[a-zA-Z0-9]{29}\\.(jpg|jpeg)_\\.webp"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/ucmp\\.sf-express\\.com\\/cx-wechat-query\\/query\\/info-flow\\/reconsitution-list"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.mtopadvertiseapi\\.queryloadingbanner"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/alt-r\\.my\\.com\\/mobile"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/imgx\\.jampp\\.com\\/imgsrv\\/tn"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https:\\/\\/osg-service\\.sgcc\\.com\\.cn:18600\\/emss-pfa-appset-front\\/bootpageoutter\\/"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/api\\.wfdata\\.club\\/v2\\/yesfeng\\/yesList"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/mp\\.weixin\\.qq\\.com\\/mp\\/cps_product_info\\?action"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/appconf\\.mail\\.163\\.com\\/mailmaster\\/api\\/http\\/urlConfig\\.do$"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/client-api-v2\\.oray\\.com\\/materials\\/SLCC_IOS_STARTUP"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/client-api-v2\\.oray\\.com\\/materials\\/SLCC_IOS_DEVICE"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/client-api-v2\\.oray\\.com\\/materials\\/SUNLOGIN_CLIENT_IOS_PROMOTION"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https:\\/\\/xxyx-client-api\\.xiaoxiaoyouxuan\\.com\\/vajra"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/client\\.app\\.coc\\.10086\\.cn\\/biz-orange\\/DN\\/init\\/startInit"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/m\\.client\\.10010\\.com\\/mobileService\\/(activity|customer)\\/(accountListData|get_client_adv|get_startadv)"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/m\\.client\\.10010\\.com\\/mobileService\\/customer\\/getclientconfig\\.htm"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/m\\.client\\.10010\\.com\\/uniAdmsInterface\\/(getHomePageAd|getWelcomeAd)"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/[^(apple|10010)]+\\.(com|cn)\\/(a|A)d(s|v)?(\\/|\\.js)"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/m1\\.ad\\.10010\\.com\\/noticeMag\\/images\\/imageUpload\\/2\\d{3}"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/res\\.mall\\.10010\\.cn\\/mall\\/common\\/js\\/fa\\.js?referer="
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/zt-app\\.go189\\.cn\\/zt-app\\/welcome\\/.*?Animation"
+    headers:
+      content-type: "tiny-gif"
+    status_code: 200
+  - match: "^https?:\\/\\/app\\.10099\\.com\\.cn\\/contact-web\\/api\\/version\\/getFlashScreenPage"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/c\\.zhangle\\.com\\/pic\\/mktg\\/diversity\\/.+\\.jpg$"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/live\\.inst-service\\.htsc\\.com\\/live"
+    headers:
+      content-type: "text"
+    body: "{}"
+    status_code: 200
+  - match: "^https?:\\/\\/geetest\\.htsc\\.com:8888\\/pre_get_token"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+  - match: "^https?:\\/\\/119\\.29\\.29\\.98\\/d"
+    headers:
+      content-type: "text"
+    body: " "
+    status_code: 200
+
+scriptings:
+  - http_response:
+      name: "移除12306开屏广告"
+      match: "^https:\\/\\/ad\\.12306\\.cn\\/ad\\/ser\\/getAdList$"
+      script_url: "https://kelee.one/Resource/Script/12306/12306_remove_splashscreen_ads.js"
+      body_required: true
+  - http_response:
+      name: "555影视广告"
+      match: "^https:\\/\\/app-v1\\.ecoliving168\\.com\\/api\\/v1\\/movie\\/index_recommend\\?"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "移除阿里云盘广告"
+      match: "^https:\\/\\/(biz)?api\\.alipan\\.com\\/apps\\/v\\d\\/users?\\/home\\/(news|widgets)"
+      script_url: "https://kelee.one/Resource/Script/AliYunDrive/AliYunDrive_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除阿里云盘引导广告"
+      match: "^https:\\/\\/member\\.alipan\\.com\\/v1\\/users\\/onboard_list"
+      script_url: "https://kelee.one/Resource/Script/AliYunDrive/AliYunDrive_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "blued登录后个人界面广告"
+      match: "^https?:\\/\\/social\\.blued\\.cn\\/users\\/.+\\/more\\/ios\\?v=2"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "移除百度搜索首页信息流广告"
+      match: "^https?:\\/\\/(www|m)\\.baidu\\.com\\/?($|\\?from=\\w{8,9})"
+      script_url: "https://kelee.one/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "彩云天气去广告"
+      match: "^https:\\/\\/(wrapper\\.cyapi\\.cn|api\\.caiyunapp\\.com|cdn-w\\.caiyunapp\\.com)\\/v1\\/activity\\?"
+      script_url: "https://kelee.one/Resource/Script/ColorfulClouds/ColorfulClouds_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除首页广告"
+      match: "^http?:\\/\\/(114\\.115\\.217\\.129)|(home\\.umetrip\\.com)\\/gateway\\/api\\/umetrip\\/native$"
+      script_url: "https://kelee.one/Resource/Script/Umetrip/Umetrip_remove_ads.js"
+  - http_response:
+      name: "ithome"
+      match: "^https?:\\/\\/napi\\.ithome\\.com\\/api\\/(news\\/index|topmenu\\/getfeeds)"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "计算器解锁"
+      match: "^https?:\\/\\/buy\\.itunes\\.apple\\.com\\/verifyReceipt$"
+      script_url: "https://gist.githubusercontent.com/ddgksf2013/9e0f6c7341beea09a31aa309d9d7f502/raw/buyitunes.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "keep个人页面"
+      match: "^https?:\\/\\/api\\.gotokeep\\.com\\/athena\\/v\\d\\/people\\/my$"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "keep基础配置"
+      match: "^https?:\\/\\/api\\.gotokeep\\.com\\/config\\/v\\d\\/basic"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "keep首页标签"
+      match: "^https?:\\/\\/api\\.gotokeep\\.com\\/homepage\\/v\\d\\/tab"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "keep课程预览"
+      match: "^https?:\\/\\/api\\.gotokeep\\.com\\/nuocha\\/course\\/v\\d/\\w+\\/preview"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "keep运动页面"
+      match: "^https?:\\/\\/api\\.gotokeep\\.com\\/sportpage\\/sport\\/v\\d\\/mysport"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "朴朴超市"
+      match: "^https?:\\/\\/j1\\.pupuapi\\.com\\/client\\/marketing\\/banner\\/v7\\?position_types=2(%[A-Z0-9]+)+&store_id"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PupuSplashAds.js"
+      body_required: true
+      timeout: 60
+  - http_response:
+      name: "微信封禁页面"
+      match: "^https:\\/\\/(weixin110\\.qq|security\\.wechat)\\.com\\/cgi-bin\\/mmspamsupport-bin\\/newredirectconfirmcgi\\?"
+      script_url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/Weixin/Weixin_external_links_unlock.js"
+      body_required: true
+
+mitm:
+  hostnames:
+    includes:
+      - "ad.12306.cn"
+      - "mobile.12306.cn"
+      - "vip7.fzwdyy.cn"
+      - "*.qyfxgd.cn"
+      - "*.weilai555.com"
+      - "*.ecoliving168.com"
+      - "app-v1.ecoliving168.com"
+      - "api.alipan.com"
+      - "member.alipan.com"
+      - "bizapi.alipan.com"
+      - "social.blued.cn"
+      - "dss0.bdstatic.com"
+      - "tb1.bdstatic.com"
+      - "tb2.bdstatic.com"
+      - "ss0.bdstatic.com"
+      - "gss0.bdstatic.com"
+      - "newclient.map.baidu.com"
+      - "m.baidu.com"
+      - "www.baidu.com"
+      - "biz.cyapi.cn"
+      - "starplucker.cyapi.cn"
+      - "api.caiyunapp.com"
+      - "cdn-w.caiyunapp.com"
+      - "pic1.chelaile.net.cn"
+      - "api.chelaile.net.cn"
+      - "atrace.chelaile.net.cn"
+      - "web.chelaile.net.cn"
+      - "cdn.*.chelaileapp.cn"
+      - "app-gw.csdn.net"
+      - "gw.csdn.net"
+      - "api.douban.com"
+      - "img*.douban.com"
+      - "frodo.douban.com"
+      - "erebor.douban.com"
+      - "hd.xiaojukeji.com"
+      - "img-ys011.didistatic.com"
+      - "elemecdn.com"
+      - "fuss10.elemecdn.com"
+      - "cube.elemecdn.com"
+      - "www1.elecfans.com"
+      - "nr-op.elemecdn.com"
+      - "gd.10086.cn"
+      - "awg.enmonster.com"
+      - "114.115.217.129"
+      - "home.umetrip.com"
+      - "discardrp.umetrip.com"
+      - "startup.umetrip.com"
+      - "api.m.jd.com"
+      - "gab.122.gov.cn"
+      - "res.kfc.com.cn"
+      - "napi.ithome.com"
+      - "buy.itunes.apple.com"
+      - "api.coolapk.com"
+      - "api.gotokeep.com"
+      - "lens.leoao.com"
+      - "home.mi.com"
+      - "p0.pipi.cn"
+      - "flowplus.meituan.net"
+      - "img.meituan.net"
+      - "s3plus.meituan.net"
+      - "pingtas.qq.com"
+      - "c.pc.qq.com"
+      - "cgi.connect.qq.com"
+      - "capi.lkcoffee.com"
+      - "ecapi.lkcoffee.com"
+      - "m.lkcoffee.com"
+      - "img0*.luckincoffeecdn.com"
+      - "ucmp.sf-express.com"
+      - "alt-r.my.com"
+      - "imgx.jampp.com"
+      - "osg-service.sgcc.com.cn"
+      - "api.wfdata.club"
+      - "mp.weixin.qq.com"
+      - "j1.pupuapi.com"
+      - "weixin110.qq.com"
+      - "security.wechat.com"
+      - "appconf.mail.163.com"
+      - "api.xiachufang.com"
+      - "client-api-v2.oray.com"
+      - "xxyx-client-api.xiaoxiaoyouxuan.com"
+      - "statistic.live.126.net"
+      - "client.app.coc.10086.cn"
+      - "app.10086.cn"
+      - "m.client.10010.com"
+      - "m1.ad.10010.com"
+      - "res.mall.10010.cn"
+      - "cloud.189.cn"
+      - "zt-app.go189.cn"
+      - "app.10099.com.cn"
+      - "c.zhangle.com"
+      - "live.inst-service.htsc.com"
+      - "geetest.htsc.com"
+      - "119.29.29.98"
