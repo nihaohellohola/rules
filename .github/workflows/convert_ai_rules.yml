@@ -35,6 +35,7 @@ jobs:
           if copilot_start is None or copilot_start <= payload_index:
               raise SystemExit("Source YAML has no Microsoft Copilot section")
           copilot_end = next((i for i in range(copilot_start + 1, len(lines)) if lines[i].strip().startswith("# > ")), len(lines))
+
           def parse_rule(raw_line):
               item = raw_line.strip()
               if item.startswith("- "):
@@ -43,19 +44,21 @@ jobs:
               if not match:
                   raise SystemExit(f"Unsupported payload line: {raw_line}")
               return match.group(1), match.group(2)
+
           def to_egern(raw_rules):
               groups = {"domain_set": [], "domain_suffix_set": []}
               for line in raw_rules:
                   kind, value = parse_rule(line)
                   groups["domain_set" if kind == "DOMAIN" else "domain_suffix_set"].append(value)
               output = []
-              for key in groups:
-                  if groups[key]:
+              for key, values in groups.items():
+                  if values:
                       output.append(key + ":")
-                      output.extend("  - " + value for value in groups[key])
+                      output.extend("  - " + value for value in values)
               if not output:
                   raise SystemExit("No supported rules found")
-              return "\\n".join(output) + "\\n"
+              return "\n".join(output) + "\n"
+
           copilot_rules = [line for line in lines[copilot_start + 1:copilot_end] if line.strip() and not line.strip().startswith("#")]
           retained = lines[:copilot_start] + lines[copilot_end:]
           ai_rules = [line for line in retained[payload_index + 1:] if line.strip() and not line.strip().startswith("#")]
@@ -65,11 +68,19 @@ jobs:
           clash_lines.extend("  - " + line.strip().removeprefix("- ").strip() if line.strip() and not line.strip().startswith("#") else line for line in retained[payload_index + 1:])
           Path("clash").mkdir(parents=True, exist_ok=True)
           Path("egern").mkdir(parents=True, exist_ok=True)
-          Path("clash/moyu_ai.yaml").write_text("\\n".join(clash_lines).rstrip() + "\\n", encoding="utf-8")
+          Path("clash/moyu_ai.yaml").write_text("\n".join(clash_lines).rstrip() + "\n", encoding="utf-8")
+          Path("clash/copilot.yaml").write_text("payload:\n# > Microsoft Copilot\n" + "".join("  - " + line.strip().removeprefix("- ").strip() + "\n" for line in copilot_rules), encoding="utf-8")
           Path("egern/moyu_ai.yaml").write_text(ai_yaml, encoding="utf-8")
-          Path("clash/copilot.yaml").write_text("payload:\\n# > Microsoft Copilot\\n" + "".join("  - " + line.strip().removeprefix("- ").strip() + "\\n" for line in copilot_rules), encoding="utf-8")
           Path("egern/copilot.yaml").write_text(copilot_yaml, encoding="utf-8")
-          print("Generated Egern AI and Copilot rule sets; no Loon output")
+          try:
+              import yaml
+          except ImportError:
+              raise SystemExit("PyYAML is required to validate generated Egern YAML")
+          for path in (Path("egern/moyu_ai.yaml"), Path("egern/copilot.yaml")):
+              parsed = yaml.safe_load(path.read_text(encoding="utf-8"))
+              if not isinstance(parsed, dict) or not parsed:
+                  raise SystemExit(f"Invalid or empty Egern YAML: {path}")
+              print(f"Validated {path}")
           PY
       - name: Commit and push outputs if changed
         run: |
