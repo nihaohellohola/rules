@@ -1,7 +1,12 @@
+domain_set:
+  - guzzoni.apple.com
+  - apple-relay.apple.com
+  - msg16-frontier-sg.larksuite.com
 domain_suffix_set:
   - x.ai
   - grok.com
   - novita.ai
+  - apple-relay.apple.com
   - claude.ai
   - nvidia.com
   - poke.com
@@ -22,9 +27,5 @@ domain_suffix_set:
   - ttwstatic.com
   - yhgfb-static.com
   - itobsnssdk.com
-domain_set:
-  - guzzoni.apple.com
-  - apple-relay.apple.com
-  - msg16-frontier-sg.larksuite.com
 domain_keyword_set:
   - frontier-sg.larksuite.com

@@ -1,3 +1,6 @@
+domain_set:
+  - bptv.freetv.top
+  - bptv.freetv.top
 domain_suffix_set:
   - site.eu
   - firestorm.ch
@@ -17,9 +20,6 @@ domain_suffix_set:
   - wsrv.nl
   - stripe.com
   - safozi.com
-domain_set:
-  - bptv.freetv.top
-  - bptv.freetv.top
 domain_keyword_set:
   - alice
   - crazydomains

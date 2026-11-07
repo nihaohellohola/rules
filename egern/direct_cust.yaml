@@ -1,3 +1,5 @@
+domain_set:
+  - r.inews.qq.com
 domain_suffix_set:
   - cmpassport.com
   - 10010.com
@@ -8,6 +10,9 @@ domain_suffix_set:
   - sxr.fr
   - aibai.xyz
   - baipishu.net
+  - 129.li
+  - qh.tn
+  - huore.de
   - baojigongjiao.com
   - ttwebview.com
   - myip.ipip.net
@@ -15,5 +20,3 @@ domain_suffix_set:
   - ipify.org
   - skk.moe
   - ghfast.top
-domain_set:
-  - r.inews.qq.com
