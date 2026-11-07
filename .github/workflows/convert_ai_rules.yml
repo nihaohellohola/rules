@@ -1,4 +1,4 @@
-name: Convert AI rules for Loon and sync Clash source
+name: Convert AI rules for Egern and sync Clash source
 
 on:
   schedule:
@@ -14,94 +14,77 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
       - name: Fetch, validate, and generate AI rule files
         run: |
           python - <<'PY'
           import re
           import urllib.request
+          from collections import defaultdict
           from pathlib import Path
 
           source_url = "https://ddgksf2013.top/filter/Ai.yaml"
           request = urllib.request.Request(source_url, headers={"User-Agent": "Mozilla/5.0"})
           with urllib.request.urlopen(request, timeout=30) as response:
               raw = response.read().decode("utf-8")
-          if not raw.endswith("\n"):
-              raw += "\n"
-
           lines = raw.splitlines()
-          try:
-              payload_index = next(i for i, line in enumerate(lines) if line.strip() == "payload:")
-          except StopIteration:
+          payload_index = next((i for i, line in enumerate(lines) if line.strip() == "payload:"), None)
+          if payload_index is None:
               raise SystemExit("Source YAML has no payload: section")
-
-          rule_pattern = re.compile(r"^(DOMAIN|DOMAIN-SUFFIX),[A-Za-z0-9*._-]+$")
+          rule_pattern = re.compile(r"^(DOMAIN|DOMAIN-SUFFIX),([A-Za-z0-9*._-]+)$")
           copilot_header = "# > Microsoft Copilot"
           copilot_start = next((i for i, line in enumerate(lines) if line.strip() == copilot_header), None)
           if copilot_start is None or copilot_start <= payload_index:
-              raise SystemExit("Source YAML has no Microsoft Copilot section; refusing to update outputs")
-          copilot_end = next((i for i in range(copilot_start + 1, len(lines))
-                              if lines[i].strip().startswith("# > ")), len(lines))
-
+              raise SystemExit("Source YAML has no Microsoft Copilot section")
+          copilot_end = next((i for i in range(copilot_start + 1, len(lines)) if lines[i].strip().startswith("# > ")), len(lines))
           def parse_rule(raw_line):
               item = raw_line.strip()
               if item.startswith("- "):
                   item = item[2:].strip()
-              if not rule_pattern.fullmatch(item):
-                  raise SystemExit(f"Unsupported payload line; refusing to update: {raw_line}")
-              return item
-
-          copilot_rules = [parse_rule(line) for line in lines[copilot_start + 1:copilot_end]
-                           if line.strip() and not line.strip().startswith("#")]
-          if not copilot_rules:
-              raise SystemExit("Microsoft Copilot section contains no supported rules")
-
-          # Strip the complete Copilot section, from its header up to the next section.
+              m = rule_pattern.fullmatch(item)
+              if not m:
+                  raise SystemExit(f"Unsupported payload line: {raw_line}")
+              return m.group(1), m.group(2)
+          def egern_yaml(raw_rules):
+              groups = defaultdict(list)
+              for line in raw_rules:
+                  kind, value = parse_rule(line)
+                  key = "domain_set" if kind == "DOMAIN" else "domain_suffix_set"
+                  groups[key].append(value)
+              out = []
+              for key in ("domain_set", "domain_suffix_set"):
+                  if groups[key]:
+                      out.append(key + ":")
+                      out.extend("  - " + value for value in groups[key])
+              if not out:
+                  raise SystemExit("No rules to emit")
+              return "\\n".join(out) + "\\n"
+          copilot_rules = [line for line in lines[copilot_start + 1:copilot_end] if line.strip() and not line.strip().startswith("#")]
           retained = lines[:copilot_start] + lines[copilot_end:]
-          result = []
-          rules = 0
-          for raw_line in retained[payload_index + 1:]:
-              item = raw_line.strip()
-              if not item:
-                  if result and result[-1] != "":
-                      result.append("")
-                  continue
-              if item.startswith("#"):
-                  result.append(item)
-                  continue
-              rule = parse_rule(raw_line)
-              result.append(rule)
-              rules += 1
-
-          while result and result[-1] == "":
-              result.pop()
-          if rules == 0:
-              raise SystemExit("No supported non-Copilot rules found; refusing to update outputs")
-
+          ai_rules = [line for line in retained[payload_index + 1:] if line.strip() and not line.strip().startswith("#")]
+          if not ai_rules or not copilot_rules:
+              raise SystemExit("AI or Copilot section is empty")
+          # Validate every rule before writing any outputs.
+          ai_yaml = egern_yaml(ai_rules)
+          copilot_yaml = egern_yaml(copilot_rules)
+          clash_lines = retained[:payload_index + 1]
+          clash_lines.extend("  - " + line.strip().removeprefix("- ").strip() if line.strip() and not line.strip().startswith("#") else line for line in retained[payload_index + 1:])
           Path("clash").mkdir(parents=True, exist_ok=True)
-          Path("loon").mkdir(parents=True, exist_ok=True)
-          clash_lines = [line for line in retained[:payload_index + 1]]
-          clash_lines.extend("  - " + line if line and not line.startswith("#") else line
-                             for line in result)
-          Path("clash/moyu_ai.yaml").write_text("\n".join(clash_lines).rstrip() + "\n", encoding="utf-8")
-          Path("loon/moyu_ai.list").write_text("\n".join(result).rstrip() + "\n", encoding="utf-8")
-          Path("clash/copilot.yaml").write_text(
-              "payload:\n# > Microsoft Copilot\n" +
-              "".join("  - " + rule + "\n" for rule in copilot_rules), encoding="utf-8")
-          Path("loon/copilot.list").write_text(
-              "# > Microsoft Copilot\n" + "\n".join(copilot_rules) + "\n", encoding="utf-8")
-          print(f"Validated {rules} AI rules and {len(copilot_rules)} Copilot rules; updated four outputs")
+          Path("egern").mkdir(parents=True, exist_ok=True)
+          Path("clash/moyu_ai.yaml").write_text("\\n".join(clash_lines).rstrip() + "\\n", encoding="utf-8")
+          Path("egern/moyu_ai.yaml").write_text(ai_yaml, encoding="utf-8")
+          Path("clash/copilot.yaml").write_text("payload:\\n# > Microsoft Copilot\\n" + "".join("  - " + line.strip().removeprefix("- ").strip() + "\\n" for line in copilot_rules), encoding="utf-8")
+          Path("egern/copilot.yaml").write_text(copilot_yaml, encoding="utf-8")
+          print(f"Validated and generated {len(ai_rules)} AI and {len(copilot_rules)} Copilot source rules")
           PY
-
       - name: Commit and push outputs if changed
         run: |
-          files="clash/moyu_ai.yaml loon/moyu_ai.list clash/copilot.yaml loon/copilot.list"
+          files="clash/moyu_ai.yaml clash/copilot.yaml egern/moyu_ai.yaml egern/copilot.yaml"
           if git diff --quiet -- $files; then
             echo "Generated rule files did not change."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add clash/moyu_ai.yaml loon/moyu_ai.list clash/copilot.yaml loon/copilot.list
-          git commit -m "chore: update AI and Copilot rules"
+          git add $files
+          git commit -m "chore: update AI rules for Egern"
           git push
