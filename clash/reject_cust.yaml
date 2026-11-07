@@ -1,2 +1,3 @@
-- msmp.abchina.com.cn
-- yunbusiness.ccb.com
+payload:
+  - DOMAIN-SUFFIX,msmp.abchina.com.cn
+  - DOMAIN-SUFFIX,yunbusiness.ccb.com
