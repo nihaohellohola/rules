@@ -1,2 +1,27 @@
 domain_suffix_set:
-  - example-moyu-ai-stub
+  - x.ai
+  - grok.com
+  - novita.ai
+  - claude.ai
+  - nvidia.com
+  - poke.com
+  - interaction.co
+  - instinct.co
+  - instinct.com
+  - tomo.ai
+  - coze.com
+  - dola.ai
+  - heydola.com
+  - ciciai.com
+  - ciciaicdn.com
+  - byteoversea.com
+  - byteintlapi.com
+  - pipopay.com
+  - ttwstatic.com
+  - yhgfb-static.com
+  - itobsnssdk.com
+domain_set:
+  - guzzoni.apple.com
+  - apple-relay.apple.com
+domain_keyword_set:
+  - frontier-sg.larksuite.com

@@ -19,7 +19,6 @@ jobs:
           python - <<'PY'
           import re
           import urllib.request
-          from collections import defaultdict
           from pathlib import Path
 
           source_url = "https://ddgksf2013.top/filter/Ai.yaml"
@@ -40,32 +39,28 @@ jobs:
               item = raw_line.strip()
               if item.startswith("- "):
                   item = item[2:].strip()
-              m = rule_pattern.fullmatch(item)
-              if not m:
+              match = rule_pattern.fullmatch(item)
+              if not match:
                   raise SystemExit(f"Unsupported payload line: {raw_line}")
-              return m.group(1), m.group(2)
-          def egern_yaml(raw_rules):
-              groups = defaultdict(list)
+              return match.group(1), match.group(2)
+          def to_egern(raw_rules):
+              groups = {"domain_set": [], "domain_suffix_set": []}
               for line in raw_rules:
                   kind, value = parse_rule(line)
-                  key = "domain_set" if kind == "DOMAIN" else "domain_suffix_set"
-                  groups[key].append(value)
-              out = []
-              for key in ("domain_set", "domain_suffix_set"):
+                  groups["domain_set" if kind == "DOMAIN" else "domain_suffix_set"].append(value)
+              output = []
+              for key in groups:
                   if groups[key]:
-                      out.append(key + ":")
-                      out.extend("  - " + value for value in groups[key])
-              if not out:
-                  raise SystemExit("No rules to emit")
-              return "\\n".join(out) + "\\n"
+                      output.append(key + ":")
+                      output.extend("  - " + value for value in groups[key])
+              if not output:
+                  raise SystemExit("No supported rules found")
+              return "\\n".join(output) + "\\n"
           copilot_rules = [line for line in lines[copilot_start + 1:copilot_end] if line.strip() and not line.strip().startswith("#")]
           retained = lines[:copilot_start] + lines[copilot_end:]
           ai_rules = [line for line in retained[payload_index + 1:] if line.strip() and not line.strip().startswith("#")]
-          if not ai_rules or not copilot_rules:
-              raise SystemExit("AI or Copilot section is empty")
-          # Validate every rule before writing any outputs.
-          ai_yaml = egern_yaml(ai_rules)
-          copilot_yaml = egern_yaml(copilot_rules)
+          ai_yaml = to_egern(ai_rules)
+          copilot_yaml = to_egern(copilot_rules)
           clash_lines = retained[:payload_index + 1]
           clash_lines.extend("  - " + line.strip().removeprefix("- ").strip() if line.strip() and not line.strip().startswith("#") else line for line in retained[payload_index + 1:])
           Path("clash").mkdir(parents=True, exist_ok=True)
@@ -74,7 +69,7 @@ jobs:
           Path("egern/moyu_ai.yaml").write_text(ai_yaml, encoding="utf-8")
           Path("clash/copilot.yaml").write_text("payload:\\n# > Microsoft Copilot\\n" + "".join("  - " + line.strip().removeprefix("- ").strip() + "\\n" for line in copilot_rules), encoding="utf-8")
           Path("egern/copilot.yaml").write_text(copilot_yaml, encoding="utf-8")
-          print(f"Validated and generated {len(ai_rules)} AI and {len(copilot_rules)} Copilot source rules")
+          print("Generated Egern AI and Copilot rule sets; no Loon output")
           PY
       - name: Commit and push outputs if changed
         run: |
