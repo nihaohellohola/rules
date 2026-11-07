@@ -1,0 +1,8 @@
+domain_set:
+  - onedrive.live.com
+  - login.live.com
+  - photos.onedrive.com
+  - onedrive.com
+  - onedrive.cloud.microsoft
+domain_suffix_set:
+  - 1drv.ms

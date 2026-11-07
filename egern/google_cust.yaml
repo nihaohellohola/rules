@@ -1,0 +1,6 @@
+domain_regex_set:
+  - ^http://google\.com
+domain_suffix_set:
+  - googleadservices.com
+  - clickcease.com
+  - doubleclick.net

@@ -1,0 +1,39 @@
+domain_regex_set:
+  - ^https://static\.blued\.com/patch/530-680-1\.png$
+  - ^https://www\.bldimg\.cn/ad.*
+  - https://argo.blued.cn/blued/promote.*
+  - https://argo.blued.cn/blued/adms/.*
+  - https://argo.blued.cn/blued/splash.*
+  - https://argo.blued.cn/blued/launch/adms
+  - https://social.blued.cn/users/.*/joy
+  - ^https:\/\/social\.blued\.cn\/users\/recommend$
+  - https://.*/users/chatroom/nearby/
+  - https://.*/users/recommend
+  - https://.*/users/call
+  - https://.*/users/chatroom/im/recommend
+  - https://voice.irisgw.cn/users/chatroom/im/recommend
+  - https://voice.blued.cn/users/chatroom/im/recommend
+  - ^https://static\.blued\.com/patch/.*
+  - https://social.irisgw.cn/users/recommend
+  - ^https://www\.bldimg\.cn/nearby/(.*)
+domain_suffix_set:
+  - ugdtimg.com
+  - bkaivl2daed.com
+domain_keyword_set:
+  - bkaivl2daed
+  - tlivesource
+domain_set:
+  - adx.halomobi.com
+  - live-im.blued.cn
+  - apmplus.volces.com
+  - open.youzanyun.com
+  - aaid.uyunad.com
+  - sdkconfig.tlivedns.com
+  - blued.irisdt.cn
+  - rtmp-tencent-play.blued.cn
+  - blued.irisdt.cn
+domain_suffix_set_extra:
+  - gifshow.com
+  - fengkongcloud.com
+  - bluedhealth.com
+  - ctobsnssdk.com
