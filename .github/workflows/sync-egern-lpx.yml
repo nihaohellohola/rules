@@ -19,6 +19,8 @@ jobs:
         with:
           python-version: '3.x'
       - name: Fetch and convert all upstream LPX plugins
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/convert_lpx_to_egern.py
       - name: Commit converted modules
         run: |
