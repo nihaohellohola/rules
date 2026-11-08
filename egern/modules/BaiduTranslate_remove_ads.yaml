@@ -1,0 +1,13 @@
+name: "百度翻译去广告"
+description: "移除开屏广告、横幅广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BaiduTranslate.png"
+mitm:
+  hostnames:
+    - "fanyi-app.baidu.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/fanyi-app\\.baidu\\.com\\/transapp\\/v2\\/api\\/launch\\/config\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/fanyi-app\\.baidu\\.com\\/static\\/react-activity\\/page\\/courseBoutique\\.html\\?/i":
+        reject: true

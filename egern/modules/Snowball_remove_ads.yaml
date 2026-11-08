@@ -1,0 +1,53 @@
+name: "雪球去广告"
+description: "移除开屏广告、各类横幅广告、信息流广告、帖内广告、新用户定向广告、各类弹窗、股票精选推荐、基金精选推荐、聪明的投资者推荐、私募推荐、直播推荐。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Snowball.png"
+mitm:
+  hostnames:
+    - "api.xueqiu.com"
+    - "open.xueqiu.com"
+    - "stock.xueqiu.com"
+    - "fund.xueqiu.com"
+    - "39.103.79.14"
+    - "39.106.97.84"
+    - "47.95.49.75"
+    - "101.201.62.20"
+    - "101.201.62.26"
+    - "101.201.175.228"
+    - "124.250.48.3"
+    - "182.92.145.50"
+    - "182.92.251.113"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/snowpard\\/launch_strategy\\/query\\.json\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/open\\.xueqiu\\.com\\/mpaas\\/config\\/content\\?.+home_visitor_relation_config/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/ucprofile\\/api\\/user\\/batchGetUserBasicInfo\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/lightsnow\\/launch\\/plan\\/bee\\/query\\.json\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/lightsnow\\/optional\\/banner\\/query\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/snowflake-theme\\/query\\/v1\\/hot_event\\/rich_tag_new\\.json\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/query\\/search\\/ai\\/v2\\/recommend_search\\.json\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/query\\/v1\\/hot_event\\/tag\\.json\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/open\\.xueqiu\\.com\\/mpaas\\/config\\/content\\?.+cube_detail_bottom_operation_trade_button/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/recommend-proxy\\/card\\/zj_card\\.json\\?feed_id=207/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/recommend-proxy\\/card\\/portfolio_tab_symbol\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/stock\\.xueqiu\\.com\\/v5\\/stock\\/group\\/recommend\\/default\\/list\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/livestream\\/structure\\/live\\/hotCard\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/fund\\.xueqiu\\.com\\/fundx\\/activity\\/x\\/web\\/c\\/index\\/dataByCode\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/analysis\\/status\\/v4\\/underlying_product\\.json\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xueqiu\\.com\\/rainbow\\/ai\\/question\\/generate\\/status_question\\.json\\?/i":
+        reject-dict: true

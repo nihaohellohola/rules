@@ -1,0 +1,20 @@
+name: "中华万年历去广告"
+description: "移除开屏广告、弹窗、信息流推广，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/EtouchEcalendar.png"
+mitm:
+  hostnames:
+    - "v0-client-lz.rili.cn"
+    - "client-lz.rili.cn"
+http:
+  rewrite:
+    - "/^https:\\/\\/client-lz\\.rili\\.cn\\/lizhi\\/api\\/auth\\/voice_room_entrance\\/list\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/client-lz\\.rili\\.cn\\/lizhi\\/api\\/fortune\\/question_spots\\/panel\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/client-lz\\.rili\\.cn\\/lizhi\\/api\\/jujia\\/flow\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/client-lz\\.rili\\.cn\\/lizhi\\/api\\/album\\/hl_card\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/client-lz\\.rili\\.cn\\/lizhi\\/api\\/fortune\\/overview\\?/i":
+        reject-dict: true

@@ -1,0 +1,15 @@
+name: "慧生活798去广告"
+description: "移除开屏广告、横幅广告，精简底栏。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SmartLife.png"
+mitm:
+  hostnames:
+    - "i.ilife798.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/i\\.ilife798\\.com\\/api\\/v\\d\\/acc\\/score\\/mission-lst$/i":
+        reject-dict: true
+    - "/^https:\\/\\/i\\.ilife798\\.com\\/api\\/v\\d\\/ep\\/lst-simple\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/i\\.ilife798\\.com\\/api\\/v\\d\\/ui\\/app\\/master$/i":
+        reject-dict: true

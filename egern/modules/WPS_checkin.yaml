@@ -1,0 +1,13 @@
+name: "WPS每日签到"
+description: "WPS每日签到并兑换会员，需要进入此插件的主页链接，阅读使用说明操作。"
+author: "小白脸"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/WPS.png"
+mitm:
+  hostnames:
+    - "moapi.wps.cn"
+scriptings:
+  - http_request:
+      name: "捕获Cookie"
+      match: "/^https:\\/\\/moapi\\.wps\\.cn\\/app\\/ios\\/v1\\/app$/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WPS/WPS_checkin.js"
+      body_required: true

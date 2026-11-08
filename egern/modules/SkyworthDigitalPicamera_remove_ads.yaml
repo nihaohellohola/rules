@@ -1,0 +1,11 @@
+name: "创维智慧云去广告"
+description: "移除开屏广告、横幅广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SkyworthDigitalPicamera.png"
+mitm:
+  hostnames:
+    - "app.skyworthdigitaliot.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/app\\.skyworthdigitaliot\\.com\\/skyworthOperation\\/v\\d\\/appOperation\\/allBannerConfig\\?/i":
+        reject-dict: true

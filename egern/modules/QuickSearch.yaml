@@ -1,0 +1,25 @@
+name: "快捷搜索"
+description: "为Safari提供快速切换搜索引擎的能力，在插件列表中点击此插件上的链接查看使用方法。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Safari.png"
+mitm:
+  hostnames:
+    - "duckduckgo.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=bd\\+([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://www.baidu.com/s?wd=${urlMatch.1}"
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=bdimg\\+([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://image.baidu.com/search/index?tn=baiduimage&word=${urlMatch.1}"
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=gimg\\+([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://www.google.com/search?&tbm=isch&q=${urlMatch.1}"
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=b\\+([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://www.bing.com/search?q=${urlMatch.1}"
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=wk\\+([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://zh.wikipedia.org/wiki/${urlMatch.1}"
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=qm\\+([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://www.qimai.cn/search/index/country/cn/search/${urlMatch.1}"
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=gh\\+([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://github.com/search?q=${urlMatch.1}"
+    - "/^https:\\/\\/duckduckgo\\.com\\/\\?q=(?!(?:bd|bdimg|gimg|b|wk|qm|gh)\\+)([^&]+).+/i as urlMatch":
+        redirect: "307, \"https://www.google.com/search?q=${urlMatch.1}"

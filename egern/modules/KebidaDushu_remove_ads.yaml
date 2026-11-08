@@ -1,0 +1,73 @@
+name: "帆书去广告"
+description: "移除弹窗和会员任务，精简首页、听书页面、课程菜单和我的页面。"
+author: "Yuheng0101[https://github.com/Yuheng0101]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KebidaDushu.png"
+mitm:
+  hostnames:
+    - "g*.dushu365.com"
+scriptings:
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/home\\/bookPortal\\/v105\\/category/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/abtest-front\\/banner-modular\\/get/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/resource-orchestration-system\\/book\\/channel\\/v100\\/info/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/fs-member\\/user\\/profile\\/v100\\/detail/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/home\\/bookPortal\\/v111\\/forApp/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/sns-orchestration-system\\/homePage\\/api\\/v100\\/myPage/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/task-orchestration\\/taskCenter\\/api\\/v101\\/taskList/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/resource-orchestration-system\\/book\\/v101\\/content/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "帆书去广告"
+      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/user-orchestration\\/user\\/api\\/v101\\/ceiltip/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https?:\\/\\/popup\\.dushu365\\.com\\/api\\/v2\\/sfo\\/(user_)?popup_(config|display)s/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/config\\/config\\/v\\d+\\/(shortCut|appUpdateUnite|loadingAd)/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/fs-retain\\/trialVip\\/v\\d+\\/requestTrialVipPopDoNotSendReward/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/resource-orchestration-system\\/vipLandingPage\\/v\\d+\\/getVipLandingPageApp/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/fandeng-orch\\/dual2211\\/config/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/fdtalk-orch\\/newcomerzone\\/v\\d+\\/guide/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/fandeng-orch\\/bookboy\\/v\\d+\\/vipPagePop/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/config\\/config\\/v\\d+\\/appConfig/i":
+        reject: true
+    - "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/order-orchestration\\/orderWeb\\/exchange\\/v100\\/showExchangeButton/i":
+        reject: true

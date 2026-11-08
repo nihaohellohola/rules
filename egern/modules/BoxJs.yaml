@@ -1,0 +1,16 @@
+name: "BoxJs"
+description: "JavaScript数据管理器，用于管理脚本储存的数据。使用前请在本插件的详情页面为[PROXY]项分配代理策略。"
+author: "chavyleung[https://github.com/chavyleung]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/BoxJS.png"
+mitm:
+  hostnames:
+    - "boxjs.com"
+    - "boxjs.net"
+    - "*.boxjs.com"
+    - "*.boxjs.net"
+scriptings:
+  - http_request:
+      name: "BoxJS"
+      match: "/^https?:\\/\\/(.+\\.)?boxjs\\.(com|net)/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js"
+      body_required: true

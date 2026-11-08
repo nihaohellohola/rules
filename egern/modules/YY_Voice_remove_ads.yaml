@@ -1,0 +1,20 @@
+name: "YY去广告"
+description: "移除开屏广告、应用内弹窗，精简底栏和我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YY_Voice.png"
+mitm:
+  hostnames:
+    - "yyapp-act-entrance.yy.com"
+    - "yyapp-fastnet.yy.com"
+    - "personal-center.yy.com"
+    - "tab.yy.com"
+    - "data.3g.yy.com"
+    - "yyapp-idx.yy.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/yyapp-fastnet\\.yy\\.com\\/dispatch\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/data\\.3g\\.yy\\.com\\/popup\\/topLiveCardPopup\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/yyapp-act-entrance\\.yy\\.com\\/entrance\\/list\\?/i":
+        reject-dict: true

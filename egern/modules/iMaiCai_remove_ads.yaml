@@ -1,0 +1,31 @@
+name: "小象超市去广告"
+description: "移除开屏广告、应用内弹窗、猜你想买、横幅推广和悬浮窗。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/iMaiCai.png"
+mitm:
+  hostnames:
+    - "portal-portm.meituan.com"
+    - "mall.meituan.com"
+    - "businessapi.ksedt.com"
+scriptings:
+  - http_response:
+      name: "移除下发广告"
+      match: "/^https:\\/\\/portal-portm\\.meituan\\.com\\/horn_ios\\/mergeRequest/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/iMaiCai/iMaiCai_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/mall\\.meituan\\.com\\/api\\/c\\/homepage\\/splash/i":
+        reject-dict: true
+    - "/^https:\\/\\/mall\\.meituan\\.com\\/api\\/c\\/homepage\\/bubble\\/operate\\/info/i":
+        reject-dict: true
+    - "/^https:\\/\\/mall\\.meituan\\.com\\/api\\/c\\/jigsaw\\/code\\/category-banner-\\d+\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/mall\\.meituan\\.com\\/api\\/c\\/poi\\/\\d+\\/order\\/recommend\\/v\\d/i":
+        reject-dict: true
+    - "/^https:\\/\\/mall\\.meituan\\.com\\/api\\/c\\/banner\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/mall\\.meituan\\.com\\/api\\/c\\/poi\\/\\d+\\/personal\\/recommend/i":
+        reject-dict: true
+    - "/^https:\\/\\/businessapi\\.ksedt\\.com\\/signupindex\\/jxlist/i":
+        reject-dict: true

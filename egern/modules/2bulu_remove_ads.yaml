@@ -1,0 +1,15 @@
+name: "两步路户外助手去广告"
+description: "移除开屏广告、弹窗广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/2bulu.png"
+mitm:
+  hostnames:
+    - "helper.2bulu.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/helper\\.2bulu\\.com\\/search\\/searchHotKeyList\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/helper\\.2bulu\\.com\\/promote\\/getAppUserModule\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/helper\\.2bulu\\.com\\/proSpecial\\/allData\\?/i":
+        reject-dict: true

@@ -1,0 +1,17 @@
+name: "快影去广告"
+description: "移除开屏广告、信息流推广、横幅推广，移除悬浮部件。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KwaiVideoeditor.png"
+mitm:
+  hostnames:
+    - "api.kmovie.gifshow.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.kmovie\\.gifshow\\.com\\/rest\\/n\\/kmovie\\/app\\/resource\\/get\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.kmovie\\.gifshow\\.com\\/rest\\/n\\/kmovie\\/app\\/banner\\/common\\/getBannerByType\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.kmovie\\.gifshow\\.com\\/rest\\/n\\/kmovie\\/app\\/merchant\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.kmovie\\.gifshow\\.com\\/rest\\/n\\/kmovie\\/app\\/resource\\/activity\\/pendant\\?/i":
+        reject-dict: true

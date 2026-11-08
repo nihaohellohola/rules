@@ -1,0 +1,12 @@
+name: "夸克扫描王去广告"
+description: "移除弹窗广告、横幅广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QuarkScanking.png"
+mitm:
+  hostnames:
+    - "open-cms-api.quark.cn"
+    - "stars.shuqireader.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/scan-order\\.quark\\.cn\\/api\\/member\\/v1\\/center\\?/i":
+        reject-dict: true

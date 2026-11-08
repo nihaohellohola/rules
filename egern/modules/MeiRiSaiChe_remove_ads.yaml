@@ -1,0 +1,7 @@
+name: "每日赛车去广告"
+description: "移除开屏广告、信息流广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MeiRiSaiChe.png"
+mitm:
+  hostnames:
+    - "api.romielf.com"

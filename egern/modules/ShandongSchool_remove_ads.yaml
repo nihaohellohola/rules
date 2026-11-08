@@ -1,0 +1,33 @@
+name: "闪动校园去广告"
+description: "精简首页和底部导航"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ShandongSchool.png"
+mitm:
+  hostnames:
+    - "api.huachenjie.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/union\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/home\\/getAdPopup$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/street\\/listRecommendBanner$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/street\\/listThemeBanner$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/home\\/activityEntry$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/home\\/promoSlots\\/config$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/channel\\/subject\\/hotspot\\/rank$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/jackpot\\/award\\/home$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/jackpot\\/award\\/lotteryPage$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/jackpot\\/award\\/list$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/mall\\/goods\\/recommend\\/pagePointsGoodsList$/i":
+        reject-dict: true

@@ -1,0 +1,23 @@
+name: "转转去广告"
+description: "移除开屏广告、应用内悬浮窗、信息流推广、商品推荐、首页弹窗，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ZhuanZhuan.png"
+mitm:
+  hostnames:
+    - "app.zhuanzhuan.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/v2\\/zzlogic\\/getOpenScreen$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/v2\\/zzinfoshow\\/getwindvanecardv2$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zzopen\\/popwindow\\/getallpopwin\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zzopen\\/zzbmlogic\\/queryFrontPageWindowInfo\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zzopen\\/ptuserlogic\\/subscribehotrecommend$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zzopen\\/ypmall\\/listData$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/v2\\/zzusercenter\\/myprofilevariouscards$/i":
+        reject-dict: true

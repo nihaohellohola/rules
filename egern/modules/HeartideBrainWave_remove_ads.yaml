@@ -1,0 +1,33 @@
+name: "小睡眠去广告"
+description: "移除开屏广告、信息流广告、弹窗广告、轮播图广告、侧边栏横幅广告，精简搜索页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/HeartideBrainWave.png"
+mitm:
+  hostnames:
+    - "api.psy-1.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/startup\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/user\\/identity\\/ad\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/discover\\/ad$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/home\\/activity\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/newborn\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/my\\/ad\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/search\\/config\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/newborn\\/search\\/ranks\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/search\\/inputs\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/newborn\\/sleeps\\/guides\\/banner\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.psy-1\\.com\\/cosleep\\/newborn\\/search\\/ranks\\/items\\?/i":
+        reject-dict: true

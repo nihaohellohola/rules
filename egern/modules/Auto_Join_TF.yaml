@@ -1,0 +1,9 @@
+name: "自动加入TestFlight"
+description: "自动监控TestFlight名额，一旦有新的名额即刻加入。"
+author: "奶思[https://github.com/fmz200], DecoAri[https://github.com/DecoAri], xream[https://github.com/xream]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TestFlight.png"
+scriptings:
+  - http_request:
+      name: "获取账号令牌"
+      match: "/^https?:\\/\\/testflight\\.apple\\.com\\/v3\\/accounts\\/.*\\/apps$/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/TestFlight/CaptureAccountToken.js"

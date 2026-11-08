@@ -1,0 +1,49 @@
+name: "虎扑去广告"
+description: "移除虎扑开屏广告、首页顶部推广、我的页面多余模块及各类横幅推广。"
+author: "ZenmoFeiShi[https://github.com/ZenmoFeiShi]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/HUPU.png"
+mitm:
+  hostnames:
+    - "games.mobileapi.hupu.com"
+    - "fairy.mobileapi.hupu.com"
+    - "bbs.mobileapi.hupu.com"
+    - "goblin.hupu.com"
+scriptings:
+  - http_response:
+      name: "移除虎扑广告"
+      match: "/^https:\\/\\/fairy\\.mobileapi\\.hupu\\.com\\/mang\\/preview\\/banners/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/HUPU/HUPU_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除虎扑广告"
+      match: "/^https:\\/\\/bbs\\.mobileapi\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/bbsallapi\\/lego\\/data/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/HUPU/HUPU_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除虎扑广告"
+      match: "/^https:\\/\\/games\\.mobileapi\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/buffer\\/hotList/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/HUPU/HUPU_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除虎扑广告"
+      match: "/^https:\\/\\/games\\.mobileapi\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/bplapi\\/user\\/v1\\/more/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/HUPU/HUPU_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/games\\.mobileapi\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/bplapi\\/reddot\\/v1\\/app\\/getReddot/i":
+        reject-dict: true
+    - "/^https:\\/\\/bbs\\.mobileapi\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/(bbsallapi\\/tag\\/v1\\/heatTag|bbsrankapi\\/v1\\/rating\\/list)/i":
+        reject-dict: true
+    - "/^https:\\/\\/games\\.mobileapi\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/search\\/v2\\/(hintkeylist|hotkeylist)/i":
+        reject-dict: true
+    - "/^https:\\/\\/goblin\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/interfaceAd\\/getOther\\/v\\d/i":
+        reject-dict: true
+    - "/^https:\\/\\/goblin\\.hupu\\.com\\/\\d\\/\\d\\.\\d\\.\\d+\\/interfaceAd\\/getOther\\/batch/i":
+        reject-dict: true
+    - "/^https:\\/\\/fairy\\.mobileapi\\.hupu\\.com\\/gallery\\/getmod2/i":
+        reject: true
+    - "/^https:\\/\\/games\\.mobileapi\\.hupu\\.com\\/3\\/8\\.0\\.86\\/bplcommentapi\\/bpl\\/score_tab\\/groups/i":
+        reject-dict: true
+    - "/^https:\\/\\/games\\.mobileapi\\.hupu\\.com\\/3\\/8\\.0\\.86\\/bplapi\\/banner\\/getLocationBanners/i":
+        reject-dict: true

@@ -1,0 +1,25 @@
+name: "墨迹天气去广告"
+description: "移除天气页面横幅、工具栏，移除时景关注页面推荐，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MojiWeather.png"
+mitm:
+  hostnames:
+    - "fcard.api.moji.com"
+    - "vdo.api.moji.com"
+    - "sns.api.moji.com"
+    - "mme.api.moji.com"
+    - "psnlz.api.moji.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/fcard\\.api\\.moji\\.com\\/flycard\\/flyCard\\?/i":
+        reject: true
+    - "/^https:\\/\\/vdo\\.api\\.moji\\.com\\/shortvideo\\/card\\/subscribe$/i":
+        reject-dict: true
+    - "/^https:\\/\\/vdo\\.api\\.moji\\.com\\/shortvideo\\/video\\/index_flow\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/vdo\\.api\\.moji\\.com\\/shortvideo\\/video_user\\/hotGuyRcm\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/vdo\\.api\\.moji\\.com\\/shortvideo\\/zone\\/follow_src_zone\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/sns\\.api\\.moji\\.com\\/user\\/dynamic_v9\\/json\\/someone_interest\\?/i":
+        reject-dict: true

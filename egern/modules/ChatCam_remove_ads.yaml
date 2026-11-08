@@ -1,0 +1,14 @@
+name: "看家王去广告"
+description: "移除开屏广告、横幅广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ChatCam.png"
+mitm:
+  hostnames:
+    - "fast.jfgou.com"
+    - "jiafeigou-1251885898.cos.ap-guangzhou.myqcloud.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/fast\\.jfgou\\.com:1443\\/api\\/web\\/v\\d\\/no\\/app\\/advertisement\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/jiafeigou-1251885898\\.cos\\.ap-guangzhou\\.myqcloud\\.com\\/forever\\/web_server\\/app_config\\/banner_\\d+/i":
+        reject: true

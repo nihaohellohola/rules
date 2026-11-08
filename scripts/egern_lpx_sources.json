@@ -1,6 +1,1377 @@
 [
   {
+    "name": "1.1.1.1.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/1.1.1.1.lpx",
+    "output": "egern/modules/1.1.1.1.yaml"
+  },
+  {
+    "name": "12306_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/12306_remove_ads.lpx",
+    "output": "egern/modules/12306_remove_ads.yaml"
+  },
+  {
+    "name": "123NetWorkDisk_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/123NetWorkDisk_remove_ads.lpx",
+    "output": "egern/modules/123NetWorkDisk_remove_ads.yaml"
+  },
+  {
+    "name": "2bulu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/2bulu_remove_ads.lpx",
+    "output": "egern/modules/2bulu_remove_ads.yaml"
+  },
+  {
+    "name": "360SmartCamera_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/360SmartCamera_remove_ads.lpx",
+    "output": "egern/modules/360SmartCamera_remove_ads.yaml"
+  },
+  {
+    "name": "36Kr_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/36Kr_remove_ads.lpx",
+    "output": "egern/modules/36Kr_remove_ads.yaml"
+  },
+  {
+    "name": "51Job_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/51Job_remove_ads.lpx",
+    "output": "egern/modules/51Job_remove_ads.yaml"
+  },
+  {
+    "name": "555DY_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/555DY_remove_ads.lpx",
+    "output": "egern/modules/555DY_remove_ads.yaml"
+  },
+  {
+    "name": "5EPlay_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/5EPlay_remove_ads.lpx",
+    "output": "egern/modules/5EPlay_remove_ads.yaml"
+  },
+  {
+    "name": "91160_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/91160_remove_ads.lpx",
+    "output": "egern/modules/91160_remove_ads.yaml"
+  },
+  {
+    "name": "Aiinquiry_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Aiinquiry_remove_ads.lpx",
+    "output": "egern/modules/Aiinquiry_remove_ads.yaml"
+  },
+  {
+    "name": "AlcidaeVideo_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/AlcidaeVideo_remove_ads.lpx",
+    "output": "egern/modules/AlcidaeVideo_remove_ads.yaml"
+  },
+  {
+    "name": "AliYunDrive_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/AliYunDrive_remove_ads.lpx",
+    "output": "egern/modules/AliYunDrive_remove_ads.yaml"
+  },
+  {
+    "name": "Amap_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Amap_remove_ads.lpx",
+    "output": "egern/modules/Amap_remove_ads.yaml"
+  },
+  {
+    "name": "AppleWeatherEnhancer.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/AppleWeatherEnhancer.lpx",
+    "output": "egern/modules/AppleWeatherEnhancer.yaml"
+  },
+  {
+    "name": "AutoHome_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/AutoHome_remove_ads.lpx",
+    "output": "egern/modules/AutoHome_remove_ads.yaml"
+  },
+  {
+    "name": "Auto_Join_TF.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Auto_Join_TF.lpx",
+    "output": "egern/modules/Auto_Join_TF.yaml"
+  },
+  {
+    "name": "AxWorkSchedule_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/AxWorkSchedule_remove_ads.lpx",
+    "output": "egern/modules/AxWorkSchedule_remove_ads.yaml"
+  },
+  {
+    "name": "BabyTree_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BabyTree_remove_ads.lpx",
+    "output": "egern/modules/BabyTree_remove_ads.yaml"
+  },
+  {
+    "name": "BaiduMap_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BaiduMap_remove_ads.lpx",
+    "output": "egern/modules/BaiduMap_remove_ads.yaml"
+  },
+  {
+    "name": "BaiduNetDisk_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BaiduNetDisk_remove_ads.lpx",
+    "output": "egern/modules/BaiduNetDisk_remove_ads.yaml"
+  },
+  {
+    "name": "BaiduPhoto_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BaiduPhoto_remove_ads.lpx",
+    "output": "egern/modules/BaiduPhoto_remove_ads.yaml"
+  },
+  {
+    "name": "BaiduSearchWebpage_remove_ads.lpx",
     "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BaiduSearchWebpage_remove_ads.lpx",
     "output": "egern/modules/BaiduSearchWebpage_remove_ads.yaml"
+  },
+  {
+    "name": "BaiduTranslate_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BaiduTranslate_remove_ads.lpx",
+    "output": "egern/modules/BaiduTranslate_remove_ads.yaml"
+  },
+  {
+    "name": "BaiduWenku_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BaiduWenku_remove_ads.lpx",
+    "output": "egern/modules/BaiduWenku_remove_ads.yaml"
+  },
+  {
+    "name": "Baidu_input_method_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Baidu_input_method_remove_ads.lpx",
+    "output": "egern/modules/Baidu_input_method_remove_ads.yaml"
+  },
+  {
+    "name": "Beike_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Beike_remove_ads.lpx",
+    "output": "egern/modules/Beike_remove_ads.yaml"
+  },
+  {
+    "name": "BiliComic_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BiliComic_remove_ads.lpx",
+    "output": "egern/modules/BiliComic_remove_ads.yaml"
+  },
+  {
+    "name": "Bilibili_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Bilibili_remove_ads.lpx",
+    "output": "egern/modules/Bilibili_remove_ads.yaml"
+  },
+  {
+    "name": "BitqiuPan_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BitqiuPan_remove_ads.lpx",
+    "output": "egern/modules/BitqiuPan_remove_ads.yaml"
+  },
+  {
+    "name": "Bixin_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Bixin_remove_ads.lpx",
+    "output": "egern/modules/Bixin_remove_ads.yaml"
+  },
+  {
+    "name": "BlockAdvertisers.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BlockAdvertisers.lpx",
+    "output": "egern/modules/BlockAdvertisers.yaml"
+  },
+  {
+    "name": "Block_HTTPDNS.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Block_HTTPDNS.lpx",
+    "output": "egern/modules/Block_HTTPDNS.yaml"
+  },
+  {
+    "name": "BodianMusic_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BodianMusic_remove_ads.lpx",
+    "output": "egern/modules/BodianMusic_remove_ads.yaml"
+  },
+  {
+    "name": "BooHee_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BooHee_remove_ads.lpx",
+    "output": "egern/modules/BooHee_remove_ads.yaml"
+  },
+  {
+    "name": "BoxJs.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/BoxJs.lpx",
+    "output": "egern/modules/BoxJs.yaml"
+  },
+  {
+    "name": "CCLive_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/CCLive_remove_ads.lpx",
+    "output": "egern/modules/CCLive_remove_ads.yaml"
+  },
+  {
+    "name": "CSG_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/CSG_remove_ads.lpx",
+    "output": "egern/modules/CSG_remove_ads.yaml"
+  },
+  {
+    "name": "Cainiao_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Cainiao_remove_ads.lpx",
+    "output": "egern/modules/Cainiao_remove_ads.yaml"
+  },
+  {
+    "name": "CaixinMedia_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/CaixinMedia_remove_ads.lpx",
+    "output": "egern/modules/CaixinMedia_remove_ads.yaml"
+  },
+  {
+    "name": "CatEarFM_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/CatEarFM_remove_ads.lpx",
+    "output": "egern/modules/CatEarFM_remove_ads.yaml"
+  },
+  {
+    "name": "Cece_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Cece_remove_ads.lpx",
+    "output": "egern/modules/Cece_remove_ads.yaml"
+  },
+  {
+    "name": "ChaoXingStudy_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ChaoXingStudy_remove_ads.lpx",
+    "output": "egern/modules/ChaoXingStudy_remove_ads.yaml"
+  },
+  {
+    "name": "ChatCam_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ChatCam_remove_ads.lpx",
+    "output": "egern/modules/ChatCam_remove_ads.yaml"
+  },
+  {
+    "name": "Chelaile_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Chelaile_remove_ads.lpx",
+    "output": "egern/modules/Chelaile_remove_ads.yaml"
+  },
+  {
+    "name": "ChengFenMiao_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ChengFenMiao_remove_ads.lpx",
+    "output": "egern/modules/ChengFenMiao_remove_ads.yaml"
+  },
+  {
+    "name": "Chuzhan_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Chuzhan_remove_ads.lpx",
+    "output": "egern/modules/Chuzhan_remove_ads.yaml"
+  },
+  {
+    "name": "ColorfulClouds_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ColorfulClouds_remove_ads.lpx",
+    "output": "egern/modules/ColorfulClouds_remove_ads.yaml"
+  },
+  {
+    "name": "CoolApk_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/CoolApk_remove_ads.lpx",
+    "output": "egern/modules/CoolApk_remove_ads.yaml"
+  },
+  {
+    "name": "CosmosPodcast_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/CosmosPodcast_remove_ads.lpx",
+    "output": "egern/modules/CosmosPodcast_remove_ads.yaml"
+  },
+  {
+    "name": "CrazyRope_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/CrazyRope_remove_ads.lpx",
+    "output": "egern/modules/CrazyRope_remove_ads.yaml"
+  },
+  {
+    "name": "DREAME_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DREAME_remove_ads.lpx",
+    "output": "egern/modules/DREAME_remove_ads.yaml"
+  },
+  {
+    "name": "Daily_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Daily_remove_ads.lpx",
+    "output": "egern/modules/Daily_remove_ads.yaml"
+  },
+  {
+    "name": "Damai_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Damai_remove_ads.lpx",
+    "output": "egern/modules/Damai_remove_ads.yaml"
+  },
+  {
+    "name": "Dayima_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Dayima_remove_ads.lpx",
+    "output": "egern/modules/Dayima_remove_ads.yaml"
+  },
+  {
+    "name": "Dewu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Dewu_remove_ads.lpx",
+    "output": "egern/modules/Dewu_remove_ads.yaml"
+  },
+  {
+    "name": "DiDi_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DiDi_remove_ads.lpx",
+    "output": "egern/modules/DiDi_remove_ads.yaml"
+  },
+  {
+    "name": "DidaPincheTaxi_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DidaPincheTaxi_remove_ads.lpx",
+    "output": "egern/modules/DidaPincheTaxi_remove_ads.yaml"
+  },
+  {
+    "name": "DigitalHeartbeat_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DigitalHeartbeat_remove_ads.lpx",
+    "output": "egern/modules/DigitalHeartbeat_remove_ads.yaml"
+  },
+  {
+    "name": "DingdongMaicai_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DingdongMaicai_remove_ads.lpx",
+    "output": "egern/modules/DingdongMaicai_remove_ads.yaml"
+  },
+  {
+    "name": "DjDuoDuo_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DjDuoDuo_remove_ads.lpx",
+    "output": "egern/modules/DjDuoDuo_remove_ads.yaml"
+  },
+  {
+    "name": "Dlabel_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Dlabel_remove_ads.lpx",
+    "output": "egern/modules/Dlabel_remove_ads.yaml"
+  },
+  {
+    "name": "DouBan_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DouBan_remove_ads.lpx",
+    "output": "egern/modules/DouBan_remove_ads.yaml"
+  },
+  {
+    "name": "DoubanRead_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DoubanRead_remove_ads.lpx",
+    "output": "egern/modules/DoubanRead_remove_ads.yaml"
+  },
+  {
+    "name": "Douyu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Douyu_remove_ads.lpx",
+    "output": "egern/modules/Douyu_remove_ads.yaml"
+  },
+  {
+    "name": "DragonRead_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DragonRead_remove_ads.lpx",
+    "output": "egern/modules/DragonRead_remove_ads.yaml"
+  },
+  {
+    "name": "DubbingShow_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DubbingShow_remove_ads.lpx",
+    "output": "egern/modules/DubbingShow_remove_ads.yaml"
+  },
+  {
+    "name": "DuiTang_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/DuiTang_remove_ads.lpx",
+    "output": "egern/modules/DuiTang_remove_ads.yaml"
+  },
+  {
+    "name": "EasyBike_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/EasyBike_remove_ads.lpx",
+    "output": "egern/modules/EasyBike_remove_ads.yaml"
+  },
+  {
+    "name": "EasyCharge_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/EasyCharge_remove_ads.lpx",
+    "output": "egern/modules/EasyCharge_remove_ads.yaml"
+  },
+  {
+    "name": "EcovacsHome_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/EcovacsHome_remove_ads.lpx",
+    "output": "egern/modules/EcovacsHome_remove_ads.yaml"
+  },
+  {
+    "name": "EtouchEcalendar_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/EtouchEcalendar_remove_ads.lpx",
+    "output": "egern/modules/EtouchEcalendar_remove_ads.yaml"
+  },
+  {
+    "name": "FC_Box_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/FC_Box_remove_ads.lpx",
+    "output": "egern/modules/FC_Box_remove_ads.yaml"
+  },
+  {
+    "name": "FenBi_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/FenBi_remove_ads.lpx",
+    "output": "egern/modules/FenBi_remove_ads.yaml"
+  },
+  {
+    "name": "FerrisWheel_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/FerrisWheel_remove_ads.lpx",
+    "output": "egern/modules/FerrisWheel_remove_ads.yaml"
+  },
+  {
+    "name": "Fileball_mount.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Fileball_mount.lpx",
+    "output": "egern/modules/Fileball_mount.yaml"
+  },
+  {
+    "name": "FinanceNews_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/FinanceNews_remove_ads.lpx",
+    "output": "egern/modules/FinanceNews_remove_ads.yaml"
+  },
+  {
+    "name": "FleaMarket_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/FleaMarket_remove_ads.lpx",
+    "output": "egern/modules/FleaMarket_remove_ads.yaml"
+  },
+  {
+    "name": "FlyerTea_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/FlyerTea_remove_ads.lpx",
+    "output": "egern/modules/FlyerTea_remove_ads.yaml"
+  },
+  {
+    "name": "FollowRSS_checkin.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/FollowRSS_checkin.lpx",
+    "output": "egern/modules/FollowRSS_checkin.yaml"
+  },
+  {
+    "name": "Foodie_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Foodie_remove_ads.lpx",
+    "output": "egern/modules/Foodie_remove_ads.yaml"
+  },
+  {
+    "name": "GaoDing_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/GaoDing_remove_ads.lpx",
+    "output": "egern/modules/GaoDing_remove_ads.yaml"
+  },
+  {
+    "name": "Google.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Google.lpx",
+    "output": "egern/modules/Google.yaml"
+  },
+  {
+    "name": "GuideRank_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/GuideRank_remove_ads.lpx",
+    "output": "egern/modules/GuideRank_remove_ads.yaml"
+  },
+  {
+    "name": "HKDouYin_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/HKDouYin_remove_ads.lpx",
+    "output": "egern/modules/HKDouYin_remove_ads.yaml"
+  },
+  {
+    "name": "HUPU_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/HUPU_remove_ads.lpx",
+    "output": "egern/modules/HUPU_remove_ads.yaml"
+  },
+  {
+    "name": "HantingHotels_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/HantingHotels_remove_ads.lpx",
+    "output": "egern/modules/HantingHotels_remove_ads.yaml"
+  },
+  {
+    "name": "HeartideBrainWave_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/HeartideBrainWave_remove_ads.lpx",
+    "output": "egern/modules/HeartideBrainWave_remove_ads.yaml"
+  },
+  {
+    "name": "Himalaya_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Himalaya_remove_ads.lpx",
+    "output": "egern/modules/Himalaya_remove_ads.yaml"
+  },
+  {
+    "name": "HongKongToolbar_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/HongKongToolbar_remove_ads.lpx",
+    "output": "egern/modules/HongKongToolbar_remove_ads.yaml"
+  },
+  {
+    "name": "Huxiu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Huxiu_remove_ads.lpx",
+    "output": "egern/modules/Huxiu_remove_ads.yaml"
+  },
+  {
+    "name": "IPATool.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/IPATool.lpx",
+    "output": "egern/modules/IPATool.yaml"
+  },
+  {
+    "name": "IThome_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/IThome_remove_ads.lpx",
+    "output": "egern/modules/IThome_remove_ads.yaml"
+  },
+  {
+    "name": "JDWaimai_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/JDWaimai_remove_ads.lpx",
+    "output": "egern/modules/JDWaimai_remove_ads.yaml"
+  },
+  {
+    "name": "JD_Price.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/JD_Price.lpx",
+    "output": "egern/modules/JD_Price.yaml"
+  },
+  {
+    "name": "JD_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/JD_remove_ads.lpx",
+    "output": "egern/modules/JD_remove_ads.yaml"
+  },
+  {
+    "name": "JiaKaoBaoDian_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/JiaKaoBaoDian_remove_ads.lpx",
+    "output": "egern/modules/JiaKaoBaoDian_remove_ads.yaml"
+  },
+  {
+    "name": "JiaXiaoDrive_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/JiaXiaoDrive_remove_ads.lpx",
+    "output": "egern/modules/JiaXiaoDrive_remove_ads.yaml"
+  },
+  {
+    "name": "Jin10Data_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Jin10Data_remove_ads.lpx",
+    "output": "egern/modules/Jin10Data_remove_ads.yaml"
+  },
+  {
+    "name": "Jump_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Jump_remove_ads.lpx",
+    "output": "egern/modules/Jump_remove_ads.yaml"
+  },
+  {
+    "name": "KGRing_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KGRing_remove_ads.lpx",
+    "output": "egern/modules/KGRing_remove_ads.yaml"
+  },
+  {
+    "name": "KOOK_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KOOK_remove_ads.lpx",
+    "output": "egern/modules/KOOK_remove_ads.yaml"
+  },
+  {
+    "name": "KebidaDushu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KebidaDushu_remove_ads.lpx",
+    "output": "egern/modules/KebidaDushu_remove_ads.yaml"
+  },
+  {
+    "name": "Keep_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Keep_remove_ads.lpx",
+    "output": "egern/modules/Keep_remove_ads.yaml"
+  },
+  {
+    "name": "KingdeeMyMoney_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KingdeeMyMoney_remove_ads.lpx",
+    "output": "egern/modules/KingdeeMyMoney_remove_ads.yaml"
+  },
+  {
+    "name": "KuGouYouth_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KuGouYouth_remove_ads.lpx",
+    "output": "egern/modules/KuGouYouth_remove_ads.yaml"
+  },
+  {
+    "name": "KuGou_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KuGou_remove_ads.lpx",
+    "output": "egern/modules/KuGou_remove_ads.yaml"
+  },
+  {
+    "name": "KuaiDi100_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KuaiDi100_remove_ads.lpx",
+    "output": "egern/modules/KuaiDi100_remove_ads.yaml"
+  },
+  {
+    "name": "KuaiDuiZuoYe_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KuaiDuiZuoYe_remove_ads.lpx",
+    "output": "egern/modules/KuaiDuiZuoYe_remove_ads.yaml"
+  },
+  {
+    "name": "KuaiKanComic_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KuaiKanComic_remove_ads.lpx",
+    "output": "egern/modules/KuaiKanComic_remove_ads.yaml"
+  },
+  {
+    "name": "KuaiShou_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KuaiShou_remove_ads.lpx",
+    "output": "egern/modules/KuaiShou_remove_ads.yaml"
+  },
+  {
+    "name": "KuroBBS_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KuroBBS_remove_ads.lpx",
+    "output": "egern/modules/KuroBBS_remove_ads.yaml"
+  },
+  {
+    "name": "Kuwo_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Kuwo_remove_ads.lpx",
+    "output": "egern/modules/Kuwo_remove_ads.yaml"
+  },
+  {
+    "name": "KwaiVideoeditor_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/KwaiVideoeditor_remove_ads.lpx",
+    "output": "egern/modules/KwaiVideoeditor_remove_ads.yaml"
+  },
+  {
+    "name": "LOL_Bible_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/LOL_Bible_remove_ads.lpx",
+    "output": "egern/modules/LOL_Bible_remove_ads.yaml"
+  },
+  {
+    "name": "LZMH_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/LZMH_remove_ads.lpx",
+    "output": "egern/modules/LZMH_remove_ads.yaml"
+  },
+  {
+    "name": "Line_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Line_remove_ads.lpx",
+    "output": "egern/modules/Line_remove_ads.yaml"
+  },
+  {
+    "name": "LiveLab_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/LiveLab_remove_ads.lpx",
+    "output": "egern/modules/LiveLab_remove_ads.yaml"
+  },
+  {
+    "name": "LuckinCoffee_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/LuckinCoffee_remove_ads.lpx",
+    "output": "egern/modules/LuckinCoffee_remove_ads.yaml"
+  },
+  {
+    "name": "MKZ_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MKZ_remove_ads.lpx",
+    "output": "egern/modules/MKZ_remove_ads.yaml"
+  },
+  {
+    "name": "MaFengWo_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MaFengWo_remove_ads.lpx",
+    "output": "egern/modules/MaFengWo_remove_ads.yaml"
+  },
+  {
+    "name": "MaiMai_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MaiMai_remove_ads.lpx",
+    "output": "egern/modules/MaiMai_remove_ads.yaml"
+  },
+  {
+    "name": "MailMaster_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MailMaster_remove_ads.lpx",
+    "output": "egern/modules/MailMaster_remove_ads.yaml"
+  },
+  {
+    "name": "MangoTV_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MangoTV_remove_ads.lpx",
+    "output": "egern/modules/MangoTV_remove_ads.yaml"
+  },
+  {
+    "name": "MeetYou_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MeetYou_remove_ads.lpx",
+    "output": "egern/modules/MeetYou_remove_ads.yaml"
+  },
+  {
+    "name": "MeiRiSaiChe_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MeiRiSaiChe_remove_ads.lpx",
+    "output": "egern/modules/MeiRiSaiChe_remove_ads.yaml"
+  },
+  {
+    "name": "MeiShiJie_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MeiShiJie_remove_ads.lpx",
+    "output": "egern/modules/MeiShiJie_remove_ads.yaml"
+  },
+  {
+    "name": "MeiTu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MeiTu_remove_ads.lpx",
+    "output": "egern/modules/MeiTu_remove_ads.yaml"
+  },
+  {
+    "name": "MeituMYXJ_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MeituMYXJ_remove_ads.lpx",
+    "output": "egern/modules/MeituMYXJ_remove_ads.yaml"
+  },
+  {
+    "name": "Meizhixiuxing_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Meizhixiuxing_remove_ads.lpx",
+    "output": "egern/modules/Meizhixiuxing_remove_ads.yaml"
+  },
+  {
+    "name": "MiaoRead_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MiaoRead_remove_ads.lpx",
+    "output": "egern/modules/MiaoRead_remove_ads.yaml"
+  },
+  {
+    "name": "MoeGirlWiki_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MoeGirlWiki_remove_ads.lpx",
+    "output": "egern/modules/MoeGirlWiki_remove_ads.yaml"
+  },
+  {
+    "name": "MojiWeather_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MojiWeather_remove_ads.lpx",
+    "output": "egern/modules/MojiWeather_remove_ads.yaml"
+  },
+  {
+    "name": "MotorFans_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MotorFans_remove_ads.lpx",
+    "output": "egern/modules/MotorFans_remove_ads.yaml"
+  },
+  {
+    "name": "MrHema_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MrHema_remove_ads.lpx",
+    "output": "egern/modules/MrHema_remove_ads.yaml"
+  },
+  {
+    "name": "MyFriday_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/MyFriday_remove_ads.lpx",
+    "output": "egern/modules/MyFriday_remove_ads.yaml"
+  },
+  {
+    "name": "NarwelRobots_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/NarwelRobots_remove_ads.lpx",
+    "output": "egern/modules/NarwelRobots_remove_ads.yaml"
+  },
+  {
+    "name": "NetEaseGodlike_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/NetEaseGodlike_remove_ads.lpx",
+    "output": "egern/modules/NetEaseGodlike_remove_ads.yaml"
+  },
+  {
+    "name": "NeteaseCloudMusic_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/NeteaseCloudMusic_remove_ads.lpx",
+    "output": "egern/modules/NeteaseCloudMusic_remove_ads.yaml"
+  },
+  {
+    "name": "NeteaseNews_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/NeteaseNews_remove_ads.lpx",
+    "output": "egern/modules/NeteaseNews_remove_ads.yaml"
+  },
+  {
+    "name": "NodeLinkCheck.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/NodeLinkCheck.lpx",
+    "output": "egern/modules/NodeLinkCheck.yaml"
+  },
+  {
+    "name": "Node_detection_tool.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Node_detection_tool.lpx",
+    "output": "egern/modules/Node_detection_tool.yaml"
+  },
+  {
+    "name": "OKOK_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/OKOK_remove_ads.lpx",
+    "output": "egern/modules/OKOK_remove_ads.yaml"
+  },
+  {
+    "name": "OnTheWay_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/OnTheWay_remove_ads.lpx",
+    "output": "egern/modules/OnTheWay_remove_ads.yaml"
+  },
+  {
+    "name": "OraySunlogin_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/OraySunlogin_remove_ads.lpx",
+    "output": "egern/modules/OraySunlogin_remove_ads.yaml"
+  },
+  {
+    "name": "PICC_Insurance_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/PICC_Insurance_remove_ads.lpx",
+    "output": "egern/modules/PICC_Insurance_remove_ads.yaml"
+  },
+  {
+    "name": "PICOOC_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/PICOOC_remove_ads.lpx",
+    "output": "egern/modules/PICOOC_remove_ads.yaml"
+  },
+  {
+    "name": "PangguaiLife_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/PangguaiLife_remove_ads.lpx",
+    "output": "egern/modules/PangguaiLife_remove_ads.yaml"
+  },
+  {
+    "name": "PerfectWorldEsport_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/PerfectWorldEsport_remove_ads.lpx",
+    "output": "egern/modules/PerfectWorldEsport_remove_ads.yaml"
+  },
+  {
+    "name": "PiPiXia_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/PiPiXia_remove_ads.lpx",
+    "output": "egern/modules/PiPiXia_remove_ads.yaml"
+  },
+  {
+    "name": "PinDuoDuo_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/PinDuoDuo_remove_ads.lpx",
+    "output": "egern/modules/PinDuoDuo_remove_ads.yaml"
+  },
+  {
+    "name": "Pinterest_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Pinterest_remove_ads.lpx",
+    "output": "egern/modules/Pinterest_remove_ads.yaml"
+  },
+  {
+    "name": "Prevent_DNS_Leaks.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Prevent_DNS_Leaks.lpx",
+    "output": "egern/modules/Prevent_DNS_Leaks.yaml"
+  },
+  {
+    "name": "PuPuMall_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/PuPuMall_remove_ads.lpx",
+    "output": "egern/modules/PuPuMall_remove_ads.yaml"
+  },
+  {
+    "name": "QQKSong_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QQKSong_remove_ads.lpx",
+    "output": "egern/modules/QQKSong_remove_ads.yaml"
+  },
+  {
+    "name": "QQMusic_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QQMusic_remove_ads.lpx",
+    "output": "egern/modules/QQMusic_remove_ads.yaml"
+  },
+  {
+    "name": "QQ_Redirect.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QQ_Redirect.lpx",
+    "output": "egern/modules/QQ_Redirect.yaml"
+  },
+  {
+    "name": "Qbb_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Qbb_remove_ads.lpx",
+    "output": "egern/modules/Qbb_remove_ads.yaml"
+  },
+  {
+    "name": "QiDian_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QiDian_remove_ads.lpx",
+    "output": "egern/modules/QiDian_remove_ads.yaml"
+  },
+  {
+    "name": "QiXinBao_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QiXinBao_remove_ads.lpx",
+    "output": "egern/modules/QiXinBao_remove_ads.yaml"
+  },
+  {
+    "name": "QtingFM_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QtingFM_remove_ads.lpx",
+    "output": "egern/modules/QtingFM_remove_ads.yaml"
+  },
+  {
+    "name": "QuarkBrowser_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QuarkBrowser_remove_ads.lpx",
+    "output": "egern/modules/QuarkBrowser_remove_ads.yaml"
+  },
+  {
+    "name": "QuarkScanking_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QuarkScanking_remove_ads.lpx",
+    "output": "egern/modules/QuarkScanking_remove_ads.yaml"
+  },
+  {
+    "name": "QuickSearch.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/QuickSearch.lpx",
+    "output": "egern/modules/QuickSearch.yaml"
+  },
+  {
+    "name": "RQrun_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/RQrun_remove_ads.lpx",
+    "output": "egern/modules/RQrun_remove_ads.yaml"
+  },
+  {
+    "name": "RedPaper_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/RedPaper_remove_ads.lpx",
+    "output": "egern/modules/RedPaper_remove_ads.yaml"
+  },
+  {
+    "name": "Reddit_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Reddit_remove_ads.lpx",
+    "output": "egern/modules/Reddit_remove_ads.yaml"
+  },
+  {
+    "name": "ReelShort_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ReelShort_remove_ads.lpx",
+    "output": "egern/modules/ReelShort_remove_ads.yaml"
+  },
+  {
+    "name": "Remove_ads_by_keli.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Remove_ads_by_keli.lpx",
+    "output": "egern/modules/Remove_ads_by_keli.yaml"
+  },
+  {
+    "name": "RiskBird_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/RiskBird_remove_ads.lpx",
+    "output": "egern/modules/RiskBird_remove_ads.yaml"
+  },
+  {
+    "name": "RoboTaxi_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/RoboTaxi_remove_ads.lpx",
+    "output": "egern/modules/RoboTaxi_remove_ads.yaml"
+  },
+  {
+    "name": "Roborock_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Roborock_remove_ads.lpx",
+    "output": "egern/modules/Roborock_remove_ads.yaml"
+  },
+  {
+    "name": "SF-Express_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SF-Express_remove_ads.lpx",
+    "output": "egern/modules/SF-Express_remove_ads.yaml"
+  },
+  {
+    "name": "SafetyHome_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SafetyHome_remove_ads.lpx",
+    "output": "egern/modules/SafetyHome_remove_ads.yaml"
+  },
+  {
+    "name": "Script-Hub.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Script-Hub.lpx",
+    "output": "egern/modules/Script-Hub.yaml"
+  },
+  {
+    "name": "SeasunJX3_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SeasunJX3_remove_ads.lpx",
+    "output": "egern/modules/SeasunJX3_remove_ads.yaml"
+  },
+  {
+    "name": "SevenCat_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SevenCat_remove_ads.lpx",
+    "output": "egern/modules/SevenCat_remove_ads.yaml"
+  },
+  {
+    "name": "ShandongSchool_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ShandongSchool_remove_ads.lpx",
+    "output": "egern/modules/ShandongSchool_remove_ads.yaml"
+  },
+  {
+    "name": "ShopKeeperAdmin_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ShopKeeperAdmin_remove_ads.lpx",
+    "output": "egern/modules/ShopKeeperAdmin_remove_ads.yaml"
+  },
+  {
+    "name": "ShouYinTongMerchant_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ShouYinTongMerchant_remove_ads.lpx",
+    "output": "egern/modules/ShouYinTongMerchant_remove_ads.yaml"
+  },
+  {
+    "name": "ShoujiDesk_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ShoujiDesk_remove_ads.lpx",
+    "output": "egern/modules/ShoujiDesk_remove_ads.yaml"
+  },
+  {
+    "name": "ShuQiCenterReader_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ShuQiCenterReader_remove_ads.lpx",
+    "output": "egern/modules/ShuQiCenterReader_remove_ads.yaml"
+  },
+  {
+    "name": "SinaStock_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SinaStock_remove_ads.lpx",
+    "output": "egern/modules/SinaStock_remove_ads.yaml"
+  },
+  {
+    "name": "SkyworthDigitalPicamera_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SkyworthDigitalPicamera_remove_ads.lpx",
+    "output": "egern/modules/SkyworthDigitalPicamera_remove_ads.yaml"
+  },
+  {
+    "name": "SmartLife_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SmartLife_remove_ads.lpx",
+    "output": "egern/modules/SmartLife_remove_ads.yaml"
+  },
+  {
+    "name": "SnailSleep_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SnailSleep_remove_ads.lpx",
+    "output": "egern/modules/SnailSleep_remove_ads.yaml"
+  },
+  {
+    "name": "SnowCamera_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SnowCamera_remove_ads.lpx",
+    "output": "egern/modules/SnowCamera_remove_ads.yaml"
+  },
+  {
+    "name": "Snowball_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Snowball_remove_ads.lpx",
+    "output": "egern/modules/Snowball_remove_ads.yaml"
+  },
+  {
+    "name": "SodaMusic_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SodaMusic_remove_ads.lpx",
+    "output": "egern/modules/SodaMusic_remove_ads.yaml"
+  },
+  {
+    "name": "Sofascore_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Sofascore_remove_ads.lpx",
+    "output": "egern/modules/Sofascore_remove_ads.yaml"
+  },
+  {
+    "name": "Soul_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Soul_remove_ads.lpx",
+    "output": "egern/modules/Soul_remove_ads.yaml"
+  },
+  {
+    "name": "Spotify_lyrics_translation.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Spotify_lyrics_translation.lpx",
+    "output": "egern/modules/Spotify_lyrics_translation.yaml"
+  },
+  {
+    "name": "Spotify_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Spotify_remove_ads.lpx",
+    "output": "egern/modules/Spotify_remove_ads.yaml"
+  },
+  {
+    "name": "SuZhouCitizenCard_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/SuZhouCitizenCard_remove_ads.lpx",
+    "output": "egern/modules/SuZhouCitizenCard_remove_ads.yaml"
+  },
+  {
+    "name": "Sub-Store.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Sub-Store.lpx",
+    "output": "egern/modules/Sub-Store.yaml"
+  },
+  {
+    "name": "TCLnScreen_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TCLnScreen_remove_ads.lpx",
+    "output": "egern/modules/TCLnScreen_remove_ads.yaml"
+  },
+  {
+    "name": "TV_Assistant_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TV_Assistant_remove_ads.lpx",
+    "output": "egern/modules/TV_Assistant_remove_ads.yaml"
+  },
+  {
+    "name": "TXDocs_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TXDocs_remove_ads.lpx",
+    "output": "egern/modules/TXDocs_remove_ads.yaml"
+  },
+  {
+    "name": "TaobaoTravel_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TaobaoTravel_remove_ads.lpx",
+    "output": "egern/modules/TaobaoTravel_remove_ads.yaml"
+  },
+  {
+    "name": "Taobao_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Taobao_remove_ads.lpx",
+    "output": "egern/modules/Taobao_remove_ads.yaml"
+  },
+  {
+    "name": "Taopiaopiao_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Taopiaopiao_remove_ads.lpx",
+    "output": "egern/modules/Taopiaopiao_remove_ads.yaml"
+  },
+  {
+    "name": "Taqu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Taqu_remove_ads.lpx",
+    "output": "egern/modules/Taqu_remove_ads.yaml"
+  },
+  {
+    "name": "TelegramRedirect.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TelegramRedirect.lpx",
+    "output": "egern/modules/TelegramRedirect.yaml"
+  },
+  {
+    "name": "Tencent_Video_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Tencent_Video_remove_ads.lpx",
+    "output": "egern/modules/Tencent_Video_remove_ads.yaml"
+  },
+  {
+    "name": "TeraBox_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TeraBox_remove_ads.lpx",
+    "output": "egern/modules/TeraBox_remove_ads.yaml"
+  },
+  {
+    "name": "TestFlightRegionUnlock.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TestFlightRegionUnlock.lpx",
+    "output": "egern/modules/TestFlightRegionUnlock.yaml"
+  },
+  {
+    "name": "TianQiTong_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TianQiTong_remove_ads.lpx",
+    "output": "egern/modules/TianQiTong_remove_ads.yaml"
+  },
+  {
+    "name": "Tieba_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Tieba_remove_ads.lpx",
+    "output": "egern/modules/Tieba_remove_ads.yaml"
+  },
+  {
+    "name": "TmallCampus_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TmallCampus_remove_ads.lpx",
+    "output": "egern/modules/TmallCampus_remove_ads.yaml"
+  },
+  {
+    "name": "TuGuaiShou_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TuGuaiShou_remove_ads.lpx",
+    "output": "egern/modules/TuGuaiShou_remove_ads.yaml"
+  },
+  {
+    "name": "TubeMax_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/TubeMax_remove_ads.lpx",
+    "output": "egern/modules/TubeMax_remove_ads.yaml"
+  },
+  {
+    "name": "Tumblr_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Tumblr_remove_ads.lpx",
+    "output": "egern/modules/Tumblr_remove_ads.yaml"
+  },
+  {
+    "name": "Uki_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Uki_remove_ads.lpx",
+    "output": "egern/modules/Uki_remove_ads.yaml"
+  },
+  {
+    "name": "Umetrip_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Umetrip_remove_ads.lpx",
+    "output": "egern/modules/Umetrip_remove_ads.yaml"
+  },
+  {
+    "name": "UnnooQuan_remove_watermark.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/UnnooQuan_remove_watermark.lpx",
+    "output": "egern/modules/UnnooQuan_remove_watermark.yaml"
+  },
+  {
+    "name": "VVebo_repair.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/VVebo_repair.lpx",
+    "output": "egern/modules/VVebo_repair.yaml"
+  },
+  {
+    "name": "ValorantBible_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ValorantBible_remove_ads.lpx",
+    "output": "egern/modules/ValorantBible_remove_ads.yaml"
+  },
+  {
+    "name": "VideoGo_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/VideoGo_remove_ads.lpx",
+    "output": "egern/modules/VideoGo_remove_ads.yaml"
+  },
+  {
+    "name": "WARP_Node_Query.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WARP_Node_Query.lpx",
+    "output": "egern/modules/WARP_Node_Query.yaml"
+  },
+  {
+    "name": "WPForum_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WPForum_remove_ads.lpx",
+    "output": "egern/modules/WPForum_remove_ads.yaml"
+  },
+  {
+    "name": "WPS_Documents_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WPS_Documents_remove_ads.lpx",
+    "output": "egern/modules/WPS_Documents_remove_ads.yaml"
+  },
+  {
+    "name": "WPS_checkin.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WPS_checkin.lpx",
+    "output": "egern/modules/WPS_checkin.yaml"
+  },
+  {
+    "name": "WaCaiJiZhang_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WaCaiJiZhang_remove_ads.lpx",
+    "output": "egern/modules/WaCaiJiZhang_remove_ads.yaml"
+  },
+  {
+    "name": "Wacai_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Wacai_remove_ads.lpx",
+    "output": "egern/modules/Wacai_remove_ads.yaml"
+  },
+  {
+    "name": "WakeupSchedule_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WakeupSchedule_remove_ads.lpx",
+    "output": "egern/modules/WakeupSchedule_remove_ads.yaml"
+  },
+  {
+    "name": "Walmart_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Walmart_remove_ads.lpx",
+    "output": "egern/modules/Walmart_remove_ads.yaml"
+  },
+  {
+    "name": "WeatherChina_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WeatherChina_remove_ads.lpx",
+    "output": "egern/modules/WeatherChina_remove_ads.yaml"
+  },
+  {
+    "name": "Weibo_intl_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Weibo_intl_remove_ads.lpx",
+    "output": "egern/modules/Weibo_intl_remove_ads.yaml"
+  },
+  {
+    "name": "Weibo_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Weibo_remove_ads.lpx",
+    "output": "egern/modules/Weibo_remove_ads.yaml"
+  },
+  {
+    "name": "Weidian_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Weidian_remove_ads.lpx",
+    "output": "egern/modules/Weidian_remove_ads.yaml"
+  },
+  {
+    "name": "Weimai_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Weimai_remove_ads.lpx",
+    "output": "egern/modules/Weimai_remove_ads.yaml"
+  },
+  {
+    "name": "Weixin_Official_Accounts_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Weixin_Official_Accounts_remove_ads.lpx",
+    "output": "egern/modules/Weixin_Official_Accounts_remove_ads.yaml"
+  },
+  {
+    "name": "Weixin_external_links_unlock.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Weixin_external_links_unlock.lpx",
+    "output": "egern/modules/Weixin_external_links_unlock.yaml"
+  },
+  {
+    "name": "WexinMiniPrograms_Remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WexinMiniPrograms_Remove_ads.lpx",
+    "output": "egern/modules/WexinMiniPrograms_Remove_ads.yaml"
+  },
+  {
+    "name": "WutaCamera_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/WutaCamera_remove_ads.lpx",
+    "output": "egern/modules/WutaCamera_remove_ads.yaml"
+  },
+  {
+    "name": "XFuse_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XFuse_remove_ads.lpx",
+    "output": "egern/modules/XFuse_remove_ads.yaml"
+  },
+  {
+    "name": "XiaChuFang_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XiaChuFang_remove_ads.lpx",
+    "output": "egern/modules/XiaChuFang_remove_ads.yaml"
+  },
+  {
+    "name": "XiaoCan_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XiaoCan_remove_ads.lpx",
+    "output": "egern/modules/XiaoCan_remove_ads.yaml"
+  },
+  {
+    "name": "XiaoHeiHe_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XiaoHeiHe_remove_ads.lpx",
+    "output": "egern/modules/XiaoHeiHe_remove_ads.yaml"
+  },
+  {
+    "name": "XiaobaiPrint_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XiaobaiPrint_remove_ads.lpx",
+    "output": "egern/modules/XiaobaiPrint_remove_ads.yaml"
+  },
+  {
+    "name": "XiaojukejiCharge_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XiaojukejiCharge_remove_ads.lpx",
+    "output": "egern/modules/XiaojukejiCharge_remove_ads.yaml"
+  },
+  {
+    "name": "XiaomiSpeaker_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XiaomiSpeaker_remove_ads.lpx",
+    "output": "egern/modules/XiaomiSpeaker_remove_ads.yaml"
+  },
+  {
+    "name": "XunLei_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/XunLei_remove_ads.lpx",
+    "output": "egern/modules/XunLei_remove_ads.yaml"
+  },
+  {
+    "name": "YYVoiceTool_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YYVoiceTool_remove_ads.lpx",
+    "output": "egern/modules/YYVoiceTool_remove_ads.yaml"
+  },
+  {
+    "name": "YY_Voice_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YY_Voice_remove_ads.lpx",
+    "output": "egern/modules/YY_Voice_remove_ads.yaml"
+  },
+  {
+    "name": "YiKaoBang_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YiKaoBang_remove_ads.lpx",
+    "output": "egern/modules/YiKaoBang_remove_ads.yaml"
+  },
+  {
+    "name": "YiSchool_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YiSchool_remove_ads.lpx",
+    "output": "egern/modules/YiSchool_remove_ads.yaml"
+  },
+  {
+    "name": "Yitian_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Yitian_remove_ads.lpx",
+    "output": "egern/modules/Yitian_remove_ads.yaml"
+  },
+  {
+    "name": "YouKu_Video_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YouKu_Video_remove_ads.lpx",
+    "output": "egern/modules/YouKu_Video_remove_ads.yaml"
+  },
+  {
+    "name": "YouTubeSubtitlesTranslation.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YouTubeSubtitlesTranslation.lpx",
+    "output": "egern/modules/YouTubeSubtitlesTranslation.yaml"
+  },
+  {
+    "name": "YouTube_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YouTube_remove_ads.lpx",
+    "output": "egern/modules/YouTube_remove_ads.yaml"
+  },
+  {
+    "name": "YoudaoDict_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YoudaoDict_remove_ads.lpx",
+    "output": "egern/modules/YoudaoDict_remove_ads.yaml"
+  },
+  {
+    "name": "YoudaoNote_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YoudaoNote_remove_ads.lpx",
+    "output": "egern/modules/YoudaoNote_remove_ads.yaml"
+  },
+  {
+    "name": "YoudaoTrans_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YoudaoTrans_remove_ads.lpx",
+    "output": "egern/modules/YoudaoTrans_remove_ads.yaml"
+  },
+  {
+    "name": "YueDanBa_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YueDanBa_remove_ads.lpx",
+    "output": "egern/modules/YueDanBa_remove_ads.yaml"
+  },
+  {
+    "name": "Yueyou_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Yueyou_remove_ads.lpx",
+    "output": "egern/modules/Yueyou_remove_ads.yaml"
+  },
+  {
+    "name": "YunmaiScale_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/YunmaiScale_remove_ads.lpx",
+    "output": "egern/modules/YunmaiScale_remove_ads.yaml"
+  },
+  {
+    "name": "ZAKER_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ZAKER_remove_ads.lpx",
+    "output": "egern/modules/ZAKER_remove_ads.yaml"
+  },
+  {
+    "name": "ZhiLianZhaoPin_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ZhiLianZhaoPin_remove_ads.lpx",
+    "output": "egern/modules/ZhiLianZhaoPin_remove_ads.yaml"
+  },
+  {
+    "name": "Zhibo8_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Zhibo8_remove_ads.lpx",
+    "output": "egern/modules/Zhibo8_remove_ads.yaml"
+  },
+  {
+    "name": "Zhihu_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/Zhihu_remove_ads.lpx",
+    "output": "egern/modules/Zhihu_remove_ads.yaml"
+  },
+  {
+    "name": "ZhuanZhuan_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ZhuanZhuan_remove_ads.lpx",
+    "output": "egern/modules/ZhuanZhuan_remove_ads.yaml"
+  },
+  {
+    "name": "ZongHeng_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ZongHeng_remove_ads.lpx",
+    "output": "egern/modules/ZongHeng_remove_ads.yaml"
+  },
+  {
+    "name": "ZuiYou_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ZuiYou_remove_ads.lpx",
+    "output": "egern/modules/ZuiYou_remove_ads.yaml"
+  },
+  {
+    "name": "iMaiCai_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/iMaiCai_remove_ads.lpx",
+    "output": "egern/modules/iMaiCai_remove_ads.yaml"
+  },
+  {
+    "name": "iQiYi_Video_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/iQiYi_Video_remove_ads.lpx",
+    "output": "egern/modules/iQiYi_Video_remove_ads.yaml"
+  },
+  {
+    "name": "iReaderCityWeather_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/iReaderCityWeather_remove_ads.lpx",
+    "output": "egern/modules/iReaderCityWeather_remove_ads.yaml"
+  },
+  {
+    "name": "iReaderDejian_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/iReaderDejian_remove_ads.lpx",
+    "output": "egern/modules/iReaderDejian_remove_ads.yaml"
+  },
+  {
+    "name": "iReader_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/iReader_remove_ads.lpx",
+    "output": "egern/modules/iReader_remove_ads.yaml"
+  },
+  {
+    "name": "iWallBiZhi_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/iWallBiZhi_remove_ads.lpx",
+    "output": "egern/modules/iWallBiZhi_remove_ads.yaml"
+  },
+  {
+    "name": "ifengNews_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/ifengNews_remove_ads.lpx",
+    "output": "egern/modules/ifengNews_remove_ads.yaml"
+  },
+  {
+    "name": "marki_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/marki_remove_ads.lpx",
+    "output": "egern/modules/marki_remove_ads.yaml"
+  },
+  {
+    "name": "miHoYoBBS_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/miHoYoBBS_remove_ads.lpx",
+    "output": "egern/modules/miHoYoBBS_remove_ads.yaml"
+  },
+  {
+    "name": "mobileClouds_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/mobileClouds_remove_ads.lpx",
+    "output": "egern/modules/mobileClouds_remove_ads.yaml"
+  },
+  {
+    "name": "smzdm_remove_ads.lpx",
+    "url": "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/smzdm_remove_ads.lpx",
+    "output": "egern/modules/smzdm_remove_ads.yaml"
   }
 ]

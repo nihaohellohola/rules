@@ -1,0 +1,22 @@
+name: "全民K歌去广告"
+description: "移除开屏广告、歌房页面弹窗广告、消息页广告和我的页面广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QQKSong.png"
+mitm:
+  hostnames:
+    - "wallpaper-1258344696.file.myqcloud.com"
+    - "amsweb-cdn-*-1258344696.file.myqcloud.com"
+    - "wnsaviator.kg.qq.com"
+    - "tmeadkg.y.qq.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/wallpaper-\\d+\\.file\\.myqcloud\\.com\\/dsl\\//i":
+        reject-dict: true
+    - "/^https?:\\/\\/wallpaper-\\d+\\.file\\.myqcloud\\.com\\/hikari\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/amsweb-cdn-\\S+-\\d+\\.file\\.myqcloud\\.com\\/video\\/ad_profile\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/tmeadkg\\.y\\.qq\\.com\\/maproxy\\/getAd$/i":
+        reject: true
+    - "/^https:\\/\\/wnsaviator\\.kg\\.qq\\.com\\/wnsaviator\\/api\\/v1\\/transMerge\\?_webcgikey=get_activity_entry$/i":
+        reject-dict: true

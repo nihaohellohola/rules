@@ -1,0 +1,8 @@
+name: "迅雷去广告"
+description: "移除开屏广告、首页横幅广告、左上角广告入口，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XunLei.png"
+mitm:
+  hostnames:
+    - "conf-m-ssl.xunlei.com"
+    - "api-shoulei-ssl.xunlei.com"

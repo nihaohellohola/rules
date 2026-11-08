@@ -1,0 +1,15 @@
+name: "萌娘百科去广告"
+description: "移除开屏广告、弹窗、首页横幅。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MoeGirlWiki.png"
+mitm:
+  hostnames:
+    - "grpc.moegirl.org.cn"
+http:
+  rewrite:
+    - "/^https:\\/\\/grpc\\.moegirl\\.org\\.cn\\/moegirl\\.moepad\\.MoepadAppMetaService\\/GetAppInitialInfo$/i":
+        reject: true
+    - "/^https:\\/\\/grpc\\.moegirl\\.org\\.cn\\/moegirl\\.moepad\\.MoepadService\\/GetLaunchAdPage$/i":
+        reject: true
+    - "/^https:\\/\\/grpc\\.moegirl\\.org\\.cn\\/moegirl\\.moepad\\.MoepadService\\/GetFeedAdProbability$/i":
+        reject: true

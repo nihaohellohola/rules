@@ -1,0 +1,33 @@
+name: "测测去广告"
+description: "移除开屏广告、活动皮肤、各类弹窗及横幅、金刚位红点文字，精简首页标签及搜索页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Cece.png"
+mitm:
+  hostnames:
+    - "api.cece.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.cece\\.com\\/user\\/index\\/banners\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/ask\\/ai_chat\\/popup\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/user\\/popup\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/chart\\/easter_egg\\/popup\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/user\\/register_task\\/notice_task\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/ask\\/ask\\/alert_minus\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/msgAsk\\/question\\/new_coupon_status\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/user\\/user\\/myPageBanner\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/live\\/recommend\\/new_user\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/chart\\/tools\\/get_search_recommend\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/user\\/rank\\/list\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.cece\\.com\\/chart\\/config\\/chart_activity\\?/i":
+        reject-dict: true

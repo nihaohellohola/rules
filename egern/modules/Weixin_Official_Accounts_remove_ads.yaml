@@ -1,0 +1,13 @@
+name: "微信公众号去广告"
+description: "过滤微信公众号广告"
+author: "RuCu6[https://github.com/RuCu6]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weixin.png"
+mitm:
+  hostnames:
+    - "mp.weixin.qq.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/mp\\.weixin\\.qq\\.com\\/mp\\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/mp\\.weixin\\.qq\\.com\\/mp\\/relatedsearchword/i":
+        reject-dict: true

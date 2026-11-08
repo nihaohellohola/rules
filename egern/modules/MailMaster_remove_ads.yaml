@@ -1,0 +1,16 @@
+name: "网易邮箱大师去广告"
+description: "移除网易邮箱大师开屏广告、签到任务提醒，精简侧拉抽屉和我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MailMaster.png"
+mitm:
+  hostnames:
+    - "appconf.mail.163.com"
+    - "dashi.163.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/appconf\\.mail\\.163\\.com\\/mailmaster\\/api\\/http\\/urlConfig\\.do$/i":
+        reject-dict: true
+    - "/^https:\\/\\/dashi\\.163\\.com\\/task-center-api\\/fapi\\/task\\/list$/i":
+        reject-dict: true
+    - "/^https:\\/\\/appconf\\.mail\\.163\\.com\\/mailoperating\\/mailmaster\\/api\\/operator\\/get$/i":
+        reject-dict: true

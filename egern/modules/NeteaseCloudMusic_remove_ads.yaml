@@ -1,0 +1,40 @@
+name: "网易云音乐去广告"
+description: "过滤网易云音乐广告，并允许自定义界面。"
+author: "RuCu6[https://github.com/RuCu6], Keywos[https://github.com/Keywos]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/NeteaseCloudMusic.png"
+mitm:
+  hostnames:
+    - "interface*.music.163.com"
+scriptings:
+  - http_response:
+      name: "评论区、热推、有话想说、分享一下、歌曲下的祝福等小提示"
+      match: "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/(?:batch|v2\\/resource\\/comment\\/floor\\/get)/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "发现页"
+      match: "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/link\\/page\\/discovery\\/resource\\/show/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "我的页面"
+      match: "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/link\\/position\\/show\\/resource/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "显示未关注你的人"
+      match: "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/user\\/follow\\/users\\/mixed\\/get/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/(?:delivery\\/(batch-)?deliver|moment\\/tab\\/info\\/|side-bar\\/mini-program\\/music-service\\/account|yunbei\\/account\\/entrance\\/)/i":
+        reject-dict: true
+    - "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/(?:community\\/friends\\/fans-group\\/artist\\/group\\/|mine\\/applet\\/redpoint|music\\/songshare\\/text\\/recommend\\/|resniche\\/position\\/play\\/new\\/|resniche\\/tspopup\\/show|resource\\/comments?\\/musiciansaid\\/|user\\/sub\\/artist)/i":
+        reject-dict: true
+    - "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/(?:ios\\/version|mlivestream\\/entrance\\/playpage\\/|link\\/position\\/show\\/strategy|link\\/scene\\/show\\/resource|v1\\/content\\/exposure\\/comment\\/banner\\/)/i":
+        reject-dict: true
+    - "/^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/w?eapi\\/(?:activity\\/bonus\\/playpage\\/time\\/query|resource-exposure\\/|search\\/(?:chart\\/|rcmd\\/keyword\\/|specialkeyword\\/))/i":
+        reject-dict: true
+    - "/^https:\\/\\/interface\\d\\.music\\.163\\.com\\/eapi\\/my\\/podcast\\/tab\\/recommend/i":
+        reject-dict: true

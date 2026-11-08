@@ -1,0 +1,20 @@
+name: "爱奇艺去广告"
+description: "移除开屏广告、焦点图广告、瀑布流广告、搜索页面广告、移除青少年弹窗，精简底栏和我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/iQiYi_Video.png"
+mitm:
+  hostnames:
+    - "-i.vip.iqiyi.com"
+    - "*.iqiyi.com"
+http:
+  rewrite:
+    - "/^https?:\\/\\/iface2\\.iqiyi\\.com\\/control\\/3\\.0\\/init_proxy\\?/i":
+        reject-dict: true
+    - "/^https?:\\/\\/act\\.vip\\.iqiyi\\.com\\/interact\\/api\\/v2\\/show\\?/i":
+        reject-dict: true
+    - "/^https?:\\/\\/iface2\\.iqiyi\\.com\\/ivos\\/interact\\/video\\/data\\?/i":
+        reject-dict: true
+    - "/^https?:\\/\\/iface2\\.iqiyi\\.com\\/video\\/3\\.0\\/v_interface_proxy\\?/i":
+        reject-dict: true
+    - "/^https?:\\/\\/iface2\\.iqiyi\\.com\\/views_pop\\/3\\.0\\/pop_control\\?/i":
+        reject-dict: true

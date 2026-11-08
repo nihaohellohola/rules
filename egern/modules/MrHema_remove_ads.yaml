@@ -1,0 +1,23 @@
+name: "盒马去广告"
+description: "移除开屏广告、首页信息流广告及推广、弹窗广告、悬浮挂件、商品及购物车推荐，精简底栏及我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MrHema.png"
+mitm:
+  hostnames:
+    - "acs-m.freshippo.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/acs-m\\.freshippo\\.com\\/gw\\/mtop\\.wdk\\.render\\.querysinglepage\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs-m\\.freshippo\\.com\\/gw\\/mtop\\.wdk\\.sg\\.queryinnerpage\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs-m\\.freshippo\\.com\\/gw\\/mtop\\.wdk\\.lbs\\.address\\.getshopinfolist\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs-m\\.freshippo\\.com\\/gw\\/mtop\\.wdk\\.render\\.querysearchpage\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs-m\\.freshippo\\.com\\/gw\\/mtop\\.wdk\\.sg\\.querysinglescene\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs-m\\.freshippo\\.com\\/gw\\/mtop\\.wdk\\.melon\\.collocation\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs-m\\.freshippo\\.com\\/gw\\/mtop\\.wdk\\.fc\\.recommend\\.feedscommondservice\\//i":
+        reject-dict: true

@@ -1,0 +1,25 @@
+name: "Keep去广告"
+description: "移除开屏广告、搜索推荐和弹窗广告，精简底栏和首页标签。移除关注推荐、文章相关推荐和信息流中的课程推广。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Keep.png"
+mitm:
+  hostnames:
+    - "api.gotokeep.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/op-engine-webapp\\/v1\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/search\\/v6\\/default\\/keyword\\/list\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/twins\\/v4\\/feed\\/followPage\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/twins\\/union\\/feed\\/function\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/guide-webapp\\/v1\\/popup\\/getPopUp\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/search\\/v5\\/hotCourse\\/list$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/search\\/v4\\/hotHashtag\\/list$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.gotokeep\\.com\\/search\\/v4\\/hotword\\/list\\?/i":
+        reject-dict: true

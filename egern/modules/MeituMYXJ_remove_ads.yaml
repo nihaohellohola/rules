@@ -1,0 +1,19 @@
+name: "美颜相机去广告"
+description: "移除开屏广告、应用内弹窗，精简首页和我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MeituMYXJ.png"
+mitm:
+  hostnames:
+    - "api.meiyan.com"
+scriptings:
+  - http_response:
+      name: "精简首页功能栏目并移除美颜推荐"
+      match: "/^https:\\/\\/api\\.meiyan\\.com\\/operation\\/home\\.json\\?/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/MeituMYXJ/MeituMYXJ_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.meiyan\\.com\\/operation\\/home_banner\\.json\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.meiyan\\.com\\/vip\\/permission_update_popup\\.json\\?/i":
+        reject-dict: true

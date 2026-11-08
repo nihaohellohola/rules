@@ -1,0 +1,21 @@
+name: "猫耳FM去广告"
+description: "移除开屏广告、青少年模式弹窗、首页顶部入口，替换底栏的直播入口为发现入口。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CatEarFM.png"
+mitm:
+  hostnames:
+    - "app.missevan.com"
+    - "data.missevan.com"
+    - "fm.missevan.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/data\\.missevan\\.com\\/site\\/ad-track$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.missevan\\.com\\/x\\/recommend\\/get-popup$/i":
+        reject-dict: true
+    - "/^https:\\/\\/fm\\.missevan\\.com\\/api\\/v2\\/meta\\/banner$/i":
+        reject-dict: true
+    - "/^https:\\/\\/fm\\.missevan\\.com\\/api\\/v2\\/recommended\\/top\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/fm\\.missevan\\.com\\/api\\/v2\\/chatroom\\/sound\\/recommend\\?/i":
+        reject-dict: true

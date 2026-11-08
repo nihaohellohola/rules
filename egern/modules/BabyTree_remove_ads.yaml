@@ -1,0 +1,24 @@
+name: "宝宝树孕育去广告"
+description: "过滤宝宝树孕育广告"
+author: "RuCu6[https://github.com/RuCu6]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BabyTree.png"
+mitm:
+  hostnames:
+    - "api.babytree.com"
+    - "go.babytree.com"
+scriptings:
+  - http_response:
+      name: "调整整体配置"
+      match: "/^http:\\/\\/api\\.babytree\\.com\\/bafconfigcenter_intf\\/config\\/get\\?/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/BabyTree/BabyTree_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除各页面推广"
+      match: "/^http:\\/\\/go\\.babytree\\.com\\/go_pregnancy\\/api\\/(app_index\\/get_app_tab|cms_column\\/get_column_list|feeds\\/get_index_feeds_list|user\\/get_user_info)\\?/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/BabyTree/BabyTree_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除搜索列表推广"
+      match: "/^http:\\/\\/go\\.babytree\\.com\\/go_search\\/api\\/mobile_search_new\\/search_index/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/BabyTree/BabyTree_remove_ads.js"
+      body_required: true

@@ -1,0 +1,15 @@
+name: "挖财记账去广告"
+description: "移除开屏广告、横幅广告，顶部推广、活动配置。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Wacai.png"
+mitm:
+  hostnames:
+    - "jz.wacaijizhang.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/jz\\.wacaijizhang\\.com\\/api\\/banners\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/jz\\.wacaijizhang\\.com\\/api\\/resource\\/universal\\/fetch$/i":
+        reject-dict: true
+    - "/^https:\\/\\/jz\\.wacaijizhang\\.com\\/activity\\//i":
+        reject: true

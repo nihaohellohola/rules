@@ -1,0 +1,11 @@
+name: "有道云笔记去广告"
+description: "移除开屏广告、弹窗广告及横幅广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YoudaoNote.png"
+mitm:
+  hostnames:
+    - "silk.lx.netease.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/silk\\.lx\\.netease\\.com\\/api\\/open\\/advertOpen\\//i":
+        reject-dict: true

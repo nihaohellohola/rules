@@ -1,0 +1,36 @@
+name: "起点读书去广告"
+description: "移除起点读书开屏广告、每日导读、各类弹窗、文末广告、搜索填充词，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QiDian.png"
+mitm:
+  hostnames:
+    - "magev6.if.qidian.com"
+    - "ywab.reader.qq.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v4\\/client\\/getsplashscreen\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/adv\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/ywab\\.reader\\.qq\\.com\\/user\\/experiments\\/v2\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/checkin\\/simpleinfo\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/push\\/getdialog\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/message\\/getpushedmessagelist$/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/maintain\\/playstrip$/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/dailyrecommend\\/recommendBook\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/freshman\\/bookshelfbtn$/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/bookshelf\\/getTopOperation$/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/booksearch\\/hotWords\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/followsubscribe\\/showChapterEndModule\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/magev6\\.if\\.qidian\\.com\\/argus\\/api\\/v1\\/young\\/getconf$/i":
+        reject-dict: true

@@ -1,0 +1,27 @@
+name: "酷狗概念版去广告"
+description: "移除广告服务模块、播放器广告，精简乐库及搜索页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KuGouYouth.png"
+mitm:
+  hostnames:
+    - "gateway.kugou.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/ads\\.service\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/youth\\/v1\\/start_img\\/last\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/ads\\.gateway\\//i":
+        reject-dict: true
+    - "/^http:\\/\\/mobilelog\\.kugou\\.com\\/adtrackconfig\\.json$/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/youth\\/v1\\/experiment\\/get_params\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/youth\\/api\\/user\\/v1\\/init\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/youth\\/v2\\/activity\\/task_list\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/youth\\/v1\\/channel\\/tab_list\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.kugou\\.com\\/goddess\\/v1\\/content\\/biz_list\\?/i":
+        reject-dict: true

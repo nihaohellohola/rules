@@ -1,0 +1,14 @@
+name: "一甜相机去广告"
+description: "移除开屏广告、悬浮广告及图片选择器横幅广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Yitian.png"
+mitm:
+  hostnames:
+    - "m2u-api.getkwai.com"
+    - "api-m2u.kuaishou.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/(m2u-api\\.getkwai|api-m2u\\.kuaishou)\\.com\\/api-server\\/api\\/v1\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(m2u-api\\.getkwai|api-m2u\\.kuaishou)\\.com\\/api-server\\/api\\/v4\\/op\\/actPositions\\?/i":
+        reject-dict: true

@@ -1,0 +1,17 @@
+name: "省钱快报去广告"
+description: "移除开屏广告、横幅广告、商品推荐，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YueDanBa.png"
+mitm:
+  hostnames:
+    - "api.17gwx.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.17gwx\\.com\\/v2\\/base\\/app\\/ad\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.17gwx\\.com\\/v2\\/growth\\/popup\\/remind$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.17gwx\\.com\\/v2\\/recommend\\/feed\\/list\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.17gwx\\.com\\/v2\\/homepage\\/feed\\/similarList\\?/i":
+        reject-dict: true

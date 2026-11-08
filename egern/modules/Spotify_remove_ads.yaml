@@ -1,0 +1,12 @@
+name: "Spotify去广告"
+description: "移除播放广告，恢复歌手和专辑列表的正常展示。修改插件自定义配置项需要重新登陆方可生效。"
+author: "001ProMax[https://github.com/001ProMax]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png"
+mitm:
+  hostnames:
+    - "*-spclient.spotify.com"
+    - "spclient.wg.spotify.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/(?:\\w+-spclient|spclient\\.wg)\\.spotify\\.com(?::443)?\\/pendragon\\//i":
+        reject-dict: true

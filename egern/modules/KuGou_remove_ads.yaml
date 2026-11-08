@@ -1,0 +1,45 @@
+name: "酷狗音乐去广告"
+description: "移除开屏广告、应用各类弹窗、各类横幅广告、评论区广告和播放器界面广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KuGou.png"
+mitm:
+  hostnames:
+    - "gateway.kugou.com"
+    - "fx.service.kugou.com"
+    - "hwstore.kugou.com"
+    - "ep.kugou.com"
+    - "gatewayretry.kugou.com"
+    - "gzacshow.kugou.com"
+    - "m1fxgroup.kugou.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/fx\\.service\\.kugou\\.com\\/mfx-kugoulive\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/adp\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/ads\\.gateway\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/v\\d\\/feeds\\/follow_feed_fallback/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/mstc\\/musicsymbol\\/v\\d\\/system\\/profile/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/searchnofocus\\/v\\d\\/search_no_focus_word/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/adp\\/bubble\\/v\\d\\/song_play/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/singerdiscuss\\/v\\d\\/entrance\\/comment/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/r\\/v\\d\\/general\\/putin\\/midad/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/ocean\\/v\\d\\/sound\\/banner/i":
+        reject-dict: true
+    - "/^https:\\/\\/gzacshow\\.kugou\\.com\\/mfanxing-home\\/cdn\\/room\\/index\\/list_v2/i":
+        reject-dict: true
+    - "/^https:\\/\\/gzacshow\\.kugou\\.com\\/mfx-rt-show\\/cdn\\/mo\\/show\\/headline/i":
+        reject-dict: true
+    - "/^https:\\/\\/m1fxgroup\\.kugou\\.com\\/fxsing\\/yqc\\/alongInfo\\/getUserAlongInfo/i":
+        reject-dict: true
+    - "/^https:\\/\\/hwstore\\.kugou\\.com\\/v\\d\\/get_store_data/i":
+        reject-dict: true
+    - "/^https:\\/\\/ep\\.kugou\\.com\\/v\\d\\/album_shop\\/get_entrance_info/i":
+        reject-dict: true

@@ -1,0 +1,36 @@
+name: "蜻蜓FM去广告"
+description: "移除开屏广告、信息流广告、各类相关内容推荐，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QtingFM.png"
+mitm:
+  hostnames:
+    - "app.qtfm.cn"
+    - "entry.qtfm.cn"
+    - "recpage-c.qtfm.cn"
+    - "user.qtfm.cn"
+    - "search.qtfm.cn"
+    - "woqt2.qtfm.cn"
+http:
+  rewrite:
+    - "/^https:\\/\\/app\\.qtfm\\.cn\\/recommendapi\\/v8\\/ai_assistant_point$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v1\\/signin\\/show_homepage_icon$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.qtfm\\.cn\\/recommendapi\\/v\\d\\/emotion$/i":
+        reject: true
+    - "/^https:\\/\\/search\\.qtfm\\.cn\\/v\\d\\/keyword\\/default$/i":
+        reject: true
+    - "/^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v1\\/user\\/task\\/play$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v\\d\\/i_listen\\/guess_you_like\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/recpage-c\\.qtfm\\.cn\\/v\\d\\/favorites$/i":
+        reject-dict: true
+    - "/^https:\\/\\/user\\.qtfm\\.cn\\/u\\d\\/api\\/v\\d\\/user\\/following_podcaster\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/entry\\.qtfm\\.cn\\/api\\/v\\d\\/personal\\/\\?carrier/i":
+        reject-dict: true
+    - "/^https:\\/\\/search\\.qtfm\\.cn\\/v3\\/entry$/i":
+        reject-dict: true
+    - "/^https:\\/\\/woqt2\\.qtfm\\.cn\\/v2\\/userConfig\\?/i":
+        reject-dict: true

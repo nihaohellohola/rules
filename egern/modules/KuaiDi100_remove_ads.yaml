@@ -1,0 +1,15 @@
+name: "快递100去广告"
+description: "移除横幅广告、弹窗广告，精简首页。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/KuaiDi100.png"
+mitm:
+  hostnames:
+    - "p.kuaidi100.com"
+http:
+  rewrite:
+    - "/^https?:\\/\\/p\\.kuaidi100\\.com\\/advertisement\\//i":
+        reject-dict: true
+    - "/^https?:\\/\\/p\\.kuaidi100\\.com\\/e-commerce\\/act\\/actInfo\\?/i":
+        reject-dict: true
+    - "/^https?:\\/\\/p\\.kuaidi100\\.com\\/apicenter\\/card\\.dox/i":
+        reject-dict: true

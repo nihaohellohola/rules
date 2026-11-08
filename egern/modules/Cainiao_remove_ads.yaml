@@ -1,0 +1,21 @@
+name: "菜鸟去广告"
+description: "过滤菜鸟广告"
+author: "小白脸"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Cainiao.png"
+mitm:
+  hostnames:
+    - "netflow-mtop.cainiao.com"
+    - "nbcps-mtop.cainiao.com"
+    - "cn-acs.m.cainiao.com"
+    - "e2e-mtop.cainiao.com"
+    - "longquan-mtop.cainiao.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/nbcps-mtop\\.cainiao\\.com\\/gw\\/mtop\\.cainiao\\.nbcps\\.presentation\\.fetch\\.cn/i":
+        reject: true
+    - "/^https:\\/\\/netflow-mtop\\.cainiao\\.com\\/gw\\/mtop\\.cainiao\\.guoguo\\.nbnetflow\\.ads\\.index/i":
+        reject: true
+    - "/^https:\\/\\/cn-acs\\.m\\.cainiao\\.com\\/gw\\/mtop\\.cainiao\\.adkeyword\\.get\\.cn/i":
+        reject: true
+    - "/^https:\\/\\/cn-acs\\.m\\.cainiao\\.com\\/gw\\/mtop\\.cainiao\\.guoguo\\.nbnetflow\\.ads\\.m?show/i":
+        reject: true

@@ -1,0 +1,42 @@
+name: "Uki去广告"
+description: "移除开屏广告、应用内悬浮窗，各类横幅、信息流广告、搜索填充词、我的页面广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Uki.png"
+mitm:
+  hostnames:
+    - "api.chenlongtech.cn"
+scriptings:
+  - http_response:
+      name: "移除匹配卡横幅"
+      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/lover\\/productList/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除密友横幅"
+      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/closeFriend\\/home/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除娱乐页面横幅和悬浮窗配置"
+      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/party\\/config$/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除广场搜索填充词"
+      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v1\\/post\\/fetchSearchRecommend$/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/startInfo$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/indexBanner$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/getPopup/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/allPopUpConfig$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/advConf$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/user\\/checkQTSheInsurance$/i":
+        reject-dict: true

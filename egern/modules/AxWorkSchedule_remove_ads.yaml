@@ -1,0 +1,15 @@
+name: "排班日历去广告"
+description: "移除开屏广告、横幅广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/AxWorkSchedule.png"
+mitm:
+  hostnames:
+    - "schedule-api.julanling.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/schedule-api\\.julanling\\.com\\/api\\d\\/get_splash$/i":
+        reject-dict: true
+    - "/^https:\\/\\/schedule-api\\.julanling\\.com\\/api\\d\\/index_advert$/i":
+        reject-dict: true
+    - "/^https:\\/\\/schedule-api\\.julanling\\.com\\/api\\d\\/queryAdvertConfig$/i":
+        reject-dict: true

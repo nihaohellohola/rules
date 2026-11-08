@@ -1,0 +1,16 @@
+name: "米游社去广告"
+description: "移除开屏广告、搜索栏热搜及资讯、青少年模式弹窗。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/miHoYoBBS.png"
+mitm:
+  hostnames:
+    - "bbs-api.miyoushe.com"
+    - "bbs-api-ab.miyoushe.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/bbs-api(-ab)?\\.miyoushe\\.com\\/apihub\\/api\\/getAppSplash$/i":
+        reject-dict: true
+    - "/^https:\\/\\/bbs-api(-ab)?\\.miyoushe\\.com\\/apihub\\/api\\/getHotKeywordAndEvent$/i":
+        reject-dict: true
+    - "/^https:\\/\\/bbs-api-static\\.miyoushe\\.com\\/search\\/api\\/search\\/pre_keyword\\?/i":
+        reject-dict: true

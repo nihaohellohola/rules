@@ -1,0 +1,31 @@
+name: "波点音乐去广告"
+description: "精简应用配置，禁用P2P传输。移除开屏广告、横幅推广、悬浮广告、歌曲广告、商城入口、搜索推广、评论区推广、试听语音提醒。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BodianMusic.png"
+mitm:
+  hostnames:
+    - "bd-api.kuwo.cn"
+http:
+  rewrite:
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/(play|service|advert)\\/advert\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/banner\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/ucenter\\/vip\\/give\\/config\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/home\\/module\\?.*&moduleId=6/i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/pay\\/vip\\/lowPriceText\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/global\\/config\\/vipEnter\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/popup\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/pay\\/vip\\/invitation\\/swell\\/popup\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/version\\/popup\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/pay\\/vip\\/invitation\\/assist\\/popup\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/pay\\/h5\\/common\\/popup\\?/i":
+        reject-dict: true

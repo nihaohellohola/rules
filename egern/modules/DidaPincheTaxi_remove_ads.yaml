@@ -1,0 +1,11 @@
+name: "滴答出行去广告"
+description: "移除开屏广告、弹窗广告、横幅广告，精简底栏和我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DidaPincheTaxi.png"
+mitm:
+  hostnames:
+    - "capis.didapinche.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/capis\\.didapinche\\.com\\/adbase\\//i":
+        reject-dict: true

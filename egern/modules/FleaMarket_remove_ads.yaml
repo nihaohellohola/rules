@@ -1,0 +1,24 @@
+name: "闲鱼去广告"
+description: "移除开屏广告、商品信息流广告、关注推荐、搜索栏填充词、首页签到入口及悬浮广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FleaMarket.png"
+mitm:
+  hostnames:
+    - "acs.m.goofish.com"
+    - "g-acs.m.goofish.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlecommerce\\.splash\\.ads\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.user\\.strategy\\.list\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.item\\.recommend\\.list\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.local\\.near\\.by\\.corner\\.info\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.item\\.buy\\.feeds\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlemtopsearch\\.search\\.shade\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.playboy\\.recommend\\//i":
+        reject-dict: true

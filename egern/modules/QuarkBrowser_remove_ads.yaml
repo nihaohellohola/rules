@@ -1,0 +1,14 @@
+name: "夸克去广告"
+description: "移除阅读广告、各页面弹窗及横幅，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QuarkBrowser.png"
+mitm:
+  hostnames:
+    - "open-cms-api.quark.cn"
+    - "stars.shuqireader.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/stars\\.shuqireader\\.com\\/kkios\\/render\\/load\\/resource\\/app$/i":
+        reject-dict: true
+    - "/^https:\\/\\/stars\\.shuqireader\\.com\\/kkios\\/render\\/load\\/resource\\/appConfig$/i":
+        reject-dict: true

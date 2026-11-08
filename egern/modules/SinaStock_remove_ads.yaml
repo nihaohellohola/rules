@@ -1,0 +1,24 @@
+name: "新浪财经去广告"
+description: "移除开屏广告、弹窗广告、横幅广告、信息流广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SinaStock.png"
+mitm:
+  hostnames:
+    - "app.cj.sina.com.cn"
+    - "news.cj.sina.cn"
+    - "search.cj.sina.cn"
+    - "recommend.cj.sina.cn"
+    - "quotes.sina.com.cn"
+    - "newscj.xincai.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/news\\.cj\\.sina\\.cn\\/search\\/tips\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/search\\.cj\\.sina\\.cn\\/stock\\/get_index_new\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/news\\.cj\\.sina\\.cn\\/search\\/tips\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/recommend\\.cj\\.sina\\.cn\\/app\\/v2\\/search\\/discovery$/i":
+        reject-dict: true
+    - "/^https:\\/\\/quotes\\.sina\\.com\\.cn\\/cn\\/api\\/openapi\\.php\\/PriceChangeService\\.getSearchList\\?/i":
+        reject-dict: true

@@ -1,0 +1,17 @@
+name: "小宇宙去广告"
+description: "移除开屏广告、搜索框推荐词和AI总结。"
+author: "wish"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CosmosPodcast.png"
+mitm:
+  hostnames:
+    - "api.xiaoyuzhoufm.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.xiaoyuzhoufm\\.com\\/v\\d\\/flash/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xiaoyuzhoufm\\.com\\/v\\d\\/ai/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xiaoyuzhoufm\\.com\\/v\\d\\/search\\/get/i":
+        reject-dict: true
+    - "/^https?:\\/\\/api\\.xiaoyuzhoufm\\.com\\/v\\d\\/category/i":
+        reject-dict: true

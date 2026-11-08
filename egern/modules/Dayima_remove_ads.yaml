@@ -1,0 +1,15 @@
+name: "大姨妈月经期助手去广告"
+description: "移除信息流广告，精简首页金刚位及我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Dayima.png"
+mitm:
+  hostnames:
+    - "forumapi.yoloho.com"
+    - "dataapi.yoloho.com"
+    - "shop18476221.m.youzan.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/forumapi\\.yoloho\\.com\\/topic\\/relate\\/recommend\\/flow\\/getList\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/shop18476221\\.m\\.youzan\\.com\\/wscshop\\/showcase\\/feature\\?/i":
+        reject: true

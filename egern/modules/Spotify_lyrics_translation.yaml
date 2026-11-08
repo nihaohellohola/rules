@@ -1,0 +1,44 @@
+name: "Spotify歌词增强"
+description: "将Spotify的外语歌词翻译为简体中文，并提供双语翻译支持。"
+author: "VirgilClyne[https://github.com/VirgilClyne]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png"
+mitm:
+  hostnames:
+    - "api.spotify.com"
+    - "spclient.wg.spotify.com"
+scriptings:
+  - http_response:
+      name: "跟踪响应·JSON"
+      match: "/^https?:\\/\\/api\\.spotify\\.com\\/v1\\/tracks\\?/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Spotify/Spotify_response.js"
+      body_required: true
+  - http_request:
+      name: "歌词请求·JSON"
+      match: "/^https?:\\/\\/spclient\\.wg\\.spotify\\.com\\/color-lyrics\\/v2\\/track\\/(.+)\\?(.*)format=json/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Spotify/Spotify_request.js"
+      body_required: true
+  - http_request:
+      name: "歌词请求·Proto"
+      match: "/^https?:\\/\\/spclient\\.wg\\.spotify\\.com\\/color-lyrics\\/v2\\/track\\/\\w+\\?(.*)/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Spotify/Spotify_request.js"
+      body_required: true
+  - http_response:
+      name: "翻译歌词响应·JSON"
+      match: "/^https?:\\/\\/spclient\\.wg\\.spotify\\.com\\/color-lyrics\\/v2\\/track\\/(.+)\\?(.*)format=json(.*)subtype=Translate/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Spotify/Translate_response.js"
+      body_required: true
+  - http_response:
+      name: "翻译歌词响应·Proto"
+      match: "/^https?:\\/\\/spclient\\.wg\\.spotify\\.com\\/color-lyrics\\/v2\\/track\\/\\w+\\?(.*)subtype=Translate/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Spotify/Translate_response.js"
+      body_required: true
+  - http_response:
+      name: "外部歌词响应·JSON"
+      match: "/^https?:\\/\\/spclient\\.wg\\.spotify\\.com\\/color-lyrics\\/v2\\/track\\/(.+)\\?(.*)format=json(.*)subtype=External/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Spotify/External_Lyrics_response.js"
+      body_required: true
+  - http_response:
+      name: "外部歌词响应·Proto"
+      match: "/^https?:\\/\\/spclient\\.wg\\.spotify\\.com\\/color-lyrics\\/v2\\/track\\/\\w+\\?(.*)subtype=External/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Spotify/External_Lyrics_response.js"
+      body_required: true

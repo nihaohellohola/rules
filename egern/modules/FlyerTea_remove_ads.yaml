@@ -1,0 +1,29 @@
+name: "飞客去广告"
+description: "移除开屏广告、首页广告、板块广告、帖内广告和我的页面广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/FlyerTea.png"
+mitm:
+  hostnames:
+    - "www.flyert.com.cn"
+    - "ptf.flyertrip.com"
+scriptings:
+  - http_response:
+      name: "移除板块广告"
+      match: "/^https:\\/\\/www\\.flyert\\.com\\.cn\\/api\\/mobile\\/index\\.php\\?version=5/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/FlyerTea/FlyerTea_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除签到弹窗广告"
+      match: "/^https:\\/\\/www\\.flyert\\.com\\.cn\\/api\\/mobile\\/index\\.php\\?module=plugin&id=k_misign:sign/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/FlyerTea/FlyerTea_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/www\\.flyert\\.com\\.cn\\/api\\/mobile\\/index\\.php\\?module=advis/i":
+        reject: true
+    - "/^https:\\/\\/www\\.flyert\\.com\\.cn\\/api\\/mobile\\/index\\.php\\?module=vip_coupon/i":
+        reject-dict: true
+    - "/^https:\\/\\/ptf\\.flyertrip\\.com\\/static\\/img\\/common\\/ic_plate_mine_button\\.png/i":
+        reject-img: true
+    - "/^https:\\/\\/www\\.flyert\\.com\\.cn\\/api\\/mobile\\/index\\.php\\?module=getdata/i":
+        reject-dict: true

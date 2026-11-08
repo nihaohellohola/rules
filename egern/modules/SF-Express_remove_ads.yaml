@@ -1,0 +1,15 @@
+name: "顺丰速运去广告"
+description: "移除开屏广告、首页下拉抽屉、首页推广、应用内悬浮窗、横幅广告，移除主题，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SF-Express.png"
+mitm:
+  hostnames:
+    - "ccsp-egmas.sf-express.com"
+    - "ucmp.sf-express.com"
+    - "ucmp-static.sf-express.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/ccsp-egmas\\.sf-express\\.com\\/cx-app-base\\/base\\/app\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/ucmp\\.sf-express\\.com\\/proxy\\/esgcempcore\\/memberGoods\\/pointMallService\\/goodsList$/i":
+        reject-dict: true

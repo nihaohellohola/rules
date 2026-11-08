@@ -1,0 +1,16 @@
+name: "香港抖音去广告"
+description: "精简左右侧边栏、移除底栏切换，其余内容后续再完善。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TikTok.png"
+mitm:
+  hostnames:
+    - "aweme.snssdk.com"
+    - "api5-normal-m.amemv.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api5-normal-lq\\.amemv\\.com\\/api\\/ad\\//i":
+        reject: true
+    - "/^https:\\/\\/(aweme\\.snssdk\\.com|api5-normal-m\\.amemv\\.com)\\/api\\/ad\\//i":
+        reject: true
+    - "/^https:\\/\\/zlink\\.ugsdk\\.cn\\/ad\\//i":
+        reject: true

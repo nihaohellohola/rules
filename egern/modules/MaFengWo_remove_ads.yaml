@@ -1,0 +1,11 @@
+name: "马蜂窝去广告"
+description: "移除首页信息流广告、商城横幅推广、我的页面弹窗。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MaFengWo.png"
+mitm:
+  hostnames:
+    - "mapi.mafengwo.cn"
+http:
+  rewrite:
+    - "/^https:\\/\\/mapi\\.mafengwo\\.cn\\/user\\/growth\\/get_growth_tip\\/v1\\?/i":
+        reject-dict: true

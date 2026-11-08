@@ -1,0 +1,22 @@
+name: "Soul去广告"
+description: "移除开屏广告、移除话题页面热Soul话题、移除评论区礼物榜、移除更新提示、移除青少年弹窗、移除我的页面推广、移除悬浮部件。"
+author: "ZenmoFeiShi[https://github.com/ZenmoFeiShi], RuCu6[https://github.com/RuCu6], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Soul.png"
+mitm:
+  hostnames:
+    - "api*.soulapp.cn"
+    - "gateway-mobile-gray.soulapp.cn"
+    - "post.soulapp.cn"
+    - "ssp.soulapp.cn"
+scriptings:
+  - http_response:
+      name: "移除Soul广告"
+      match: "/^https:\\/\\/(?:api-\\w+|chat-live|post)\\.soulapp\\.cn\\/(?:chat\\/limitInfo|chatroom\\/chatClassifyRoomList|homepage\\/diamond\\/position\\/info|v2\\/post\\/recSquare\\/subTabs|v6\\/planet\\/config)/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Soul/Soul_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/ssp\\.soulapp\\.cn\\/api\\/q/i":
+        reject-dict: true
+    - "/^https:\\/\\/chat-live\\.soulapp\\.cn\\/live\\/planet\\/recListV2/i":
+        reject: true

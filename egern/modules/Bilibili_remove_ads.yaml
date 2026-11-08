@@ -1,0 +1,23 @@
+name: "哔哩哔哩去广告"
+description: "过滤哔哩哔哩广告、移除青少年模式弹窗和交互式弹幕、移除无用功能和链接跟踪参数，增加空降助手以便跳过视频中插入的广告。此插件仅建议iOS 15以上设备使用，且必须启用MitM-over-HTTP/2功能。\\n\\n空降助手是第三方提供的功能，依赖于Android版空降助手的服务器数据运作，可能会存在不准确或者失效的问题，此功能与哔哩哔哩官方无关。"
+author: "kokoryh[https://github.com/kokoryh]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Bilibili.png"
+mitm:
+  hostnames:
+    - "grpc.biliapi.net"
+    - "app.bilibili.com"
+    - "api.bilibili.com"
+    - "api.live.bilibili.com"
+    - "line3-h5-mobile-api.biligame.com"
+scriptings:
+  - http_response:
+      name: "移除直播间广告"
+      match: "/^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-interface\\/v2\\/index\\/feed|app-room\\/v1\\/index\\/getInfoBy(?:Room|User))\\?/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Bilibili/Bilibili_json_kokoryh.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/line3-h5-mobile-api\\.biligame\\.com\\/game\\/live\\/large_card_material\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/e-commerce-interface\\/v1\\/ecommerce-user\\/get_shopping_info\\?/i":
+        reject-dict: true

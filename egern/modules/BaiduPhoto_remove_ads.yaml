@@ -1,0 +1,14 @@
+name: "一刻相册去广告"
+description: "移除开屏广告、横幅广告和弹窗推广。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BaiduPhoto.png"
+mitm:
+  hostnames:
+    - "pan.baidu.com"
+    - "mbd.baidu.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/pan\\.baidu\\.com\\/act\\/api\\/conf\\?.*conf_key=youa_core_config_ios/i":
+        reject-dict: true
+    - "/^https:\\/\\/pan\\.baidu\\.com\\/youai\\/material\\/v1\\/getbynavid\\?.*nav_id=1/i":
+        reject-dict: true

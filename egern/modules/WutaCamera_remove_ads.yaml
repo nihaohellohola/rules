@@ -1,0 +1,7 @@
+name: "无他相机去广告"
+description: "移除开屏广告、拍摄页面广告、右小角广告，精简底栏。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/WutaCamera.png"
+mitm:
+  hostnames:
+    - "api-release.wuta-cam.com"

@@ -1,0 +1,18 @@
+name: "Sub-Store"
+description: "高级订阅管理工具，定时任务默认为每天23点55分，可在插件设置中自定义。使用前请在本插件的详情页面为[PROXY]项分配代理策略。"
+author: "Peng-YM[https://github.com/Peng-YM]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/Sub-Store.png"
+mitm:
+  hostnames:
+    - "sub.store"
+scriptings:
+  - http_request:
+      name: "Sub-Store Core"
+      match: "/^https?:\\/\\/sub\\.store\\/((download)|api\\/(preview|sync|(utils\\/node-info)))/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js"
+      body_required: true
+  - http_request:
+      name: "Sub-Store Simple"
+      match: "/^https?:\\/\\/sub\\.store/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js"
+      body_required: true

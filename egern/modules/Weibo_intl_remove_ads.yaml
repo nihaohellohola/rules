@@ -1,0 +1,19 @@
+name: "微博轻享版去广告"
+description: "移除开屏广告、时间线广告及评论区广告，移除发现页面横幅推广、最常访问、主页访客及热门视频，移除搜索填充词。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Weibo_intl.png"
+mitm:
+  hostnames:
+    - "bootpreload.uve.weibo.com"
+    - "weibointl.api.weibo.cn"
+    - "api.weibo.cn"
+http:
+  rewrite:
+    - "/^https:\\/\\/bootpreload\\.uve\\.weibo\\.com\\/v1\\/ad\\/preload$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.weibo\\.cn\\/2\\/cardlist\\?v_f=2/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.weibo\\.cn\\/2\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/weibointl\\.api\\.weibo\\.cn\\/portal\\.php\\?a=get_searching_info/i":
+        reject-dict: true

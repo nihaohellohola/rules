@@ -1,0 +1,17 @@
+name: "下厨房去广告"
+description: "移除开屏广告、页面推广及横幅，精简首页标签。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XiaChuFang.png"
+mitm:
+  hostnames:
+    - "api.xiachufang.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.xiachufang\\.com\\/v2\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xiachufang\\.com\\/v2\\/account\\/feeds_v7\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xiachufang\\.com\\/v2\\/homepage1810\\/init_page\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.xiachufang\\.com\\/v2\\/mark_mission\\/get_sticker_info\\.json/i":
+        reject-dict: true

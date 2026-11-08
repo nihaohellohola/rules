@@ -1,0 +1,14 @@
+name: "ZAKER去广告"
+description: "移除开屏广告、置顶轮播图广告和文末广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ZAKER.png"
+mitm:
+  hostnames:
+    - "iphone.myzaker.com"
+    - "ggs.myzaker.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/iphone\\.myzaker\\.com\\/zaker\\/cover\\.php\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/iphone\\.myzaker\\.com\\/zaker\\/block_top_ad\\.php\\?/i":
+        reject-dict: true

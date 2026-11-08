@@ -1,0 +1,22 @@
+name: "萤石云视频去广告"
+description: "移除开屏广告、首页推广、我的页面推广。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/VideoGo.png"
+mitm:
+  hostnames:
+    - "api.ys7.com"
+    - "i.ys7.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.ys7\\.com\\/api\\/ads/i":
+        reject: true
+    - "/^https:\\/\\/i\\.ys7\\.com\\/api\\/user\\/tabList/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.ys7\\.com\\/v3\\/config\\/service\\/entrance\\/bannerInfo/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.ys7\\.com\\/v3\\/intelligent-app\\/apps\\/linkage/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.ys7\\.com\\/v3\\/configurations\\/gray\\/info\\?grayTypes=185/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.ys7\\.com\\/v3\\/videoclips\\/square\\/video\\/query/i":
+        reject-dict: true

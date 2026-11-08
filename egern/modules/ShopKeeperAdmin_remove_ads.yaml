@@ -1,0 +1,11 @@
+name: "小店掌柜去广告"
+description: "移除开屏广告、活动推广和页面跳转。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ShopKeeperAdmin.png"
+mitm:
+  hostnames:
+    - "mch.juhesaas.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/mch\\.juhesaas\\.com\\/api\\/advertisement\\//i":
+        reject-dict: true

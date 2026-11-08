@@ -1,0 +1,30 @@
+name: "芒果TV去广告"
+description: "移除开屏广告、信息流广告、播放页广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md], RuCu6[https://github.com/RuCu6]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Mango_TV.png"
+mitm:
+  hostnames:
+    - "dc?.bz.mgtv.com"
+    - "mobileso.bz.mgtv.com"
+    - "damang.api.mgtv.com"
+    - "hb-boom.api.mgtv.com"
+    - "mobile.api.mgtv.com"
+    - "mobile.api.hunantv.com"
+    - "me.bz.mgtv.com"
+    - "mobile-thor.api.mgtv.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/dc\\.bz\\.mgtv\\.com\\/dynamic\\/v\\d\\/skin\\/config\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/dc\\.bz\\.mgtv\\.com\\/dynamic\\/v\\d\\/channel\\/ads\\?/i":
+        reject-dict: true
+    - "/^http:\\/\\/mobileso\\.bz\\.mgtv\\.com\\/spotlight\\/search\\/v\\d\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/damang\\.api\\.mgtv\\.com\\/station\\/album\\/red\\/dot\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/hb-boom\\.api\\.mgtv\\.com\\/release\\/pullReleaseInfo$/i":
+        reject-dict: true
+    - "/^https:\\/\\/mobile\\.api\\.mgtv\\.com\\/v\\d\\/mobile\\/checkUpdate\\?/i":
+        reject-dict: true
+    - "/^https?:\\/\\/mobileso\\.bz\\.mgtv\\.com\\/mobile\\/recommend\\/v\\d\\?/i":
+        reject-dict: true

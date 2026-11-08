@@ -1,0 +1,36 @@
+name: "滴滴去广告"
+description: "移除开屏广告、弹窗广告、横幅推广，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DiDi.png"
+mitm:
+  hostnames:
+    - "as.xiaojukeji.com"
+    - "conf.diditaxi.com.cn"
+    - "common.diditaxi.com.cn"
+    - "res.xiaojukeji.com"
+    - "api.udache.com"
+    - "daijia.kuaidadi.com"
+    - "htwkop-st.xiaojukeji.com"
+    - "htwkop.xiaojukeji.com"
+    - "freight.xiaojukeji.com"
+    - "poi.map.xiaojukeji.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/res\\.xiaojukeji\\.com\\/resapi\\/activity\\/mget\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/res\\.xiaojukeji\\.com\\/resapi\\/activity\\/mget$/i":
+        reject-dict: true
+    - "/^https:\\/\\/daijia\\.kuaidadi\\.com(:443)?\\/gateway\\?api=prado\\.cms\\.delivery\\.batch/i":
+        reject-dict: true
+    - "/^https:\\/\\/daijia\\.kuaidadi\\.com(:443)?\\/gateway\\?api=prado\\.cms\\.AggregateDeliveryRemoteService\\.aggregateDelivery/i":
+        reject-dict: true
+    - "/^https:\\/\\/daijia\\.kuaidadi\\.com(:443)?\\/gateway\\?api=lj\\.c\\.p\\.queryLevelAndRightsStatus/i":
+        reject-dict: true
+    - "/^https:\\/\\/daijia\\.kuaidadi\\.com(:443)?\\/gateway\\?api=lj\\.cos\\.p\\.popup/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.udache\\.com\\/gulfstream\\/porsche\\/v\\d\\/pSFCHomePage\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/htwkop-st\\.xiaojukeji\\.com\\/gateway\\?api=cms\\.htw\\.delivery\\.batch/i":
+        reject-dict: true
+    - "/^https:\\/\\/freight\\.xiaojukeji\\.com\\/gateway\\?api=freight\\.d\\.core\\.multiDisplayV\\d/i":
+        reject-dict: true

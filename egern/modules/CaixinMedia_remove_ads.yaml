@@ -1,0 +1,52 @@
+name: "财新去广告"
+description: "过滤财新广告"
+author: "RuCu6[https://github.com/RuCu6]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CaixinMedia.png"
+mitm:
+  hostnames:
+    - "e*.caixin.com"
+    - "g*.caixin.com"
+    - "m*.caixin.com"
+scriptings:
+  - http_response:
+      name: "移除财新数据通广告"
+      match: "/^https:\\/\\/entities\\.caixin\\.com\\/api\\/dataplus\\/columns/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/CaixinMedia/CaixinMedia_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除文末广告"
+      match: "/^https:\\/\\/gateway\\.caixin\\.com\\/api\\/app-api\\/(caixinapp\\/appinfo|search\\/getkeyword)/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/CaixinMedia/CaixinMedia_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除财新FM广告"
+      match: "/^https:\\/\\/gateway\\.caixin\\.com\\/api\\/app-content\\/fm\\/index\\/list\\?/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/CaixinMedia/CaixinMedia_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除开屏广告"
+      match: "/^https:\\/\\/gg\\.caixin\\.com\\/s\\?z=caixin&op=\\d/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/CaixinMedia/CaixinMedia_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除正文广告"
+      match: "/^https:\\/\\/mappsv5\\.caixin\\.com\\/articlev5\\/\\d+\\/\\d+\\.json$/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/CaixinMedia/CaixinMedia_remove_ads.js"
+      body_required: true
+  - http_response:
+      name: "移除正文广告"
+      match: "/^https:\\/\\/mapps?v5\\.caixin\\.com\\/(channelv5\\/list|\\/?index_page_v5\\/)\\w+/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/CaixinMedia/CaixinMedia_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/entities\\.caixin\\.com\\/api\\/(dataplus\\/promotionHints|public\\/push\\/appIndex|public\\/recommendNews)/i":
+        reject-dict: true
+    - "/^https:\\/\\/gateway\\.caixin\\.com\\/api\\/app-api\\/cxAdInfo\\/selectIndexAdInfo/i":
+        reject-dict: true
+    - "/^https:\\/\\/mappsv5\\.caixin\\.com\\/channelv5\\/article_ad_ios_info\\.json/i":
+        reject-dict: true
+    - "/^https:\\/\\/gg\\.caixin\\.com\\/s\\?z=caixin&slot=\\d+/i":
+        reject-dict: true
+    - "/^https:\\/\\/msgapi\\.caixin\\.com\\/msg_api\\/annmsg\\/annlist/i":
+        reject-dict: true

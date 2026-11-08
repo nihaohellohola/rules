@@ -1,0 +1,35 @@
+name: "叮咚买菜去广告"
+description: "移除开屏广告、弹窗推广、搜索推荐、信息流广告、悬浮广告、各页面购物推荐、精简我的页面，移除底栏和各页面AI入口。"
+author: "zirawell[https://github.com/zirawell], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md], wish"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DingdongMaicai.png"
+mitm:
+  hostnames:
+    - "119.29.29.*"
+    - "maicai.api.ddxq.mobi"
+    - "user.api.ddxq.mobi"
+http:
+  rewrite:
+    - "/^https?:\\/\\/119\\.29\\.29\\.\\d+\\/d/i":
+        reject: true
+    - "/^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\//i":
+        reject: true
+    - "/^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/getHomeAdPop/i":
+        reject: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/vip\\/getVipAd\\/\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/marketingNotice\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/search\\/rollHotKeyword\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/search\\/rankingList\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/search\\/hotKeyword\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/order\\/getRecommend$/i":
+        reject-dict: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/userLike\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/user\\.api\\.ddxq\\.mobi\\/userportal-service\\/api\\/v1\\/user\\/queryMyPage\\/\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/guide-service\\/userLike\\/flowData$/i":
+        reject-dict: true

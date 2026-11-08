@@ -1,0 +1,43 @@
+name: "知乎去广告"
+description: "移除HTTPDNS和QUIC传输配置，移除开屏广告、信息流广告、回答页广告，移除回答页下的相关回答、专栏卡片及圈子卡片，移除直答页面推荐知识库和提问推荐，移除评论区评论氛围满意度调查，精简首页顶部标签及我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Zhihu.png"
+mitm:
+  hostnames:
+    - "m-cloud.zhihu.com"
+    - "api.zhihu.com"
+    - "www.zhihu.com"
+    - "page-info.zhihu.com"
+    - "zhida.zhihu.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/ad-style-service\\/request$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/commercial_api\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/commercial_api\\/banners_v\\d\\/app_float_corner\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/next-render\\?id=\\d+&type=answer/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/commercial_api\\/answer\\/\\d+\\/bottom-v\\d$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/related_recommend\\/feed\\/waterfall\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/search\\/preset_words\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/search\\/related_queries\\/question\\/\\d+$/i":
+        reject-dict: true
+    - "/^https:\\/\\/zhida\\.zhihu\\.com\\/ai_ingress\\/knowledge\\/square\\/categories\\/feeds\\?categoryId=1%7D$/i":
+        reject-dict: true
+    - "/^https:\\/\\/zhida\\.zhihu\\.com\\/ai_ingress\\/ai_chat\\/guidance$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/content-distribution-core\\/bubble\\/common\\/show$/i":
+        reject-dict: true
+    - "/^https:\\/\\/www\\.zhihu\\.com\\/api\\/v\\d\\/members\\/homepage_card$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/people\\/homepage_entry_v\\d$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/kvip\\/right\\/my_card\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.zhihu\\.com\\/unlimited\\/go\\/my_card\\/v\\d\\?/i":
+        reject-dict: true

@@ -1,0 +1,27 @@
+name: "他趣去广告"
+description: "移除各类弹窗、横幅，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Taqu.png"
+mitm:
+  hostnames:
+    - "gw-cn.jiaoliuqu.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/taqu-homepage\\/v\\d\\/Banner\\/getBannerByPositions\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/bbs\\/v5\\/Guide\\/photoGuide\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/i\\/v\\d\\/homepage\\/completeGuideV\\d\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/i\\/v\\d\\/asset\\/toast\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/bbs\\/v5\\/Sign\\/getDailySigninInfoV4\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/taqu-hichat\\/v\\d\\/Hichat\\/getRecommendInfo\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/live_api\\/v\\d\\/Banner\\/getBannerListV\\d\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/live_api\\/v\\d\\/HallScroll\\/getList\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/taqu-msg-guide\\/v\\d\\/RecommendColumn\\/getList\\?/i":
+        reject-dict: true

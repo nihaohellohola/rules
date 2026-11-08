@@ -1,0 +1,19 @@
+name: "斗鱼去广告"
+description: "移除开屏、首页视频流、首页轮播图广告，移除直播间悬浮窗。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Douyu.png"
+mitm:
+  hostnames:
+    - "rtbapi.douyucdn.cn"
+    - "apiv2.douyucdn.cn"
+    - "venus.douyucdn.cn"
+scriptings:
+  - http_response:
+      name: "移除首页轮播图和视频流广告"
+      match: "/^https:\\/\\/apiv2\\.douyucdn\\.cn\\/mgapi\\/livenc\\/home\\/getRecV3/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Douyu/Douyu_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/rtbapi\\.douyucdn\\.cn\\/japi\\/sign\\/app\\/getinfo/i":
+        reject-dict: true

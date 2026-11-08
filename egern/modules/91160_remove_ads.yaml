@@ -1,0 +1,29 @@
+name: "健康160去广告"
+description: "移除开屏广告、应用内悬浮窗、弹窗广告、横幅广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/91160.png"
+mitm:
+  hostnames:
+    - "patientgate.91160.com"
+    - "soapi.91160.com"
+    - "snsapi.91160.com"
+    - "msglb.91160.com"
+    - "patientappapi.91160.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/msglb\\.91160\\.com\\/msg\\/outer\\/broker\\/get$/i":
+        reject-dict: true
+    - "/^https:\\/\\/patientgate\\.91160\\.com\\/advert-api\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/snsapi\\.91160\\.com\\/vipmemberapi\\/mbCombo\\/mbComboWords\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/patientgate\\.91160\\.com\\/rec\\/homepage\\/open\\/getUserGoodsList\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/snsapi\\.91160\\.com\\/hotword\\/open\\/v1\\/getSearchExplore\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/snsapi\\.91160\\.com\\/hotword\\/open\\/v1\\/getHotWordPlate\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/snsapi\\.91160\\.com\\/engine\\/backgroundWord\\/queryForFrontend\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/patientappapi\\.91160\\.com\\/cus_index\\.php\\?c=adver/i":
+        reject: true

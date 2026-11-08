@@ -1,0 +1,28 @@
+name: "高德地图去广告"
+description: "移除开屏广告、首页推荐、搜索推荐、打车广告、地点推荐及广告，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Amap.png"
+mitm:
+  hostnames:
+    - "m5.amap.com"
+    - "ai.amap.com"
+    - "m5-zb.amap.com"
+    - "center.amap.com"
+    - "sns.amap.com"
+    - "info.amap.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/m5\\.amap\\.com\\/ws\\/valueadded\\/alimama\\/splash_screen\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/m5\\.amap\\.com\\/ws\\/faas\\/amap-navigation\\/main-page-assets\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/m5\\.amap\\.com\\/ws\\/faas\\/amap-navigation\\/main-page-aiqs\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/ai\\.amap\\.com\\/v1\\/ai_rec\\/home_qs\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/m5-zb\\.amap\\.com\\/ws\\/promotion-web\\/resource(\\/home)?\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/m5\\.amap\\.com\\/ws\\/info_bff\\/rankingCard\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/m5\\.amap\\.com\\/ws\\/shield\\/search_business\\/process\\/marketingOperationStructured\\?/i":
+        reject-dict: true

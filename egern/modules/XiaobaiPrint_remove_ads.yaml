@@ -1,0 +1,13 @@
+name: "小白智慧打印去广告"
+description: "移除开屏广告、首页推广金刚位、热门内容推荐、横幅广告、搜索填充词、搜索发现，精简我的页面。账户页面错误是已知问题，无需反馈。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XiaobaiPrint.png"
+mitm:
+  hostnames:
+    - "epbox.gongfudou.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/epbox\\.gongfudou\\.com\\/big_data\\/v\\d\\/banners\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/epbox\\.gongfudou\\.com\\/big_data\\/v\\d\\/canvas\\/query_actions\\?/i":
+        reject-dict: true

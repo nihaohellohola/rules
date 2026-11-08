@@ -1,0 +1,20 @@
+name: "百度贴吧去广告"
+description: "移除开屏广告、信息流广告和帖内广告，精简侧拉抽屉及我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md], app2smile[https://github.com/app2smile]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Tieba.png"
+mitm:
+  hostnames:
+    - "tiebac.baidu.com"
+    - "tieba.baidu.com"
+http:
+  rewrite:
+    - "/^https?:\\/\\/tiebac\\.baidu\\.com\\/c\\/f\\/forum\\/getInterestClassList$/i":
+        reject-dict: true
+    - "/^https?:\\/\\/tiebac\\.baidu\\.com\\/c\\/f\\/search\\/discover$/i":
+        reject-dict: true
+    - "/^https?:\\/\\/tieba\\.baidu\\.com\\/c\\/f\\/search\\/discover$/i":
+        reject-dict: true
+    - "/^https:\\/\\/tieba\\.baidu\\.com\\/c\\/f\\/forum\\/getForumAlbum$/i":
+        reject-dict: true
+    - "/^http:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/f\\/forum\\/hotforum$/i":
+        reject-dict: true

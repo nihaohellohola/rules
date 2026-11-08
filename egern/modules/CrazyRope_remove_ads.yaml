@@ -1,0 +1,30 @@
+name: "天天跳绳去广告"
+description: "移除开屏广告、横幅广告、弹窗广告、活动推广，精简首页标签和搜索页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CrazyRope.png"
+mitm:
+  hostnames:
+    - "api.tiantiantiaosheng.com"
+    - "cdn.tiantiantiaosheng.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api\\d\\/abtest\\/ads_v\\d\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/cdn\\.tiantiantiaosheng\\.com\\/props_config_prod\\/ad_position_config\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api\\d\\/adolescent_mode\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api\\d\\/ad_sys\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api\\/user\\/home_page\\/activities$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api\\d\\/search\\/base_info$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api2\\/medal_challenge_activity\\/page_switch\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api2\\/training_plan\\/recommended_list$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api2\\/user\\/new_register_info$/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.tiantiantiaosheng\\.com\\/api2\\/popup\\/list\\?/i":
+        reject-dict: true

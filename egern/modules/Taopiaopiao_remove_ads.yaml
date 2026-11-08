@@ -1,0 +1,15 @@
+name: "淘票票去广告"
+description: "移除开屏广告、悬浮广告、轮播图广告和弹窗广告，移除搜索填充词和为你推荐。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Taopiaopiao.png"
+mitm:
+  hostnames:
+    - "acs.m.taobao.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.life\\.popup\\.get\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.mtopindependentadvertiseapi\\.queryadvertise\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.mtopitemadvertiseapi\\.queryadvertise\\//i":
+        reject-dict: true

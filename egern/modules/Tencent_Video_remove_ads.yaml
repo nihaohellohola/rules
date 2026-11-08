@@ -1,0 +1,17 @@
+name: "腾讯视频去广告"
+description: "过滤腾讯视频客户端广告，如遇失效，则需要重新安装腾讯视频客户端。由于此插件不再维护，客户端版本高于8.9.40可能会导致此插件失效，请勿升级客户端。"
+author: "RuCu6[https://github.com/RuCu6]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Tencent_Video.png"
+mitm:
+  hostnames:
+    - "vv.video.qq.com"
+scriptings:
+  - http_request:
+      name: "移除广告"
+      match: "/^https?:\\/\\/vv\\.video\\.qq\\.com\\/getvinfo/i"
+      script_url: "https://kelee.one/Resource/JavaScript/CommonScript/replace-body.js\", \"&sppreviewtype=\\\\d(.*)&spsrt=\\\\d->&sppreviewtype=0$1&spsrt=0"
+      body_required: true
+http:
+  rewrite:
+    - "/^https?:\\/\\/vv\\.video\\.qq\\.com\\/(diff|get)vmind/i":
+        reject-dict: true

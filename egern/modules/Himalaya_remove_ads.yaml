@@ -1,0 +1,44 @@
+name: "喜马拉雅去广告"
+description: "移除开屏广告、播放器广告、各类推荐内容，精简频道和我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Himalaya.png"
+mitm:
+  hostnames:
+    - "gslbali.ximalaya.com"
+    - "search.ximalaya.com"
+    - "searchwsa.ximalaya.com"
+    - "mobile.ximalaya.com"
+    - "mobilehera.ximalaya.com"
+    - "mobwsa.ximalaya.com"
+    - "m.ximalaya.com"
+    - "mwsa.ximalaya.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/(search|searchwsa)\\.ximalaya\\.com\\/hub\\/(guideWord|hotWord)V\\d\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/discovery-feed\\/v\\d\\/scene\\/listen\\/refresh\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/(m|mwsa)\\.ximalaya\\.com\\/x-web-activity\\/signIn\\/getHomePageSignInInfo\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/subscribe\\/v\\d\\/subscribe\\/tagAlbumList$/i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/track-feed\\/v\\d\\/chase\\/recommend\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/social-web\\/follow-stream\\/category\\/\\d+$/i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/mobile-playpage\\/playpage\\/recommendContentV\\d\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/mobile-playpage\\/playpage\\/recommend\\/resource\\/allocation\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/firework-portal\\/v\\d+\\/sync\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/business-sale-promotion-guide-mobile-web\\/popup\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/app-skin-service\\/skin\\/setting\\/info\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(live|livewsa)\\.ximalaya\\.com\\/lamia\\/v1\\/subscribe\\/status$/i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/subscribe\\/v\\d\\/subscribe\\/recommend\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/mobile-user\\/v\\d\\/purchased\\/recommend\\//i":
+        reject-dict: true

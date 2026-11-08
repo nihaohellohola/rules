@@ -1,0 +1,36 @@
+name: "凤凰新闻去广告"
+description: "移除皮肤、开屏广告、信息流广告、文末广告、视频流广告、评论区广告，移除信息流订阅号文章、文末推荐阅读，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ifengNews.png"
+mitm:
+  hostnames:
+    - "nine.ifeng.com"
+    - "config.nine.ifeng.com"
+    - "user.iclient.ifeng.com"
+    - "comment.ifeng.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/adPreload\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/startUpAdPrestrainList\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/startUpAddAd\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/config\\.nine\\.ifeng\\.com\\/news\\/h5prepublish\\?/i":
+        reject: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/searchhotwordsrollv\\d\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/searchvideohotwordsroll\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/searchHotwordsReact\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/user\\.iclient\\.ifeng\\.com\\/active_task\\/channel\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/newRelatedDocs\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/getdocbackinfo\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/user\\.iclient\\.ifeng\\.com\\/event_protal\\/list_lite\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/nine\\.ifeng\\.com\\/adVideoImmersionWindow\\?/i":
+        reject-dict: true

@@ -1,0 +1,17 @@
+name: "京东去广告"
+description: "移除京东开屏广告，精简我的页面产品推广。"
+author: "RuCu6[https://github.com/RuCu6], Maasea[https://github.com/Maasea]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/JD.png"
+mitm:
+  hostnames:
+    - "api.m.jd.com"
+scriptings:
+  - http_response:
+      name: "移除京东广告"
+      match: "/^https:\\/\\/api\\.m\\.jd\\.com\\/client\\.action\\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome)/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/JD/JD_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.m\\.jd\\.com\\/client\\.action\\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06])/i":
+        reject-dict: true

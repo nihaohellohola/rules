@@ -1,0 +1,20 @@
+name: "CC直播去广告"
+description: "移除信息流推广和横幅，精简顶部标签。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CCLive.png"
+mitm:
+  hostnames:
+    - "api.cc.163.com"
+    - "cc.163.com"
+    - "mshare.cc.163.com"
+    - "appapi.cc.163.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/cc\\.163\\.com\\/act\\/m\\/daily\\/ad_/i":
+        reject: true
+    - "/^http:\\/\\/mshare\\.cc\\.163\\.com\\/mshare\\/startadv_mobile_v\\d\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/appapi\\.cc\\.163\\.com\\/v\\d\\/mixfloatingwindow\\/floating_windows\\?/i":
+        reject-dict: true
+    - "/^http:\\/\\/api\\.cc\\.163\\.com\\/v1\\/mpopuprecommend\\/exit_room_conf$/i":
+        reject-dict: true

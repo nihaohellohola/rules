@@ -1,0 +1,17 @@
+name: "触站去广告"
+description: "移除开屏广告、弹窗广告、各页面横幅推广，移除首页悬浮挂件。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Chuzhan.png"
+mitm:
+  hostnames:
+    - "app.huashi6.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/app\\.huashi6\\.com\\/app\\/index\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.huashi6\\.com\\/app\\/works\\/relative$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.huashi6\\.com\\/app\\/index\\/follow\\/all_random\\/list$/i":
+        reject-dict: true
+    - "/^https:\\/\\/app\\.huashi6\\.com\\/app\\/index\\/csyxh\\/icon$/i":
+        reject-dict: true

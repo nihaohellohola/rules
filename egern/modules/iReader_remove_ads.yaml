@@ -1,0 +1,22 @@
+name: "掌阅去广告"
+description: "移除开屏广告、悬浮广告、弹窗广告、朗读音色广告及我的页面广告，移除各页面的横幅轮播图。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/iReader.png"
+mitm:
+  hostnames:
+    - "webboot.zhangyue.com"
+    - "ih2.ireader.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/zyapi\\/bookstore\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/bookstore\\/ad\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/zybk\\/api\\/pop\\/index\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/zyapi\\/bookstore\\/user\\/mytab\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/zyboot\\/activity\\/mytab\\?/i":
+        reject-dict: true
+    - "/https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/zyam\\/app\\/app\\.php\\?/i":
+        reject-dict: true

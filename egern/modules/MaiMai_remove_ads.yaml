@@ -1,0 +1,22 @@
+name: "脉脉去广告"
+description: "移除开屏广告、信息流广告、横幅推广、相关帖子推荐。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MaiMai.png"
+mitm:
+  hostnames:
+    - "open.taou.com"
+    - "h3.open.taou.com"
+scriptings:
+  - http_response:
+      name: "移除信息流和评论区大块广告"
+      match: "/^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/(feed|gossip)\\/v\\d\\/(focus_feed|gossip_detail_comment|feed_detail_comment?)\\?/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/MaiMai/MaiMai_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/adshow\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/pay\\/v5\\/check_gift\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/go_gossip_darwin\\/external\\/v2\\/query_flow_cards\\?/i":
+        reject-dict: true

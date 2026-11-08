@@ -1,0 +1,24 @@
+name: "书旗小说去广告"
+description: "移除书城横幅广告、听书广告、阅读广告、章末推荐、福利入口、悬浮窗、推荐搜索词，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ShuQiCenterReader.png"
+mitm:
+  hostnames:
+    - "ocean.shuqireader.com"
+    - "huichuan.sm.cn"
+scriptings:
+  - http_response:
+      name: "移除书城横幅和阅读广告"
+      match: "/^https:\\/\\/ocean\\.shuqireader\\.com\\/sqios\\/render\\/render\\/page\\/bookstore$/i"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/ShuQiCenterReader/ShuQiCenterReader_remove_ads.js"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/huichuan\\.sm\\.cn\\/nativead/i":
+        reject-dict: true
+    - "/^https:\\/\\/ocean\\.shuqireader\\.com\\/api\\/route\\/iosReadPage\\/adV2/i":
+        reject-dict: true
+    - "/^https:\\/\\/ocean\\.shuqireader\\.com\\/api\\/route\\/ios\\/readPage$/i":
+        reject-dict: true
+    - "/^https:\\/\\/ocean\\.shuqireader\\.com\\/api\\/render\\/load\\/resource/i":
+        reject: true

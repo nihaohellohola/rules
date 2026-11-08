@@ -1,0 +1,23 @@
+name: "豆瓣去广告"
+description: "移除开屏广告、各页面信息流广告、首页横幅、搜索填充词。此插件需要IPA签名方可使用，App Store用户请勿使用此插件，务必点击下方主页链接查看详细教程。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/DouBan.png"
+mitm:
+  hostnames:
+    - "api.douban.com"
+    - "frodo.douban.com"
+    - "m.douban.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash/i":
+        reject-dict: true
+    - "/^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad/i":
+        reject-dict: true
+    - "/^https:\\/\\/m\\.douban\\.com\\/rexxar\\/api\\/v\\d\\/market\\/products\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/movie\\/ad/i":
+        reject-dict: true
+    - "/^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner/i":
+        reject-dict: true
+    - "/^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words/i":
+        reject-dict: true

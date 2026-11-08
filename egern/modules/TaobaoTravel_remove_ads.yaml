@@ -1,0 +1,19 @@
+name: "飞猪旅行去广告"
+description: "移除开屏广告、精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TaobaoTravel.png"
+mitm:
+  hostnames:
+    - "acs.m.taobao.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.fliggy\\.crm\\.screen\\.allresource\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.fliggy\\.crm\\.screen\\.predict\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.fliggy\\.tripzoo\\.new\\.couponlist\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.trip\\.my\\.recommendcard\\//i":
+        reject-dict: true
+    - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.fliggy\\.recommend\\.common\\.guess\\.tab\\.feeds\\//i":
+        reject-dict: true

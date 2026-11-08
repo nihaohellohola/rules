@@ -1,0 +1,27 @@
+name: "直播吧去广告"
+description: "移除信息流广告、横幅广告、弹窗广告、皮肤配置、悬浮挂件、热门搜索，移除青少年模式，精简我的页面。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Zhibo8.png"
+mitm:
+  hostnames:
+    - "headline.qiumibao.com"
+    - "a.qiumibao.com"
+    - "rn.qiumibao.com"
+    - "guess.qiumibao.com"
+    - "s.qiumibao.com"
+    - "pre-match.qiumibao.com"
+    - "search.qiumibao.com"
+http:
+  rewrite:
+    - "/^https:\\/\\/rn\\.qiumibao\\.com\\/news\\/relation\\.php$/i":
+        reject-dict: true
+    - "/^https:\\/\\/guess\\.qiumibao\\.com\\/api\\/c\\/notice$/i":
+        reject-dict: true
+    - "/^https:\\/\\/guess\\.qiumibao\\.com\\/api\\/c\\/pop$/i":
+        reject-dict: true
+    - "/^https:\\/\\/guess\\.qiumibao\\.com\\/api\\/ep\\/pop$/i":
+        reject-dict: true
+    - "/^https:\\/\\/guess\\.qiumibao\\.com\\/api\\/c\\/banner$/i":
+        reject-dict: true
+    - "/^https:\\/\\/search\\.qiumibao\\.com\\/hot\\/word_list$/i":
+        reject-dict: true
