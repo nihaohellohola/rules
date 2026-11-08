@@ -44,8 +44,7 @@ def parse(text,filename):
         try:
             m=re.match(r'^(?:request|response)\s+if\s+(.+?)\s+then\s+(.+)$',line.strip(),re.I)
             if m:
-                match,directive=m.groups()
-                match=re.sub(r'^\$\{url\}\s*(?:~=|=)\s*','',match.strip())
+                match,directive=m.groups(); match=re.sub(r'^\$\{url\}\s*(?:~=|=)\s*','',match.strip())
             else:
                 parts=line.split()
                 if len(parts)<2: raise ValueError('missing action')
@@ -74,7 +73,7 @@ def parse(text,filename):
     if rewrites:
         lines+=['http:','  rewrite:']
         for e in rewrites:
-            lines+=['    - '+q(e['match'])+':']
+            lines+=['    - '+q(e['match'] or 'all')+':']
             if e['action']=='redirect':lines.append('        redirect: '+q(e['to']))
             else:lines.append('        '+e['action']+': true')
     return '\n'.join(lines)+'\n',issues
