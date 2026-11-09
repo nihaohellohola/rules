@@ -14,6 +14,51 @@ def fetch(url):
     req=urllib.request.Request(url,headers=headers)
     with urllib.request.urlopen(req,timeout=45) as r:return r.read().decode('utf-8-sig')
 def q(s):return json.dumps(s,ensure_ascii=False)
+def bare_regex(s):
+    s=s.strip()
+    if s.startswith('/'):
+        i=len(s)-1
+        while i>0:
+            if s[i]=='/' and s[i-1]!='\\':break
+            i-=1
+        if i>0 and re.fullmatch(r'[a-zA-Z]*',s[i+1:]):return s[1:i]
+    return s
+def split_path(p):
+    p=p.strip()
+    if p.startswith('$.'):p=p[2:]
+    parts=[]
+    for seg in p.split('.'):
+        seg=seg.strip()
+        if seg.isdigit():parts.append(int(seg))
+        elif seg:parts.append(seg)
+    return parts
+def json_directive(directive):
+    m=re.fullmatch(r'(response|request)\s*\.\s*json\s*\.\s*(delete|replace|jq|jq_file)\s*\((.*)\)\s*$',directive.strip(),re.I|re.S)
+    if not m:return None
+    kind,op,arg=m.group(1).lower(),m.group(2).lower(),m.group(3).strip()
+    if op in('jq','jq_file'):
+        filt=json.loads(arg)
+        if not isinstance(filt,str) or not filt.strip():raise ValueError('invalid json.'+op+' argument')
+    elif op=='delete':
+        val=json.loads(arg)
+        items=val if isinstance(val,list) else [val]
+        if not items or not all(isinstance(x,str) for x in items):raise ValueError('invalid json.delete argument')
+        filt='delpaths('+json.dumps([split_path(x) for x in items],ensure_ascii=False)+')'
+    else:
+        dec=json.JSONDecoder()
+        try:first,idx=dec.raw_decode(arg)
+        except Exception:raise ValueError('invalid json.replace argument')
+        rest=arg[idx:].lstrip()
+        if not rest.startswith(','):raise ValueError('invalid json.replace argument')
+        second=rest[1:].strip()
+        val=json.loads(second)
+        if isinstance(first,list) and all(isinstance(x,str) for x in first):
+            if not isinstance(val,list) or len(val)!=len(first):raise ValueError('mismatched json.replace arguments')
+            filt=' | '.join('setpath('+json.dumps(split_path(p),ensure_ascii=False)+'; '+json.dumps(v,ensure_ascii=False)+')' for p,v in zip(first,val))
+        elif isinstance(first,str):
+            filt='setpath('+json.dumps(split_path(first),ensure_ascii=False)+'; '+json.dumps(val,ensure_ascii=False)+')'
+        else:raise ValueError('invalid json.replace argument')
+    return {'kind':kind+'_jq','filter':filt}
 def parse(text,filename):
     meta={}; sections={}; section=''
     for raw in text.splitlines():
@@ -24,7 +69,7 @@ def parse(text,filename):
         m=re.match(r'^\[([^]]+)\]',line)
         if m:section=m.group(1).strip().lower();sections.setdefault(section,[]);continue
         sections.setdefault(section,[]).append(line)
-    scripts=[]; hosts=[]; rewrites=[]; issues=[]
+    scripts=[]; hosts=[]; rewrites=[]; body_rewrites=[]; issues=[]
     for line in sections.get('mitm',[]):
         m=re.match(r'hostname\s*=\s*(.*)',line,re.I)
         if m:hosts.extend(x.strip() for x in m.group(1).split(',') if x.strip())
@@ -49,6 +94,9 @@ def parse(text,filename):
                 parts=line.split()
                 if len(parts)<2: raise ValueError('missing action')
                 match,directive=parts[0],' '.join(parts[1:])
+            jd=json_directive(directive)
+            if jd:
+                jd['match']=bare_regex(match);body_rewrites.append(jd);continue
             call=re.fullmatch(r'([\w-]+)(?:\((.*?)\))?',directive.strip(),re.I)
             if not call: raise ValueError('unknown directive')
             action,arg=call.groups(); normalized=action.lower().replace('-','_')
@@ -58,7 +106,7 @@ def parse(text,filename):
                 rewrites.append({'match':match,'action':'redirect','to':to})
             else: raise ValueError('unsupported action '+action)
         except Exception as exc: issues.append(f'unsupported rewrite (skipped): {line} ({exc})')
-    if not scripts and not rewrites and not hosts: raise ValueError('No convertible script, rewrite, or MITM hostname rules')
+    if not scripts and not rewrites and not body_rewrites and not hosts: raise ValueError('No convertible script, rewrite, or MITM hostname rules')
     lines=[]
     for key,outkey in [('name','name'),('desc','description'),('author','author'),('icon','icon')]:
         if meta.get(key):lines.append(f'{outkey}: {q(meta[key])}')
@@ -76,6 +124,10 @@ def parse(text,filename):
             lines+=['    - '+q(e['match'] or 'all')+':']
             if e['action']=='redirect':lines.append('        redirect: '+q(e['to']))
             else:lines.append('        '+e['action']+': true')
+    if body_rewrites:
+        lines.append('body_rewrites:')
+        for e in body_rewrites:
+            lines+=['  - '+e['kind']+':','      match: '+q(e['match']),'      filter: '+q(e['filter'])]
     return '\n'.join(lines)+'\n',issues
 def main():
     try: listing=json.loads(fetch(API))
