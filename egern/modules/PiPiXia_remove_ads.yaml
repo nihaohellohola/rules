@@ -14,3 +14,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api(5-lq)?\\.pipix\\.com\\/bds\\/feed\\/follow_feed\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api(5-lq)?\\.pipix\\.com\\/bds\\/feed\\/stream\\/v2\\/"
+      filter: ".data.data |= map(select(has(\"ad_info\") | not))"
+  - response_jq:
+      match: "^https:\\/\\/api(5-lq)?\\.pipix\\.com\\/bds\\/user\\/check_in\\/"
+      filter: ".data.profile_entrances |= map(select(.title != \"放心借\" and .title != \"洋钱罐借款\")) | del(.data.pet_interface_message)"

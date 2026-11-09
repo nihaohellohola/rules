@@ -11,3 +11,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/fanyi-app\\.baidu\\.com\\/static\\/react-activity\\/page\\/courseBoutique\\.html\\?/i":
         reject: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/fanyi-app\\.baidu\\.com\\/transapp\\/comment\\/my\\?"
+      filter: "delpaths([[\"data\", \"taskBanner\"], [\"data\", \"act\"]])"
+  - response_jq:
+      match: "^https:\\/\\/fanyi-app\\.baidu\\.com\\/transapp\\/recitewd\\/myplan\\?"
+      filter: "delpaths([[\"data\", \"activityRec\"], [\"data\", \"activityRecList\"]])"

@@ -33,3 +33,25 @@ http:
         reject-dict: true
     - "/^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/guide-service\\/userLike\\/flowData$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/categoriesNewDetail\\?"
+      filter: "delpaths([[\"data\", \"ad_info\"]])"
+  - response_jq:
+      match: "^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/tool\\/getConfig\\?"
+      filter: "delpaths([[\"data\", \"ai_enter_config\"]])"
+  - response_jq:
+      match: "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/newDetails\\?"
+      filter: "delpaths([[\"data\", \"top_advert_data\"], [\"data\", \"suspension\"]])"
+  - response_jq:
+      match: "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/newDetails\\?"
+      filter: ".data.list |= map(select(has(\"capsule_freedom_zone\") | not))"
+  - response_jq:
+      match: "^https:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/guide-service\\/productApi\\/productDetail\\/info\\?"
+      filter: "delpaths([[\"data\", \"detail\", \"chatEntry\"]])"
+  - response_jq:
+      match: "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/bottomNavi"
+      filter: "del(.data.adId?) | if (.data.bottom_list? | length > 0) then .data.bottom_list |= map(select(.type != \"eatwhat\")) else . end"
+  - response_jq:
+      match: "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/homeApi\\/homeFlowDetail"
+      filter: "walk(if type == \"object\" and has(\"list\") then .list |= map(if type == \"object\" and has(\"multi_advertise_data_list\") then del(.multi_advertise_data_list) else . end) else . end)"

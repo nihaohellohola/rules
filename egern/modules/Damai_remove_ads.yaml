@@ -11,3 +11,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.damai\\.mec\\.popup\\.get\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.damai\\.wireless\\.user\\.my\\.content\\.get\\/"
+      filter: "delpaths([[\"data\", \"banner\"], [\"data\", \"performFilmVip\", \"userProfitList\"]])"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.damai\\.wireless\\.mypage\\.feed\\/"
+      filter: "delpaths([[\"data\", \"feedCard\"]])"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.damai\\.mec\\.aristotle\\.get\\/"
+      filter: "delpaths([[\"data\", \"data\", \"top\", \"keywords\"]])"

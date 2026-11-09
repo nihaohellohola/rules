@@ -14,3 +14,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/energy\\.xiaojukeji\\.com\\/station-api\\/search\\/preWords$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/energy\\.xiaojukeji\\.com\\/am\\/marketing\\/api\\/member\\/facade\\/charge\\/personal\\/center\\?"
+      filter: "delpaths([[\"data\"]])"

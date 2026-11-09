@@ -12,3 +12,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/cgate\\.zhaopin\\.com\\/bdp\\/commercial\\/queryLinkData$/i":
         reject: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/ask\\.zhaopin\\.com\\/plat-zqa-server\\/home\\/\\d\\.\\d\\.\\d\\/getHomeContents\\?"
+      filter: "delpaths([[\"data\", \"templates[0]\", \"data\", \"banner\"]])"

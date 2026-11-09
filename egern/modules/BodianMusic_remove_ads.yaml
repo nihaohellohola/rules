@@ -29,3 +29,31 @@ http:
         reject-dict: true
     - "/^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/pay\\/h5\\/common\\/popup\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/conf\\/all\\?"
+      filter: "delpaths([[\"data\", \"groupSign\", \"adStartAppDialog\"], [\"data\", \"groupSign\", \"adGuideTest\"], [\"data\", \"groupSign\", \"playTips\"], [\"data\", \"groupSign\", \"adExitChange\"], [\"data\", \"conf\", \"adGuidePopCount\"], [\"data\", \"conf\", \"adDownListOpen\"]])"
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/conf\\/all\\?"
+      filter: "setpath([\"data\", \"conf\", \"flowControlConfig\", \"uploadEnable\"]; false) | setpath([\"data\", \"conf\", \"flowControlConfig\", \"p2pEnable\"]; false)"
+  - response_jq:
+      match: "^https:\\/\\/ab-bodian\\.kuwo\\.cn\\/abtest\\/ui\\/info\\?"
+      filter: "delpaths([[\"data\", \"mapTestInfo\", \"CommentADPosition\"], [\"data\", \"mapTestInfo\", \"DiscoverADPosition\"], [\"data\", \"mapTestInfo\", \"DownloadAd\"], [\"data\", \"mapTestInfo\", \"FreeModVoiceReminder\"], [\"data\", \"mapTestInfo\", \"GamesTrans\"], [\"data\", \"mapTestInfo\", \"bodianmvdialog\"], [\"data\", \"mapTestInfo\", \"MvTryShowAds\"], [\"data\", \"mapTestInfo\", \"insert\"]])"
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/global\\/config\\/scene\\?"
+      filter: "delpaths([[\"data\", \"iosP2PCacheEnable\"], [\"data\", \"warmStartDialog\"], [\"data\", \"adsNotFinishVipPop4DayInterval\"]])"
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/global\\/config\\/scene\\?"
+      filter: "setpath([\"data\", \"showShopEntry\"]; false) | setpath([\"data\", \"iosP2pEnableSendDataLimit\"]; 1)"
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/search\\/topic\\/word\\/list\\?"
+      filter: "delpaths([[\"data\", \"hotTopic\"], [\"data\", \"searchFind\"], [\"data\", \"globalJumpInfo\"], [\"data\", \"hotWord\"]])"
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/home\\/index\\?"
+      filter: ".data.moduleList |= map(select(.type | tostring | (. != \"8\" and . != \"1\")))"
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/service\\/music\\/recommendList\\?"
+      filter: ".data.musicList[] |= del(.showAd)"
+  - response_jq:
+      match: "^https:\\/\\/bd-api\\.kuwo\\.cn\\/api\\/comments\\/v3\\/topInfo\\?"
+      filter: "delpaths([[\"data\", \"putao\"], [\"data\", \"bannerVos\"]])"

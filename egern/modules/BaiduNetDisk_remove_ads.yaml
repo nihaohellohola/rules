@@ -21,3 +21,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/pan\\.baidu\\.com\\/recommend\\/query\\/list\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/pan\\.baidu\\.com\\/feed\\/kingkongdistrict\\?"
+      filter: ".data.data |= map(select(.type != \"novel\" and .type != \"shortplay\" and .type != \"print\" and .type != \"job_hunt\"))"

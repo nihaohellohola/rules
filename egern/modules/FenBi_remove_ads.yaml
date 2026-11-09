@@ -30,3 +30,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/market-api\\.fenbi\\.com\\/(iphone|ipad)\\/v1\\/assistant\\/my\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/hera-webapp\\.fenbi\\.com\\/(iphone|ipad)\\/recommend\\/info\\?"
+      filter: "delpaths([[\"data\", \"rollingBanner\"]])"
+  - response_jq:
+      match: "^https:\\/\\/ke\\.fenbi\\.com\\/(iphone|ipad)\\/v3\\/apps\\/config\\?"
+      filter: "delpaths([[\"data\", \"bottomIconInfos\", \"position\", \"iconDefaultUrl\"], [\"data\", \"bottomIconInfos\", \"position\", \"iconSelectedUrl\"], [\"data\", \"bottomIconInfos\", \"position\", \"nightModeIconDefaultUrl\"], [\"data\", \"bottomIconInfos\", \"position\", \"nightModeIconSelectedUrl\"]])"

@@ -5,3 +5,7 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "jia.360.cn"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/jia\\.360\\.cn\\/conf\\/v1\\.json"
+      filter: "delpaths([[\"tab_conf\"], [\"ad_conf\"], [\"activity\"]])"

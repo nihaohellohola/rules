@@ -9,3 +9,10 @@ http:
   rewrite:
     - "/^https:\\/\\/compus\\.xiaofubao\\.com\\/compus\\/advertising\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/compus\\.xiaofubao\\.com\\/compus\\/user\\/getUserExt$"
+      filter: "delpaths([[\"data\", \"adPopSwitch\"], [\"data\", \"adSplashSwitch\"]])"
+  - response_jq:
+      match: "^https:\\/\\/compus\\.xiaofubao\\.com\\/compus\\/application\\/getHomeAppList$"
+      filter: ".rows|=map(select(.appCode==\"kechengbiao_app1\" or .appCode==\"siliuji\" or .appCode==\"NEWJIAOFEIDATING\"))"

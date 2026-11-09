@@ -13,3 +13,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/ucmp\\.sf-express\\.com\\/proxy\\/esgcempcore\\/memberGoods\\/pointMallService\\/goodsList$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/ccsp-egmas\\.sf-express\\.com\\/cx-app-base\\/base\\/app\\/appHomeConfig\\/query$"
+      filter: ".obj |= map(select(.position != 2))"

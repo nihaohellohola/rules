@@ -21,3 +21,22 @@ http:
         reject-dict: true
     - "/^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/v2\\/zzusercenter\\/myprofilevariouscards$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/v2\\/zzlogic\\/mycontinenthomepage\\?"
+      filter: "delpaths([[\"respData\", \"topOpera\", \"leftOpera\"], [\"respData\", \"topOpera\", \"rightOpera2\"], [\"respData\", \"topActBanner\"], [\"respData\", \"bmArea\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.zhuanzhuan\\.com\\/zzx\\/transfer\\/getConfigInfo\\?"
+      filter: "delpaths([[\"respData\", \"freeMarketTabLeadPop\"], [\"respData\", \"topOperations\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/v2\\/zzinfoshow\\/getfeedflowinfo\\?"
+      filter: "if .respData.userRed.campName == \"OCD挂件\" then del(.respData.userRed) else . end | .respData.infoData |= map(del(.rotateResource,.appRecommendResource,.\"cargoGroupCardV2\"))"
+  - response_jq:
+      match: "^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/transfer\\/getmymoretools$"
+      filter: "walk(if type == \"object\" and .name == \"免流量特权\" then empty else . end) | del(.respData.groupList[] | select(.groupName == \"活动参与\" or .groupName == \"金融工具\"))"
+  - response_jq:
+      match: "^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/transfer\\/getmyprofilev3$"
+      filter: "delpaths([[\"respData\", \"bmNewInfo\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.zhuanzhuan\\.com\\/zz\\/transfer\\/getmyprofilev3$"
+      filter: "del(.respData.itemGroupList[].itemList[] | select(.name == \"天天赚钱\" or .name == \"借钱\")) | del(.respData.itemGroupList[] | select(.groupType == 15))"

@@ -54,3 +54,28 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.pinduoduo\\.com\\/api\\/caterham\\/v2\\/query\\/goods_detail_with_tags\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/api\\/alexa\\/homepage\\/hub\\?"
+      filter: "delpaths([[\"result\", \"dy_module\", \"irregular_banner_dy\"], [\"result\", \"icon_set\"], [\"result\", \"search_bar_hot_query\"], [\"result\", \"dy_module\", \"irregular_banner_dy\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/api\\/alexa\\/homepage\\/hub\\?"
+      filter: ".result.bottom_tabs? |= map(select(.link | IN(\"index.html\", \"chat_list.html\", \"personal.html\"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN(\"index.html\", \"chat_list.html\", \"personal.html\"))) | .result.all_top_opts |= map(del(.selected_image, .image, .height, .width))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/search\\?"
+      filter: "delpaths([[\"expansion\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/api\\/philo\\/personal\\/hub\\?"
+      filter: "delpaths([[\"monthly_card_entrance\"], [\"personal_center_style_v2_vo\"], [\"icon_set\", \"icons\"], [\"icon_set\", \"top_personal_icons\"], [\"personal_banner\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/api\\/oak\\/integration\\/render\\?"
+      filter: "delpaths([[\"bottom_section_list\"], [\"ui\", \"bottom_section\"], [\"ui\", \"live_section\", \"float_info\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/api\\/caterham\\/v3\\/query\\/order_detail_group\\?"
+      filter: "delpaths([[\"data\", \"goods_list\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/order\\/"
+      filter: "delpaths([[\"marketing_banner_vo\"], [\"shipping\", \"banner_above_recommend\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinduoduo\\.com\\/api\\/aristotle\\/order_list_v4\\?"
+      filter: ".orders |= map(.order_buttons |= map(del(.order_growth_tip)))"

@@ -13,3 +13,10 @@ http:
         reject-dict: true
     - "/^https?:\\/\\/p\\.kuaidi100\\.com\\/apicenter\\/card\\.dox/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https?:\\/\\/p\\.kuaidi100\\.com\\/mobile\\/mobileapi\\.do$"
+      filter: "delpaths([[\"adsplash\"], [\"adIsConsumable\"], [\"adProductId\"], [\"nologin_tips\"], [\"index_banner\"], [\"me_banner\"], [\"index_banner_shadow\"], [\"adshongbao\"], [\"adsapp_homepage_ticket_pop\"], [\"adsoptimizationsend\"], [\"adsapp_activity_ad_array\"], [\"adbanner\"], [\"adposition\"], [\"adShowAgainTime\"]])"
+  - response_jq:
+      match: "^https?:\\/\\/p\\.kuaidi100\\.com\\/apicenter\\/xcx\\.dox"
+      filter: "delpaths([[\"data\", \"secondMenuList\"]])"

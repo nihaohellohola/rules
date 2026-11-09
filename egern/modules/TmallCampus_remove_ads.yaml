@@ -15,3 +15,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.tmall\\.campus\\.guide\\.app\\.home\\.pop\\.get\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.tmall\\.kangaroo\\.core\\.service\\.route\\.fixrespagerecommend\\/"
+      filter: "delpaths([[\"data\", \"resultValue\", \"data\", \"normal-banner-resource-code\"], [\"data\", \"resultValue\", \"data\", \"feeds-channel-code\"]])"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.tmall\\.campus\\.guide\\.app\\.userprofile\\.framework\\.v\\d\\/"
+      filter: "del(.data.memberBenefit, .data.memberBenefitNew) | .data.moduleSorts |= map(select(. != \"memberBenefit\" and . != \"memberBenefitNew\"))"

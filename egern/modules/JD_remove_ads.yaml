@@ -15,3 +15,7 @@ http:
   rewrite:
     - "/^https:\\/\\/api\\.m\\.jd\\.com\\/client\\.action\\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06])/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.m\\.jd\\.com\\/client\\.action\\?functionId=basicConfig"
+      filter: "setpath([\"data\", \"JDMessage\", \"socketmonitor\", \"isSocketEstablishedAhead\"]; 0) | setpath([\"data\", \"JDMessage\", \"socketmonitor\", \"isSocketReport\"]; 0) | setpath([\"data\", \"JDHttpToolKit\", \"httpdns\", \"httpdns\"]; 0)"

@@ -22,3 +22,55 @@ http:
         reject-dict: true
     - "/^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.playboy\\.recommend\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlehome\\.home\\.nextfresh\\/"
+      filter: ".data.homeTopList |= map(select(.sectionType == \"kingkongDo\")) | .data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != \"homeMultiBanner\" and $ct != \"mamaAD\")) | .data.sections |= map(select((.template.name|type==\"string\")and(.template.name==\"idlefish_home_new_commodity_card\"or(.template.name|contains(\"fish_home_tags_item_card\")))))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlehome\\.widget\\.refresh\\.get\\/"
+      filter: ".data.homeTopList |= map(select(.sectionType == \"kingkongDo\"))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.home\\.whale\\.modulet\\/"
+      filter: ".data.container.sections |= map(select(.template.name == \"fish_home_miniapp\"))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.fun\\.follow\\.feed\\.list\\/"
+      filter: ".data.sections|=map(select(.cardType==2001))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlehome\\.home\\.community\\/"
+      filter: ".data.feedsList |= map(select(.template.name == \"idlefish_home_new_commodity_card\" or .template.name == \"idlefish_home_new_content_card\"))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlehome\\.home\\.newitem\\.page\\/"
+      filter: ".data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != \"banner\" and $ct != \"mamaAD\"))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.local\\.flow\\.plat\\.section\\/"
+      filter: ".data.data.components |= map(select(.data and (.data|type==\"object\") and .data.template and (.data.template|type==\"object\") and .data.template.name and (.data.template.name|type==\"string\") and (.data.template.name|contains(\"fish_city_kingkong\"))))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.local\\.home\\.top\\/"
+      filter: ".data.data.components |= map(select(.key == \"fish_home_second_stage_top_cardV3\"))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.local\\.home\\/"
+      filter: ".data.sections |= map(select((.template.cardEnum != \"ads\") and (.cardType == \"common\")))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.idle\\.user\\.page\\.my\\.adapter\\/"
+      filter: ".data.container.sections |= map(select((.template.name? // \"\") | test(\"^my_fy[0-9]+_(header|user_info|trade|appraise|tools)$\"))) | .data.container.sections |= map(.item |= (if .level and .level.exContent and (.level.exContent | has(\"tips\")) then del(.level) else . end)) | .data.container.sections |= map(if .sectionBizCode==\"entry2025\" then .item.tool.exContent.tools |= [[.[][] | select(.exContent.id as $id | $id==5 or $id==39 or $id==6 or $id==30 or $id==29 or $id==2 or $id==32 or $id==3 or $id==1)] | sort_by(. as $item | ([5,39,6,30,29,2,32,3,1] | index($item.exContent.id))) | [range(0;length;5) as $i | .[$i:$i+5]]][] else . end) | del(.data.ability)"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlehome\\.home\\.circle\\.list\\/"
+      filter: ".data.circleList[]?.showInfo |= del(.titleImage, .atmosphereImageUrl) | .data.next.headList |= map(select(.bizCode == \"main\" or .bizCode == \"market\" or .bizCode == \"IDLE_CIRCLE\")) | del(.data.next.headList[]?.showInfo.rightTagImage)"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlehome\\.magic\\.home\\.page\\.list\\/"
+      filter: "delpaths([[\"data\", \"topList\"]])"
+  - response_jq:
+      match: "^https:\\/\\/g-acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlemtopsearch\\.search\\/"
+      filter: ".data.resultList |= map(if .data.item.main.exContent.dislikeFeedback.clickParam.args.bizType == \"ad\" then empty else . end)"
+  - response_jq:
+      match: "^https:\\/\\/g-acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlemtopsearch\\.search\\/"
+      filter: "delpaths([[\"data\", \"resultPrefixBar\"]])"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlemtopsearch\\.search\\.discover\\/"
+      filter: ".data.resultList |= map(select(.type != \"MarketHotSpot\"))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idlemtopsearch\\.item\\.search\\.activate\\/"
+      filter: ".data.cardList |= map(if has(\"cardData\") and (.cardData | has(\"hotwords\")) then .cardData |= del(.hotwords) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.goofish\\.com\\/gw\\/mtop\\.taobao\\.idle\\.trade\\.full\\.info\\/"
+      filter: ".data.components |= map(select(.render | . == \"orderStatusVO\" or . == \"addressInfoVO\" or . == \"orderInfoVO\"))"

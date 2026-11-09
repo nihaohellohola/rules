@@ -6,3 +6,10 @@ mitm:
   hostnames:
     - "conf-m-ssl.xunlei.com"
     - "api-shoulei-ssl.xunlei.com"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/conf-m-ssl\\.xunlei\\.com\\/external\\/"
+      filter: "delpaths([[\"values\", \"me_config\", \"entrance_list_vertical_enable\"], [\"values\", \"me_config\", \"common_service_list\"], [\"values\", \"me_config\", \"banner_service_list\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api-shoulei-ssl\\.xunlei\\.com\\/flowhub\\/v1\\/slots:batchGet$"
+      filter: ".slots |= map(select(.id == \"xl_ios_mytab_vipicon\" or (.native.assets.title.text.value? and (.native.assets.title.text.value | . == \"清理助手\" or . == \"云盘容量\" or . == \"远程设备\"))))"

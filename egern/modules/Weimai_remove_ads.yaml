@@ -5,3 +5,10 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "confssl*.iweimai.cn"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/confssl\\d?\\.iweimai\\.cn\\/wm_ios_update\\.json\\?"
+      filter: "setpath([\"isShowCJAd\"]; 0)"
+  - response_jq:
+      match: "^https:\\/\\/confssl\\d?\\.iweimai\\.cn\\/wm_ios_update\\.json\\?"
+      filter: "delpaths([[\"launchAd\"], [\"adBanners\"], [\"ad\"]])"

@@ -25,3 +25,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/gateway\\.kugou\\.com\\/goddess\\/v1\\/content\\/biz_list\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/gateway\\.kugou\\.com\\/youth\\/v1\\/yueku\\/tab\\?"
+      filter: ".data.responses |= map(select(.module == \"new_song_publish\" or .module == \"song_rank\"))"

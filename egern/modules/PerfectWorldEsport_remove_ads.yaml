@@ -10,3 +10,7 @@ http:
   rewrite:
     - "/^https:\\/\\/appactivity\\.wmpvp\\.com\\/hotsearch\\/all\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.wmpvp\\.com\\/api\\/v1\\/config\\/promote$"
+      filter: "delpaths([[\"data\", \"ad\"]])"

@@ -15,3 +15,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/cn-wxmall\\.dreame\\.tech\\/main\\/goods\\/get-topgoods$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/cn\\.iot\\.dreame\\.tech:13267\\/dreame-system\\/dreame-app\\/setting\\/query$"
+      filter: "delpaths([[\"data\", \"appIconConfig\"]])"

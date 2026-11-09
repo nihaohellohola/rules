@@ -37,3 +37,25 @@ http:
         reject-dict: true
     - "/^https:\\/\\/(beta-luna\\.douyin|api5-lq\\.qishui)\\.com\\/luna\\/listen-video\\/reminder\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/tnc\\d-(bjlgy|ali[a-z]{2})\\d?\\.zijieapi\\.com\\/get_domains\\/v\\d\\/\\?"
+      filter: "setpath([\"data\", \"opaque_data_enabled\"]; 0) | setpath([\"data\", \"ttnet_http_dns_enabled\"]; 0) | setpath([\"data\", \"ttnet_quic_enabled\"]; 0) | setpath([\"data\", \"ttnet_tt_http_dns\"]; 0)"
+  - response_jq:
+      match: "^https:\\/\\/tnc\\d-(bjlgy|ali[a-z]{2})\\d?\\.zijieapi\\.com\\/get_domains\\/v\\d\\/\\?"
+      filter: ".data.ttnet_dispatch_actions |= map(select(.action != \"dispatch\" and .action != \"tc\"))"
+  - response_jq:
+      match: "^https:\\/\\/(beta-luna\\.douyin|api5-lq\\.qishui)\\.com\\/luna\\/me\\?"
+      filter: "delpaths([[\"reward_ad_banner\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(beta-luna\\.douyin|api5-lq\\.qishui)\\.com\\/luna\\/feed\\/song-tab\\?"
+      filter: "del(.items[] | select(.type == \"video_track_mix\"))"
+  - response_jq:
+      match: "^https:\\/\\/(beta-luna\\.douyin|api5-lq\\.qishui)\\.com\\/luna\\/card\\?"
+      filter: "delpaths([[\"preview_guide\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(beta-luna\\.douyin|api5-lq\\.qishui)\\.com\\/luna\\/card\\?"
+      filter: "del(.card_items[] | select(has(\"priority_display\")))"
+  - response_jq:
+      match: "^https:\\/\\/(beta-luna\\.douyin|api5-lq\\.qishui)\\.com\\/luna\\/more-panel\\?"
+      filter: ".blocks |= map(select(.type != \"related_video\"))"

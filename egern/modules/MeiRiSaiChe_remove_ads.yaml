@@ -5,3 +5,10 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "api.romielf.com"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.romielf\\.com\\/index\\/indexv\\d\\?"
+      filter: "setpath([\"data\", \"advertisement\"]; \"[]\") | setpath([\"data\", \"listadvertising\"]; \"[]\")"
+  - response_jq:
+      match: "^https:\\/\\/api\\.romielf\\.com\\/index\\/indexv\\d\\?"
+      filter: ".data.list |= map(select(.type == 1))"

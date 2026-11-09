@@ -20,3 +20,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/chat-live\\.soulapp\\.cn\\/live\\/planet\\/recListV2/i":
         reject: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/(?:api-\\w+|gateway-mobile-gray|post)\\.soulapp\\.cn\\/(?:furion\\/position\\/content|hot\\/soul\\/rank|mobile\\/app\\/version\\/queryIos|official\\/scene\\/module|teenager\\/config|v2\\/post\\/gift\\/list|v\\d\\/post\\/homepage\\/guide\\/card)"
+      filter: "delpaths([[\"data\"]])"

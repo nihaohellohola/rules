@@ -12,3 +12,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/(m2u-api\\.getkwai|api-m2u\\.kuaishou)\\.com\\/api-server\\/api\\/v4\\/op\\/actPositions\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/(m2u-api\\.getkwai|api-m2u\\.kuaishou)\\.com\\/api-server\\/api\\/v1\\/system\\/configs\\?"
+      filter: "delpaths([[\"data\", \"shouldUseLMAdFirst\"], [\"data\", \"incentiveCfgList\"]])"

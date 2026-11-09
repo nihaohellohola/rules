@@ -5,3 +5,7 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "m.pvp.xoyo.com"
+body_rewrites:
+  - response_jq:
+      match: "^https?:\\/\\/m\\.pvp\\.xoyo\\.com\\/conf\\/server-mapping$"
+      filter: "delpaths([[\"data\", \"splashConf\"], [\"data\", \"splashConfNew\"]])"

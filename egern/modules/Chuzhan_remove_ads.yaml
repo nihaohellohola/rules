@@ -15,3 +15,16 @@ http:
         reject-dict: true
     - "/^https:\\/\\/app\\.huashi6\\.com\\/app\\/index\\/csyxh\\/icon$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/app\\.huashi6\\.com\\/app\\/common\\/config$"
+      filter: "setpath([\"data\", \"disableAd\"]; true) | setpath([\"data\", \"showTopFloatAdvanceTips\"]; false)"
+  - response_jq:
+      match: "^https:\\/\\/app\\.huashi6\\.com\\/app\\/common\\/config$"
+      filter: "delpaths([[\"data\", \"adsConfigIOS\"], [\"data\", \"adsConfigAndroid\"], [\"data\", \"url\", \"tabMarket\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.huashi6\\.com\\/app\\/common\\/layouts$"
+      filter: ".data |= {CZ_MINE_MENUS: .CZ_MINE_MENUS}"
+  - response_jq:
+      match: "^https:\\/\\/app\\.huashi6\\.com\\/app\\/common\\/themeConfig$"
+      filter: ".data.tabbars |= map(select(.title != \"商城\"))"

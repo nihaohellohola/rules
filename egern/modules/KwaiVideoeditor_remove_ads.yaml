@@ -15,3 +15,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.kmovie\\.gifshow\\.com\\/rest\\/n\\/kmovie\\/app\\/resource\\/activity\\/pendant\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.kmovie\\.gifshow\\.com\\/rest\\/n\\/kmovie\\/app\\/banner\\/common\\/getBannerByTypeV2\\?"
+      filter: "del(.list[] | select(.bannerChannelName == \"活动\"))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.kmovie\\.gifshow\\.com\\/rest\\/n\\/kmovie\\/app\\/banner\\/common\\/getAllBannerPage\\?"
+      filter: "del(.data[] | select(.bannerChannelName == \"活动\"))"

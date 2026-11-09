@@ -21,3 +21,37 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/e-commerce-interface\\/v1\\/ecommerce-user\\/get_shopping_info\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.bilibili\\.com\\/x\\/pd-proxy\\/tracker\\?"
+      filter: ".data[][]?=\"stun.chat.bilibili.com:3478\""
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/splash\\/(show|event\\/list2)\\?"
+      filter: ".data |= with_entries(if .key | IN(\"show\", \"event_list\") then .value = [] else . end)"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/resource\\/show\\/tab\\/v2\\?"
+      filter: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JQLang/Bilibili/tab_Bilibili_remove_ads.jq"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/feed\\/index\\?"
+      filter: "if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == \"av\") and (.card_type | IN(\"small_cover_v2\", \"large_cover_single_v9\", \"large_cover_v1\")))) end"
+  - response_jq:
+      match: "^https:\\/\\/api\\.bilibili\\.com\\/pgc\\/view\\/v2\\/app\\/season\\?"
+      filter: "del(.data.payment)"
+  - response_jq:
+      match: "^https:\\/\\/api\\.bilibili\\.com\\/pgc\\/page\\/channel\\?"
+      filter: ".data.modules |= map(select(.type != \"TIP\") | if .type == \"BANNER\" then .module_data.items |= map(select(.url | startswith(\"https://www.bilibili.com/blackboard/era/\") | not)) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/feed\\/index\\/story\\?"
+      filter: "if .data.items then .data.items |= map(select((.ad_info == null) and (.card_goto | IN(\"vertical_ad_av\", \"vertical_ad_live\", \"vertical_ad_picture\") | not)) | del(.story_cart_icon, .free_flow_toast, .image_infos, .course_info, .game_info)) end"
+  - response_jq:
+      match: "^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/open-interface\\/v2\\/tracker\\/conf\\?"
+      filter: ".data.domains=[\"wss://tracker.chat.bilibili.com\"]"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/resource\\/show\\/skin\\?"
+      filter: "delpaths([[\"data\", \"common_equip\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/account\\/mine(\\/ipad)?\\?"
+      filter: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JQLang/Bilibili/mine_Bilibili_remove_ads.jq"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/account\\/myinfo\\?"
+      filter: ".data.vip |= if . != null and .status == 0 then . + { status: 1, type: 2, due_date: 9005270400000, role: 15 } else . end"

@@ -17,3 +17,10 @@ http:
   rewrite:
     - "/^https:\\/\\/rtbapi\\.douyucdn\\.cn\\/japi\\/sign\\/app\\/getinfo/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/apiv2\\.douyucdn\\.cn\\/japi\\/entrance\\/roomRes\\/nc\\/m\\/list"
+      filter: "delpaths([[\"data\", \"pendant_a\"], [\"data\", \"entrance_d\"]])"
+  - response_jq:
+      match: "^https:\\/\\/venus\\.douyucdn\\.cn\\/venus\\/config\\/static\\/update.+keyCodeSet=flow_config"
+      filter: "setpath([\"greatGodGameSitterSwitch\"]; 0) | setpath([\"followMoreAnchorEntrance\"]; 0) | setpath([\"sdklivebanner\"]; 0) | setpath([\"homeActFloatSwitch\"]; 0) | setpath([\"bringGoodsSwitch\"]; 0) | setpath([\"qqGameSwitch\"]; 0)"

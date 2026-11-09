@@ -15,3 +15,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.livelab\\.com\\.cn\\/appShow\\/app\\/homepage\\/banners\\?bannerModuleId=(82|84|53)/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.livelab\\.com\\.cn\\/appShow\\/app\\/homepage\\/modules\\?tabId=5$"
+      filter: ".data |= map(select(.id | IN(51, 52, 81, 82, 83, 84)))"

@@ -15,3 +15,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/app\\.chengfenmiao\\.com\\/Helper\\/HotWords\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/app\\.chengfenmiao\\.com\\/helper\\/setting\\?"
+      filter: "delpaths([[\"detail_buy_sites\"], [\"bottom_sites\"]])"

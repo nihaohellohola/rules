@@ -25,3 +25,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/taqu-msg-guide\\/v\\d\\/RecommendColumn\\/getList\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/mp-dolphin\\/v\\d\\/rec\\/recByPositions\\?"
+      filter: ".info.data |= map(if .materials and (.materials | type) == \"array\" then .materials |= map(select(has(\"adPosition\") | not)) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/mp-dolphin\\/v\\d\\/rec\\/recByPositions\\?"
+      filter: ".info.data |= map(if .materials and (.materials | type) == \"array\" then .materials |= map(select((keys | length) != 2 or (keys | sort) != [\"link\", \"pic\"])) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/gw-cn\\.jiaoliuqu\\.com\\/bbs\\/v5\\/Home\\/getHomePageModulesBySortV\\d\\?"
+      filter: "(.info.data.modules_list // []) |= [.[] | [.[] | del(.relaction_title, .scrollow_contents)]] | (.info.data.top_fix_list // []) |= [.[] | del(.subtitle_list)]"

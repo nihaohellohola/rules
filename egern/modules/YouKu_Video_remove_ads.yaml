@@ -6,3 +6,10 @@ mitm:
   hostnames:
     - "push.m.youku.com"
     - "un-acs.youku.com"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/un-acs\\.youku\\.com\\/gw\\/mtop\\.youku\\.play\\.ups\\.appinfo\\.get"
+      filter: "delpaths([[\"data\", \"data\", \"ad\"], [\"data\", \"data\", \"watermark\"], [\"data\", \"data\", \"ykad\"]])"
+  - response_jq:
+      match: "^https:\\/\\/push\\.m\\.youku\\.com\\/collect-api\\/get_push_interval_config_wx\\?"
+      filter: "delpaths([[\"data\", \"tipContent\"], [\"data\", \"tipContentNew\"]])"

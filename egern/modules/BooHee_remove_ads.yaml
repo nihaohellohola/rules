@@ -28,3 +28,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.boohee\\.com\\/meta-interface\\/v1\\/index\\/sensor-banners\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.boohee\\.com\\/meta-interface\\/v2\\/index\\?"
+      filter: "delpaths([[\"data\", \"recom_cards\"], [\"data\", \"recom_btns\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.boohee\\.com\\/meta-interface\\/v1\\/index\\/plaza\\?"
+      filter: "delpaths([[\"data\", \"tabs[1]\", \"badge\"], [\"data\", \"recommend_ads\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.boohee\\.com\\/open-interface\\/v1\\/string\\/market_page\\?title=metabolism_config$"
+      filter: "delpaths([[\"top_banner\"], [\"diagnos_config\"], [\"partner_hospital\"], [\"question_answer\"], [\"product\"], [\"brand_story\"]])"

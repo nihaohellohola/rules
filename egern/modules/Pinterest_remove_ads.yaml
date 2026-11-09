@@ -5,3 +5,10 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "api.pinterest.com"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinterest\\.com\\/v\\d\\/feeds\\/home\\/\\?"
+      filter: ".data |= map(select(.is_promoted == false or .is_promoted == \"false\"))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinterest\\.com\\/v\\d\\/pins\\/\\d+\\/related\\/modules\\/\\?"
+      filter: ".data |= map(select(.is_promoted == false or .is_promoted == \"false\"))"

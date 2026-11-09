@@ -21,3 +21,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/richmanrules\\.ksedt\\.com\\/intellectWaterfall\\/find$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "http-response"
+      filter: "delpaths([[\"^https:\\\\/\\\\/api\\\\\", \"ksedt\\\\\", \"com\\\\/api\\\\/config\\\\/\"]])"

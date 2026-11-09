@@ -12,3 +12,16 @@ http:
         reject-dict: true
     - "/^https:\\/\\/color\\.jddj\\.com\\/client\\.action\\?functionId=search_recommendRanking$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/color\\.jddj\\.com\\/client\\.action\\?functionId=hours_home$"
+      filter: "del(.result.config.searchFloor.data[].searchWords) | .result.data |= map(if .tnConfigVO?.businessCode == \"nearby_HourlyGo_Operation_Tags\" then empty else . end)"
+  - response_jq:
+      match: "^https:\\/\\/color\\.jddj\\.com\\/client\\.action\\?functionId=wmHome$"
+      filter: "(.floors |= map(del(.data.tnData.newsInfo?))) | .floors |= (map(select(.mId != \"newWalletIdFloor\" and .mId != \"recommendfloor\"))) | .floors |= (map(.data |= (if .tnData? then del(.tnData.cardList, .tnData.cardListStatic, .tnData.walletList) else . end)))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.m\\.jd\\.com\\/client\\.action$"
+      filter: "delpaths([[\"data\", \"searchDTO\", \"searchWords\"], [\"data\", \"wishlistDTO\", \"bubbleTip\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.m\\.jd\\.com\\/client\\.action$"
+      filter: ".data.tabList |= (map(select(.code == \"recommendation\" or .code == \"find_food\")) | map(if .code == \"recommendation\" then .dpHomeFeedTabResultDTOList = .dpHomeFeedTabResultDTOList[0:2] else . end | .dpHomeBannerResultDTOList = []))"

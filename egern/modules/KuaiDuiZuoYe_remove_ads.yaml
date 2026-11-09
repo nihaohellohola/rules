@@ -18,3 +18,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/apivip\\.kuaiduizuoye\\.com\\/viponline\\/scancode\\/mycard$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/www\\.kuaiduizuoye\\.com\\/codesearch\\/aid\\/home$"
+      filter: "delpaths([[\"data\", \"homeBannerList\"]])"

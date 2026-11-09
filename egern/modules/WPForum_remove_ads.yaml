@@ -9,3 +9,7 @@ http:
   rewrite:
     - "/^https:\\/\\/api\\.wfdata\\.club\\/v2\\/yesfeng\\/yesList\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.wfdata\\.club\\/v2\\/yesfeng\\/slideshow\\?"
+      filter: ".data |= map(select(.protocolId == 1))"

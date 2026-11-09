@@ -22,3 +22,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api-web-moment\\.huxiu\\.com\\/v3\\/moment\\/getDetailRecdArticle$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api-ms-feed\\.huxiu\\.com\\/v1\\/media\\/recommend$"
+      filter: "delpaths([[\"data\", \"live\"]])"

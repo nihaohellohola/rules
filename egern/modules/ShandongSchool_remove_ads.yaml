@@ -31,3 +31,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/mall\\/goods\\/recommend\\/pagePointsGoodsList$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/home\\/homePage\\/config$"
+      filter: ".data.functionEntries |= map(select(.name == \"运动\" or .name == \"空间\")) | del(.data.seaview)"
+  - response_jq:
+      match: "^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/api\\/user\\/cs\\/index$"
+      filter: "delpaths([[\"data\", \"bannerList\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.huachenjie\\.com\\/run-front\\/common\\/bottom-bar\\/redDot$"
+      filter: "delpaths([[\"data\", \"inspiration\"]])"

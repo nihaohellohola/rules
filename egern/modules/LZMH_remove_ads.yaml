@@ -28,3 +28,7 @@ http:
         reject-dict: true
     - "/^http:\\/\\/lzmh\\.lz-qs\\.com:5090\\/resource\\/download\\//i":
         reject: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/lzmh\\.lz-qs\\.com:6025\\/lzmh_app_api\\/api\\/v2\\/user\\/getUserBaseInfoAndConfig\\?"
+      filter: "delpaths([[\"value\", \"config\"]])"

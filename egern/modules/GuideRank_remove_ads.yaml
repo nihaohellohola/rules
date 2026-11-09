@@ -25,3 +25,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/zone\\.guiderank-app\\.com\\/guiderank-web\\/app\\/personal\\/getPersonPageInfo\\.do/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/zone\\.guiderank-app\\.com\\/guiderank-web\\/app\\/home\\/getHomePageV"
+      filter: "delpaths([[\"data\", \"countdownBanner\"], [\"data\", \"newEvaluations\"], [\"data\", \"freeToPayBannerPhotoUrl\"], [\"data\", \"groupBuyingList\"], [\"data\", \"multiCountdownBanner\"], [\"data\", \"banners\"], [\"data\", \"multiPlatformBanner\"], [\"data\", \"specialSaleBannerPhotoUrl\"], [\"data\", \"guide90Evaluation\"], [\"data\", \"insurancePromotions\"]])"
+  - response_jq:
+      match: "^https:\\/\\/zone\\.guiderank-app\\.com\\/guiderank-web\\/app\\/common\\/getInitData\\.do"
+      filter: "delpaths([[\"data\", \"SpecialSalePageMidTabConfig\"]])"

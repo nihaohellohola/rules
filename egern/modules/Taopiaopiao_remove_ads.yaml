@@ -13,3 +13,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.mtopitemadvertiseapi\\.queryadvertise\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.mtopintegrationapi\\.homeconfig\\/"
+      filter: "delpaths([[\"data\", \"returnValue\", \"floatingBanner\"], [\"data\", \"returnValue\", \"searchShadeList\"]])"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.mtopintegrationapi\\.homeconfig\\/"
+      filter: ".data.returnValue.topTab |= map(select(.activeImage | not)) | .data.returnValue.topTab |= map(del(.backgroundColor))"
+  - response_jq:
+      match: "^https:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.life\\.aristotle\\.get\\/"
+      filter: "def filter_nodes: map(if .data.componentId? and (.data.componentId | type == \"string\") and (.data.componentId | (contains(\"tpp_banner\") or . == \"tpp_guess_like\")) then empty else .nodes |= (if . then filter_nodes else . end) end); .data.nodes |= (if . then filter_nodes else . end)"

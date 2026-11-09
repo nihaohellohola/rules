@@ -13,3 +13,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/www\\.gaoding\\.com\\/api\\/v\\d\\/cp\\/search-words\\/v2\\/placeholder/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/www\\.gaoding\\.com\\/api\\/v\\d\\/oc\\/exhibitions\\/template\\/resources$"
+      filter: ".pits |= map(select(.module_type != \"BANNER\"))"
+  - response_jq:
+      match: "^https:\\/\\/www\\.gaoding\\.com\\/api\\/v\\d\\/oc\\/exhibitions\\/app_mine\\/resources$"
+      filter: ".pits |= map(select(.module_type != \"BANNER\"))"
+  - response_jq:
+      match: "^https:\\/\\/www\\.gaoding\\.com\\/api\\/v\\d\\/oc\\/exhibitions\\/(templates|all_editor_tools)\\/resources$"
+      filter: "walk(if type == \"object\" and .badge_img_url? then .badge_img_url=\"\" else . end)"

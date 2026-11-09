@@ -15,3 +15,16 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.bevol\\.com\\/seach\\/foundAndTopSearch$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.bevol\\.com\\/appmain\\/app\\/home\\/page$"
+      filter: "delpaths([[\"result\", \"versionPopUp\"], [\"result\", \"isShowSearchLabel\"], [\"result\", \"isShowSearchFeedBack\"], [\"result\", \"centerBannerAdvert\"], [\"result\", \"programmaticAdvertising\"], [\"result\", \"mattsData\"], [\"result\", \"questionnaireMap\"], [\"result\", \"appPullDownAdvert\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.bevol\\.com\\/appmain\\/app\\/home\\/feed$"
+      filter: "delpaths([[\"result\", \"banners\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.bevol\\.com\\/appmain\\/app\\/home\\/feed$"
+      filter: ". | .result.returnList |= (map(select(.tname == \"userPart\"))) | .result.returnList |= map(select(. | has(\"adId\") | not))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.bevol\\.com\\/trialbox\\/shop\\/app\\/homePage$"
+      filter: "delpaths([[\"result\", \"firstPersonActivity\"], [\"result\", \"mainActivity\"], [\"result\", \"brandZone\"], [\"result\", \"imageAD2\"], [\"result\", \"couponPopupInfo\"]])"

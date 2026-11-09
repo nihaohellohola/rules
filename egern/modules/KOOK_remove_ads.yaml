@@ -12,3 +12,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/www\\.kookapp\\.cn\\/api\\/v3\\/promotion\\/ongoing$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/(m|www)\\.kookapp\\.cn\\/api\\/v\\d\\/user\\/settings$"
+      filter: "delpaths([[\"ad_banner\"], [\"advertise_on_off\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(m|www)\\.kookapp\\.cn\\/api\\/v\\d\\/user\\/settings$"
+      filter: "setpath([\"ios_mall_switch\"]; false)"
+  - response_jq:
+      match: "^https:\\/\\/www\\.kookapp\\.cn\\/api\\/v3\\/discover\\/tab-list\\?"
+      filter: ".data.items |= map(select(.id == 472 or .id == 473 or .id == 475))"

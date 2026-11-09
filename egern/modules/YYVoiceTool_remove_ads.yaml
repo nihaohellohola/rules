@@ -16,3 +16,7 @@ http:
         reject: true
     - "/^https:\\/\\/yuyin-api\\.baizhanlive\\.com\\/search\\/search\\/hotword\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/yuyin-api\\.baizhanlive\\.com\\/postsquare\\/college\\/page\\/tabsV3\\?"
+      filter: ".data.tabList |= map(select(.code == \"post\" or .code == \"teamup\" or .code == \"college\" or .code == \"aiSecretRoom\"))"

@@ -5,3 +5,10 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "switch.jumpvg.com"
+body_rewrites:
+  - response_jq:
+      match: "^https:?\\/\\/switch.jumpvg.com\\/jump\\/getlaunchad\\/v2$"
+      filter: "del(.data.adList)|.data.launchAd.showType=0"
+  - response_jq:
+      match: "^https:?\\/\\/switch.jumpvg.com\\/jump\\/recommend\\/ad_conf$"
+      filter: ".data=[]"

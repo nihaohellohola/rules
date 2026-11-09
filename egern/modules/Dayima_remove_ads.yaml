@@ -13,3 +13,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/shop18476221\\.m\\.youzan\\.com\\/wscshop\\/showcase\\/feature\\?/i":
         reject: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/forumapi\\.yoloho\\.com\\/index\\/recommend\\/listV\\d\\?"
+      filter: ".recommendList |= map(select(.voType == 0))"
+  - response_jq:
+      match: "^https:\\/\\/dataapi\\.yoloho\\.com\\/tool\\/bubble\\/event\\/new\\/iconList\\?"
+      filter: ".data |= map(select(.id == 21 or .id == 23 or .id == 24 or .id == 40))"
+  - response_jq:
+      match: "^https:\\/\\/dataapi\\.yoloho\\.com\\/tool\\/card\\/mine\\/app\\?"
+      filter: ".data |= map(select(.type == \"1\"))"

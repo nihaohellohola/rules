@@ -34,3 +34,34 @@ http:
         reject-dict: true
     - "/^https:\\/\\/nine\\.ifeng\\.com\\/adVideoImmersionWindow\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/config\\.nine\\.ifeng\\.com\\/news\\/cow\\?"
+      filter: ".bottomNav|=map(select(.NavId==\"bottomNavNews\" or .NavId==\"bottomNavMine\"))"
+  - response_jq:
+      match: "^https:\\/\\/config\\.nine\\.ifeng\\.com\\/news\\/cow\\?"
+      filter: "delpaths([[\"zip_url\"]])"
+  - response_jq:
+      match: "^https:\\/\\/config\\.nine\\.ifeng\\.com\\/news\\/channel\\?"
+      filter: ".defaultChannel |= map(select(.id == \"commenterch\" or .id == \"sy\" or .id == \"vipchannel\" or .id == \"rank_hot_merge\" or .id == \"rtnews\" or .id == \"sp\" or .id == \"mil\" or .id == \"finance\" or .id == \"history\" or .id == \"momentsnew\" or .id == \"taihai\" or .id == \"focusnews\" or .id == \"rcmd\" or .id == \"tw\" or .id == \"HK\" or .id == \"dawanqu1\"))"
+  - response_jq:
+      match: "^https:\\/\\/config\\.nine\\.ifeng\\.com\\/news\\/channel\\?"
+      filter: "delpaths([[\"more\"], [\"youngChannel\"]])"
+  - response_jq:
+      match: "^https:\\/\\/nine\\.ifeng\\.com\\/headline\\?"
+      filter: "walk(if type == \"object\" and has(\"item\") and (.item | type == \"array\") then .item |= map(select(.type == \"phvideo\" or .type == \"doc\" or .type == \"phreclist\")) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/nine\\.ifeng\\.com\\/getNewsDocs\\?"
+      filter: "delpaths([[\"body\", \"showAdvert\"], [\"body\", \"adData\"]])"
+  - response_jq:
+      match: "^https:\\/\\/nine\\.ifeng\\.com\\/phoenixTvChannel\\?"
+      filter: "map(if has(\"item\") then .item|=map(select(.type==\"columnfastmessagescroll\" or .type==\"phvideo\" or .type==\"videoseriesrecommendmarquee\" or .type==\"short\")) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/nine\\.ifeng\\.com\\/videoimmersionlistv\\d\\?"
+      filter: "map(if has(\"item\") then .item|=map(select(.type==\"miniVideo\" or .type==\"phvideo\")) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/nine\\.ifeng\\.com\\/shortList\\?"
+      filter: "map(.item|=map(select(.type==\"short\")))"
+  - response_jq:
+      match: "^https:\\/\\/comment\\.ifeng\\.com\\/v\\d\\/get\\/commentlist\\?"
+      filter: "del(.comments[] | select(.type == \"advert\"))"

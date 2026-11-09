@@ -14,3 +14,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/cniot\\.roborock\\.com\\/api\\/v1\\/app\\/theme\\/device\\/icon\\?/i":
         reject: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.roborock\\.com\\/v2\\/h5\\.page\\.item\\.info\\?id=4115$"
+      filter: ".data |= map(select(.title == \"常用功能\"))"

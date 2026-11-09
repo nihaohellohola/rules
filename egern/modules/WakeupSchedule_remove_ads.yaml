@@ -9,3 +9,7 @@ http:
   rewrite:
     - "/^https:\\/\\/api\\.wakeup\\.fun\\/wakeup\\/app\\/bannerconf$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.wakeup\\.fun\\/wakeup\\/user\\/mine$"
+      filter: "delpaths([[\"data\", \"bannerItems\"]])"

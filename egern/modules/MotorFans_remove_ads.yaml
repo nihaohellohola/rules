@@ -21,3 +21,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.58moto\\.com\\/forum\\/public\\/businessEssayController\\.do$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.58moto\\.com\\/forum\\/public\\/businessEssayController\\.do\\?action=22004"
+      filter: "delpaths([[\"data\", \"link\"]])"

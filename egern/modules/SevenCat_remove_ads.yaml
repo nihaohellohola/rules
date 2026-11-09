@@ -37,3 +37,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/xiaoshuo\\.wtzw\\.com\\/api\\/v\\d\\/withdraw\\/init/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/xiaoshuo\\.wtzw\\.com\\/api\\/v\\d\\/user\\/my-center\\?"
+      filter: "delpaths([[\"data\", \"func_area[1]\"], [\"data\", \"func_area[2]\"]])"

@@ -20,3 +20,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/go_gossip_darwin\\/external\\/v2\\/query_flow_cards\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/feed\\/v6\\/detail_recommend_feeds\\?"
+      filter: "delpaths([[\"feeds\"]])"

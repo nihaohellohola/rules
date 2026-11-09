@@ -42,3 +42,25 @@ http:
         reject-dict: true
     - "/^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/mobile-user\\/v\\d\\/purchased\\/recommend\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/discovery-feed\\/v\\d\\/mix\\/"
+      filter: ".heData |= map(select(.item.list[].bizType != \"SceneListenCard\"))"
+  - response_jq:
+      match: "^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/discovery-category\\/customCategories\\/"
+      filter: ".categoryList |= map(.itemList |= map(select(.title | test(\"直播|123狂欢节|SVIP\"; \"i\") | not))) | .customCategoryList |= map(select(.title | test(\"直播|123狂欢节|SVIP\"; \"i\") | not))"
+  - response_jq:
+      match: "^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/football-portal\\/diff2\\/batch\\?"
+      filter: "delpaths([[\"json\", \"ad\"], [\"json\", \"toc\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/nexus-web\\/v\\d\\/tabs\\/customTabs\\?"
+      filter: ".data.feedTabs |= map(select(.name != \"大赛\"))"
+  - response_jq:
+      match: "^https:\\/\\/mobwsa\\.ximalaya\\.com\\/mobile-playpage\\/playpage\\/tabs\\/v2\\/"
+      filter: "delpaths([[\"data\", \"playpage\", \"resourceMap\", \"defaultResource\"], [\"data\", \"playpage\", \"resourceMap\", \"playPageTip\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/mobile-user\\/v\\d\\/homePage\\/"
+      filter: "delpaths([[\"data\", \"freeListenV2\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(mobile|mobilehera|mobwsa)\\.ximalaya\\.com\\/mobile-user\\/v\\d\\/homePage\\/"
+      filter: ".data.serviceModule.entrances |= map(select(.name == \"全部服务\"))"

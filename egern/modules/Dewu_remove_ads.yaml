@@ -23,3 +23,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/app\\.dewu\\.com\\/sns-rec\\/v1\\/search\\/hotword-list\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/app\\.dewu\\.com\\/api\\/v1\\/app\\/biz-aggregate\\/me\\/user-index\\?"
+      filter: ".data.modules |= map(if .key == \"wallet\" then .data.menus |= map(select(.key == \"coupon\" or .key == \"allowance\" or .key == \"gift\" or .key == \"balance\")) else . end) | .data.modules |= map(select(.key != \"merchant\" and .key != \"discountCoupon\"))"
+  - response_jq:
+      match: "^https:\\/\\/app\\.dewu\\.com\\/api\\/v1\\/app\\/account\\/wallet\\/page\\/entrance\\?"
+      filter: ".data.groupInfoDTOS |= map(.moduleInfoDTO = {assetModule: .moduleInfoDTO.assetModule}) | .data.moduleNames = [.data.moduleNames[] | select(. == \"assetModule\")] | . as $full | $full | .data.groupNames |= (map(select(. == \"MAIN\" or . == \"ASYNC_COMMON\" or . == \"ASYNC_GOODS_FEEDS\")))"
+  - response_jq:
+      match: "^https:\\/\\/app\\.dewu\\.com\\/identify-discovery\\/v1\\/discovery\\/index\\?"
+      filter: ".data.groups |= map(.items |= map(select(.title == \"消息中心\")))"

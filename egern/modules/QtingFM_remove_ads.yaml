@@ -34,3 +34,22 @@ http:
         reject-dict: true
     - "/^https:\\/\\/woqt2\\.qtfm\\.cn\\/v2\\/userConfig\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v\\d\\/signin\\/show_homepage_icon$"
+      filter: "setpath([\"data\", \"display_icon\"]; false)"
+  - response_jq:
+      match: "^https:\\/\\/app\\.qtfm\\.cn\\/recommendapi\\/v\\d\\/hotpage\\?"
+      filter: ".data.head |= map(select(.type == \"IconGrid\")) | .data.feeds |= map(select(.type == \"Channel\" or .type == \"Radio\" or .type == \"ListenListChannel\"))"
+  - response_jq:
+      match: "^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v\\d\\/channel\\/\\d{6}\\/playpage\\/\\d{8}"
+      filter: "delpaths([[\"data\", \"related_recommend\"], [\"data\", \"recommend_bar\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v\\d\\/mylistenpage"
+      filter: "delpaths([[\"data\", \"banner\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v\\d\\/subscribed_channels\\?"
+      filter: "delpaths([[\"data\", \"recommends\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.qtfm\\.cn\\/m-bff\\/v1\\/channelpage\\/\\d+$"
+      filter: "delpaths([[\"data\", \"vip_recommend\"], [\"data\", \"recommend_delivery\"]])"

@@ -11,3 +11,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/95598\\.csg\\.cn\\/mp\\/mpaas\\/rubik\\/openapi\\/rubik\\/mobile\\/getRubikScene$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/95598\\.csg\\.cn\\/mp\\/mpaas\\/mgw\\.htm$"
+      filter: "if .info | contains(\"RUBIK-TRACEID:\") then .scene.page.areas |= map(select(.areaId | test(\"kingkong_|9grid_|message_|nearmap_|recommend_\"))) else . end"

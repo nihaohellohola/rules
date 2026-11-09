@@ -15,3 +15,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/dict\\.youdao\\.com\\/vip\\/user\\/paid\\/guide\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/dict\\.youdao\\.com\\/homepage\\/toolbar\\/get\\/"
+      filter: "delpaths([[\"data\", \"vipTag\"]])"

@@ -15,3 +15,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/dj\\.palmestore\\.com\\/zybk\\/api\\/bookshelf\\/index\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/dj\\.palmestore\\.com\\/zybk\\/api\\/powerup\\/userGroup\\?"
+      filter: "delpaths([[\"body\", \"sevenDaysAd\"], [\"body\", \"shortPlayShow\"], [\"body\", \"sdkShortPlayAB\"]])"
+  - response_jq:
+      match: "^https:\\/\\/dj\\.palmestore\\.com\\/zybk\\/api\\/search\\/index\\?"
+      filter: "delpaths([[\"body\", \"keywords\"]])"

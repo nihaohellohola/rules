@@ -26,3 +26,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/consumer\\.fcbox\\.com\\/fcboxactivityweb\\/api\\/guidePopup\\/popup$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/consumer\\.fcbox\\.com\\/v1\\/dynamicConfig\\/findTabbarConfig\\/mainPage$"
+      filter: "delpaths([[\"data\", \"lifeService\"], [\"data\", \"mall\"], [\"data\", \"wash\"]])"

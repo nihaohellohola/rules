@@ -17,3 +17,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.meiyan\\.com\\/vip\\/permission_update_popup\\.json\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.meiyan\\.com\\/operation\\/get_config\\.json\\?"
+      filter: "delpaths([[\"response\", \"time_limit\"], [\"response\", \"bubble\"], [\"response\", \"person_center\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.meiyan\\.com\\/operation\\/get_config\\.json\\?"
+      filter: "setpath([\"response\", \"function_pop\", \"meiyan_style\", \"is_pop\"]; false) | setpath([\"response\", \"onoff\", \"vip_half_window_exit_remain_popup\", \"open\"]; 0) | setpath([\"response\", \"onoff\", \"vip_home_exit_remain_popup\"]; 0)"

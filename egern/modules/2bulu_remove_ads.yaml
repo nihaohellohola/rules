@@ -13,3 +13,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/helper\\.2bulu\\.com\\/proSpecial\\/allData\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/helper\\.2bulu\\.com\\/getAppEntranceConfig\\?"
+      filter: ".configData=(.configData|fromjson|del(.adPlatform,.adIntertitialShowType,.adsConfig,.adIntertitialDisplayedLimit,.adSplashShowTypeWhenHotStart,.adIntertitialDayDisplayedMaxCount,.od_adsType,.showMeBaiHeAdView)|tojson)"

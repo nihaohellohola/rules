@@ -11,3 +11,7 @@ http:
   rewrite:
     - "/^https:\\/\\/circle\\.(xm)?seeyouyima\\.com\\/v\\d\\/article_recommend\\?/i":
         reject: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/common\\.seeyouyima\\.com\\/v2\\/conf_list$"
+      filter: "delpaths([[\"data\", \"confList\", \"Minor_mode_card\"]])"

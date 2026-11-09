@@ -11,3 +11,16 @@ scriptings:
       match: "/^https:\\/\\/iosapi\\.peiyinxiu\\.com\\/Api\\/Film\\/GetConfigValue/i"
       script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/DubbingShow/DubbingShow_remove_ads.js"
       body_required: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/iosapi\\.peiyinxiu\\.com\\/Api\\/live\\/LiveList"
+      filter: "delpaths([[\"data\", \"banners\"]])"
+  - response_jq:
+      match: "^https:\\/\\/iosapi\\.peiyinxiu\\.com\\/api\\/live\\/FollowList"
+      filter: "delpaths([[\"obj\", \"data\"]])"
+  - response_jq:
+      match: "^https:\\/\\/iosapi\\.peiyinxiu\\.com\\/Api\\/Friend\\/GetRecommendUsers"
+      filter: "delpaths([[\"obj\", \"data\"]])"
+  - response_jq:
+      match: "^https:\\/\\/iosapi\\.peiyinxiu\\.com\\/api\\/Union\\/HomeData"
+      filter: "delpaths([[\"obj\", \"data\"]])"

@@ -384,3 +384,22 @@ http:
         reject-dict: true
     - "/^https:\\/\\/wx\\.10086\\.cn\\/qwhdhub\\/activity\\/info/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/mcsp\\.cloudpnr\\.com\\/api\\/miniapp\\/popular\\/T_MINIAPP$"
+      filter: "delpaths([[\"data\"]])"
+  - response_jq:
+      match: "^https:\\/\\/saas-ad\\.cloudpnr\\.com\\/huifuad-base-api\\/api\\/tactics\\/ad$"
+      filter: "delpaths([[\"data[0]\"], [\"data[1]\"], [\"data[2]\"]])"
+  - response_jq:
+      match: "^https:\\/\\/rms\\.meituan\\.com\\/api\\/v1\\/rmsmina\\/c\\/queryShopPortalInfo\\?"
+      filter: "delpaths([[\"data\", \"popUpWindows\"]])"
+  - response_jq:
+      match: "^https:\\/\\/chong\\.qq\\.com\\/tws\\/wxmobile\\/GetProduct4App\\?"
+      filter: "del(.respInfo.reserveProductList) | .respInfo.shortcut |= map(select(.name != \"充流量\" and .name != \"领话费券\"))"
+  - response_jq:
+      match: "^https:\\/\\/chong\\.qq\\.com\\/tws\\/wxmobile4app\\/GetSecondProduct\\?"
+      filter: "del(.respInfo.productList) | .respInfo.shortcut |= map(select(.name != \"充流量\" and .name != \"领话费券\"))"
+  - response_jq:
+      match: "^https:\\/\\/chong\\.qq\\.com\\/tws\\/usernumberinfo\\/GetUserInfo\\?"
+      filter: "delpaths([[\"data\", \"request\", \"number\", \"markSeat\", \"servicehallOperList\"], [\"data\", \"request\", \"number\", \"servicehallOperList\"], [\"data\", \"request\", \"number\", \"markSeat\", \"servicehallFuncList\"], [\"data\", \"request\", \"number\", \"servicehallFuncList\"]])"

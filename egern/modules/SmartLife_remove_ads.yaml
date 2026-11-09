@@ -13,3 +13,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/i\\.ilife798\\.com\\/api\\/v\\d\\/ui\\/app\\/master$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/i\\.ilife798\\.com\\/api\\/v\\d\\/acc\\/login$"
+      filter: "delpaths([[\"data\", \"ar\"], [\"data\", \"showAd\"]])"

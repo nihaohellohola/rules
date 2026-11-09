@@ -14,3 +14,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/(v-api\\.crazymaplestudios\\.com|d1k8g7qaebqd28\\.cloudfront\\.net)\\/api\\/video\\/book\\/getPayModeV2$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/(v-api\\.crazymaplestudios\\.com|d1k8g7qaebqd28\\.cloudfront\\.net)\\/api\\/video\\/book\\/getBookDetailV2$"
+      filter: "delpaths([[\"data\", \"ad_vip\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(v-api\\.crazymaplestudios\\.com|d1k8g7qaebqd28\\.cloudfront\\.net)\\/api\\/video\\/hall\\/infoV3$"
+      filter: "delpaths([[\"data\", \"search_keyword_list\"]])"

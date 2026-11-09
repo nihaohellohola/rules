@@ -12,3 +12,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/gl-cn-api\\.ecovacs\\.cn\\/v1\\/private\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/gl-cn-api\\.ecovacs\\.cn\\/v3\\/private\\/"
+      filter: ".data.navigateInfoResponseList |= map(select(.positionType == \"Robot\" or .positionType == \"Mine\"))"

@@ -5,3 +5,7 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "newapi.meishi.cc"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/newapi\\.meishi\\.cc\\/indexnew\\/home_feeds"
+      filter: "if .data.items then .data.items |= map(select(.type | . != \"101\" and . != \"12\")) else . end"

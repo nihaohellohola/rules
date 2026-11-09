@@ -17,3 +17,34 @@ http:
         reject-dict: true
     - "/^https:\\/\\/weibointl\\.api\\.weibo\\.cn\\/portal\\.php\\?a=get_searching_info/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/weibointl\\.api\\.weibo\\.cn\\/portal\\.php\\?a=trends"
+      filter: "delpaths([[\"data\", \"banner\"], [\"data\", \"user_footprint\"], [\"data\", \"profile_accessrecord\"], [\"data\", \"native_content\"]])"
+  - response_jq:
+      match: "^https:\\/\\/weibointl\\.api\\.weibo\\.cn\\/portal\\.php\\?a=trends"
+      filter: ".data.discover |= map(select(.schema != \"尊享会员\"))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/statuses\\/friends\\/timeline$"
+      filter: "delpaths([[\"advertises\"], [\"ad\"], [\"ad_version_2_weibo\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/statuses\\/friends\\/timeline$"
+      filter: ".statuses|=map(select(.ad_marked!=true))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/statuses\\/unread_hot_timeline$"
+      filter: "delpaths([[\"ad\"], [\"ad_version_2_weibo\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/statuses\\/unread_hot_timeline$"
+      filter: ".statuses|=map(select(.ad_marked!=true))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/comments\\/build_comments\\?"
+      filter: ".datas[].data.ad_from_comment? = true"
+  - response_jq:
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/statuses\\/container_detail\\?"
+      filter: ".pageHeader.data.items |= (if . == null then [] else map(select(.data.itemid != \"top_searching\")) end)"
+  - response_jq:
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/cardlist\\?aid="
+      filter: ".cards |= map(select((.mblog?|(.ad_marked?|type==\"boolean\")and.ad_marked==true)or(.card_group?|type==\"array\"and any(.[]?;.mblog?|(.ad_marked?|type==\"boolean\")and.ad_marked==true))|not))"
+  - response_jq:
+      match: "^https:\\/\\/weibointl\\.api\\.weibo\\.cn\\/portal\\.php\\?"
+      filter: ".data.cards |= map(.items |= map(if .type == \"personal_vip\" then .right_text = \"\" else . end))"

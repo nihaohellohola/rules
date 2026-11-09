@@ -15,3 +15,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/www\\.duitang\\.com\\/napi\\/hot\\/search\\/list\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/meta\\.duitang\\.com\\/napi\\/infra\\/settings\\/"
+      filter: "delpaths([[\"data\", \"AD_LINKS\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(www|api-2)\\.duitang\\.com\\/napi\\/home\\/bottom_tab\\/detail\\/\\?"
+      filter: ".data.tabs |= map(select(.group == \"home\" or .group == \"category\" or .group == \"me\"))"
+  - response_jq:
+      match: "^https:\\/\\/api-2\\.duitang\\.com\\/napi\\/settings\\/"
+      filter: "delpaths([[\"data\", \"SPLASH_SWING_OPEN\"], [\"data\", \"STICKER_SEARCH_HOT_KEYWORDS\"], [\"data\", \"REWARD_AD_PAG_EDITOR\"], [\"data\", \"REWARD_AD_PHOTO_EDITOR\"], [\"data\", \"REWARD_AD_CUTOUT_NUM\"], [\"data\", \"MAIN_EVENTS\"], [\"data\", \"QA_TOOLTIP_BOTTOM\"], [\"data\", \"OC_FOLLOW_OFFICIAL\"], [\"data\", \"AD_MENU_SELECTIONS\"], [\"data\", \"FEATURE_TEMPLATES\"], [\"data\", \"FEEDBACK_URL\"], [\"data\", \"AVATAR_MALL_UPDATE\"], [\"data\", \"WATERMARK_MALL_UPDATE\"], [\"data\", \"OC_MALL_UPDATE\"], [\"data[\\\"3D_AVATAR_UPDATE\\\"]\"], [\"data\", \"BENEFIT_LIST\"], [\"data\", \"SHARE_BANNER\"]])"

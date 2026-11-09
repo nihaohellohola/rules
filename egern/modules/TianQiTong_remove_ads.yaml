@@ -18,3 +18,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/tqt\\.weibo\\.cn\\/api\\/user\\/user\\/\\d\\.\\d\\/\\?method=personal_center$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/tqt\\.weibo\\.cn\\/master\\/nav\\/tab\\?"
+      filter: "map(.tabs|=map(select(.type==\"weather\" or .type==\"radar\" or .type==\"my\")))"

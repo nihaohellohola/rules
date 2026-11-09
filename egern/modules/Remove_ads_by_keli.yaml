@@ -227,3 +227,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/d\\.socdm\\.com\\/adsv\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https?:\\/\\/api\\.fenxianglife\\.com\\/njia\\/index\\/popup\\/v2"
+      filter: ".data.list=[]"

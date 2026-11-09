@@ -6,3 +6,7 @@ mitm:
   hostnames:
     - "gql.reddit.com"
     - "gql-fed.reddit.com"
+body_rewrites:
+  - response_jq:
+      match: "^https?:\\/\\/gql(-fed)?\\.reddit\\.com"
+      filter: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JQLang/Reddit/Reddit_remove_ads.jq"

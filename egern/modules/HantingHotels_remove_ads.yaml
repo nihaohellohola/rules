@@ -19,3 +19,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/hweb-manager\\.huazhu\\.com\\/hotels\\/ad\\/getHotelListNoticeMerge$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/res-pub\\.huazhu\\.com\\/frontconf\\/homeconfig_45\\/\\w+\\.json$"
+      filter: "if has(\"content\") and (.content | type) == \"object\" then .content |= with_entries(select(.key == \"topBanner\" or .key == \"topBannerImages\")) else . end"
+  - response_jq:
+      match: "^https:\\/\\/res-pub\\.huazhu\\.com\\/frontconf\\/tabbarconfig_45\\/\\w+\\.json$"
+      filter: ".content.tabbar |= map(select(.attributes.tabName == \"首页\" or .attributes.tabName == \"服务\" or .attributes.tabName == \"我的\"))"

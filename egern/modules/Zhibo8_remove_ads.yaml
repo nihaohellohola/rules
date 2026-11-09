@@ -25,3 +25,28 @@ http:
         reject-dict: true
     - "/^https:\\/\\/search\\.qiumibao\\.com\\/hot\\/word_list$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/headline\\.qiumibao\\.com\\/recommend\\/list\\?"
+      filter: ".news|=map(select(.model==\"news\" or .model==\"video\"))"
+  - response_jq:
+      match: "^https:\\/\\/a\\.qiumibao\\.com\\/found\\/\\?"
+      filter: "map(select(.is_game != true))"
+  - response_jq:
+      match: "^https:\\/\\/a\\.qiumibao\\.com\\/ios\\/config\\/\\?"
+      filter: "delpaths([[\"skin\"], [\"advert\"], [\"advert_config\"], [\"mall\"], [\"httpdns\"], [\"reward\"], [\"pgame\"], [\"corner_mark\"], [\"liveshop\"], [\"theme\"], [\"pop\"], [\"live_activity_push\"]])"
+  - response_jq:
+      match: "^https:\\/\\/a\\.qiumibao\\.com\\/ios\\/config\\/\\?"
+      filter: ".all_sections.match_sections.labels |= (if . then (.blacks_disable |= if . then map(select(. != \"游戏\")) else . end) | (.show |= if . then map(select(. != \"游戏\")) else . end) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/guess\\.qiumibao\\.com\\/api\\/n\\/rcd$"
+      filter: "delpaths([[\"data\", \"banner\"]])"
+  - response_jq:
+      match: "^https:\\/\\/pre-match\\.qiumibao\\.com\\/pre_match_data\\/v\\d\\/\\d+-\\d+-\\d+\\/\\d+_fund\\.htm\\?"
+      filter: "del(.data[] | select(.type == \"guide\"))"
+  - response_jq:
+      match: "^https:\\/\\/guess\\.qiumibao\\.com\\/api\\/c\\/menu$"
+      filter: "delpaths([[\"data\", \"banner\"]])"
+  - response_jq:
+      match: "^https:\\/\\/s\\.qiumibao\\.com\\/m\\/ios\\/json\\/zhibo\\/zuqiu\\/\\d+\\/match\\d+vl\\.htm\\?"
+      filter: "delpaths([[\"ep_v2\"], [\"ep_live\"]])"

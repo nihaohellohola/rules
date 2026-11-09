@@ -19,3 +19,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/appswh\\.chaoxing\\.com\\/apis\\/activity\\/getNoteTopicList\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/learn\\.chaoxing\\.com\\/apis\\/service\\/appConfig\\?"
+      filter: "delpaths([[\"data\", \"ad\"]])"
+  - response_jq:
+      match: "^https:\\/\\/apps\\.chaoxing\\.com\\/apis\\/home\\/getHpXsqy\\.jspx\\?"
+      filter: ".data.list |= map(select(.pid == 4 or .pid == 44)) | .data.list_xsqy |= map(select(.pid == 4 or .pid == 44)) | .data.list_xysqbj |= map(select(.pid == 4 or .pid == 44)) | .data.lanmu |= map(select(.id == 4 or .id == 44))"
+  - response_jq:
+      match: "^https:\\/\\/apps\\.chaoxing\\.com\\/apis\\/home\\/getHpXsqy\\.jspx\\?"
+      filter: "delpaths([[\"data\", \"list_timeapp\"]])"

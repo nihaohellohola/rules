@@ -82,3 +82,16 @@ http:
         reject-dict: true
     - "/^https:\\/\\/www\\.xiaohongshu\\.com\\/api\\/sns\\/(?:v1\\/ads\\/resource|v2\\/hey\\/\\w+\\/hey_gallery)/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/edith\\.xiaohongshu\\.com\\/api\\/sns\\/v1\\/search\\/banner_list$"
+      filter: "setpath([\"data\"]; \"{}\")"
+  - response_jq:
+      match: "^https:\\/\\/edith\\.xiaohongshu\\.com\\/api\\/sns\\/v1\\/search\\/hot_list$"
+      filter: "setpath([\"data\", \"items\"]; \"[]\")"
+  - response_jq:
+      match: "^https:\\/\\/edith\\.xiaohongshu\\.com\\/api\\/sns\\/v4\\/search\\/hint"
+      filter: "setpath([\"data\", \"hint_words\"]; \"[]\")"
+  - response_jq:
+      match: "^https:\\/\\/edith\\.xiaohongshu\\.com\\/api\\/sns\\/v4\\/search\\/trending\\?"
+      filter: "setpath([\"data\", \"queries\"]; \"[]\") | setpath([\"data\", \"hint_word\"]; \"{}\")"

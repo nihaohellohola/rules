@@ -19,3 +19,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/userapi\\.qiekj\\.com\\/task\\/list$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/userapi\\.qiekj\\.com\\/local-life\\/tab-order$"
+      filter: "setpath([\"data\"]; \"[]\")"
+  - response_jq:
+      match: "^https:\\/\\/userapi\\.qiekj\\.com\\/integralGoods\\/queryIntegralGoodsCategoryList$"
+      filter: "setpath([\"data\"]; \"[]\")"

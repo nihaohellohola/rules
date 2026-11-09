@@ -15,3 +15,7 @@ http:
         reject-dict: true
     - "/^https?:\\/\\/api\\.xiaoyuzhoufm\\.com\\/v\\d\\/category/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.xiaoyuzhoufm\\.com\\/v1\\/discovery-feed\\/list"
+      filter: ".data |= map(select(.type != \"DISCOVERY_HEADER\" and .type != \"DISCOVERY_BANNER\"))"

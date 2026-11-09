@@ -5,3 +5,7 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "api.posters.meitu.com"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.posters\\.meitu\\.com\\/common\\/init\\.json"
+      filter: "delpaths([[\"data\", \"vip\"]])"

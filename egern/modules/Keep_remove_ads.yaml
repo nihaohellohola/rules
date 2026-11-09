@@ -23,3 +23,19 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.gotokeep\\.com\\/search\\/v4\\/hotword\\/list\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.gotokeep\\.com\\/op-engine-webapp\\/v1\\/configs$"
+      filter: "delpaths([[\"data\", \"adTimeoutReport\"], [\"data\", \"spotShowReport\"], [\"data\", \"adSupplementIntervalMinutes\"], [\"data\", \"adSupplementSwitch\"], [\"data\", \"hotFeedSpotAdRequestMoment\"], [\"data\", \"activityBrandFeedSpotAdRequestMoment\"], [\"data\", \"searchFeedSpotAdRequestMoment\"], [\"data\", \"feedDetailSpotAdRequestMoment\"], [\"data\", \"homePageFeedSpotAdRequestMoment\"], [\"data\", \"followFeedSpotAdRequestMoment\"], [\"data\", \"hotFeedRecommendSpotAdRequestMoment\"], [\"data\", \"activityFeedSpotAdRequestMoment\"], [\"data\", \"hotFeedFindSpotAdRequestMoment\"], [\"data\", \"hotFeedSpotFixedPositionSecond\"], [\"data\", \"searchFeedSpotFixedPositionSecond\"], [\"data\", \"followFeedSpotFixedPositionSecond\"], [\"data\", \"activityFeedSpotFixedPositionSecond\"], [\"data\", \"searchFeedSpotFixedPositionThird\"], [\"data\", \"hotFeedFindSpotFixedPositionSecond\"], [\"data\", \"hotFeedFindSpotFixedPositionThird\"], [\"data\", \"activityFeedSpotFixedPositionInitial\"], [\"data\", \"activityFeedSpotFixedPositionThird\"], [\"data\", \"hotFeedDynamicSpotPosition\"], [\"data\", \"feedDetailDynamicSpotPosition\"], [\"data\", \"hotFeedRecommendDynamicSpotPosition\"], [\"data\", \"hotFeedFindDynamicSpotPosition\"], [\"data\", \"homePageFeedDynamicSpotPosition\"], [\"data\", \"followFeedDynamicSpotPosition\"], [\"data\", \"searchFeedSpotPositionDynamic\"], [\"data\", \"activityFeedSpotPositionDynamic\"], [\"data\", \"activityBrandFeedSpotPositionDynamic\"], [\"data\", \"splashAdLoadTimeLimit\"], [\"data\", \"courseAdLoadTimeLimit\"], [\"data\", \"feedAdLoadTimeLimit\"], [\"data\", \"aliHCSpotConfig\"], [\"data\", \"gdtSpotConfig\"], [\"data\", \"pugcThresholdPercent\"], [\"data\", \"pugcStepMinSeconds\"], [\"data\", \"pugcStepMaxSeconds\"], [\"data\", \"pugcPreLoadEarlySeconds\"], [\"data\", \"pugcLoadPostPreRolls\"], [\"data\", \"closeConfirmButtonText\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api\\.gotokeep\\.com\\/twins\\/union\\/feed\\/union_feed_all$"
+      filter: ".data.modules |= map(select(.code == \"unionFeedEntry\"))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.gotokeep\\.com\\/twins\\/v4\\/feed\\/entryDetail\\?"
+      filter: "setpath([\"data\"]; \"{}\")"
+  - response_jq:
+      match: "^https:\\/\\/api\\.gotokeep\\.com\\/config\\/v3\\/basic\\?"
+      filter: ".data.bottomBarControl.tabs |= map(select(.tabType | . == \"home\" or . == \"schedule\" or . == \"dynamic_sports\" or . == \"personal\")) | .data.homeTabs |= map(select(.type | . == \"socialTab\" or . == \"union_feed_all\" or . == \"homeRecommend\" or . == \"suitTab\" or . == \"union_feed_route\"))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.gotokeep\\.com\\/pencil-webapp\\/play\\/v1\\/games\\?"
+      filter: ".data.games[].microGames[] |= if .leftIcon? and .leftIcon.type == \"aiMode\" then del(.leftIcon) else . end"

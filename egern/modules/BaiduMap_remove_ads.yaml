@@ -24,3 +24,19 @@ http:
         reject-dict: true
     - "/^https:\\/\\/maphotel\\.baidu\\.com\\/hotel\\/goextranet\\/activity\\/detail\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/newclient\\.map\\.baidu\\.com\\/feed\\/govui\\/rich_content"
+      filter: "delpaths([[\"data\"]])"
+  - response_jq:
+      match: "^https:\\/\\/newclient\\.map\\.baidu\\.com\\/client\\/noticebar\\/get\\?"
+      filter: "delpaths([[\"content\", \"multi_data\"]])"
+  - response_jq:
+      match: "^https:\\/\\/newclient\\.map\\.baidu\\.com\\/(client\\/)?usersystem\\/mine\\/page\\?"
+      filter: "setpath([\"data\"]; \"{}\")"
+  - response_jq:
+      match: "^https:\\/\\/newclient\\.map\\.baidu\\.com\\/client\\/phpui2\\/\\?qt=ads&type=user_home_new_service"
+      filter: "delpaths([[\"ads\"]])"
+  - response_jq:
+      match: "^https:\\/\\/newclient\\.map\\.baidu\\.com\\/living\\/nearby\\/api\\?"
+      filter: "delpaths([[\"Result\", \"cards[1]\"], [\"Result\", \"cards[4]\"], [\"Result\", \"cards[5]\"], [\"Result\", \"cards[9]\"]])"

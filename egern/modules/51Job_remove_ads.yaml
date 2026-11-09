@@ -24,3 +24,13 @@ http:
         reject-dict: true
     - "/^https:\\/\\/cupid\\.51jobapp\\.com\\/launch-hub\\/open\\/noauth\\/popUp\\/getHomePagePopUp\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/cupid\\.51jobapp\\.com\\/open\\/noauth\\/recommend\\/job-tab-dynamic\\?"
+      filter: "delpaths([[\"resultbody\", \"adsTabFeeds\"]])"
+  - response_jq:
+      match: "^https:\\/\\/cupid\\.51jobapp\\.com\\/open\\/user-task\\/user\\/task\\/"
+      filter: "delpaths([[\"resultbody\", \"availableTaskList\"]])"
+  - response_jq:
+      match: "^https:\\/\\/cupid\\.51jobapp\\.com\\/open\\/tab\\/good-job\\/modules\\?"
+      filter: "delpaths([[\"resultbody\", \"bannerList\"]])"

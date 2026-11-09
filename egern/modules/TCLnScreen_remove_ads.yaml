@@ -17,3 +17,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/tcast-o\\.api\\.leiniao\\.com\\/tcast\\/message\\/v\\d\\/activity\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/tcast-o\\.api\\.leiniao\\.com\\/tcast\\/v\\d\\/config\\/function\\?"
+      filter: ".data |= map(select(.module == \"tools\"))"

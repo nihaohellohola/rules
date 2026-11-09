@@ -43,3 +43,7 @@ http:
         reject-dict: true
     - "/^https:\\/\\/ep\\.kugou\\.com\\/v\\d\\/album_shop\\/get_entrance_info/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/gateway(retry)?\\.kugou\\.com\\/ocean\\/v\\d\\/tab\\/list_v\\d"
+      filter: "def namesToRemove:[\"AI帮唱\",\"长相思2\",\"K歌\",\"小说\",\"游戏\"];def removeParentIfNameMatches:if type==\"object\"then with_entries(select(.value|(type==\"object\"and .name as $name|$name|IN(namesToRemove[])|not)))|map_values(removeParentIfNameMatches)else .end;removeParentIfNameMatches"

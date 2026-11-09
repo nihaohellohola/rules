@@ -13,3 +13,16 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api-changzheng\\.chinaath\\.com\\/changzheng-basic-center-api\\/api\\/advertisement\\//i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api-changzheng\\.chinaath\\.com\\/changzheng-common-proxy-api\\/api\\/advertising\\/proxy\\/getOpenScreenAdvertising$"
+      filter: "setpath([\"data\", \"advertisingList\"]; \"[]\")"
+  - response_jq:
+      match: "^https:\\/\\/api-changzheng\\.chinaath\\.com\\/changzheng-race-proxy-api\\/api\\/home\\/page\\/getBrand$"
+      filter: ".data |= map(select(.advertisementName == \"路跑赛事\" or .advertisementName == \"线上赛\" or .advertisementName == \"越野赛事\"))"
+  - response_jq:
+      match: "^https:\\/\\/api-changzheng\\.chinaath\\.com\\/changzheng-race-proxy-api\\/api\\/home\\/page\\/get$"
+      filter: "delpaths([[\"data\", \"topHotSearchList\"], [\"data\", \"bannerListTwo\"], [\"data\", \"textAdvertisementList\"]])"
+  - response_jq:
+      match: "^https:\\/\\/api-changzheng\\.chinaath\\.com\\/changzheng-race-proxy-api\\/api\\/home\\/page\\/get$"
+      filter: ".data.recommendList |= map(select(.raceAdList | not or length == 0))"

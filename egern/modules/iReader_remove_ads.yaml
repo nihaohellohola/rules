@@ -20,3 +20,10 @@ http:
         reject-dict: true
     - "/https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/zyam\\/app\\/app\\.php\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/zybook4\\/iphone\\/u\\/p\\/api\\.php\\?"
+      filter: "delpaths([[\"Splash\"]])"
+  - response_jq:
+      match: "^https:\\/\\/(webboot\\.zhangyue\\.com|ih2\\.ireader\\.com)\\/bookstore\\/read\\/visual\\/channel\\/list\\?"
+      filter: ".body.list |= map(select(.id | contains(\"ad_\") | not))"

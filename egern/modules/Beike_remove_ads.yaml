@@ -13,3 +13,19 @@ http:
         reject-dict: true
     - "/^https:\\/\\/apps\\.api\\.ke\\.com\\/config\\/config\\/getactivityconfig\\?/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/apps\\.api\\.ke\\.com\\/platform\\/shellapp\\/homepage\\/initData\\/mini\\?"
+      filter: "delpaths([[\"data\", \"bootpage\"], [\"data\", \"bottom_bar_activity\"]])"
+  - response_jq:
+      match: "^https:\\/\\/apps\\.api\\.ke\\.com\\/platform\\/shellapp\\/userCenter\\/info\\?"
+      filter: "delpaths([[\"data\", \"islandModule\"]])"
+  - response_jq:
+      match: "^https:\\/\\/apps\\.api\\.ke\\.com\\/platform\\/shellapp\\/userCenter\\/info\\?"
+      filter: "del(.data.mainIcons.list[] | select(.indexKey == \"coupon\"))"
+  - response_jq:
+      match: "^https:\\/\\/apps\\.api\\.ke\\.com\\/platform\\/shellapp\\/myhome\\/pagedetail\\?"
+      filter: ".data.moduleList |= map(select(.tab != \"myHomeDecorV4\"))"
+  - response_jq:
+      match: "^https:\\/\\/apps\\.api\\.ke\\.com\\/platform\\/shellapp\\/homepage\\/feed\\?"
+      filter: ".data.list |= map(select(.cardType == \"houseContainer\" or .cardType == \"houseV2\" or .cardType == \"houseV3\" or .cardType == \"rentHouseDiscount\" or .cardType == \"decorationCase\"))"

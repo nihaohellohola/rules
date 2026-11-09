@@ -48,3 +48,10 @@ http:
         reject-dict: true
     - "/^https:\\/\\/api\\.hibixin\\.com\\/biggie\\/query\\/skill\\/detail\\/relateRecommendBiggieV\\d$/i":
         reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.hibixin\\.com\\/biggie\\/home\\/v\\d\\/query\\/biggie$"
+      filter: ".result.list |= map(select(has(\"bannerList\") and .bannerList == null))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.hibixin\\.com\\/resource\\/v\\d\\/common\\/tab$"
+      filter: ".result |= map(select(.type != \"activityCenter\"))"
