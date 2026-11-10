@@ -161,6 +161,7 @@ def parse_script_line(line,defaults):
     if not url:return None,'script URL must be a quoted string',[]
     if len(parts)>2:return None,'script() has too many arguments',[]
     e={'type':'schedule'} if cron else {'type':'http_response' if m.group(1).lower()=='response' else 'http_request'}
+    e['script_url']=url
     if cron:
         expr=trigger
         pm=re.fullmatch(r'\$\{([^{}]+)\}',expr)
