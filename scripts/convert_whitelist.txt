@@ -1,0 +1,34 @@
+# 只转换这里列出的插件（上游 lpx/ 下的文件名，不带 .lpx）。一行一个。
+# 加插件：新增一行；去掉插件：删除那一行。
+# 清空整个文件或删除此文件 = 转换全部上游插件。
+Block_HTTPDNS
+BlockAdvertisers
+360SmartCamera_remove_ads
+12306_remove_ads
+IThome_remove_ads
+Pinterest_remove_ads
+QQMusic_remove_ads
+Reddit_remove_ads
+TelegramRedirect
+YouTube_remove_ads
+iQiYi_Video_remove_ads
+BaiduMap_remove_ads
+Tieba_remove_ads
+BaiduNetDisk_remove_ads
+BaiduSearchWebpage_remove_ads
+BaiduWenku_remove_ads
+Beike_remove_ads
+Bilibili_remove_ads
+Amap_remove_ads
+JD_remove_ads
+PinDuoDuo_remove_ads
+AutoHome_remove_ads
+Taobao_remove_ads
+Tencent_Video_remove_ads
+NetEaseGodlike_remove_ads
+NeteaseCloudMusic_remove_ads
+Weibo_intl_remove_ads
+FleaMarket_remove_ads
+YouKu_Video_remove_ads
+Zhihu_remove_ads
+mobileClouds_remove_ads
