@@ -7,3 +7,12 @@ scriptings:
       name: "获取账号令牌"
       match: "^https?:\\/\\/testflight\\.apple\\.com\\/v3\\/accounts\\/.*\\/apps$"
       disabled: true
+  - schedule:
+      name: "自动加入TF"
+      cron: "*/2 * * * *"
+      timeout: 600
+      disabled: true
+  - schedule:
+      name: "监控TF位置"
+      cron: "* * * * *"
+      timeout: 30
