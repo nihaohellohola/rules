@@ -74,6 +74,7 @@ scriptings:
   - http_response:
       name: "移除扫码取件页面商品推荐及弹窗"
       match: "^https:\\/\\/m\\.pinduoduo\\.net\\/mdkd\\/package\\?from_app_scan"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PinDuoDuo/PinDuoDuo_remove_ads.js"
       body_required: true
 http:
   rewrite:

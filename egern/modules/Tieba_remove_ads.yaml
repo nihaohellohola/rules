@@ -18,6 +18,7 @@ scriptings:
   - http_response:
       name: "ProtoBuf处理"
       match: "^https?:\\/\\/tieba(?:c)?\\.baidu\\.com\\/c\\/(f\\/excellent\\/personalized|f\\/frs\\/page|b\\/ad\\/adBid|f\\/ad\\/getFeedAd|f\\/pb\\/page|f\\/frs\\/generalTabList)\\?cmd=\\d+&format=protobuf"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Tieba/tieba-proto.js"
       timeout: 10
       body_required: true
       binary_body: true

@@ -10,8 +10,10 @@ scriptings:
   - http_response:
       name: "移除开屏广告"
       match: "^https:\\/\\/jzts\\.cmpassport\\.com\\/personalized\\/getPushContent"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/mobileClouds/mobileClouds_remove_ads.js"
       body_required: true
   - http_response:
       name: "移除应用内广告"
       match: "^https:\\/\\/ad\\.mcloud\\.139\\.com\\/advertapi\\/adv-filter\\/"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/mobileClouds/mobileClouds_remove_ads.js"
       body_required: true

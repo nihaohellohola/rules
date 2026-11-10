@@ -31,10 +31,12 @@ scriptings:
   - http_response:
       name: "移除淘宝开屏广告"
       match: "^https:\\/\\/guide-acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.taobao\\.(cloudvideo\\.video\\.query|wireless\\.home\\.splash\\.awesome\\.get)"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Taobao/Taobao_remove_ads.js"
       body_required: true
   - http_response:
       name: "移除淘宝开屏广告"
       match: "^https:\\/\\/poplayer\\.template\\.alibaba\\.com\\/\\w+\\.json"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Taobao/Taobao_remove_ads.js"
       body_required: true
 http:
   rewrite:

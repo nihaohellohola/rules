@@ -28,12 +28,14 @@ scriptings:
   - http_response:
       name: "评论区、热推、有话想说、分享一下、歌曲下的祝福等小提示"
       match: "^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/(?:batch|v2\\/resource\\/comment\\/floor\\/get)"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
       timeout: 20
       body_required: true
       binary_body: true
   - http_response:
       name: "推荐、home、主页"
       match: "^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/(?:homepage\\/block\\/page|link\\/page\\/rcmd\\/(?:block\\/resource\\/multi\\/refresh|resource\\/show))"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
       timeout: 20
       body_required: true
       binary_body: true
@@ -42,6 +44,7 @@ scriptings:
   - http_response:
       name: "底部选项卡"
       match: "^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/link\\/home\\/framework\\/tab"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
       timeout: 20
       body_required: true
       binary_body: true
@@ -50,18 +53,21 @@ scriptings:
   - http_response:
       name: "发现页"
       match: "^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/link\\/page\\/discovery\\/resource\\/show"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
       timeout: 20
       body_required: true
       binary_body: true
   - http_response:
       name: "我的页面"
       match: "^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/link\\/position\\/show\\/resource"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
       timeout: 20
       body_required: true
       binary_body: true
   - http_response:
       name: "显示未关注你的人"
       match: "^https?:\\/\\/interface\\d?\\.music\\.163\\.com\\/eapi\\/user\\/follow\\/users\\/mixed\\/get"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/NeteaseCloudMusic/NeteaseCloudMusic_remove_ads.js"
       timeout: 20
       body_required: true
       binary_body: true

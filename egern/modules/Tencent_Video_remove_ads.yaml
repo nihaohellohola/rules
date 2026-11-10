@@ -59,6 +59,7 @@ scriptings:
   - http_request:
       name: "移除广告"
       match: "^https?:\\/\\/vv\\.video\\.qq\\.com\\/getvinfo"
+      script_url: "https://kelee.one/Resource/JavaScript/CommonScript/replace-body.js"
       body_required: true
       arguments:
         "_compat.$argument": "&sppreviewtype=\\\\d(.*)&spsrt=\\\\d->&sppreviewtype=0$1&spsrt=0"

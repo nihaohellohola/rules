@@ -20,26 +20,32 @@ scriptings:
   - http_response:
       name: "精简我的页面"
       match: "^https:\\/\\/news\\.app\\.autohome\\.com\\.cn\\/news_v\\d+(?:\\.\\d+){2}\\/news\\/homenavigation"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
       body_required: true
   - http_response:
       name: "精简我的页面"
       match: "^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/((usercenter\\/getservicecards)|(carcard\\/allcard)|(carcard\\/mycardv\\d+)|(carcard\\/cards))"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
       body_required: true
   - http_response:
       name: "社区广场去广告"
       match: "^https:\\/\\/(a\\.athm\\.cn\\/)?club\\.app\\.autohome\\.com\\.cn\\/club_v\\d+(?:\\.\\d+){2}\\/club\\/index\\/businessv\\d+"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
       body_required: true
   - http_response:
       name: "移除直播浮窗"
       match: "^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/reclist"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
       body_required: true
   - http_response:
       name: "移除报价页面直播内容"
       match: "^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/seriestopwithtagscard"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
       body_required: true
   - http_response:
       name: "移除二手车竖版轮播图"
       match: "^https:\\/\\/(a\\.athm\\.cn\\/)?apiautoappusc\\.che168\\.com\\/apic\\/v\\d+\\/gethomepagefeed"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
       body_required: true
 http:
   rewrite:

@@ -10,6 +10,7 @@ scriptings:
   - http_response:
       name: "YouTube去广告"
       match: "^https:\\/\\/youtubei\\.googleapis\\.com\\/(youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch|log_event|config))(\\?(.*))?$"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/YouTube/YouTube_remove_ads/YouTube_remove_ads_response.js"
       body_required: true
       binary_body: true
       arguments:
@@ -17,6 +18,7 @@ scriptings:
   - http_request:
       name: "请求初始化"
       match: "^https?:\\/\\/[\\w-]+\\.googlevideo\\.com\\/initplayback.+&ack.*"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/YouTube/YouTube_remove_ads/YouTube_remove_ads_request.js"
       body_required: true
       binary_body: true
       arguments:
@@ -24,6 +26,7 @@ scriptings:
   - http_request:
       name: "请求日志事件"
       match: "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/log_event"
+      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/YouTube/YouTube_remove_ads/YouTube_remove_ads_request.js"
       body_required: true
       binary_body: true
       arguments:
