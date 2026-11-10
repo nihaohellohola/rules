@@ -9,17 +9,17 @@ mitm:
 scriptings:
   - http_request:
       name: "前端界面"
-      match: "/^https?:\\/\\/script\\.hub\\/($|edit\\/|reload)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js"
+      match: "^https?:\\/\\/script\\.hub\\/($|edit\\/|reload)"
+      timeout: 300
   - http_request:
       name: "Rewrite转换"
-      match: "/^https?:\\/\\/script\\.hub\\/file\\/_start_\\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.js"
+      match: "^https?:\\/\\/script\\.hub\\/file\\/_start_\\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module)"
+      timeout: 300
   - http_request:
       name: "Rule转换"
-      match: "/^https?:\\/\\/script\\.hub\\/file\\/_start_\\/.+type=rule-set/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.js"
+      match: "^https?:\\/\\/script\\.hub\\/file\\/_start_\\/.+type=rule-set"
+      timeout: 300
   - http_request:
       name: "JavaScript转换"
-      match: "/^https?:\\/\\/script\\.hub\\/convert\\//i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.js"
+      match: "^https?:\\/\\/script\\.hub\\/convert\\/"
+      timeout: 300

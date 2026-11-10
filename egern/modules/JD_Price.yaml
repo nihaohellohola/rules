@@ -9,11 +9,11 @@ mitm:
 scriptings:
   - http_request:
       name: "捕获令牌"
-      match: "/^https?:\\/\\/apapia-sqk-weblogic\\.manmanbuy\\.com\\/baoliao\\/center\\/menu$/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/JD/JD_Price.js"
+      match: "^https?:\\/\\/apapia-sqk-weblogic\\.manmanbuy\\.com\\/baoliao\\/center\\/menu$"
+      timeout: 10
       body_required: true
   - http_response:
       name: "京东比价"
-      match: "/^https?:\\/\\/in\\.m\\.jd\\.com\\/product\\/graphext\\/\\d+\\.html/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/JD/JD_Price.js"
+      match: "^https?:\\/\\/in\\.m\\.jd\\.com\\/product\\/graphext\\/\\d+\\.html"
+      timeout: 10
       body_required: true

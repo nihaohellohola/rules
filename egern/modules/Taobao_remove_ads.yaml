@@ -11,13 +11,11 @@ mitm:
 scriptings:
   - http_response:
       name: "移除淘宝开屏广告"
-      match: "/^https:\\/\\/guide-acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.taobao\\.(cloudvideo\\.video\\.query|wireless\\.home\\.splash\\.awesome\\.get)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Taobao/Taobao_remove_ads.js"
+      match: "^https:\\/\\/guide-acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.taobao\\.(cloudvideo\\.video\\.query|wireless\\.home\\.splash\\.awesome\\.get)"
       body_required: true
   - http_response:
       name: "移除淘宝开屏广告"
-      match: "/^https:\\/\\/poplayer\\.template\\.alibaba\\.com\\/\\w+\\.json/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Taobao/Taobao_remove_ads.js"
+      match: "^https:\\/\\/poplayer\\.template\\.alibaba\\.com\\/\\w+\\.json"
       body_required: true
 http:
   rewrite:

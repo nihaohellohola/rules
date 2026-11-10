@@ -10,8 +10,7 @@ mitm:
 scriptings:
   - http_response:
       name: "百度输入法去广告"
-      match: "/^https?:\\/\\/mime\\.baidu\\.com\\/(imrobot\\/v1\\/pub\\/relation\\/get_robot_list|v5\\/custom_page\\/(layout|getdata))/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Baidu_input_method/Baidu_input_method_remove_ads.js"
+      match: "^https?:\\/\\/mime\\.baidu\\.com\\/(imrobot\\/v1\\/pub\\/relation\\/get_robot_list|v5\\/custom_page\\/(layout|getdata))"
       body_required: true
 http:
   rewrite:

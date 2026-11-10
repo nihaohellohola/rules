@@ -8,11 +8,15 @@ mitm:
 scriptings:
   - http_request:
       name: "Sub-Store Core"
-      match: "/^https?:\\/\\/sub\\.store\\/((download)|api\\/(preview|sync|(utils\\/node-info)))/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js"
+      match: "^https?:\\/\\/sub\\.store\\/((download)|api\\/(preview|sync|(utils\\/node-info)))"
+      timeout: 120
       body_required: true
   - http_request:
       name: "Sub-Store Simple"
-      match: "/^https?:\\/\\/sub\\.store/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js"
+      match: "^https?:\\/\\/sub\\.store"
+      timeout: 120
       body_required: true
+  - schedule:
+      name: "Sub-Store Sync"
+      cron: "55 23 * * *"
+      timeout: 120

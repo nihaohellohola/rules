@@ -19,33 +19,27 @@ mitm:
 scriptings:
   - http_response:
       name: "精简我的页面"
-      match: "/^https:\\/\\/news\\.app\\.autohome\\.com\\.cn\\/news_v\\d+(?:\\.\\d+){2}\\/news\\/homenavigation/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
+      match: "^https:\\/\\/news\\.app\\.autohome\\.com\\.cn\\/news_v\\d+(?:\\.\\d+){2}\\/news\\/homenavigation"
       body_required: true
   - http_response:
       name: "精简我的页面"
-      match: "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/((usercenter\\/getservicecards)|(carcard\\/allcard)|(carcard\\/mycardv\\d+)|(carcard\\/cards))/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/((usercenter\\/getservicecards)|(carcard\\/allcard)|(carcard\\/mycardv\\d+)|(carcard\\/cards))"
       body_required: true
   - http_response:
       name: "社区广场去广告"
-      match: "/^https:\\/\\/(a\\.athm\\.cn\\/)?club\\.app\\.autohome\\.com\\.cn\\/club_v\\d+(?:\\.\\d+){2}\\/club\\/index\\/businessv\\d+/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?club\\.app\\.autohome\\.com\\.cn\\/club_v\\d+(?:\\.\\d+){2}\\/club\\/index\\/businessv\\d+"
       body_required: true
   - http_response:
       name: "移除直播浮窗"
-      match: "/^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/reclist/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/reclist"
       body_required: true
   - http_response:
       name: "移除报价页面直播内容"
-      match: "/^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/seriestopwithtagscard/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/seriestopwithtagscard"
       body_required: true
   - http_response:
       name: "移除二手车竖版轮播图"
-      match: "/^https:\\/\\/(a\\.athm\\.cn\\/)?apiautoappusc\\.che168\\.com\\/apic\\/v\\d+\\/gethomepagefeed/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AutoHome/AutoHome_remove_ads.js"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?apiautoappusc\\.che168\\.com\\/apic\\/v\\d+\\/gethomepagefeed"
       body_required: true
 http:
   rewrite:

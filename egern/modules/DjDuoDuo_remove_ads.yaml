@@ -8,6 +8,5 @@ mitm:
 scriptings:
   - http_response:
       name: "去广告"
-      match: "/^https:\\/\\/api\\.dianyinduoduo\\.com\\/v4\\/config\\.php\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/DjDuoDuo/DjDuoDuo_remove_ads.js"
+      match: "^https:\\/\\/api\\.dianyinduoduo\\.com\\/v4\\/config\\.php\\?"
       body_required: true

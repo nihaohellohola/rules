@@ -5,3 +5,10 @@ icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px
 mitm:
   hostnames:
     - "api.follow.is"
+scriptings:
+  - schedule:
+      name: "Follow每日签到"
+      cron: "0 1 * * *"
+      timeout: 120
+      arguments:
+        "_compat.$argument": "token=&cookie="

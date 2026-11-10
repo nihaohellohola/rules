@@ -9,10 +9,8 @@ mitm:
 scriptings:
   - http_request:
       name: "App Store API"
-      match: "/^https:\\/\\/apple-api\\.com/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/IPATool/AppStoreAPI.js"
+      match: "^https:\\/\\/apple-api\\.com"
       body_required: true
   - http_request:
       name: "安装器"
-      match: "/^https:\\/\\/xiaobai\\.app/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/IPATool/Installer.js"
+      match: "^https:\\/\\/xiaobai\\.app"

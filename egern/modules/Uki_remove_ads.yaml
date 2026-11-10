@@ -8,23 +8,19 @@ mitm:
 scriptings:
   - http_response:
       name: "移除匹配卡横幅"
-      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/lover\\/productList/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      match: "^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/lover\\/productList"
       body_required: true
   - http_response:
       name: "移除密友横幅"
-      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/closeFriend\\/home/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      match: "^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/friends\\/closeFriend\\/home"
       body_required: true
   - http_response:
       name: "移除娱乐页面横幅和悬浮窗配置"
-      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/party\\/config$/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      match: "^https:\\/\\/api\\.chenlongtech\\.cn\\/v\\d\\/party\\/config$"
       body_required: true
   - http_response:
       name: "移除广场搜索填充词"
-      match: "/^https:\\/\\/api\\.chenlongtech\\.cn\\/v1\\/post\\/fetchSearchRecommend$/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Uki/Uki_remove_ads.js"
+      match: "^https:\\/\\/api\\.chenlongtech\\.cn\\/v1\\/post\\/fetchSearchRecommend$"
       body_required: true
 http:
   rewrite:

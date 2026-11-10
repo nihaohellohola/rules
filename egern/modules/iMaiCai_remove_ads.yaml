@@ -10,8 +10,7 @@ mitm:
 scriptings:
   - http_response:
       name: "移除下发广告"
-      match: "/^https:\\/\\/portal-portm\\.meituan\\.com\\/horn_ios\\/mergeRequest/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/iMaiCai/iMaiCai_remove_ads.js"
+      match: "^https:\\/\\/portal-portm\\.meituan\\.com\\/horn_ios\\/mergeRequest"
       body_required: true
 http:
   rewrite:

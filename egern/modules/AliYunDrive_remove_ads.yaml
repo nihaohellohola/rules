@@ -10,13 +10,11 @@ mitm:
 scriptings:
   - http_response:
       name: "移除阿里云盘广告"
-      match: "/^https:\\/\\/(biz)?api\\.alipan\\.com\\/apps\\/v\\d\\/users?\\/home\\/(news|widgets)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js"
+      match: "^https:\\/\\/(biz)?api\\.alipan\\.com\\/apps\\/v\\d\\/users?\\/home\\/(news|widgets)"
       body_required: true
   - http_response:
       name: "移除阿里云盘广告"
-      match: "/^https:\\/\\/member\\.alipan\\.com\\/v1\\/users\\/onboard_list/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js"
+      match: "^https:\\/\\/member\\.alipan\\.com\\/v1\\/users\\/onboard_list"
       body_required: true
 http:
   rewrite:

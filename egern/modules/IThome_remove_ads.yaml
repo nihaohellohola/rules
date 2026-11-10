@@ -7,6 +7,13 @@ mitm:
     - "napi.ithome.com"
     - "api.zuihuimai.com"
     - "dat.ruanmei.com"
+scriptings:
+  - http_response:
+      name: "IT之家去广告"
+      match: "^https:\\/\\/napi\\.ithome\\.com\\/api\\/(news\\/indexv2\\/iphone\\/\\d+|topmenu\\/getfeeds\\?)"
+      body_required: true
+      arguments:
+        "_compat.$argument": "removeAllBanners=false&removePinnedArticles=false"
 http:
   rewrite:
     - "/^https?:\\/\\/dat\\.ruanmei\\.com\\/ithome\\/money\\/acd\\.json$/i":

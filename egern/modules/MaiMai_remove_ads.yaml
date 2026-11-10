@@ -9,8 +9,7 @@ mitm:
 scriptings:
   - http_response:
       name: "移除信息流和评论区大块广告"
-      match: "/^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/(feed|gossip)\\/v\\d\\/(focus_feed|gossip_detail_comment|feed_detail_comment?)\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/MaiMai/MaiMai_remove_ads.js"
+      match: "^https:\\/\\/(h3\\.)?open\\.taou\\.com\\/maimai\\/(feed|gossip)\\/v\\d\\/(focus_feed|gossip_detail_comment|feed_detail_comment?)\\?"
       body_required: true
 http:
   rewrite:

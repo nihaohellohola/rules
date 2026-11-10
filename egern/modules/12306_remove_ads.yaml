@@ -9,8 +9,7 @@ mitm:
 scriptings:
   - http_request:
       name: "移除12306应用内广告"
-      match: "/^https:\\/\\/mobile\\.12306\\.cn\\/otsmobile\\/app\\/mgs\\/mgw\\.htm$/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/12306/12306_remove_ads.js"
+      match: "^https:\\/\\/mobile\\.12306\\.cn\\/otsmobile\\/app\\/mgs\\/mgw\\.htm$"
 body_rewrites:
   - response_jq:
       match: "^https:\\/\\/ad\\.12306\\.cn\\/ad\\/ser\\/getAdList$"

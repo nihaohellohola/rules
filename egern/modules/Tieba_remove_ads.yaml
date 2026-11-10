@@ -6,6 +6,15 @@ mitm:
   hostnames:
     - "tiebac.baidu.com"
     - "tieba.baidu.com"
+scriptings:
+  - http_response:
+      name: "ProtoBuf处理"
+      match: "^https?:\\/\\/tieba(?:c)?\\.baidu\\.com\\/c\\/(f\\/excellent\\/personalized|f\\/frs\\/page|b\\/ad\\/adBid|f\\/ad\\/getFeedAd|f\\/pb\\/page|f\\/frs\\/generalTabList)\\?cmd=\\d+&format=protobuf"
+      timeout: 10
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "per_filter_video_thread=true"
 http:
   rewrite:
     - "/^https?:\\/\\/tiebac\\.baidu\\.com\\/c\\/f\\/forum\\/getInterestClassList$/i":

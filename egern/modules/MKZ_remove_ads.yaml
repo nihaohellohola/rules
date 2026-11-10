@@ -8,8 +8,7 @@ mitm:
 scriptings:
   - http_response:
       name: "配置修改"
-      match: "/^https:\\/\\/base\\.mkzcdn\\.com\\/app\\/config\\//i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/MKZ/MKZ_remove_ads.js"
+      match: "^https:\\/\\/base\\.mkzcdn\\.com\\/app\\/config\\/"
       body_required: true
 http:
   rewrite:

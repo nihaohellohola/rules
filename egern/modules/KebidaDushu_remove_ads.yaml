@@ -8,48 +8,39 @@ mitm:
 scriptings:
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/home\\/bookPortal\\/v105\\/category/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/home\\/bookPortal\\/v105\\/category"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/abtest-front\\/banner-modular\\/get/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/abtest-front\\/banner-modular\\/get"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/resource-orchestration-system\\/book\\/channel\\/v100\\/info/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/resource-orchestration-system\\/book\\/channel\\/v100\\/info"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/fs-member\\/user\\/profile\\/v100\\/detail/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/fs-member\\/user\\/profile\\/v100\\/detail"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/home\\/bookPortal\\/v111\\/forApp/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/chief-orch\\/home\\/bookPortal\\/v111\\/forApp"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/sns-orchestration-system\\/homePage\\/api\\/v100\\/myPage/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/sns-orchestration-system\\/homePage\\/api\\/v100\\/myPage"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/task-orchestration\\/taskCenter\\/api\\/v101\\/taskList/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/task-orchestration\\/taskCenter\\/api\\/v101\\/taskList"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/resource-orchestration-system\\/book\\/v101\\/content/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/resource-orchestration-system\\/book\\/v101\\/content"
       body_required: true
   - http_response:
       name: "帆书去广告"
-      match: "/^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/user-orchestration\\/user\\/api\\/v101\\/ceiltip/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KebidaDushu/KebidaDushu_remove_ads.js"
+      match: "^https?:\\/\\/g[a-z0-9-]+\\.dushu365\\.com\\/user-orchestration\\/user\\/api\\/v101\\/ceiltip"
       body_required: true
 http:
   rewrite:

@@ -6,6 +6,15 @@ mitm:
   hostnames:
     - "*-spclient.spotify.com"
     - "spclient.wg.spotify.com"
+scriptings:
+  - http_response:
+      name: "Protobuf处理"
+      match: "^https:\\/\\/(?:\\w+-spclient|spclient\\.wg)\\.spotify\\.com(?::443)?\\/(?:bootstrap|user-customization-service)"
+      timeout: 5
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "tab=false&useractivity=true"
 http:
   rewrite:
     - "/^https:\\/\\/(?:\\w+-spclient|spclient\\.wg)\\.spotify\\.com(?::443)?\\/pendragon\\//i":

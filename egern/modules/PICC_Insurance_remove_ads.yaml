@@ -8,13 +8,11 @@ mitm:
 scriptings:
   - http_response:
       name: "移除主页推广"
-      match: "/^https:\\/\\/zgrb\\.epicc\\.com\\.cn\\/G-HAPP\\/a\\/config\\/homeInit\\/v3/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PICC_Insurance/PICC_Insurance_remove_ads.js"
+      match: "^https:\\/\\/zgrb\\.epicc\\.com\\.cn\\/G-HAPP\\/a\\/config\\/homeInit\\/v3"
       body_required: true
   - http_response:
       name: "移除我的页面推广"
-      match: "/^https:\\/\\/zgrb\\.epicc\\.com\\.cn\\/G-HAPP\\/mpageconfig\\/myPageConfigList\\/v3/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PICC_Insurance/PICC_Insurance_remove_ads.js"
+      match: "^https:\\/\\/zgrb\\.epicc\\.com\\.cn\\/G-HAPP\\/mpageconfig\\/myPageConfigList\\/v3"
       body_required: true
 http:
   rewrite:

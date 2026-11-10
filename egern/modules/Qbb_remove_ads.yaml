@@ -12,13 +12,11 @@ mitm:
 scriptings:
   - http_response:
       name: "精简我的页面"
-      match: "/^https:\\/\\/api\\.qbb6\\.com\\/commons\\/self\\/button\\/group\\/get\\/v\\d\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Qbb/my.js"
+      match: "^https:\\/\\/api\\.qbb6\\.com\\/commons\\/self\\/button\\/group\\/get\\/v\\d\\?"
       body_required: true
   - http_response:
       name: "精简育儿页面"
-      match: "/^https:\\/\\/apipt\\.qbb6\\.com\\/parenting\\/pt\\/homepage\\/get\\/v\\d\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Qbb/homepage.js"
+      match: "^https:\\/\\/apipt\\.qbb6\\.com\\/parenting\\/pt\\/homepage\\/get\\/v\\d\\?"
       body_required: true
 http:
   rewrite:

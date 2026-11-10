@@ -11,8 +11,7 @@ mitm:
 scriptings:
   - http_response:
       name: "移除广场推荐页面横幅"
-      match: "/^https:\\/\\/api\\.boohee\\.com\\/meta-interface\\/v1\\/index\\/plaza-flow\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/BooHee/BooHee_remove_ads.js"
+      match: "^https:\\/\\/api\\.boohee\\.com\\/meta-interface\\/v1\\/index\\/plaza-flow\\?"
       body_required: true
 http:
   rewrite:

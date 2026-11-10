@@ -6,3 +6,25 @@ mitm:
   hostnames:
     - "*.googlevideo.com"
     - "youtubei.googleapis.com"
+scriptings:
+  - http_response:
+      name: "YouTube去广告"
+      match: "^https:\\/\\/youtubei\\.googleapis\\.com\\/(youtubei\\/v1\\/(browse|next|player|search|reel\\/reel_watch_sequence|guide|account\\/get_setting|get_watch|log_event|config))(\\?(.*))?$"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "blockUpload=false&blockShorts=false&blockImmersive=false&captionLang=zh-Hans&debug=false"
+  - http_request:
+      name: "请求初始化"
+      match: "^https?:\\/\\/[\\w-]+\\.googlevideo\\.com\\/initplayback.+&ack.*"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "captionLang=zh-Hans"
+  - http_request:
+      name: "请求日志事件"
+      match: "^https:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/log_event"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "blockUpload=false&blockShorts=false&blockImmersive=false&captionLang=zh-Hans&debug=false"

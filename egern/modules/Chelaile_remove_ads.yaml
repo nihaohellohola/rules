@@ -11,8 +11,7 @@ mitm:
 scriptings:
   - http_response:
       name: "清洗配置"
-      match: "/^https:\\/\\/api\\.chelaile\\.net\\.cn\\/bus-side\\/appToggle\\/getStatus\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Chelaile/Chelaile_remove_ads.js"
+      match: "^https:\\/\\/api\\.chelaile\\.net\\.cn\\/bus-side\\/appToggle\\/getStatus\\?"
       body_required: true
 http:
   rewrite:

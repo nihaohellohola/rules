@@ -8,8 +8,7 @@ mitm:
 scriptings:
   - http_response:
       name: "移除推荐老板"
-      match: "/^https:\\/\\/m\\.riskbird\\.com\\/prod-qbb-api\\/query\\/person\\/personRecommend/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/RiskBird/RiskBird_remove_ads.js"
+      match: "^https:\\/\\/m\\.riskbird\\.com\\/prod-qbb-api\\/query\\/person\\/personRecommend"
       body_required: true
 http:
   rewrite:

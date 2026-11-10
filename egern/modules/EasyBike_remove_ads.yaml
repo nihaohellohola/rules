@@ -8,6 +8,5 @@ mitm:
 scriptings:
   - http_response:
       name: "去广告"
-      match: "/^https:\\/\\/mobileconfig-gateway\\.hellobike\\.com\\/api$/i"
-      script_url: "https://kelee.one/Resource/JavaScript/EasyBike/mobileconfig-gateway.js"
+      match: "^https:\\/\\/mobileconfig-gateway\\.hellobike\\.com\\/api$"
       body_required: true

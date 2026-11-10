@@ -11,8 +11,7 @@ mitm:
 scriptings:
   - http_response:
       name: "移除Soul广告"
-      match: "/^https:\\/\\/(?:api-\\w+|chat-live|post)\\.soulapp\\.cn\\/(?:chat\\/limitInfo|chatroom\\/chatClassifyRoomList|homepage\\/diamond\\/position\\/info|v2\\/post\\/recSquare\\/subTabs|v6\\/planet\\/config)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Soul/Soul_remove_ads.js"
+      match: "^https:\\/\\/(?:api-\\w+|chat-live|post)\\.soulapp\\.cn\\/(?:chat\\/limitInfo|chatroom\\/chatClassifyRoomList|homepage\\/diamond\\/position\\/info|v2\\/post\\/recSquare\\/subTabs|v6\\/planet\\/config)"
       body_required: true
 http:
   rewrite:

@@ -8,9 +8,10 @@ mitm:
 scriptings:
   - http_request:
       name: "移除广告"
-      match: "/^https?:\\/\\/vv\\.video\\.qq\\.com\\/getvinfo/i"
-      script_url: "https://kelee.one/Resource/JavaScript/CommonScript/replace-body.js\", \"&sppreviewtype=\\\\d(.*)&spsrt=\\\\d->&sppreviewtype=0$1&spsrt=0"
+      match: "^https?:\\/\\/vv\\.video\\.qq\\.com\\/getvinfo"
       body_required: true
+      arguments:
+        "_compat.$argument": "&sppreviewtype=\\\\d(.*)&spsrt=\\\\d->&sppreviewtype=0$1&spsrt=0"
 http:
   rewrite:
     - "/^https?:\\/\\/vv\\.video\\.qq\\.com\\/(diff|get)vmind/i":

@@ -8,13 +8,11 @@ mitm:
 scriptings:
   - http_response:
       name: "移除顶部标签"
-      match: "/^https:\\/\\/manga\\.bilibili\\.com\\/twirp\\/comic\\.v\\d\\.Comic\\/GetClassPageAllTabs/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/BiliComic/BiliComic_remove_ads.js"
+      match: "^https:\\/\\/manga\\.bilibili\\.com\\/twirp\\/comic\\.v\\d\\.Comic\\/GetClassPageAllTabs"
       body_required: true
   - http_response:
       name: "精简我的页面"
-      match: "/^https:\\/\\/manga\\.bilibili\\.com\\/twirp\\/user\\.v\\d\\.User\\/UCenterConf/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/BiliComic/BiliComic_remove_ads.js"
+      match: "^https:\\/\\/manga\\.bilibili\\.com\\/twirp\\/user\\.v\\d\\.User\\/UCenterConf"
       body_required: true
 http:
   rewrite:

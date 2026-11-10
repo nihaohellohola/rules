@@ -8,14 +8,14 @@ mitm:
 scriptings:
   - http_response:
       name: "配置修改"
-      match: "/^https:\\/\\/thor\\.weidian\\.com\\/appconf\\/getAppConfig\\//i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Weidian/getAppConfig.js"
+      match: "^https:\\/\\/thor\\.weidian\\.com\\/appconf\\/getAppConfig\\/"
       body_required: true
+      binary_body: true
   - http_response:
       name: "精简钱包区"
-      match: "/^https:\\/\\/thor\\.weidian\\.com\\/wgs\\/wallet\\.query\\.order\\.entrance\\//i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Weidian/wallet.js"
+      match: "^https:\\/\\/thor\\.weidian\\.com\\/wgs\\/wallet\\.query\\.order\\.entrance\\/"
       body_required: true
+      binary_body: true
 http:
   rewrite:
     - "/^https:\\/\\/thor\\.weidian\\.com\\/ares\\/home\\.splash\\//i":

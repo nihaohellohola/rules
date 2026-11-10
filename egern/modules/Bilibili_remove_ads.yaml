@@ -10,10 +10,33 @@ mitm:
     - "api.live.bilibili.com"
     - "line3-h5-mobile-api.biligame.com"
 scriptings:
+  - http_request:
+      name: "空降助手"
+      match: "^https:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bilibili\\.com)\\/bilibili\\.community\\.service\\.dm\\.v1\\.DM\\/DmSegMobile$"
+      timeout: 10
+      body_required: true
+      binary_body: true
+      disabled: true
+      arguments:
+        "_compat.$argument": "logLevel=off"
+  - http_request:
+      name: "请求处理"
+      match: "^https:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bilibili\\.com)\\/bilibili\\.(?:app\\.viewunite\\.v1\\.View\\/View|main\\.community\\.reply\\.v1\\.Reply\\/MainList)$"
+      timeout: 10
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "purifyComment=true&logLevel=off"
+  - http_response:
+      name: "ProtoBuf处理"
+      match: "^https:\\/\\/(grpc\\.biliapi\\.net|app\\.bilibili\\.com)\\/bilibili\\.(app\\.(show\\.v1\\.Popular\\/Index|dynamic\\.v2\\.Dynamic\\/DynAll|view(unite)?\\.v1\\.View\\/(View|ViewProgress|RelatesFeed|AIRelateAsync)|playurl\\.v1\\.PlayURL\\/PlayView|playerunite\\.v1\\.Player\\/PlayViewUnite)|polymer\\.app\\.search\\.v1\\.Search\\/SearchAll|community\\.service\\.dm\\.v1\\.DM\\/DmView|main\\.community\\.reply\\.v1\\.Reply\\/MainList|pgc\\.gateway\\.player\\.v2\\.PlayURL\\/PlayView)$"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "displayUpList=show&purifyComment=true&sponsorBlock=false&logLevel=off"
   - http_response:
       name: "移除直播间广告"
-      match: "/^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-interface\\/v2\\/index\\/feed|app-room\\/v1\\/index\\/getInfoBy(?:Room|User))\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/Bilibili/Bilibili_json_kokoryh.js"
+      match: "^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-interface\\/v2\\/index\\/feed|app-room\\/v1\\/index\\/getInfoBy(?:Room|User))\\?"
       body_required: true
 http:
   rewrite:

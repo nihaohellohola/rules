@@ -9,6 +9,5 @@ mitm:
 scriptings:
   - http_response:
       name: "移除百度搜索首页信息流广告"
-      match: "/^https?:\\/\\/(www|m)\\.baidu\\.com\\/?($|\\?from=\\w{8,9})/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/BaiduSearch/BaiduSearchHomePage_remove_ads.js"
+      match: "^https?:\\/\\/(www|m)\\.baidu\\.com\\/?($|\\?from=\\w{8,9})"
       body_required: true

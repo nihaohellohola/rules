@@ -19,23 +19,19 @@ mitm:
 scriptings:
   - http_response:
       name: "修改广告参数"
-      match: "/^https:\\/\\/(cdn-)?api\\.kkmh\\.com\\/v\\d\\/ironman\\/comic\\/recommend/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KuaiKanComic/KuaiKanComic_remove_ads.js"
+      match: "^https:\\/\\/(cdn-)?api\\.kkmh\\.com\\/v\\d\\/ironman\\/comic\\/recommend"
       body_required: true
   - http_response:
       name: "精简首页热门标签"
-      match: "/^https:\\/\\/(cdn-)?api\\.kkmh\\.com\\/v\\d\\/ironman\\/discovery_v\\d\\/tab_list_v\\d/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KuaiKanComic/KuaiKanComic_remove_ads.js"
+      match: "^https:\\/\\/(cdn-)?api\\.kkmh\\.com\\/v\\d\\/ironman\\/discovery_v\\d\\/tab_list_v\\d"
       body_required: true
   - http_response:
       name: "精简社区标签"
-      match: "/^https:\\/\\/(cdn-)?social\\.kkmh\\.com\\/v\\d\\/graph\\/homepage\\/comicVideo\\/v\\d\\/configs/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KuaiKanComic/KuaiKanComic_remove_ads.js"
+      match: "^https:\\/\\/(cdn-)?social\\.kkmh\\.com\\/v\\d\\/graph\\/homepage\\/comicVideo\\/v\\d\\/configs"
       body_required: true
   - http_response:
       name: "精简社区信息流"
-      match: "/^https:\\/\\/(cdn-)?social\\.kkmh\\.com\\/v\\d\\/graph\\/unified_feed$/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/KuaiKanComic/KuaiKanComic_remove_ads.js"
+      match: "^https:\\/\\/(cdn-)?social\\.kkmh\\.com\\/v\\d\\/graph\\/unified_feed$"
       body_required: true
 http:
   rewrite:

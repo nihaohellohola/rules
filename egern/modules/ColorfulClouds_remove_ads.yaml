@@ -11,8 +11,7 @@ mitm:
 scriptings:
   - http_response:
       name: "彩云天气去广告"
-      match: "/^https:\\/\\/(wrapper\\.cyapi\\.cn|api\\.caiyunapp\\.com|cdn-w\\.caiyunapp\\.com)\\/v1\\/activity\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/ColorfulClouds/ColorfulClouds_remove_ads.js"
+      match: "^https:\\/\\/(wrapper\\.cyapi\\.cn|api\\.caiyunapp\\.com|cdn-w\\.caiyunapp\\.com)\\/v1\\/activity\\?"
       body_required: true
 http:
   rewrite:

@@ -100,63 +100,51 @@ mitm:
 scriptings:
   - http_response:
       name: "企迈点单系统去广告"
-      match: "/^https:\\/\\/webapi\\.qmai\\.cn\\/web\\/catering\\/design\\/homePage-Config/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/kff/kff.js"
+      match: "^https:\\/\\/webapi\\.qmai\\.cn\\/web\\/catering\\/design\\/homePage-Config"
       body_required: true
   - http_response:
       name: "EMS中国邮政物流速递去广告"
-      match: "/^https:\\/\\/ump\\.ems\\.com\\.cn\\/new-generation-extend\\/redis\\/pageInfoByChannel/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/ems/ems.js"
+      match: "^https:\\/\\/ump\\.ems\\.com\\.cn\\/new-generation-extend\\/redis\\/pageInfoByChannel"
       body_required: true
   - http_response:
       name: "小兔充充去广告"
-      match: "/^https:\\/\\/mapi\\.xiaotucc\\.com\\/(mall\\/main|main_page\\/index\\/getActivity)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/xiaotucc/xiaotucc.js"
+      match: "^https:\\/\\/mapi\\.xiaotucc\\.com\\/(mall\\/main|main_page\\/index\\/getActivity)"
       body_required: true
   - http_response:
       name: "全家微会员去广告"
-      match: "/^https:\\/\\/minifm\\.maxxipoint\\.com\\/banner\\/list/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/FamilyMart/FamilyMart.js"
+      match: "^https:\\/\\/minifm\\.maxxipoint\\.com\\/banner\\/list"
       body_required: true
   - http_response:
       name: "罗森点点去广告"
-      match: "/^https:\\/\\/lawsonapi\\.yorentown\\.com\\/area\\/sh-lawson\\/app\\/v1\\/home/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/lawson/lawson.js"
+      match: "^https:\\/\\/lawsonapi\\.yorentown\\.com\\/area\\/sh-lawson\\/app\\/v1\\/home"
       body_required: true
   - http_response:
       name: "茶颜悦色去广告"
-      match: "/^https:\\/\\/miniapp\\.sexytea2013\\.com\\/cms\\/slot\\/queryByCodes\\?codes=INDEX_TOP_BANNER/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/chayanyuese/chayanyuese_remove_ads.js"
+      match: "^https:\\/\\/miniapp\\.sexytea2013\\.com\\/cms\\/slot\\/queryByCodes\\?codes=INDEX_TOP_BANNER"
       body_required: true
   - http_response:
       name: "COCO点单去广告"
-      match: "/^https:\\/\\/coco-com\\.e\\.verystar\\.net\\/v1\\/home\\/info/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/coco/coco.js"
+      match: "^https:\\/\\/coco-com\\.e\\.verystar\\.net\\/v1\\/home\\/info"
       body_required: true
   - http_response:
       name: "滴滴青桔去广告"
-      match: "/^https:\\/\\/htwkop\\.xiaojukeji\\.com\\/gateway\\?api=hm\\.fa\\.homeConfig/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/qingju/qingju.js"
+      match: "^https:\\/\\/htwkop\\.xiaojukeji\\.com\\/gateway\\?api=hm\\.fa\\.homeConfig"
       body_required: true
   - http_response:
       name: "一点点+去广告"
-      match: "/^https:\\/\\/cappapi\\.alittle-tea\\.com\\/open\\?method=catering\\.set\\.ad/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/alittle-tea/alittle-tea.js"
+      match: "^https:\\/\\/cappapi\\.alittle-tea\\.com\\/open\\?method=catering\\.set\\.ad"
       body_required: true
   - http_response:
       name: "M Stand去广告"
-      match: "/^https:\\/\\/api\\.prod\\.dj\\.mstand\\.cn\\/scrm\\/mini\\/app\\/index\\/info/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/M_Stand/M_Stand.js"
+      match: "^https:\\/\\/api\\.prod\\.dj\\.mstand\\.cn\\/scrm\\/mini\\/app\\/index\\/info"
       body_required: true
   - http_response:
       name: "T3出行去广告"
-      match: "/^https:\\/\\/passenger\\.t3go\\.cn\\/(solution\\-|common\\-)?(passenger\\-)?(activity\\-|app\\-)?api\\/notoken\\/(trip\\/)?api\\/(home\\/|common\\/)?(v[1-3]\\/)?(ad\\/getNegativescreen|solution\\/passenger\\/open\\/getHomeMenu|leftmenu|getHomeInfoGlobal)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/T3/T3.js"
+      match: "^https:\\/\\/passenger\\.t3go\\.cn\\/(solution\\-|common\\-)?(passenger\\-)?(activity\\-|app\\-)?api\\/notoken\\/(trip\\/)?api\\/(home\\/|common\\/)?(v[1-3]\\/)?(ad\\/getNegativescreen|solution\\/passenger\\/open\\/getHomeMenu|leftmenu|getHomeInfoGlobal)"
       body_required: true
   - http_response:
       name: "古茗去广告"
-      match: "/^https:\\/\\/newton\\.gumingnc\\.com\\/newton-buyer\\/newton\\/buyer\\/(ump|touch|external\\/front)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WexinMiniPrograms/ming/ming.js"
+      match: "^https:\\/\\/newton\\.gumingnc\\.com\\/newton-buyer\\/newton\\/buyer\\/(ump|touch|external\\/front)"
       body_required: true
 http:
   rewrite:

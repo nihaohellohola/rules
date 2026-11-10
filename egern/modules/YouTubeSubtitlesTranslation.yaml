@@ -10,23 +10,71 @@ mitm:
     - "music.youtube.com"
     - "youtubei.googleapis.com"
 scriptings:
+  - http_request:
+      name: "JSON·YouTube播放器请求"
+      match: "^https?:\\/\\/(www|m|tv)\\.youtube\\.com\\/youtubei\\/v1\\/player\\?(.*)"
+      body_required: true
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
+  - http_response:
+      name: "JSON·YouTube播放器响应"
+      match: "^https?:\\/\\/(www|m|tv)\\.youtube\\.com\\/youtubei\\/v1\\/player\\?(.*)"
+      body_required: true
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
+  - http_request:
+      name: "Proto·YouTube播放器请求"
+      match: "^https?:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/player\\?(.*)"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
+  - http_response:
+      name: "Proto·YouTube播放器响应.proto"
+      match: "^https?:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/player\\?(.*)"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
+  - http_response:
+      name: "Proto·GetWatch响应"
+      match: "^https?:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/get_watch\\?(.*)"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
+  - http_request:
+      name: "YouTube定时文本请求"
+      match: "^https?:\\/\\/(www|m)\\.youtube\\.com\\/api\\/timedtext\\?(.*)"
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
   - http_response:
       name: "YouTube合成定时文本响应"
-      match: "/^https?:\\/\\/(www|m)\\.youtube\\.com\\/api\\/timedtext\\?(.*)subtype=(Official|External)/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Composite_Subtitles_response.js"
+      match: "^https?:\\/\\/(www|m)\\.youtube\\.com\\/api\\/timedtext\\?(.*)subtype=(Official|External)"
       body_required: true
   - http_response:
       name: "YouTube翻译定时文本响应"
-      match: "/^https?:\\/\\/(www|m)\\.youtube\\.com\\/api\\/timedtext\\?(.*)subtype=Translate/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js"
+      match: "^https?:\\/\\/(www|m)\\.youtube\\.com\\/api\\/timedtext\\?(.*)subtype=Translate"
       body_required: true
+  - http_request:
+      name: "JSON·YouTube Music浏览请求"
+      match: "^https?:\\/\\/music\\.youtube\\.com\\/youtubei\\/v1\\/browse\\?(.*)"
+      body_required: true
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
+  - http_request:
+      name: "Proto·YouTube Music浏览请求"
+      match: "^https?:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/browse\\?(.*)"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "Type=Official&AutoCC=true&ShowOnly=true&Position=Forward"
   - http_response:
       name: "JSON·YouTube Music翻译歌词响应"
-      match: "/^https?:\\/\\/music\\.youtube\\.com\\/youtubei\\/v1\\/browse\\?(.*)subtype=Translate/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js"
+      match: "^https?:\\/\\/music\\.youtube\\.com\\/youtubei\\/v1\\/browse\\?(.*)subtype=Translate"
       body_required: true
   - http_response:
       name: "Proto·YouTube Music翻译歌词响应"
-      match: "/^https?:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/browse\\?(.*)subtype=Translate/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/YouTube/YouTube_Subtitles_Translate/YouTube_Subtitles_Translate_response.js"
+      match: "^https?:\\/\\/youtubei\\.googleapis\\.com\\/youtubei\\/v1\\/browse\\?(.*)subtype=Translate"
       body_required: true
+      binary_body: true

@@ -8,23 +8,18 @@ mitm:
 scriptings:
   - http_request:
       name: "修复时间线"
-      match: "/^https:\\/\\/api\\.weibo\\.cn\\/2\\/users\\/show\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/VVebo/VVebo_repair.js"
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/users\\/show\\?"
   - http_request:
       name: "修复时间线"
-      match: "/^https:\\/\\/api\\.weibo\\.cn\\/2\\/statuses\\/user_timeline\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/VVebo/VVebo_repair.js"
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/statuses\\/user_timeline\\?"
   - http_request:
       name: "修复时间线"
-      match: "/^https:\\/\\/api\\.weibo\\.cn\\/2\\/remind\\/unread_count\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/VVebo/VVebo_repair.js"
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/remind\\/unread_count\\?"
   - http_response:
       name: "修复时间线"
-      match: "/^https:\\/\\/api\\.weibo\\.cn\\/2\\/profile\\/statuses\\/tab\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/VVebo/VVebo_repair.js"
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/profile\\/statuses\\/tab\\?"
       body_required: true
   - http_response:
       name: "修复我的页面"
-      match: "/^https:\\/\\/api\\.weibo\\.cn\\/2\\/cardlist\\?/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/VVebo/VVebo_repair.js"
+      match: "^https:\\/\\/api\\.weibo\\.cn\\/2\\/cardlist\\?"
       body_required: true

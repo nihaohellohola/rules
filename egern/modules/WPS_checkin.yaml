@@ -8,6 +8,12 @@ mitm:
 scriptings:
   - http_request:
       name: "捕获Cookie"
-      match: "/^https:\\/\\/moapi\\.wps\\.cn\\/app\\/ios\\/v1\\/app$/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/WPS/WPS_checkin.js"
+      match: "^https:\\/\\/moapi\\.wps\\.cn\\/app\\/ios\\/v1\\/app$"
       body_required: true
+      disabled: true
+  - schedule:
+      name: "WPS每日签到"
+      cron: "0 8 * * *"
+      timeout: 120
+      arguments:
+        "_compat.$argument": "AK=&SK=&MAX_RETRIES=5"

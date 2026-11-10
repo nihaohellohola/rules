@@ -8,33 +8,27 @@ mitm:
 scriptings:
   - http_response:
       name: "移除朴朴超市广告"
-      match: "/^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/marketing\\/banner\\/v7/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PuPuMall/PuPuMall_remove_ads.js"
+      match: "^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/marketing\\/banner\\/v7"
       body_required: true
   - http_response:
       name: "移除朴朴超市广告"
-      match: "/^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/marketing\\/banner\\/search_component_banner/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PuPuMall/PuPuMall_remove_ads.js"
+      match: "^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/marketing\\/banner\\/search_component_banner"
       body_required: true
   - http_response:
       name: "移除朴朴超市广告"
-      match: "/^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/search\\/hot_keywords\\/v3/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PuPuMall/PuPuMall_remove_ads.js"
+      match: "^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/search\\/hot_keywords\\/v3"
       body_required: true
   - http_response:
       name: "移除朴朴超市广告"
-      match: "/^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/app_resource\\/resource_preload\\/list_h5_resource/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PuPuMall/PuPuMall_remove_ads.js"
+      match: "^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/app_resource\\/resource_preload\\/list_h5_resource"
       body_required: true
   - http_response:
       name: "移除朴朴超市广告"
-      match: "/^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/recommendation\\/interests\\/products/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PuPuMall/PuPuMall_remove_ads.js"
+      match: "^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/recommendation\\/interests\\/products"
       body_required: true
   - http_response:
       name: "移除朴朴超市广告"
-      match: "/^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/marketing\\/advertisement\\/v1/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/PuPuMall/PuPuMall_remove_ads.js"
+      match: "^https:\\/\\/j1\\.pupuapi\\.com\\/client\\/marketing\\/advertisement\\/v1"
       body_required: true
 http:
   rewrite:

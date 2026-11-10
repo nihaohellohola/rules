@@ -8,8 +8,7 @@ mitm:
 scriptings:
   - http_response:
       name: "移除底栏视频标签"
-      match: "/^https:\\/\\/saas\\.hpplay\\.cn\\/api\\/lebo-desk\\/endpoint\\/app-resource\\/app_tab_red_dot\\?user-tag=1$/i"
-      script_url: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JavaScript/TV_Assistant/TV_Assistant_remove_ads.js"
+      match: "^https:\\/\\/saas\\.hpplay\\.cn\\/api\\/lebo-desk\\/endpoint\\/app-resource\\/app_tab_red_dot\\?user-tag=1$"
       body_required: true
 http:
   rewrite:
