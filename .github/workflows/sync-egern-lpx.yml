@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - 'scripts/convert_lpx_to_egern.py'
+      - 'scripts/convert_whitelist.txt'
 jobs:
   convert:
     runs-on: ubuntu-latest
@@ -18,7 +19,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Fetch and convert all upstream LPX plugins
+      - name: Fetch and convert upstream LPX plugins (only those in scripts/convert_whitelist.txt)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/convert_lpx_to_egern.py
