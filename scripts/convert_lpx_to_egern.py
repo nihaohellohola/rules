@@ -83,6 +83,19 @@ def resolve_script_argument(text,defaults):
         pairs.append(name+'='+defaults[name])
     if re.sub(r'\$\{[^{}]+\}','',body).strip(' ,'):return None,'unsupported script argument object'
     return '&'.join(pairs),''
+def quartz_to_cron(expr):
+    """Fold a 6-field Quartz-style cron into a 5-field one. Returns (cron, error)."""
+    f=expr.split()
+    if len(f)==5:return expr,None
+    if len(f)!=6:return None,'not a standard 5-field cron expression: '+expr
+    if f[0] not in ('0','*'):return None,'cron with second-level schedule cannot be converted: '+expr
+    f=f[1:]
+    for i in (2,4):
+        if f[i]=='?':f[i]='*'
+    f[0]=re.sub(r'^0/(\d+)$',r'*/\1',f[0])
+    tok=re.compile(r'^(\*|\d+(-\d+)?)(/\d+)?(,(\*|\d+(-\d+)?)(/\d+)?)*$|^[A-Za-z]{3}(-[A-Za-z]{3})?(,[A-Za-z]{3}(-[A-Za-z]{3})?)*$')
+    if not all(tok.match(x) for x in f):return None,'unsupported cron syntax: '+expr
+    return ' '.join(f),None
 def parse_script_line(line,defaults):
     """Parse one Loon v2 [Script] line into an Egern scriptings entry. Returns (entry, error, notes)."""
     m=re.match(r'^(request|response)\s+if\s+(.+?)\s+then\s+script\s*\((.*)\)\s*(?:with\s+(.*))?$',line,re.I)
@@ -107,7 +120,8 @@ def parse_script_line(line,defaults):
         else:
             v=unquote(expr)
             if v is not None:expr=v
-        if len(expr.split())!=5:return None,'not a standard 5-field cron expression: '+expr,[]
+        expr,err=quartz_to_cron(expr)
+        if err:return None,err,[]
         e['cron']=expr
     else:
         cond=re.sub(r'^\$\{url\}\s*(?:~=|==?)\s*','',trigger)
