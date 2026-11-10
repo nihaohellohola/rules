@@ -32,6 +32,128 @@ def split_path(p):
         if seg.isdigit():parts.append(int(seg))
         elif seg:parts.append(seg)
     return parts
+def split_top_level(s):
+    parts=[];cur='';quote='';depth=0
+    for ch in s:
+        if quote:
+            cur+=ch
+            if ch==quote:quote=''
+            continue
+        if ch in ('"',"'"):quote=ch;cur+=ch
+        elif ch=='{':depth+=1;cur+=ch
+        elif ch=='}':depth-=1;cur+=ch
+        elif ch==',' and depth==0:parts.append(cur);cur=''
+        else:cur+=ch
+    parts.append(cur)
+    return [p.strip() for p in parts]
+def unquote(s):
+    s=s.strip()
+    if len(s)>=2 and s[0]==s[-1] and s[0] in ('"',"'"):return s[1:-1]
+    return None
+def argument_defaults(lines):
+    """Parse the Loon [Argument] section: key -> declared default value."""
+    defaults={}
+    for line in lines:
+        m=re.match(r'^([^=]+?)\s*=\s*(select|switch|input|textarea)\s*,\s*(.*)$',line.strip(),re.I)
+        if not m:continue
+        key,kind,rest=m.group(1).strip(),m.group(2).lower(),m.group(3)
+        head=re.split(r',\s*(?:tag|desc)\s*=',rest,maxsplit=1)[0]
+        if kind=='select':
+            vals=re.findall(r'"([^"]*)"|\'([^\']*)\'',head)
+            default=next((a or b for a,b in vals),'')
+        else:
+            first=head.split(',',1)[0].strip()
+            v=unquote(first)
+            default=v if v is not None else first
+        defaults[key]=default
+    return defaults
+def resolve_script_argument(text,defaults):
+    """Turn a Loon script() second argument ({${a}, ${b}} or a quoted string) into a k=v&... string."""
+    inner=text.strip()
+    if not (inner.startswith('{') and inner.endswith('}')):
+        v=unquote(inner)
+        if v is None:return None,'unsupported script argument'
+        return v,''
+    body=inner[1:-1]
+    if not body.strip():return '',''
+    pairs=[]
+    for m in re.finditer(r'\$\{([^{}]+)\}',body):
+        name=m.group(1).strip()
+        if name not in defaults:return None,'undeclared script argument '+name
+        pairs.append(name+'='+defaults[name])
+    if re.sub(r'\$\{[^{}]+\}','',body).strip(' ,'):return None,'unsupported script argument object'
+    return '&'.join(pairs),''
+def parse_script_line(line,defaults):
+    """Parse one Loon v2 [Script] line into an Egern scriptings entry. Returns (entry, error, notes)."""
+    m=re.match(r'^(request|response)\s+if\s+(.+?)\s+then\s+script\s*\((.*)\)\s*(?:with\s+(.*))?$',line,re.I)
+    cron=False
+    if m:trigger,inner,opts=m.group(2).strip(),m.group(3),m.group(4) or ''
+    else:
+        m=re.match(r'^cron\s+(.+?)\s+then\s+script\s*\((.*)\)\s*(?:with\s+(.*))?$',line,re.I)
+        if not m:return None,'not a convertible script trigger',[]
+        cron=True;trigger,inner,opts=m.group(1).strip(),m.group(2),m.group(3) or ''
+    parts=split_top_level(inner)
+    url=unquote(parts[0]) if parts and parts[0] else None
+    if not url:return None,'script URL must be a quoted string',[]
+    if len(parts)>2:return None,'script() has too many arguments',[]
+    e={'type':'schedule'} if cron else {'type':'http_response' if m.group(1).lower()=='response' else 'http_request'}
+    if cron:
+        expr=trigger
+        pm=re.fullmatch(r'\$\{([^{}]+)\}',expr)
+        if pm:
+            name=pm.group(1).strip()
+            if name not in defaults:return None,'undeclared cron argument '+name,[]
+            expr=defaults[name]
+        else:
+            v=unquote(expr)
+            if v is not None:expr=v
+        if len(expr.split())!=5:return None,'not a standard 5-field cron expression: '+expr,[]
+        e['cron']=expr
+    else:
+        cond=re.sub(r'^\$\{url\}\s*(?:~=|==?)\s*','',trigger)
+        if '${' in cond:return None,'match condition uses dynamic arguments',[]
+        e['match']=bare_regex(cond)
+    if len(parts)==2:
+        arg,err=resolve_script_argument(parts[1],defaults)
+        if err:return None,err,[]
+        if arg:e['arguments']={'_compat.$argument':arg}
+    notes=[]
+    for opt in split_top_level(opts):
+        if not opt:continue
+        om=re.match(r'^([A-Za-z_][\w-]*)\s*=\s*(.*)$',opt,re.S)
+        if not om:return None,'unrecognized script option '+opt,[]
+        key,val=om.group(1).lower(),om.group(2).strip()
+        if key=='tag':
+            v=unquote(val)
+            if v is None:return None,'tag must be a quoted string',[]
+            e['name']=v
+        elif key=='timeout':
+            pm=re.fullmatch(r'\$\{([^{}]+)\}',val)
+            if pm:
+                name=pm.group(1).strip()
+                if name not in defaults:return None,'undeclared timeout argument '+name,[]
+                val=defaults[name]
+            if not re.fullmatch(r'\d+',val):return None,'timeout is not a number',[]
+            e['timeout']=int(val)
+        elif key=='requires_body':
+            e['body_required']=val.lower()=='true'
+        elif key=='binary_body_mode':
+            if val.lower()=='true':e['binary_body']=True
+        elif key=='enable':
+            pm=re.fullmatch(r'\$\{([^{}]+)\}',val)
+            if pm:
+                name=pm.group(1).strip()
+                if name not in defaults:return None,'undeclared enable argument '+name,[]
+                val=defaults[name]
+            v=unquote(val)
+            if v is not None:val=v
+            if val.lower() not in ('true','false'):return None,'enable must be true or false',[]
+            if val.lower()=='false':e['disabled']=True
+        elif key=='img_url':
+            notes.append('script option img_url has no Egern equivalent (dropped): '+line)
+        else:
+            return None,'unsupported script option '+key,[]
+    return e,'',notes
 def json_directive(directive):
     m=re.fullmatch(r'(response|request)\s*\.\s*json\s*\.\s*(delete|replace|jq|jq_file)\s*\((.*)\)\s*$',directive.strip(),re.I|re.S)
     if not m:return None
@@ -69,21 +191,15 @@ def parse(text,filename):
         m=re.match(r'^\[([^]]+)\]',line)
         if m:section=m.group(1).strip().lower();sections.setdefault(section,[]);continue
         sections.setdefault(section,[]).append(line)
+    defaults=argument_defaults(sections.get('argument',[]))
     scripts=[]; hosts=[]; rewrites=[]; body_rewrites=[]; issues=[]
     for line in sections.get('mitm',[]):
         m=re.match(r'hostname\s*=\s*(.*)',line,re.I)
         if m:hosts.extend(x.strip() for x in m.group(1).split(',') if x.strip())
     for line in sections.get('script',[]):
-        m=re.match(r"(response|request)\s+if\s+(.+?)\s+then\s+script\(\s*(['\"])(.*?)\3\s*\)(.*)$",line,re.I)
-        if not m: issues.append('unsupported script: '+line);continue
-        kind,condition,_,url,opts=m.groups(); condition=condition.strip()
-        condition=re.sub(r'^\$\{url\}\s*(?:~=|=)\s*','',condition)
-        tag=re.search(r"\btag\s*=\s*(['\"])(.*?)\1",opts)
-        body=re.search(r'\brequires_body\s*=\s*(true|false)',opts,re.I)
-        e={'type':'http_response' if kind.lower()=='response' else 'http_request','match':condition,'script_url':url}
-        if tag:e['name']=tag.group(2)
-        if body:e['body_required']=body.group(1).lower()=='true'
-        scripts.append(e)
+        entry,err,notes=parse_script_line(line,defaults)
+        if err:issues.append('unsupported script: '+line+' ('+err+')');continue
+        scripts.append(entry);issues.extend(notes)
     reject_map={'reject':'reject','reject_200':'reject-200','reject_dict':'reject-dict','reject_array':'reject-array','reject_img':'reject-img','reject_html':'reject-html','reject_drop':'reject-drop'}
     for line in sections.get('rewrite',[]):
         try:
@@ -116,8 +232,16 @@ def parse(text,filename):
         lines.append('scriptings:')
         for e in scripts:
             lines.append('  - '+e['type']+':')
-            for k in ('name','match','script_url','body_required'):
-                if k in e:lines.append('      '+k+': '+(q(e[k]) if isinstance(e[k],str) else str(e[k]).lower()))
+            for k in ('name','match','cron','script_url','timeout','body_required','binary_body','disabled'):
+                if k not in e:continue
+                v=e[k]
+                if isinstance(v,bool):lines.append('      '+k+': '+str(v).lower())
+                elif isinstance(v,int):lines.append('      '+k+': '+str(v))
+                else:lines.append('      '+k+': '+q(v))
+            if e.get('arguments'):
+                lines.append('      arguments:')
+                for ak,av in e['arguments'].items():
+                    lines.append('        '+q(ak)+': '+q(av))
     if rewrites:
         lines+=['http:','  rewrite:']
         for e in rewrites:
