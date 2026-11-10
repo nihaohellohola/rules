@@ -26,7 +26,8 @@ jobs:
           import yaml
           for path in Path("egern/modules").glob("*.yaml"):
               data = yaml.safe_load(path.read_text(encoding="utf-8"))
-              if not isinstance(data, dict) or not data.get("scriptings"):
+              keys = ("scriptings", "http", "body_rewrites", "header_rewrites", "url_rewrites", "map_locals", "mitm")
+              if not isinstance(data, dict) or not any(data.get(k) for k in keys):
                   raise SystemExit(f"Invalid Egern module: {path}")
               print(f"Validated {path}")
           PY
