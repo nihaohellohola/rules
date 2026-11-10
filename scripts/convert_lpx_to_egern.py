@@ -7,6 +7,15 @@ ROOT=Path(__file__).resolve().parents[1]
 API='https://api.github.com/repos/fkingikelee/fkikelee/contents/lpx'
 RAW='https://raw.githubusercontent.com/fkingikelee/fkikelee/main/lpx/'
 OUT=ROOT/'egern/modules'
+WHITELIST=ROOT/'scripts'/'convert_whitelist.txt'
+def load_whitelist():
+    """Names (one per line, '#' comments, .lpx suffix optional). None = file missing or empty = convert all."""
+    if not WHITELIST.exists():return None
+    names=set()
+    for line in WHITELIST.read_text(encoding='utf-8').splitlines():
+        line=line.split('#',1)[0].strip()
+        if line:names.add((line[:-4] if line.lower().endswith('.lpx') else line).lower())
+    return names or None
 def fetch(url):
     headers={'User-Agent':'rules-lpx-sync','Accept':'application/vnd.github+json'}
     token=os.environ.get('GITHUB_TOKEN')
@@ -50,6 +59,48 @@ def unquote(s):
     s=s.strip()
     if len(s)>=2 and s[0]==s[-1] and s[0] in ('"',"'"):return s[1:-1]
     return None
+RULE_TYPES={'DOMAIN':'domain','DOMAIN-SUFFIX':'domain_suffix','DOMAIN-KEYWORD':'domain_keyword','IP-CIDR':'ip_cidr','IP-CIDR6':'ip_cidr6','URL-REGEX':'url_regex','USER-AGENT':'user_agent','PROTOCOL':'protocol'}
+def strip_parens(s):
+    s=s.strip()
+    if s.startswith('(') and s.endswith(')'):return s[1:-1].strip()
+    return s
+def split_paren(s):
+    parts=[];cur='';depth=0;quote=''
+    for ch in s:
+        if quote:
+            cur+=ch
+            if ch==quote:quote=''
+            continue
+        if ch in ('"',"'"):quote=ch;cur+=ch
+        elif ch=='(':depth+=1;cur+=ch
+        elif ch==')':depth-=1;cur+=ch
+        elif ch==',' and depth==0:parts.append(cur.strip());cur=''
+        else:cur+=ch
+    parts.append(cur.strip())
+    return parts
+def rule_node(kind,value):
+    kind=kind.strip().upper()
+    if kind in ('AND','OR'):
+        subs=[]
+        for sub in split_paren(strip_parens(value)):
+            sp=split_paren(strip_parens(sub))
+            subs.append(rule_node(sp[0],','.join(sp[1:])))
+        return {'type':kind.lower(),'match':subs}
+    if kind not in RULE_TYPES:raise ValueError('unsupported rule type '+kind)
+    v=value.strip()
+    if len(v)>=2 and v[0]==v[-1] and v[0] in ('"',"'"):v=v[1:-1]
+    return {'type':RULE_TYPES[kind],'match':v.lower() if kind=='PROTOCOL' else v}
+def rule_lines(node,indent,policy=None,no_resolve=False):
+    pad=' '*indent
+    key=pad+'    '
+    out=[pad+'- '+node['type']+':']
+    if isinstance(node['match'],list):
+        out.append(key+'match:')
+        for sub in node['match']:out+=rule_lines(sub,indent+6)
+    else:out.append(key+'match: '+q(node['match']))
+    if policy:out.append(key+'policy: '+policy)
+    if no_resolve:out.append(key+'no_resolve: true')
+    return out
 def argument_defaults(lines):
     """Parse the Loon [Argument] section: key -> declared default value."""
     defaults={}
@@ -206,7 +257,19 @@ def parse(text,filename):
         if m:section=m.group(1).strip().lower();sections.setdefault(section,[]);continue
         sections.setdefault(section,[]).append(line)
     defaults=argument_defaults(sections.get('argument',[]))
-    scripts=[]; hosts=[]; rewrites=[]; body_rewrites=[]; issues=[]
+    scripts=[]; hosts=[]; rewrites=[]; body_rewrites=[]; issues=[]; rules=[]
+    for line in sections.get('rule',[]):
+        try:
+            parts=split_paren(line)
+            if len(parts)<3:raise ValueError('malformed rule')
+            policy=parts[-1];flags=[]
+            if policy.lower()=='no-resolve':flags=['no-resolve'];parts=parts[:-1];policy=parts[-1]
+            pol=policy.upper()
+            if pol.startswith('REJECT'):pol='REJECT'
+            elif pol!='DIRECT':raise ValueError('unsupported policy '+policy)
+            node=rule_node(parts[0],','.join(parts[1:-1]))
+            rules.append(rule_lines(node,2,pol,'no-resolve' in flags and node['type'].startswith('ip_cidr')))
+        except Exception as exc: issues.append(f'unsupported rule (skipped): {line} ({exc})')
     for line in sections.get('mitm',[]):
         m=re.match(r'hostname\s*=\s*(.*)',line,re.I)
         if m:hosts.extend(x.strip() for x in m.group(1).split(',') if x.strip())
@@ -236,12 +299,15 @@ def parse(text,filename):
                 rewrites.append({'match':match,'action':'redirect','to':to})
             else: raise ValueError('unsupported action '+action)
         except Exception as exc: issues.append(f'unsupported rewrite (skipped): {line} ({exc})')
-    if not scripts and not rewrites and not body_rewrites and not hosts: raise ValueError('No convertible script, rewrite, or MITM hostname rules')
+    if not scripts and not rewrites and not body_rewrites and not hosts and not rules: raise ValueError('No convertible script, rewrite, or MITM hostname rules')
     lines=[]
     for key,outkey in [('name','name'),('desc','description'),('author','author'),('icon','icon')]:
         if meta.get(key):lines.append(f'{outkey}: {q(meta[key])}')
     if not any(x.startswith('name:') for x in lines):lines.insert(0,'name: '+q(Path(filename).stem))
     if hosts:lines+=['mitm:','  hostnames:']+['    - '+q(x) for x in dict.fromkeys(hosts)]
+    if rules:
+        lines.append('rules:')
+        for r in rules:lines+=r
     if scripts:
         lines.append('scriptings:')
         for e in scripts:
@@ -272,6 +338,14 @@ def main():
     except Exception as exc: print('ERROR unable to fetch upstream listing:',exc);return
     entries=[x for x in listing if x.get('type')=='file' and x.get('name','').lower().endswith('.lpx')]
     if not entries: print('WARNING upstream API returned no .lpx files; retaining existing modules');return
+    wanted=load_whitelist()
+    if wanted is not None:
+        have={Path(x['name']).stem.lower() for x in entries}
+        for name in sorted(wanted-have):print('WARNING whitelist entry not found upstream:',name)
+        entries=[x for x in entries if Path(x['name']).stem.lower() in wanted]
+        print(f'WHITELIST active: {len(wanted)} names, {len(entries)} matched upstream')
+        if not entries: print('WARNING no whitelist entries matched; nothing converted');return
+    else: print('WHITELIST not set: converting all upstream plugins')
     OUT.mkdir(parents=True,exist_ok=True); done=[]; failed=[]
     for item in sorted(entries,key=lambda x:x['name'].lower()):
         try:
