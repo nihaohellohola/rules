@@ -1,7 +1,0 @@
-name: "智慧苏州去广告"
-description: "移除开屏广告、横幅，移除信息流推广。"
-author: "xream[https://github.com/xream]"
-icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/SuZhouCitizenCard.png"
-mitm:
-  hostnames:
-    - "newapp2.szsmk.com"

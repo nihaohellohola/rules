@@ -1,7 +1,0 @@
-name: "Hong Kong Toolbar去广告"
-description: "移除开屏互动广告、直播前贴片广告及视频广告"
-author: "C.Hiang"
-icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/HongKongToolbar.png"
-mitm:
-  hostnames:
-    - "a.881903.com"
