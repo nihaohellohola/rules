@@ -1,0 +1,106 @@
+name: "哔哩哔哩去广告"
+description: "过滤哔哩哔哩广告、移除青少年模式弹窗和交互式弹幕、移除无用功能和链接跟踪参数，增加空降助手以便跳过视频中插入的广告。此插件仅建议iOS 15以上设备使用，且必须启用MitM-over-HTTP/2功能。\\n\\n空降助手是第三方提供的功能，依赖于Android版空降助手的服务器数据运作，可能会存在不准确或者失效的问题，此功能与哔哩哔哩官方无关。"
+author: "kokoryh[https://github.com/kokoryh]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Bilibili.png"
+mitm:
+  hostnames:
+    - "grpc.biliapi.net"
+    - "app.bilibili.com"
+    - "api.bilibili.com"
+    - "api.live.bilibili.com"
+    - "line3-h5-mobile-api.biligame.com"
+rules:
+  - domain:
+      match: "api.biliapi.com"
+      policy: REJECT
+  - domain:
+      match: "app.biliapi.com"
+      policy: REJECT
+  - domain:
+      match: "api.biliapi.net"
+      policy: REJECT
+  - domain:
+      match: "app.biliapi.net"
+      policy: REJECT
+  - and:
+      match:
+        - domain_suffix:
+            match: "chat.bilibili.com"
+        - or:
+            match:
+              - domain_keyword:
+                  match: "stun"
+              - domain_keyword:
+                  match: "tracker"
+              - domain_keyword:
+                  match: "p2p"
+      policy: REJECT
+scriptings:
+  - http_request:
+      name: "空降助手"
+      match: "^https:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bilibili\\.com)\\/bilibili\\.community\\.service\\.dm\\.v1\\.DM\\/DmSegMobile$"
+      timeout: 10
+      body_required: true
+      binary_body: true
+      disabled: true
+      arguments:
+        "_compat.$argument": "logLevel=off"
+  - http_request:
+      name: "请求处理"
+      match: "^https:\\/\\/(?:grpc\\.biliapi\\.net|app\\.bilibili\\.com)\\/bilibili\\.(?:app\\.viewunite\\.v1\\.View\\/View|main\\.community\\.reply\\.v1\\.Reply\\/MainList)$"
+      timeout: 10
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "purifyComment=true&logLevel=off"
+  - http_response:
+      name: "ProtoBuf处理"
+      match: "^https:\\/\\/(grpc\\.biliapi\\.net|app\\.bilibili\\.com)\\/bilibili\\.(app\\.(show\\.v1\\.Popular\\/Index|dynamic\\.v2\\.Dynamic\\/DynAll|view(unite)?\\.v1\\.View\\/(View|ViewProgress|RelatesFeed|AIRelateAsync)|playurl\\.v1\\.PlayURL\\/PlayView|playerunite\\.v1\\.Player\\/PlayViewUnite)|polymer\\.app\\.search\\.v1\\.Search\\/SearchAll|community\\.service\\.dm\\.v1\\.DM\\/DmView|main\\.community\\.reply\\.v1\\.Reply\\/MainList|pgc\\.gateway\\.player\\.v2\\.PlayURL\\/PlayView)$"
+      body_required: true
+      binary_body: true
+      arguments:
+        "_compat.$argument": "displayUpList=show&purifyComment=true&sponsorBlock=false&logLevel=off"
+  - http_response:
+      name: "移除直播间广告"
+      match: "^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/(?:app-interface\\/v2\\/index\\/feed|app-room\\/v1\\/index\\/getInfoBy(?:Room|User))\\?"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/line3-h5-mobile-api\\.biligame\\.com\\/game\\/live\\/large_card_material\\?/i":
+        reject-dict: true
+    - "/^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/e-commerce-interface\\/v1\\/ecommerce-user\\/get_shopping_info\\?/i":
+        reject-dict: true
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.bilibili\\.com\\/x\\/pd-proxy\\/tracker\\?"
+      filter: ".data[][]?=\"stun.chat.bilibili.com:3478\""
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/splash\\/(show|event\\/list2)\\?"
+      filter: ".data |= with_entries(if .key | IN(\"show\", \"event_list\") then .value = [] else . end)"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/resource\\/show\\/tab\\/v2\\?"
+      filter: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JQLang/Bilibili/tab_Bilibili_remove_ads.jq"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/feed\\/index\\?"
+      filter: "if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == \"av\") and (.card_type | IN(\"small_cover_v2\", \"large_cover_single_v9\", \"large_cover_v1\")))) end"
+  - response_jq:
+      match: "^https:\\/\\/api\\.bilibili\\.com\\/pgc\\/view\\/v2\\/app\\/season\\?"
+      filter: "del(.data.payment)"
+  - response_jq:
+      match: "^https:\\/\\/api\\.bilibili\\.com\\/pgc\\/page\\/channel\\?"
+      filter: ".data.modules |= map(select(.type != \"TIP\") | if .type == \"BANNER\" then .module_data.items |= map(select(.url | startswith(\"https://www.bilibili.com/blackboard/era/\") | not)) else . end)"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/feed\\/index\\/story\\?"
+      filter: "if .data.items then .data.items |= map(select((.ad_info == null) and (.card_goto | IN(\"vertical_ad_av\", \"vertical_ad_live\", \"vertical_ad_picture\") | not)) | del(.story_cart_icon, .free_flow_toast, .image_infos, .course_info, .game_info)) end"
+  - response_jq:
+      match: "^https:\\/\\/api\\.live\\.bilibili\\.com\\/xlive\\/open-interface\\/v2\\/tracker\\/conf\\?"
+      filter: ".data.domains=[\"wss://tracker.chat.bilibili.com\"]"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/resource\\/show\\/skin\\?"
+      filter: "delpaths([[\"data\", \"common_equip\"]])"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/account\\/mine(\\/ipad)?\\?"
+      filter: "https://raw.githubusercontent.com/fkingikelee/fkikelee/main/Resource/kelee/JQLang/Bilibili/mine_Bilibili_remove_ads.jq"
+  - response_jq:
+      match: "^https:\\/\\/app\\.bilibili\\.com\\/x\\/v2\\/account\\/myinfo\\?"
+      filter: ".data.vip |= if . != null and .status == 0 then . + { status: 1, type: 2, due_date: 9005270400000, role: 15 } else . end"

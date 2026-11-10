@@ -1,0 +1,14 @@
+name: "Pinterest去广告"
+description: "移除瀑布流、更多探索内容中的广告"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Pinterest.png"
+mitm:
+  hostnames:
+    - "api.pinterest.com"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinterest\\.com\\/v\\d\\/feeds\\/home\\/\\?"
+      filter: ".data |= map(select(.is_promoted == false or .is_promoted == \"false\"))"
+  - response_jq:
+      match: "^https:\\/\\/api\\.pinterest\\.com\\/v\\d\\/pins\\/\\d+\\/related\\/modules\\/\\?"
+      filter: ".data |= map(select(.is_promoted == false or .is_promoted == \"false\"))"

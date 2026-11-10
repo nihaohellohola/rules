@@ -1,0 +1,38 @@
+name: "QQ音乐去广告"
+description: "过滤QQ音乐广告"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/QQMusic.png"
+rules:
+  - domain:
+      match: "adstats.tencentmusic.com"
+      policy: REJECT
+  - domain:
+      match: "ad.tencentmusic.com"
+      policy: REJECT
+  - domain:
+      match: "adcdn.tencentmusic.com"
+      policy: REJECT
+  - domain:
+      match: "adcdn6.tencentmusic.com"
+      policy: REJECT
+  - domain:
+      match: "adexpo.tencentmusic.com"
+      policy: REJECT
+  - domain:
+      match: "adclick.tencentmusic.com"
+      policy: REJECT
+  - domain:
+      match: "mc.tencentmusic.com"
+      policy: REJECT
+  - domain:
+      match: "monitor.music.qq.com"
+      policy: REJECT
+  - domain:
+      match: "tmead.y.qq.com"
+      policy: REJECT
+  - domain:
+      match: "tmeadbak.y.qq.com"
+      policy: REJECT
+  - domain:
+      match: "tmeadquic.y.qq.com"
+      policy: REJECT

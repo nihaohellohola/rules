@@ -1,0 +1,18 @@
+name: "360摄像机去广告"
+description: "移除开屏广告、首页推广、底栏商城入口及我的页面推广。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/360SmartCamera.png"
+mitm:
+  hostnames:
+    - "jia.360.cn"
+rules:
+  - domain:
+      match: "ad.jia.360.cn"
+      policy: REJECT
+  - domain:
+      match: "ad.iot.360.cn"
+      policy: REJECT
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/jia\\.360\\.cn\\/conf\\/v1\\.json"
+      filter: "delpaths([[\"tab_conf\"], [\"ad_conf\"], [\"activity\"]])"

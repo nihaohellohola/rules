@@ -1,0 +1,20 @@
+name: "12306去广告"
+description: "过滤12306应用内广告及开屏广告"
+author: "RuCu6[https://github.com/RuCu6], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/12306.png"
+mitm:
+  hostnames:
+    - "ad.12306.cn"
+    - "mobile.12306.cn"
+rules:
+  - domain:
+      match: "ad.12306.cn"
+      policy: DIRECT
+scriptings:
+  - http_request:
+      name: "移除12306应用内广告"
+      match: "^https:\\/\\/mobile\\.12306\\.cn\\/otsmobile\\/app\\/mgs\\/mgw\\.htm$"
+body_rewrites:
+  - response_jq:
+      match: "^https:\\/\\/ad\\.12306\\.cn\\/ad\\/ser\\/getAdList$"
+      filter: "delpaths([[\"materialsList\"], [\"advertParam\"]])"

@@ -1,0 +1,83 @@
+name: "汽车之家去广告"
+description: "移除开屏广告、各类广告横幅、各类信息流广告、各类弹窗推广、各类浮窗、我的页面广告。"
+author: "可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]"
+icon: "https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/AutoHome.png"
+mitm:
+  hostnames:
+    - "a.athm.cn"
+    - "adproxy.autohome.com.cn"
+    - "apiautoappusc.che168.com"
+    - "autoapi.autohome.com.cn"
+    - "cars.app.autohome.com.cn"
+    - "clientlive.api.autohome.com.cn"
+    - "club.app.autohome.com.cn"
+    - "dealer.m.autohome.com.cn"
+    - "maam.pingan.com.cn"
+    - "mobile.app.autohome.com.cn"
+    - "news.app.autohome.com.cn"
+    - "pcmx.autohome.com.cn"
+scriptings:
+  - http_response:
+      name: "精简我的页面"
+      match: "^https:\\/\\/news\\.app\\.autohome\\.com\\.cn\\/news_v\\d+(?:\\.\\d+){2}\\/news\\/homenavigation"
+      body_required: true
+  - http_response:
+      name: "精简我的页面"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/((usercenter\\/getservicecards)|(carcard\\/allcard)|(carcard\\/mycardv\\d+)|(carcard\\/cards))"
+      body_required: true
+  - http_response:
+      name: "社区广场去广告"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?club\\.app\\.autohome\\.com\\.cn\\/club_v\\d+(?:\\.\\d+){2}\\/club\\/index\\/businessv\\d+"
+      body_required: true
+  - http_response:
+      name: "移除直播浮窗"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/reclist"
+      body_required: true
+  - http_response:
+      name: "移除报价页面直播内容"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?cars\\.app\\.autohome\\.com\\.cn\\/carstreaming\\/selectcarportal\\/seriestopwithtagscard"
+      body_required: true
+  - http_response:
+      name: "移除二手车竖版轮播图"
+      match: "^https:\\/\\/(a\\.athm\\.cn\\/)?apiautoappusc\\.che168\\.com\\/apic\\/v\\d+\\/gethomepagefeed"
+      body_required: true
+http:
+  rewrite:
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/carcard\\/findEquitysV5/i":
+        reject-dict: true
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/carcard\\/mycardv6/i":
+        reject-dict: true
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/usercenter\\/chat\\/gse\\/recquery/i":
+        reject-dict: true
+    - "/^https:\\/\\/autoapi\\.autohome\\.com\\.cn\\/ypttd\\/yjc\\/web\\/mkgt\\/act\\/seckillInfo/i":
+        reject-dict: true
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/usercenter\\/gethotactcards/i":
+        reject-dict: true
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/carcard\\/extendedcards/i":
+        reject-dict: true
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/usercenter\\/getwashcarlist/i":
+        reject-dict: true
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/usercenter\\/getdealertab/i":
+        reject-dict: true
+    - "/^https:\\/\\/(a\\.athm\\.cn\\/)?mobile\\.app\\.autohome\\.com\\.cn\\/platform\\/carserver\\/usercenter\\/getoillist/i":
+        reject-dict: true
+    - "/^https:\\/\\/pcmx\\.autohome\\.com\\.cn\\/queryCreativeList/i":
+        reject-dict: true
+    - "/^https:\\/\\/maam\\.pingan\\.com\\.cn\\/maam\\/buoy\\/getBuoyList\\.do/i":
+        reject-dict: true
+    - "/^https:\\/\\/news\\.app\\.autohome\\.com\\.cn\\/cont_v\\d+(?:\\.\\d+){2}\\/api\\/article\\/extenddata/i":
+        reject-dict: true
+    - "/^https:\\/\\/adproxy\\.autohome\\.com\\.cn\\/AdvertiseService\\/AppHandler\\.ashx/i":
+        reject-dict: true
+    - "/^https:\\/\\/club\\.app\\.autohome\\.com\\.cn\\/club_v\\d+(?:\\.\\d+){2}\\/club\\/channelqa\\/header/i":
+        reject-dict: true
+    - "/^https:\\/\\/dealer\\.m\\.autohome\\.com\\.cn\\/handler\\/other\\/getdata\\?__action=super\\.list/i":
+        reject-dict: true
+    - "/^https:\\/\\/autoapi\\.autohome\\.com\\.cn\\/arvr-dealercloud-api\\/online\\/aggregation\\/exhibitionList/i":
+        reject-dict: true
+    - "/^https:\\/\\/dealer\\.m\\.autohome\\.com\\.cn\\/handler\\/other\\/getdata\\?__action=vrcore\\.list/i":
+        reject-dict: true
+    - "/^https:\\/\\/dealer\\.m\\.autohome\\.com\\.cn\\/handler\\/other\\/getdata\\?__action=platform\\.search/i":
+        reject-dict: true
+    - "/^https:\\/\\/a\\.athm\\.cn\\/clientlive\\.api\\.autohome\\.com\\.cn\\/api\\/live\\/getserieswindowsinfo/i":
+        reject-dict: true
