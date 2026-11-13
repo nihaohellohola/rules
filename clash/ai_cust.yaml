@@ -12,6 +12,8 @@ payload:
   - DOMAIN-SUFFIX,instinct.co
   - DOMAIN-SUFFIX,instinct.com
   - DOMAIN-SUFFIX,tomo.ai
+  - DOMAIN-SUFFIX,pally.com
+  - DOMAIN-SUFFIX,comma.surf
 
   # Coze
   - DOMAIN-SUFFIX,coze.com
